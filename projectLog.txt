@@ -1,0 +1,4 @@
+1. 31/10/2012 Physical Meeting 	-> Basic Scheduler Principles set, Some UXs viewed, Basic Database format
+2. 02/11/2012 Skype Meeting 	-> DataBase format discussed and improved, 
+3. 06/11/2012 Skype Meeting 	-> 3 Use Cases Created based on the improved DataBase Format
+4. 10/11/2012 Skype Meeting 	-> Repository Creation
