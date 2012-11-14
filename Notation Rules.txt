@@ -1,0 +1,50 @@
+LeadingCharacters LC = they substitute the namespace name. 
+example 	for AssLogic namespace the LC = AL
+	for AssUI namespace the LC = AUI
+
+-class and struct declaration
+we are going to use the LC followed by one or more Capitalized words without seperation
+example : ALMasterControl
+
+
+
+
+-variables
+written in lowercase, if more than one words use underscore "_" as seperator,
+Non-static member variables are named with the prefix "m"
+Static member variables are named with the prefix "ms"
+Examples : m_counter, ms_counter
+
+
+
+-member function names
+Capitalized words with no seperator
+example : Function GetCounter()
+		return 0
+	End Function
+
+
+-function arguments
+prefix "a", underscore seperated words
+example : Function GetCounter(ByVal a_number As Integer)
+
+        		Return a_number
+	End Function
+
+
+-tab spacing
+each scope has a tab space of 4 spaces
+example :
+public class ALMasterControl
+    dim m_counter As Integer
+end class
+
+
+
+-code commenting
+code commenting is expected
+	class level - give a description of the class before the class declaration
+	variable level - give a description of the variables before their declaration
+	function level - give a description of the function before the function declaration
+	in-function level - give description of the algorithm inside the function for each line
+it is adviced to use just as much commenting as needed(not too much or too little)
