@@ -26,6 +26,12 @@ Public Class ALCore
 
     End Sub
 
+    Public Sub KillProgram(ByVal a_progam As String)
+        Dim memory_use As New Integer
+        m_command_line_handler.KillProgram(a_program:=a_progam)
+
+    End Sub
+
 
 
 

@@ -17,41 +17,101 @@ Public Class ALCommandLineHandler
         StartInfo.FileName = "cmd" 'starts cmd window
         StartInfo.RedirectStandardInput = True
         StartInfo.RedirectStandardOutput = True
+        StartInfo.CreateNoWindow = True
         StartInfo.UseShellExecute = False 'required to redirect
 
         m_cmd_process.StartInfo = StartInfo
     End Sub
 
-    'sets the path and the program, starts a new thread to open the program
-    Public Sub RunProgram(ByVal a_path As String, ByVal a_program As String)
-        m_path = a_path
-        m_program = a_program
-        Dim CMD As New Threading.Thread(AddressOf RunProgramThread)
-        CMD.Start()
-    End Sub
-
-
     Public Function GetLastCommandOutput()
         Return m_last_command_output
     End Function
 
+    'sets the path and the program, starts a new thread to open the program
+    Public Sub RunProgram(ByVal a_path As String, ByVal a_program As String)
+        m_path = a_path
+        m_program = a_program
+
+        Dim output As String = " "
+        Dim input As String = "cd " & m_path & vbCrLf & m_program
+
+        Dim thr As New Threading.Thread(Sub() Me.ExecuteCMDCommand(input))
+        thr.Start()
+
+    End Sub
+
+    'checks if the program is running, if yes it kills it
+    Public Sub KillProgram(ByVal a_program As String)
+        m_program = a_program
+
+        If CheckIfRuns(a_program:=a_program) Then
+
+            Dim output As String = " "
+            Dim input As String = "taskkill /IM " & m_program
+
+            Dim thr As New Threading.Thread(Sub() Me.ExecuteCMDCommand(input))
+            thr.Start()
+
+        End If
+
+    End Sub
+
+
+
+
+    Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_usage As Integer = vbNull)
+
+        Dim task_list_output As String = " "
+        Dim input As String = "tasklist"
+        ExecuteCMDCommand(input, task_list_output))
+
+        If task_list_output.Contains(a_program) Then
+
+            'if it is called in a way that needs to know how much memory the program uses
+            If Not a_memory_usage = vbNull Then
+                Dim start_of_line = task_list_output.IndexOf(a_program)
+                Dim end_of_line = task_list_output.IndexOf(Chr(13), start_of_line)
+
+                Dim line_of_interest = task_list_output.Substring(start_of_line, end_of_line - start_of_line)
+                Dim splited_line = line_of_interest.Split(" ")
+
+                a_memory_usage = splited_line(splited_line.Length - 2)
+
+                m_last_command_output = task_list_output
+            End If
+
+
+            Return True
+        End If
+
+
+
+        Return False
+
+
+    End Function
 
     'runs the program
-    Private Sub RunProgramThread()
-
-
+    Private Sub ExecuteCMDCommand(ByVal a_input As String, Optional ByRef a_output As String = vbNullString)
         m_cmd_process.Start()
         Dim SR As System.IO.StreamReader = m_cmd_process.StandardOutput
         Dim SW As System.IO.StreamWriter = m_cmd_process.StandardInput
-        SW.WriteLine("cd " & m_path)    'the path of the program
-        SW.WriteLine(m_program)  'the program you wish to run.....
+        SW.WriteLine(a_input)    'the command we want to execute
+
         SW.WriteLine("exit") 'exits command prompt window
-        m_last_command_output = SR.ReadToEnd 'returns results of the command window
+
+        If a_output = vbNullString Then
+            m_last_command_output = SR.ReadToEnd
+        Else
+            a_output = SR.ReadToEnd 'returns results of the command window
+        End If
+
+
         SW.Close()
         SR.Close()
     End Sub
 
-
+    
 
 
 End Class

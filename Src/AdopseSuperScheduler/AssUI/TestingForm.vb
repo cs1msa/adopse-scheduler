@@ -12,8 +12,13 @@ Public Class TestingForm
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         'create a core ONLY for testing purposes
         Dim m_core As New ALCore
-        m_core.RunFullPathProgram(a_full_path:=TextBox1.Text)
+        m_core.KillProgram(TextBox1.Text)
 
     End Sub
 
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        'create a core ONLY for testing purposes
+        Dim m_core As New ALCore
+        m_core.RunFullPathProgram(TextBox1.Text)
+    End Sub
 End Class
