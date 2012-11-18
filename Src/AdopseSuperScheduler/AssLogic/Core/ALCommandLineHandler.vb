@@ -63,7 +63,7 @@ Public Class ALCommandLineHandler
 
         Dim task_list_output As String = " "
         Dim input As String = "tasklist"
-        ExecuteCMDCommand(input, task_list_output))
+        ExecuteCMDCommand(input, task_list_output)
 
         If task_list_output.Contains(a_program) Then
 
