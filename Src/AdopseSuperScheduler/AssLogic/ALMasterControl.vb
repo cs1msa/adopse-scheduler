@@ -4,6 +4,7 @@
 
     Public Sub New()
         m_core = New ALCore()
+
     End Sub
 
 

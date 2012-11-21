@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="ALMasterControl.vb" />
     <Compile Include="ALCore.vb" />
+    <Compile Include="Core\ALDatabaseQueryFactory.vb" />
     <Compile Include="Core\ALDatabaseHandler.vb" />
     <Compile Include="Core\ALCommandLineHandler.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -93,6 +94,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -105,6 +107,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MasterControl-Middle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AssDatabase.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
