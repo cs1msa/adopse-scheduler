@@ -27,12 +27,13 @@ Public Class ALCore
     End Sub
 
     Public Sub KillProgram(ByVal a_progam As String)
-        Dim memory_use As New Integer
         m_command_line_handler.KillProgram(a_program:=a_progam)
-
     End Sub
 
+    Public Function CheckIfRuns(ByVal a_progam As String, Optional ByRef a_memory_use As Integer = -1)
+        Return m_command_line_handler.CheckIfRuns(a_progam, a_memory_use)
 
+    End Function
 
 
 

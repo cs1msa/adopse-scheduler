@@ -12,8 +12,8 @@ Imports System.Data.Common
 'correct order = when we add values we pass parameters to expexted values
 Public Class ALDatabaseHandler
 
-    Const m_connection_String2 As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\AssDatabase.mdb"
-    Const m_connection_String As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssDatabase.mdb"
+    Const m_connection_String As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\AssDatabase.mdb"
+    'Const m_connection_String2 As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssDatabase.mdb"
 
     Dim m_database_connection As OleDbConnection
     Dim m_database_command As OleDbCommand

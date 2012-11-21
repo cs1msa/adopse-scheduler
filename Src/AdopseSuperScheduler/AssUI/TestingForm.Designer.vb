@@ -33,7 +33,7 @@ Partial Class TestingForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(152, 67)
+        Me.Button1.Location = New System.Drawing.Point(485, 77)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(89, 23)
         Me.Button1.TabIndex = 0
@@ -42,14 +42,14 @@ Partial Class TestingForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(110, 27)
+        Me.TextBox1.Location = New System.Drawing.Point(443, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(75, 20)
         Me.TextBox1.TabIndex = 1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(36, 67)
+        Me.Button2.Location = New System.Drawing.Point(369, 77)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(91, 23)
         Me.Button2.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class TestingForm
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(36, 117)
+        Me.Button3.Location = New System.Drawing.Point(369, 127)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(205, 23)
         Me.Button3.TabIndex = 3
@@ -67,7 +67,7 @@ Partial Class TestingForm
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(36, 168)
+        Me.Button4.Location = New System.Drawing.Point(369, 178)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(205, 23)
         Me.Button4.TabIndex = 4
@@ -76,7 +76,7 @@ Partial Class TestingForm
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(36, 197)
+        Me.Button5.Location = New System.Drawing.Point(369, 207)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(201, 23)
         Me.Button5.TabIndex = 5
@@ -85,7 +85,7 @@ Partial Class TestingForm
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(36, 227)
+        Me.Button6.Location = New System.Drawing.Point(369, 237)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(201, 23)
         Me.Button6.TabIndex = 6
@@ -96,7 +96,7 @@ Partial Class TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(642, 566)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
