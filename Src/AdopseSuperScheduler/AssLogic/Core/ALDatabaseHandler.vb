@@ -13,100 +13,107 @@ Imports System.Data.Common
 Public Class ALDatabaseHandler
 
     Const m_connection_String As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\AssDatabase.mdb"
-    'Const m_connection_String2 As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssDatabase.mdb"
 
     Dim m_database_connection As OleDbConnection
     Dim m_database_command As OleDbCommand
-    Dim m_data_adapter As OleDbDataAdapter
-
-    Dim m_dataset As DataSet
-
 
     Dim m_database_query_factory As ALDatabaseQueryFactory
+    Dim m_select_return_table As DataTable
+
 
     Public Sub New()
-
-        m_dataset = New DataSet("Log")
+        m_select_return_table = New DataTable()
         m_database_query_factory = New ALDatabaseQueryFactory
-        m_data_adapter = New OleDbDataAdapter("select * from Log", m_database_connection)
-    End Sub
-
-    Public Sub SaveToSourceDatabase()
-        Using m_database_connection As New OleDbConnection(m_connection_String)
-            
-        End Using
 
     End Sub
 
-    Public Function ExecuteSelect(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+    Public Function GetSelectResultAsDataTable()
+
+        Return m_select_return_table
+
+    End Function
+
+    Public Function GetSelectResultAsStringList()
+
+
+        Dim row_list As New List(Of String)
+
+        Dim counter = 0
+
+        For Each i As DataRow In m_select_return_table.Rows
+            Dim row_string As New String("")
+            For Each item As Object In i.ItemArray
+
+                row_string = row_string & item.ToString & " | "
+
+            Next
+            row_list.Add(row_string)
+        Next
+
+        Return row_list
+    End Function
+
+    'just creates and executes the select command (does not return anything)
+    'use GetSelectResultAsStringList, or GetSelectResultAsDataTable to get results
+    Public Sub ExecuteSelect(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+
+
         Using m_database_connection As New OleDbConnection(m_connection_String)
 
             Dim command_string = m_database_query_factory.CreateSelectStatement(a_table, a_columns, a_restrictions)
 
+            Dim data_adapter As New OleDbDataAdapter(command_string, m_database_connection)
+
+
+            'connect and use a data_adapter to fill a table with the "select" results
+            m_database_connection.Open()
+
+            m_select_return_table.Rows.Clear()
+            m_select_return_table.Columns.Clear()
+            data_adapter.Fill(m_select_return_table)
+
+            m_database_connection.Close()
+
+        End Using
+
+    End Sub
+
+    'it returns the number of rows affected
+    'if 0 something is wrong
+    Public Function ExecuteInsert(ByVal a_table As String, ByVal a_values As String())
+        Dim number_of_rows_affected As Integer
+        Using m_database_connection As New OleDbConnection(m_connection_String)
+
+            Dim command_string = m_database_query_factory.CreateInsertStatement(a_table, a_values)
+           
+            m_database_command = New OleDbCommand(command_string, m_database_connection)
+            
+            'connect and execute
+            m_database_connection.Open()
+            number_of_rows_affected = m_database_command.ExecuteNonQuery()
+            m_database_connection.Close()
+
+        End Using
+        Return number_of_rows_affected
+    End Function
+
+    'it returns the number of rows affected
+    'if 0 something is wrong
+    Public Function ExecuteDelete(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
+        Dim number_of_rows_affected As Integer
+        Using m_database_connection As New OleDbConnection(m_connection_String)
+
+            Dim command_string = m_database_query_factory.CreateDeleteStatement(a_table, a_restrictions)
+
             m_database_command = New OleDbCommand(command_string, m_database_connection)
 
-            m_data_adapter.SelectCommand = m_database_command
-
+            'connect and execute
             m_database_connection.Open()
-
-            Dim data_table As New DataTable
-            m_data_adapter.Fill(data_table)
-
-            m_database_connection.Close()
-
-            Dim rowString As New String("")
-            For Each i As DataRow In data_table.Rows
-                For Each item As Object In i.ItemArray
-                    rowString = rowString & item.ToString & " | "
-
-                Next
-                rowString = rowString & vbCrLf
-            Next
-
-
-        End Using
-
-
-        Return (True)
-    End Function
-
-
-    Public Function ExecuteInsert(ByVal a_table As String, ByVal a_values As String())
-
-        Using m_database_connection As New OleDbConnection(m_connection_String)
-
-
-
-            m_data_adapter = New OleDbDataAdapter("select * From " & a_table, m_database_connection)
-            'create insert command for the adapter
-            m_data_adapter.InsertCommand = New OleDbCommand(m_database_query_factory.CreateInsertStatement(a_table, a_values), m_database_connection)
-            
-
-            m_database_connection.Open()
-            m_data_adapter.InsertCommand.ExecuteNonQuery()
+            number_of_rows_affected = m_database_command.ExecuteNonQuery()
             m_database_connection.Close()
 
         End Using
-        Return True
-    End Function
-
-    Public Function ExecuteDelete(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
-
-        Using m_database_connection As New OleDbConnection(m_connection_String)
-
-
-
-            m_data_adapter = New OleDbDataAdapter("select * From " & a_table, m_database_connection)
-            'create delete command for the adapter
-            m_data_adapter.DeleteCommand = New OleDbCommand(m_database_query_factory.CreateDeleteStatement(a_table, a_restrictions), m_database_connection)
-
-
-            m_database_connection.Open()
-            m_data_adapter.DeleteCommand.ExecuteNonQuery()
-            m_database_connection.Close()
-
-        End Using
-        Return True
+        Return number_of_rows_affected
 
     End Function
 

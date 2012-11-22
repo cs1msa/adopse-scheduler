@@ -42,7 +42,7 @@ Partial Class TestingForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(443, 37)
+        Me.TextBox1.Location = New System.Drawing.Point(433, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(75, 20)
         Me.TextBox1.TabIndex = 1

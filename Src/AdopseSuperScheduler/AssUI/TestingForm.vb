@@ -37,10 +37,10 @@ Public Class TestingForm
         'create a database handler ONLY for testing purposes
         Dim database_handler As New ALDatabaseHandler
 
-        Dim select_query = database_handler.ExecuteSelect("Log", {"*"})
-
-        Dim select_query2 = database_handler.ExecuteSelect("[Scheduler Tasks]", {"*"})
-
+        database_handler.ExecuteSelect("Log", {"*"})
+        Dim select_query = database_handler.GetSelectResultAsDataTable()
+        database_handler.ExecuteSelect("[Scheduler Tasks]", {"*"})
+        Dim select_query2 = database_handler.GetSelectResultAsStringList()
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
