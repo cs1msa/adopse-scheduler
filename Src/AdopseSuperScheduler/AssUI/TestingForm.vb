@@ -60,4 +60,12 @@ Public Class TestingForm
         database_handler.ExecuteDelete("Log")
         database_handler.ExecuteDelete("[Scheduler Tasks]")
     End Sub
+
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        'create a command line handler ONLY for testing purposes
+        Dim command_line_handler As New ALCommandLineHandler
+        command_line_handler.GetPids(TextBox1.Text)
+    End Sub
+
+
 End Class

@@ -29,36 +29,37 @@ Partial Class TestingForm
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(485, 77)
+        Me.Button1.Location = New System.Drawing.Point(40, 118)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 23)
+        Me.Button1.Size = New System.Drawing.Size(159, 23)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "KillAProgram"
+        Me.Button1.Text = "KillAProgramByNameOrPid"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(433, 37)
+        Me.TextBox1.Location = New System.Drawing.Point(94, 37)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(75, 20)
         Me.TextBox1.TabIndex = 1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(369, 77)
+        Me.Button2.Location = New System.Drawing.Point(40, 89)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 23)
+        Me.Button2.Size = New System.Drawing.Size(159, 23)
         Me.Button2.TabIndex = 2
-        Me.Button2.Text = "RunAProgram"
+        Me.Button2.Text = "RunAProgramByName"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(369, 127)
+        Me.Button3.Location = New System.Drawing.Point(376, 51)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(205, 23)
         Me.Button3.TabIndex = 3
@@ -67,7 +68,7 @@ Partial Class TestingForm
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(369, 178)
+        Me.Button4.Location = New System.Drawing.Point(376, 80)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(205, 23)
         Me.Button4.TabIndex = 4
@@ -76,7 +77,7 @@ Partial Class TestingForm
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(369, 207)
+        Me.Button5.Location = New System.Drawing.Point(376, 109)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(201, 23)
         Me.Button5.TabIndex = 5
@@ -85,18 +86,28 @@ Partial Class TestingForm
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(369, 237)
+        Me.Button6.Location = New System.Drawing.Point(376, 139)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(201, 23)
         Me.Button6.TabIndex = 6
         Me.Button6.Text = "TestDeleteToTables"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(40, 166)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(159, 23)
+        Me.Button7.TabIndex = 7
+        Me.Button7.Text = "GetPidOfProgram"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(642, 566)
+        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -117,4 +128,5 @@ Partial Class TestingForm
     Private WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class

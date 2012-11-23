@@ -35,12 +35,13 @@ Public Class ALCommandLineHandler
         Dim output As String = " "
         Dim input As String = "cd " & m_path & vbCrLf & m_program
 
-        Dim thr As New Threading.Thread(Sub() Me.ExecuteCMDCommand(input))
-        thr.Start()
+        ExecuteCMDCommand(input)
+
 
     End Sub
 
     'checks if the program is running, if yes it kills it
+    'can use name of the program OR PID, better use pid
     Public Sub KillProgram(ByVal a_program As String)
         m_program = a_program
 
@@ -49,14 +50,50 @@ Public Class ALCommandLineHandler
             Dim output As String = " "
             Dim input As String = "taskkill /IM " & m_program
 
-            Dim thr As New Threading.Thread(Sub() Me.ExecuteCMDCommand(input))
-            thr.Start()
+            ExecuteCMDCommand(input)
+
 
         End If
 
     End Sub
 
 
+    'returns a list of pids
+    'one pid if there is one instance of the program...
+    'many pids if there are many instanses of the program...
+    Public Function GetPids(ByVal a_program As String)
+        Dim task_list_output As String = " "
+        Dim input As String = "tasklist"
+        Dim PID As New List(Of Integer)
+        ExecuteCMDCommand(input, task_list_output)
+
+
+        'there may be more than one open programs with that name
+        While task_list_output.Contains(a_program)
+
+
+
+            Dim start_of_line = task_list_output.IndexOf(a_program)
+            Dim end_of_line = task_list_output.IndexOf(Chr(13), start_of_line)
+
+            Dim line_of_interest = task_list_output.Substring(start_of_line, end_of_line - start_of_line)
+
+            Dim splited_line = line_of_interest.Split({" "}, System.StringSplitOptions.RemoveEmptyEntries)
+            line_of_interest = task_list_output.Substring(start_of_line, end_of_line - start_of_line)
+
+            Dim f_part = task_list_output.Substring(0, start_of_line)
+            Dim s_part = task_list_output.Substring(end_of_line, task_list_output.Length - end_of_line)
+
+
+            task_list_output = f_part & s_part
+
+            PID.Add(Integer.Parse(splited_line(1)))
+
+        End While
+
+        Return PID
+
+    End Function
 
 
     Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_usage As Integer = vbNull)
@@ -111,7 +148,7 @@ Public Class ALCommandLineHandler
         SR.Close()
     End Sub
 
-    
+
 
 
 End Class
