@@ -4,3 +4,4 @@
 4. 10/11/2012 Skype Meeting 	-> Repository Creation
 5. 14/11/2012 Physical Meeting	-> Project Discussion, VS Solution Creation, Notation Rules Added
 6. 18/11/2012 skype meeting		-> Simplify log table(databases), mdb file created
+7. 25/11/2012 skype meeting 	-> exception policy discussed, basic class diagram for ALLogic created
