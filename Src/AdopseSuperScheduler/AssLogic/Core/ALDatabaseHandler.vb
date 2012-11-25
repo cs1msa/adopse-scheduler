@@ -80,30 +80,34 @@ Public Class ALDatabaseHandler
 
     'it returns the number of rows affected
     'if 0 something is wrong
-    Public Function ExecuteInsert(ByVal a_table As String, ByVal a_values As String())
+    Public Sub ExecuteInsert(ByVal a_table As String, ByVal a_values As String())
         Dim number_of_rows_affected As Integer
+        Dim command_string As String
         Using m_database_connection As New OleDbConnection(m_connection_String)
 
-            Dim command_string = m_database_query_factory.CreateInsertStatement(a_table, a_values)
-           
+            command_string = m_database_query_factory.CreateInsertStatement(a_table, a_values)
+
             m_database_command = New OleDbCommand(command_string, m_database_connection)
-            
+
             'connect and execute
             m_database_connection.Open()
             number_of_rows_affected = m_database_command.ExecuteNonQuery()
             m_database_connection.Close()
 
         End Using
-        Return number_of_rows_affected
-    End Function
+        If number_of_rows_affected = 0 Then
+            Throw New DatabaseInsertException(command_string)
+        End If
+    End Sub
 
     'it returns the number of rows affected
     'if 0 something is wrong
-    Public Function ExecuteDelete(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
+    Public Sub ExecuteDelete(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
         Dim number_of_rows_affected As Integer
+        Dim command_string As String
         Using m_database_connection As New OleDbConnection(m_connection_String)
 
-            Dim command_string = m_database_query_factory.CreateDeleteStatement(a_table, a_restrictions)
+            command_string = m_database_query_factory.CreateDeleteStatement(a_table, a_restrictions)
 
             m_database_command = New OleDbCommand(command_string, m_database_connection)
 
@@ -113,8 +117,9 @@ Public Class ALDatabaseHandler
             m_database_connection.Close()
 
         End Using
-        Return number_of_rows_affected
-
-    End Function
+        If number_of_rows_affected = 0 Then
+            Throw New DatabaseDeleteException(command_string)
+        End If
+    End Sub
 
 End Class
