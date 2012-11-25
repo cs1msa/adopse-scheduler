@@ -17,6 +17,7 @@ Public Class ALCommandLineHandler
         StartInfo.FileName = "cmd" 'starts cmd window
         StartInfo.RedirectStandardInput = True
         StartInfo.RedirectStandardOutput = True
+        StartInfo.RedirectStandardError = True
         StartInfo.CreateNoWindow = True
         StartInfo.UseShellExecute = False 'required to redirect
 
@@ -32,10 +33,14 @@ Public Class ALCommandLineHandler
         m_path = a_path
         m_program = a_program
 
-        Dim output As String = " "
-        Dim input As String = "cd " & m_path & vbCrLf & m_program
 
-        ExecuteCMDCommand(input)
+        If Not ExecuteCMDCommand("cd " & m_path) Then
+            Throw New PathDoesntExistCMDException(a_path)
+        End If
+        If Not ExecuteCMDCommand("cd " & m_path & vbCrLf & m_program) Then
+            Throw New ProgramDoesntExistCMDException(a_program)
+        End If
+
 
 
     End Sub
@@ -45,15 +50,14 @@ Public Class ALCommandLineHandler
     Public Sub KillProgram(ByVal a_program As String)
         m_program = a_program
 
-        If CheckIfRuns(a_program:=a_program) Then
 
             Dim output As String = " "
             Dim input As String = "taskkill /IM " & m_program
 
-            ExecuteCMDCommand(input)
+            If Not ExecuteCMDCommand(input) Then
+                Throw New ProccessNotFoundException(a_program)
+            End If
 
-
-        End If
 
     End Sub
 
@@ -65,6 +69,7 @@ Public Class ALCommandLineHandler
         Dim task_list_output As String = " "
         Dim input As String = "tasklist"
         Dim PID As New List(Of Integer)
+
         ExecuteCMDCommand(input, task_list_output)
 
 
@@ -90,16 +95,19 @@ Public Class ALCommandLineHandler
             PID.Add(Integer.Parse(splited_line(1)))
 
         End While
-
+        If PID.Count = 0 Then
+            Throw New ProccessNotFoundException(a_program)
+        End If
         Return PID
 
     End Function
 
-
+    'checks if a program runs and optionaly returns memory usage
     Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_usage As Integer = vbNull)
 
         Dim task_list_output As String = " "
         Dim input As String = "tasklist"
+
         ExecuteCMDCommand(input, task_list_output)
 
         If task_list_output.Contains(a_program) Then
@@ -128,14 +136,25 @@ Public Class ALCommandLineHandler
 
     End Function
 
-    'runs the program
-    Private Sub ExecuteCMDCommand(ByVal a_input As String, Optional ByRef a_output As String = vbNullString)
+    'runs the cmd command
+    Private Function ExecuteCMDCommand(ByVal a_input As String, Optional ByRef a_output As String = vbNullString)
         m_cmd_process.Start()
         Dim SR As System.IO.StreamReader = m_cmd_process.StandardOutput
         Dim SW As System.IO.StreamWriter = m_cmd_process.StandardInput
+        Dim SE As System.IO.StreamReader = m_cmd_process.StandardError
+
         SW.WriteLine(a_input)    'the command we want to execute
 
         SW.WriteLine("exit") 'exits command prompt window
+
+        'this blog is for cases that error is not passed back and causes the program to halt.. (example : tasklist)
+        Dim error_str As New String("")
+        If Not a_input.Contains("tasklist") Then
+            error_str = SE.Read()
+        End If
+
+
+
 
         If a_output = vbNullString Then
             m_last_command_output = SR.ReadToEnd
@@ -146,7 +165,13 @@ Public Class ALCommandLineHandler
 
         SW.Close()
         SR.Close()
-    End Sub
+
+        If Not error_str = vbNullString Then
+            Return False
+        End If
+
+        Return True
+    End Function
 
 
 
