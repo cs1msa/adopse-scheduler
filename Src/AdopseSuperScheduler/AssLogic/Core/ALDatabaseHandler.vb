@@ -101,7 +101,7 @@ Public Class ALDatabaseHandler
     End Sub
 
     'it returns the number of rows affected
-    'if 0 something is wrong
+    'if 0 something is wrong OR if the row was already deleted
     Public Sub ExecuteDelete(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
         Dim number_of_rows_affected As Integer
         Dim command_string As String

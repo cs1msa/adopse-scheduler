@@ -13,7 +13,7 @@ Public Class ALCore
         m_database_handler = New ALDatabaseHandler()
 
     End Sub
-
+    '-------------------------------------Command Line functions-------------------------------------------------------
     'given a full path with the program runs the program
     Public Sub RunFullPathProgram(ByVal a_full_path As String, Optional ByRef a_pid_return As Integer = 0)
         'this is the program pid - it will be returned in the end of function
@@ -76,8 +76,42 @@ Public Class ALCore
     End Function
 
 
+    '-------------------------------------Command Line functions End-------------------------------------------------------
 
 
+
+
+
+
+    '-------------------------------------DataBase functions-------------------------------------------------------
+    'tables till now are "Log" and "[Scheduler Tasks]"
+    'Log : Action_ID, Action_Date, Action_Description, Program_Name, Success
+    '[Scheduler Tasks] : Task_ID, Program_Name, Run_Date, Object_Type
+    Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+
+        m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)
+        Return m_database_handler.GetSelectResultAsDataTable()
+
+    End Function
+
+    Public Function GetFromATableAsStringList(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+
+        m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)
+        Return m_database_handler.GetSelectResultAsStringList()
+
+    End Function
+
+
+    Public Sub InsertToTable(ByVal a_table As String, ByVal a_values As String())
+        m_database_handler.ExecuteInsert(a_table, a_values)
+
+    End Sub
+
+    Public Sub DeleteFromTable(ByVal a_table As String, ByVal ParamArray a_restrictions As String())
+        m_database_handler.ExecuteDelete(a_table, a_restrictions)
+
+    End Sub
+    '-------------------------------------DataBase functions End-------------------------------------------------------
 
 
 End Class

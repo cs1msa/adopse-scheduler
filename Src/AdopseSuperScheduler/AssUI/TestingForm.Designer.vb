@@ -34,7 +34,6 @@ Partial Class TestingForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,6 +44,7 @@ Partial Class TestingForm
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.SuspendLayout()
         '
         'Button1
@@ -155,12 +155,6 @@ Partial Class TestingForm
         Me.ShapeContainer1.TabIndex = 11
         Me.ShapeContainer1.TabStop = False
         '
-        'RectangleShape3
-        '
-        Me.RectangleShape3.Location = New System.Drawing.Point(516, 4)
-        Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(257, 547)
-        '
         'RectangleShape2
         '
         Me.RectangleShape2.Location = New System.Drawing.Point(9, 4)
@@ -244,6 +238,12 @@ Partial Class TestingForm
         Me.Button12.Text = "KillAProgramByNameOrPid"
         Me.Button12.UseVisualStyleBackColor = True
         '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.Location = New System.Drawing.Point(516, 2)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.Size = New System.Drawing.Size(257, 547)
+        '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -289,7 +289,6 @@ Partial Class TestingForm
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
@@ -298,4 +297,5 @@ Partial Class TestingForm
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
 End Class
