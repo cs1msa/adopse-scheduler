@@ -157,13 +157,19 @@ Public Class ALCommandLineHandler
         error_reading_thread.Start()
         output_reading_thread.Start()
 
-        'this is a very very very dirty ad-hoc
-        If a_input.Contains("tasklist") Then
-            Threading.Thread.Sleep(600)
-        Else
-            Threading.Thread.Sleep(100)
+        'if it is a command that doesnt open a program(this is done because opening a program makes it the process and we cant take output nor error)
+        'like setting a path(without opening a program),       or killing a proccess,      or calling tasklist 
+        'if we want to use more commands we must add them here too
+        If (a_input.Contains("cd") And Not a_input.Contains(".")) _
+            Or a_input.Contains("taskkill") _
+            Or a_input.Contains("tasklist") Then
 
+            'wait until you get an error or an output
+            Do While error_str = vbNullString And output_str = vbNullString
+
+            Loop
         End If
+
 
 
         error_reading_thread.Abort()
