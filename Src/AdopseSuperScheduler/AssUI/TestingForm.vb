@@ -116,8 +116,9 @@ Public Class TestingForm
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         'create a ALCore ONLY for testing purposes
         Dim core As New ALCore
-
-        core.RunFullPathProgram(TextBox3.Text)
+        Dim pid As New Integer
+        core.RunFullPathProgram(TextBox3.Text, pid)
+        Label5.Text = "pid = " & pid
 
     End Sub
 
@@ -128,6 +129,7 @@ Public Class TestingForm
         Dim core As New ALCore
         core.KillProgram(TextBox3.Text)
     End Sub
+
 
 
 End Class

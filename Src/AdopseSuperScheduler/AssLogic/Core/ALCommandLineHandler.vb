@@ -103,7 +103,7 @@ Public Class ALCommandLineHandler
     End Function
 
     'checks if a program runs and optionaly returns memory usage
-    Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_usage As Integer = vbNull)
+    Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_use_return As Integer = vbNull)
 
         Dim task_list_output As String = " "
         Dim input As String = "tasklist"
@@ -113,14 +113,14 @@ Public Class ALCommandLineHandler
         If task_list_output.Contains(a_program) Then
 
             'if it is called in a way that needs to know how much memory the program uses
-            If Not a_memory_usage = vbNull Then
+            If Not a_memory_use_return = vbNull Then
                 Dim start_of_line = task_list_output.IndexOf(a_program)
                 Dim end_of_line = task_list_output.IndexOf(Chr(13), start_of_line)
 
                 Dim line_of_interest = task_list_output.Substring(start_of_line, end_of_line - start_of_line)
                 Dim splited_line = line_of_interest.Split(" ")
 
-                a_memory_usage = splited_line(splited_line.Length - 2)
+                a_memory_use_return = splited_line(splited_line.Length - 2)
 
                 m_last_command_output = task_list_output
             End If
@@ -149,22 +149,33 @@ Public Class ALCommandLineHandler
 
         'this blog is for cases that error is not passed back and causes the program to halt.. (example : tasklist)
         Dim error_str As New String("")
-        If Not a_input.Contains("tasklist") Then
-            error_str = SE.Read()
-        End If
+        Dim output_str As New String("")
 
+        Dim error_reading_thread As New Threading.Thread(Sub() Me.SafeReadToEnd(error_str, SE))
+        Dim output_reading_thread As New Threading.Thread(Sub() Me.SafeReadToEnd(output_str, SR))
 
+        error_reading_thread.Start()
+        output_reading_thread.Start()
 
-
-        If a_output = vbNullString Then
-            m_last_command_output = SR.ReadToEnd
+        'this is a very very very dirty ad-hoc
+        If a_input.Contains("tasklist") Then
+            Threading.Thread.Sleep(600)
         Else
-            a_output = SR.ReadToEnd 'returns results of the command window
+            Threading.Thread.Sleep(100)
+
         End If
+
+
+        error_reading_thread.Abort()
+        output_reading_thread.Abort()
 
 
         SW.Close()
         SR.Close()
+        SE.Close()
+
+        a_output = output_str
+        m_last_command_output = a_output
 
         If Not error_str = vbNullString Then
             Return False
@@ -174,6 +185,10 @@ Public Class ALCommandLineHandler
     End Function
 
 
+    Private Sub SafeReadToEnd(ByRef a_string As String, ByRef a_reader As System.IO.StreamReader)
 
+        a_string = a_reader.ReadToEnd()
+
+    End Sub
 
 End Class
