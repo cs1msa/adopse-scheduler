@@ -1,0 +1,21 @@
+UX(AssUI):
+-Communicates only to middle
+-it is what the user sees
+
+
+MasterControl(ASSLogic):
+-Communicates to both Core(taskmanager and core) and UX
+-Handles all exceptions
+
+
+TaskManager(ASSLogic):
+-Communicates to master control
+-handles all the tasks
+-Contains all the features that a user can do
+
+
+Core(ASSLogic):
+-Communicates to master control
+-Contains classes and functions for database handling
+-contains classes and functions for command line handling
+

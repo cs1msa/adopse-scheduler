@@ -1,5 +1,5 @@
 -LOG
-ID energias | Hmeromhnia Energias | Perigrafh energeias | Onoma programmatos | ID programmatos | epityxia
+ID energias | Hmeromhnia Energias | Perigrafh energeias | Onoma programmatos | epityxia
 
 -Scheduled tasks
 task ID | Onoma programmatos | RunDate | typosAntikeimenou(weekly, monthly)<-(standar lekseis)
