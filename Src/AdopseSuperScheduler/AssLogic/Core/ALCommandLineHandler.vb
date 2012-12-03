@@ -35,10 +35,10 @@ Public Class ALCommandLineHandler
 
 
         If Not ExecuteCMDCommand("cd " & m_path) Then
-            Throw New PathDoesntExistCMDException(a_path)
+            Throw New ALPathDoesntExistCMDException(a_path)
         End If
         If Not ExecuteCMDCommand("cd " & m_path & vbCrLf & m_program) Then
-            Throw New ProgramDoesntExistCMDException(a_program)
+            Throw New ALProgramDoesntExistCMDException(a_program)
         End If
 
 
@@ -55,8 +55,8 @@ Public Class ALCommandLineHandler
             Dim input As String = "taskkill /IM " & m_program
 
             If Not ExecuteCMDCommand(input) Then
-                Throw New ProccessNotFoundException(a_program)
-            End If
+            Throw New ALProccessNotFoundException(a_program)
+        End If
 
 
     End Sub
@@ -96,7 +96,7 @@ Public Class ALCommandLineHandler
 
         End While
         If PID.Count = 0 Then
-            Throw New ProccessNotFoundException(a_program)
+            Throw New ALProccessNotFoundException(a_program)
         End If
         Return PID
 

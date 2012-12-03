@@ -96,7 +96,7 @@ Public Class ALDatabaseHandler
 
         End Using
         If number_of_rows_affected = 0 Then
-            Throw New DatabaseInsertException(command_string)
+            Throw New ALDatabaseInsertException(command_string)
         End If
     End Sub
 
@@ -118,7 +118,7 @@ Public Class ALDatabaseHandler
 
         End Using
         If number_of_rows_affected = 0 Then
-            Throw New DatabaseDeleteException(command_string)
+            Throw New ALDatabaseDeleteException(command_string)
         End If
     End Sub
 
