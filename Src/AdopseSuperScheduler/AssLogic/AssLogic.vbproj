@@ -91,6 +91,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TaskManager\ATasks.vb" />
+    <Compile Include="TaskManager\DailyTasks.vb" />
+    <Compile Include="TaskManager\MonthlyTasks.vb" />
+    <Compile Include="TaskManager\PeriodicTasks.vb" />
+    <Compile Include="TaskManager\WeeklyTasks.vb" />
+    <Compile Include="TaskManager\YearlyTasks.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
