@@ -44,7 +44,7 @@ Public Class ALDatabaseHandler
             Dim row_string As New String("")
             For Each item As Object In i.ItemArray
 
-                row_string = row_string & item.ToString & " | "
+                row_string = row_string & item.ToString & "|"
 
             Next
             row_list.Add(row_string)
