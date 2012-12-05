@@ -91,11 +91,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TaskManager\ALATasks.vb" />
-    <Compile Include="TaskManager\ALDailyTasks.vb" />
-    <Compile Include="TaskManager\ALMonthlyTasks.vb" />
+    <Compile Include="TaskManager\ALFixedDateTasks.vb" />
     <Compile Include="TaskManager\ALPeriodicTasks.vb" />
-    <Compile Include="TaskManager\ALWeeklyTasks.vb" />
-    <Compile Include="TaskManager\ALYearlyTasks.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

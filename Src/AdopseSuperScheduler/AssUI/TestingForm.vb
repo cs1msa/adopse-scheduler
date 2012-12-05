@@ -63,8 +63,8 @@ Public Class TestingForm
         database_handler.ExecuteInsert("Log", {"1", "21/12/2012", "'this is for testing'", "'C:/Firefox.exe'", "True"})
         database_handler.ExecuteInsert("Log", {"2", "1/3/2009", "'this is the second for testing'", "'C:/Chrome.exe'", "True"})
 
-        database_handler.ExecuteInsert("[Scheduler Tasks]", {"1", "'C:/Firefox.exe'", "14/12/2012", "'daily'"})
-        database_handler.ExecuteInsert("[Scheduler Tasks]", {"2", "'C:/Chrome.exe'", "25/12/2012", "'Weekly'"})
+        database_handler.ExecuteInsert("[Scheduler Tasks]", {"1", "'C:/Firefox.exe'", "'14/12/2012'", "'0/0/0'"})
+        database_handler.ExecuteInsert("[Scheduler Tasks]", {"2", "'C:/Chrome.exe'", "'25/12/2012'", "'2/4/0'"})
 
     End Sub
 
@@ -135,24 +135,16 @@ Public Class TestingForm
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
 
-        m_task_manager.AddTask(New ALDailyTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
-
-
+        m_task_manager.AddTask(New ALFixedDateTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
 
     End Sub
 
+   
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
-
-        m_task_manager.AddTask(New ALWeeklyTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
+        m_master_control.CreateTasks("c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0")
     End Sub
 
     Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
-
-        m_task_manager.AddTask(New ALMonthlyTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
-    End Sub
-
-    Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
-
-        m_task_manager.AddTask(New ALYearlyTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
+        m_master_control.RetrieveTasks()
     End Sub
 End Class

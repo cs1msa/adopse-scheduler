@@ -34,6 +34,7 @@ Partial Class TestingForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -45,12 +46,12 @@ Partial Class TestingForm
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
-        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
+        Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -156,10 +157,16 @@ Partial Class TestingForm
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2, Me.RectangleShape1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape5, Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2, Me.RectangleShape1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(781, 566)
         Me.ShapeContainer1.TabIndex = 11
         Me.ShapeContainer1.TabStop = False
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.Location = New System.Drawing.Point(9, 259)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.Size = New System.Drawing.Size(213, 249)
         '
         'RectangleShape3
         '
@@ -250,12 +257,6 @@ Partial Class TestingForm
         Me.Button12.Text = "KillAProgramByNameOrPid"
         Me.Button12.UseVisualStyleBackColor = True
         '
-        'RectangleShape4
-        '
-        Me.RectangleShape4.Location = New System.Drawing.Point(9, 259)
-        Me.RectangleShape4.Name = "RectangleShape4"
-        Me.RectangleShape4.Size = New System.Drawing.Size(213, 249)
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -271,44 +272,50 @@ Partial Class TestingForm
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(159, 23)
         Me.Button11.TabIndex = 22
-        Me.Button11.Text = "AddDailyTask"
+        Me.Button11.Text = "AddFixedDateTask"
         Me.Button11.UseVisualStyleBackColor = True
+        '
+        'RectangleShape5
+        '
+        Me.RectangleShape5.Location = New System.Drawing.Point(258, 259)
+        Me.RectangleShape5.Name = "RectangleShape5"
+        Me.RectangleShape5.Size = New System.Drawing.Size(233, 241)
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(339, 272)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(75, 13)
+        Me.Label7.TabIndex = 23
+        Me.Label7.Text = "Master Control"
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(32, 334)
+        Me.Button13.Location = New System.Drawing.Point(283, 305)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(159, 23)
-        Me.Button13.TabIndex = 23
-        Me.Button13.Text = "AddWeeklyTask"
+        Me.Button13.Size = New System.Drawing.Size(189, 23)
+        Me.Button13.TabIndex = 24
+        Me.Button13.Text = "CreateTasksTest"
         Me.Button13.UseVisualStyleBackColor = True
         '
         'Button14
         '
-        Me.Button14.Location = New System.Drawing.Point(32, 363)
+        Me.Button14.Location = New System.Drawing.Point(283, 334)
         Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(159, 23)
-        Me.Button14.TabIndex = 24
-        Me.Button14.Text = "AddMonthlyTask"
+        Me.Button14.Size = New System.Drawing.Size(189, 23)
+        Me.Button14.TabIndex = 25
+        Me.Button14.Text = "RetrieveTasksTest"
         Me.Button14.UseVisualStyleBackColor = True
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(32, 392)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(159, 23)
-        Me.Button15.TabIndex = 25
-        Me.Button15.Text = "AddYearlyTask"
-        Me.Button15.UseVisualStyleBackColor = True
         '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(781, 566)
-        Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Button13)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button12)
@@ -363,7 +370,8 @@ Partial Class TestingForm
     Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents RectangleShape5 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Button13 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button
-    Friend WithEvents Button15 As System.Windows.Forms.Button
 End Class

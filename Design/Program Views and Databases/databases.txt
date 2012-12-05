@@ -2,4 +2,4 @@
 ID energias | Hmeromhnia Energias | Perigrafh energeias | Onoma programmatos | epityxia
 
 -Scheduled tasks
-task ID | Onoma programmatos | RunDate | typosAntikeimenou(weekly, monthly)<-(standar lekseis)
+task ID | Onoma programmatos | RunDate | period( d/m/y) <-if 0/0/0 then its a fixed date task
