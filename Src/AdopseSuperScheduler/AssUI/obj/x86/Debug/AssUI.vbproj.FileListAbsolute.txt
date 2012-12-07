@@ -12,3 +12,17 @@ C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperSche
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.xml
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.TestingForm.resources
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.exe
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.pdb
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.xml
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.dll
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.pdb
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.xml
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.vbprojResolveAssemblyReference.cache
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.Resources.resources
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.TestingForm.resources
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.vbproj.GenerateResource.Cache
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.xml
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.NewTaskForm.resources

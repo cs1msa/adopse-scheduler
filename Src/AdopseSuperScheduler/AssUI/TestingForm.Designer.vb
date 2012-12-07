@@ -34,6 +34,7 @@ Partial Class TestingForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -44,7 +45,6 @@ Partial Class TestingForm
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
-        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.SuspendLayout()
         '
         'Button1
@@ -155,6 +155,12 @@ Partial Class TestingForm
         Me.ShapeContainer1.TabIndex = 11
         Me.ShapeContainer1.TabStop = False
         '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.Location = New System.Drawing.Point(508, 4)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.Size = New System.Drawing.Size(257, 547)
+        '
         'RectangleShape2
         '
         Me.RectangleShape2.Location = New System.Drawing.Point(9, 4)
@@ -237,12 +243,6 @@ Partial Class TestingForm
         Me.Button12.TabIndex = 20
         Me.Button12.Text = "KillAProgramByNameOrPid"
         Me.Button12.UseVisualStyleBackColor = True
-        '
-        'RectangleShape3
-        '
-        Me.RectangleShape3.Location = New System.Drawing.Point(516, 2)
-        Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(257, 547)
         '
         'TestingForm
         '

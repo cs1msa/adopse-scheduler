@@ -9,3 +9,12 @@ C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperSche
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll.config
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll.config
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.pdb
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.xml
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.Resources.resources
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.vbproj.GenerateResource.Cache
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.dll
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb
