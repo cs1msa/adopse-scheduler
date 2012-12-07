@@ -97,6 +97,7 @@ Public Class NewTaskForm
         ArrowLabel2.Visible = False
         ArrowLabel3.Visible = False
         ArrowLabel4.Visible = False
+        ArrowLabel5.Visible = False
 
         'handles all reset buttons
         resetDateTimeButton.Visible = False
@@ -104,7 +105,12 @@ Public Class NewTaskForm
         'handles all panels
         DateTimePanel.Enabled = False
         TypeOfTaskPanel.Enabled = False
+        RecurrencePanel.Enabled = False
+        OnceOKButtonPanel.Visible = False
 
+        'handles MoreOptions and SaveTask buttons
+        MoreOptionsButton.Enabled = False
+        SaveTaskButton.Enabled = False
 
         'Hides itself
         resetChooseFileButton.Visible = False
@@ -134,6 +140,11 @@ Public Class NewTaskForm
     Private Sub OnceCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceCheckButton.Click
 
         RecurrencePanel.Visible = False
+        ArrowLabel5.Visible = False
+
+        MoreOptionsButton.Enabled = True
+
+        OnceOKButtonPanel.Visible = True
 
     End Sub
 
@@ -145,6 +156,7 @@ Public Class NewTaskForm
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
+        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
 
         Label2.Text = "days"
 
@@ -159,7 +171,10 @@ Public Class NewTaskForm
         MonthsLabel.Visible = False
         MonthsDropDownButton.Visible = False
 
+        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
 
+        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
+        MoreOptionsButton.Enabled = True
 
 
     End Sub
@@ -172,6 +187,7 @@ Public Class NewTaskForm
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
+        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
 
         'changes Label2 days->weeks
         Label2.Text = "weeks"
@@ -191,6 +207,9 @@ Public Class NewTaskForm
         'enables the OK button
         typeOfTaskOkButton.Enabled = True
 
+        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
+        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
+        MoreOptionsButton.Enabled = True
 
     End Sub
 
@@ -202,6 +221,7 @@ Public Class NewTaskForm
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
+        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
 
         'enables ok button
         typeOfTaskOkButton.Enabled = True
@@ -224,7 +244,9 @@ Public Class NewTaskForm
         'enables the OK button
         typeOfTaskOkButton.Enabled = True
 
-
+        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
+        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
+        MoreOptionsButton.Enabled = True
 
     End Sub
 
@@ -236,6 +258,7 @@ Public Class NewTaskForm
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
+        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
 
         'enables ok button
         typeOfTaskOkButton.Enabled = True
@@ -254,6 +277,9 @@ Public Class NewTaskForm
         'shows Months DropDown Button
         MonthsDropDownButton.Visible = True
 
+        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
+        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
+        MoreOptionsButton.Enabled = True
 
     End Sub
 
@@ -270,9 +296,12 @@ Public Class NewTaskForm
         'shows the directional blue arrows
         ArrowLabel3.Visible = False
         ArrowLabel4.Visible = True
+        ArrowLabel5.Visible = False
 
         'enables TypeOFTask Panel
         TypeOfTaskPanel.Enabled = True
+
+        RecurrencePanel.Enabled = True 'because of Reset Buttons
 
 
     End Sub
@@ -287,6 +316,16 @@ Public Class NewTaskForm
         ArrowLabel2.Visible = False
         ArrowLabel3.Visible = True
         ArrowLabel4.Visible = False
+        ArrowLabel5.Visible = False
+
+        'handles panels
+        TypeOfTaskPanel.Enabled = False
+        RecurrencePanel.Enabled = False
+        OnceOKButtonPanel.Visible = False
+
+        'handles MoreOptions and SaveTask buttons
+        MoreOptionsButton.Enabled = False
+        SaveTaskButton.Enabled = False
 
         'hides itself
         resetDateTimeButton.Visible = False
@@ -295,4 +334,42 @@ Public Class NewTaskForm
     End Sub
 
 
+    Private Sub resetTypeOfTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles resetTypeOfTaskButton.Click
+
+        TypeOfTaskPanel.Enabled = True
+        RecurrencePanel.Enabled = True
+        OnceOKButtonPanel.Enabled = True
+        MoreOptionsButton.Enabled = True
+        ArrowLabel4.Visible = True
+
+        'hidets itself
+        resetTypeOfTaskButton.Visible = False
+
+    End Sub
+
+    Private Sub typeOfTaskOkButton_Click(sender As System.Object, e As System.EventArgs) Handles typeOfTaskOkButton.Click
+
+        TypeOfTaskPanel.Enabled = False
+        RecurrencePanel.Enabled = False
+
+        MoreOptionsButton.Enabled = False
+
+        SaveTaskButton.Enabled = True
+        resetTypeOfTaskButton.Visible = True
+
+        ArrowLabel5.Visible = False
+    End Sub
+
+    Private Sub OnceOKButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceOKButton.Click
+        TypeOfTaskPanel.Enabled = False
+        RecurrencePanel.Enabled = False
+
+        MoreOptionsButton.Enabled = False
+        ArrowLabel4.Visible = False
+
+        OnceOKButtonPanel.Enabled = False
+
+        SaveTaskButton.Enabled = True
+        resetTypeOfTaskButton.Visible = True
+    End Sub
 End Class

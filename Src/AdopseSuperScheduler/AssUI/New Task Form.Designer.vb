@@ -25,6 +25,8 @@ Partial Class NewTaskForm
         Me.resetTypeOfTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
+        Me.MonthsLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.MonthDaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.MonthDaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
         Me.KryptonContextMenuCheckBox17 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
@@ -103,12 +105,12 @@ Partial Class NewTaskForm
         Me.OtherCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.MultimediaCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.ReminderCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.KindOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.chooseFilePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.chooseFileOkButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileBrowseButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileTextBox = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.chooseFileLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.KindOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.resetChooseFileButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
@@ -124,8 +126,10 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems4 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuCheckBox43 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox51 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.MonthsLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
+        Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.OnceOKButtonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.OnceOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,10 +144,15 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.SuspendLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.OnceOKButtonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'addNewTaskMainPanel
         '
+        Me.addNewTaskMainPanel.Controls.Add(Me.OnceOKButtonPanel)
+        Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
+        Me.addNewTaskMainPanel.Controls.Add(Me.MoreOptionsButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.resetTypeOfTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel5)
         Me.addNewTaskMainPanel.Controls.Add(Me.RecurrencePanel)
@@ -160,13 +169,13 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.addNewTaskMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
-        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 554)
+        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 597)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
         'resetTypeOfTaskButton
         '
         Me.resetTypeOfTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.resetTypeOfTaskButton.Location = New System.Drawing.Point(469, 363)
+        Me.resetTypeOfTaskButton.Location = New System.Drawing.Point(469, 334)
         Me.resetTypeOfTaskButton.Name = "resetTypeOfTaskButton"
         Me.resetTypeOfTaskButton.Size = New System.Drawing.Size(39, 40)
         Me.resetTypeOfTaskButton.TabIndex = 27
@@ -200,9 +209,28 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.Controls.Add(Me.KryptonLabel3)
         Me.RecurrencePanel.Location = New System.Drawing.Point(58, 380)
         Me.RecurrencePanel.Name = "RecurrencePanel"
-        Me.RecurrencePanel.Size = New System.Drawing.Size(383, 132)
+        Me.RecurrencePanel.Size = New System.Drawing.Size(383, 141)
         Me.RecurrencePanel.TabIndex = 25
         Me.RecurrencePanel.Visible = False
+        '
+        'MonthsDropDownButton
+        '
+        Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
+        Me.MonthsDropDownButton.Location = New System.Drawing.Point(85, 70)
+        Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
+        Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
+        Me.MonthsDropDownButton.TabIndex = 30
+        Me.MonthsDropDownButton.Values.Text = "All Months"
+        Me.MonthsDropDownButton.Visible = False
+        '
+        'MonthsLabel
+        '
+        Me.MonthsLabel.Location = New System.Drawing.Point(24, 70)
+        Me.MonthsLabel.Name = "MonthsLabel"
+        Me.MonthsLabel.Size = New System.Drawing.Size(55, 20)
+        Me.MonthsLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.MonthsLabel.TabIndex = 29
+        Me.MonthsLabel.Values.Text = "Months: "
         '
         'MonthDaysDropDownButton
         '
@@ -485,7 +513,7 @@ Partial Class NewTaskForm
         '
         Me.typeOfTaskOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.typeOfTaskOkButton.Enabled = False
-        Me.typeOfTaskOkButton.Location = New System.Drawing.Point(154, 97)
+        Me.typeOfTaskOkButton.Location = New System.Drawing.Point(154, 102)
         Me.typeOfTaskOkButton.Name = "typeOfTaskOkButton"
         Me.typeOfTaskOkButton.Size = New System.Drawing.Size(33, 32)
         Me.typeOfTaskOkButton.TabIndex = 24
@@ -599,7 +627,7 @@ Partial Class NewTaskForm
         'chooseDateTimeOkButton
         '
         Me.chooseDateTimeOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.chooseDateTimeOkButton.Location = New System.Drawing.Point(174, 54)
+        Me.chooseDateTimeOkButton.Location = New System.Drawing.Point(174, 59)
         Me.chooseDateTimeOkButton.Name = "chooseDateTimeOkButton"
         Me.chooseDateTimeOkButton.Size = New System.Drawing.Size(33, 32)
         Me.chooseDateTimeOkButton.TabIndex = 23
@@ -769,6 +797,15 @@ Partial Class NewTaskForm
         Me.ReminderCheckButton.Values.Image = CType(resources.GetObject("ReminderCheckButton.Values.Image"), System.Drawing.Image)
         Me.ReminderCheckButton.Values.Text = ""
         '
+        'KindOfTaskLabel
+        '
+        Me.KindOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
+        Me.KindOfTaskLabel.Location = New System.Drawing.Point(41, 3)
+        Me.KindOfTaskLabel.Name = "KindOfTaskLabel"
+        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 20)
+        Me.KindOfTaskLabel.TabIndex = 1
+        Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
+        '
         'chooseFilePanel
         '
         Me.chooseFilePanel.Controls.Add(Me.chooseFileOkButton)
@@ -819,15 +856,6 @@ Partial Class NewTaskForm
         Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
         Me.chooseFileLabel.TabIndex = 0
         Me.chooseFileLabel.Values.Text = "Please choose your  file"
-        '
-        'KindOfTaskLabel
-        '
-        Me.KindOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KindOfTaskLabel.Location = New System.Drawing.Point(41, 3)
-        Me.KindOfTaskLabel.Name = "KindOfTaskLabel"
-        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 20)
-        Me.KindOfTaskLabel.TabIndex = 1
-        Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
         '
         'resetChooseFileButton
         '
@@ -895,30 +923,55 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox51.ExtraText = ""
         Me.KryptonContextMenuCheckBox51.Text = "Last"
         '
-        'MonthsLabel
+        'MoreOptionsButton
         '
-        Me.MonthsLabel.Location = New System.Drawing.Point(24, 70)
-        Me.MonthsLabel.Name = "MonthsLabel"
-        Me.MonthsLabel.Size = New System.Drawing.Size(55, 20)
-        Me.MonthsLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.MonthsLabel.TabIndex = 29
-        Me.MonthsLabel.Values.Text = "Months: "
+        Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.MoreOptionsButton.Enabled = False
+        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 553)
+        Me.MoreOptionsButton.Name = "MoreOptionsButton"
+        Me.MoreOptionsButton.Size = New System.Drawing.Size(52, 41)
+        Me.MoreOptionsButton.TabIndex = 28
+        Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
+        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image1"), System.Drawing.Image)
+        Me.MoreOptionsButton.Values.Text = ""
         '
-        'MonthsDropDownButton
+        'SaveTaskButton
         '
-        Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
-        Me.MonthsDropDownButton.Location = New System.Drawing.Point(85, 70)
-        Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
-        Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
-        Me.MonthsDropDownButton.TabIndex = 30
-        Me.MonthsDropDownButton.Values.Text = "All Months"
-        Me.MonthsDropDownButton.Visible = False
+        Me.SaveTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.SaveTaskButton.Enabled = False
+        Me.SaveTaskButton.Location = New System.Drawing.Point(433, 538)
+        Me.SaveTaskButton.Name = "SaveTaskButton"
+        Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
+        Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.SaveTaskButton.TabIndex = 29
+        Me.SaveTaskButton.Values.Image = CType(resources.GetObject("SaveTaskButton.Values.Image"), System.Drawing.Image)
+        Me.SaveTaskButton.Values.Text = "Save"
+        '
+        'OnceOKButtonPanel
+        '
+        Me.OnceOKButtonPanel.Controls.Add(Me.OnceOKButton)
+        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 527)
+        Me.OnceOKButtonPanel.Name = "OnceOKButtonPanel"
+        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 58)
+        Me.OnceOKButtonPanel.TabIndex = 31
+        Me.OnceOKButtonPanel.Visible = False
+        '
+        'OnceOKButton
+        '
+        Me.OnceOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.OnceOKButton.Location = New System.Drawing.Point(29, 11)
+        Me.OnceOKButton.Name = "OnceOKButton"
+        Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
+        Me.OnceOKButton.TabIndex = 32
+        Me.ToolTip1.SetToolTip(Me.OnceOKButton, "OK !")
+        Me.OnceOKButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image"), System.Drawing.Image)
+        Me.OnceOKButton.Values.Text = ""
         '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(511, 554)
+        Me.ClientSize = New System.Drawing.Size(511, 597)
         Me.Controls.Add(Me.addNewTaskMainPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "NewTaskForm"
@@ -944,6 +997,8 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.PerformLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.OnceOKButtonPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1065,4 +1120,8 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox51 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Friend WithEvents MonthsLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents OnceOKButtonPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Friend WithEvents OnceOKButton As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class
