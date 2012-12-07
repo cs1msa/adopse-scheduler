@@ -372,4 +372,9 @@ Public Class NewTaskForm
         SaveTaskButton.Enabled = True
         resetTypeOfTaskButton.Visible = True
     End Sub
+
+    Private Sub MoreOptionsButton_Click(sender As System.Object, e As System.EventArgs) Handles MoreOptionsButton.Click
+        MoreOptionsForm.ShowDialog()
+
+    End Sub
 End Class

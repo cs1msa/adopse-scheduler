@@ -932,7 +932,7 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton.Size = New System.Drawing.Size(52, 41)
         Me.MoreOptionsButton.TabIndex = 28
         Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
-        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image1"), System.Drawing.Image)
+        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image"), System.Drawing.Image)
         Me.MoreOptionsButton.Values.Text = ""
         '
         'SaveTaskButton
@@ -964,7 +964,7 @@ Partial Class NewTaskForm
         Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
         Me.OnceOKButton.TabIndex = 32
         Me.ToolTip1.SetToolTip(Me.OnceOKButton, "OK !")
-        Me.OnceOKButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image"), System.Drawing.Image)
+        Me.OnceOKButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image1"), System.Drawing.Image)
         Me.OnceOKButton.Values.Text = ""
         '
         'NewTaskForm
@@ -973,6 +973,7 @@ Partial Class NewTaskForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(511, 597)
         Me.Controls.Add(Me.addNewTaskMainPanel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "NewTaskForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
