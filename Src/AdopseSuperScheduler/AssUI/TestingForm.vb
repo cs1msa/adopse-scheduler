@@ -1,7 +1,8 @@
 ﻿Imports AssLogic
 Public Class TestingForm
     Dim m_master_control As ALMasterControl
-
+    'create a ALTaskManager ONLY for testing purposes
+    Dim m_task_manager As New ALTaskManager()
 
 
     Private Sub TestingForm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -14,7 +15,7 @@ Public Class TestingForm
         Dim command_line_handler As New ALCommandLineHandler
         Try
             command_line_handler.KillProgram(TextBox1.Text)
-        Catch ex As ProccessNotFoundException
+        Catch ex As ALProccessNotFoundException
             Label4.Text = "not found proccess:" & ex.Message
         End Try
 
@@ -26,9 +27,9 @@ Public Class TestingForm
         Dim command_line_handler As New ALCommandLineHandler
         Try
             command_line_handler.RunProgram(TextBox2.Text, TextBox1.Text)
-        Catch ex As AssLogic.ProgramDoesntExistCMDException
+        Catch ex As AssLogic.ALProgramDoesntExistCMDException
             Label4.Text = "program does not exist: " & ex.Message
-        Catch ex2 As AssLogic.PathDoesntExistCMDException
+        Catch ex2 As AssLogic.ALPathDoesntExistCMDException
             Label4.Text = "path does not exist : " & ex2.Message
         End Try
 
@@ -62,8 +63,8 @@ Public Class TestingForm
         database_handler.ExecuteInsert("Log", {"1", "21/12/2012", "'this is for testing'", "'C:/Firefox.exe'", "True"})
         database_handler.ExecuteInsert("Log", {"2", "1/3/2009", "'this is the second for testing'", "'C:/Chrome.exe'", "True"})
 
-        database_handler.ExecuteInsert("[Scheduler Tasks]", {"1", "'C:/Firefox.exe'", "14/12/2012", "'daily'"})
-        database_handler.ExecuteInsert("[Scheduler Tasks]", {"2", "'C:/Chrome.exe'", "25/12/2012", "'Weekly'"})
+        database_handler.ExecuteInsert("[Scheduler Tasks]", {"1", "'C:/Firefox.exe'", "'14/12/2012'", "'0/0/0'"})
+        database_handler.ExecuteInsert("[Scheduler Tasks]", {"2", "'C:/Chrome.exe'", "'25/12/2012'", "'2/4/0'"})
 
     End Sub
 
@@ -83,10 +84,10 @@ Public Class TestingForm
             For i As Integer = 0 To pid.Count() - 1
                 Label4.Text = Label4.Text & pid(i).ToString() & " , "
             Next
-        Catch ex As ProccessNotFoundException
+        Catch ex As ALProccessNotFoundException
             Label4.Text = "not found proccess:" & ex.Message
         End Try
-        
+
     End Sub
 
 
@@ -132,4 +133,18 @@ Public Class TestingForm
 
 
 
+    Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
+
+        m_task_manager.AddTask(New ALFixedDateTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0)))
+
+    End Sub
+
+   
+    Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
+        m_master_control.CreateTasks("c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0")
+    End Sub
+
+    Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
+        m_master_control.RetrieveTasks()
+    End Sub
 End Class

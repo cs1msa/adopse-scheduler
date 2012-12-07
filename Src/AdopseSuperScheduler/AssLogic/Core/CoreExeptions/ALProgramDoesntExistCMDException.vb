@@ -1,4 +1,4 @@
-﻿Public Class ProccessNotFoundException
+﻿Public Class ALProgramDoesntExistCMDException
     Inherits System.ApplicationException
 
     Public Sub New(ByVal message As String)

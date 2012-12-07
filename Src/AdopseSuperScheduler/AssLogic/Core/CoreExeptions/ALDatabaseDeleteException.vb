@@ -1,4 +1,5 @@
-﻿Public Class ProgramDoesntExistCMDException
+﻿Public Class ALDatabaseDeleteException
+
     Inherits System.ApplicationException
 
     Public Sub New(ByVal message As String)

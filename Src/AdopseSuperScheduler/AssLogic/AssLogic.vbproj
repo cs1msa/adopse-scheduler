@@ -70,11 +70,11 @@
     <Compile Include="Core\ALDatabaseQueryFactory.vb" />
     <Compile Include="Core\ALDatabaseHandler.vb" />
     <Compile Include="Core\ALCommandLineHandler.vb" />
-    <Compile Include="Core\CoreExeptions\DatabaseDeleteException.vb" />
-    <Compile Include="Core\CoreExeptions\DatabaseInsertException.vb" />
-    <Compile Include="Core\CoreExeptions\PathDoesntExistCMDException.vb" />
-    <Compile Include="Core\CoreExeptions\ProccessNotFoundException.vb" />
-    <Compile Include="Core\CoreExeptions\ProgramDoesntExistCMDException.vb" />
+    <Compile Include="Core\CoreExeptions\ALDatabaseDeleteException.vb" />
+    <Compile Include="Core\CoreExeptions\ALDatabaseInsertException.vb" />
+    <Compile Include="Core\CoreExeptions\ALPathDoesntExistCMDException.vb" />
+    <Compile Include="Core\CoreExeptions\ALProccessNotFoundException.vb" />
+    <Compile Include="Core\CoreExeptions\ALProgramDoesntExistCMDException.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -90,7 +90,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TaskManager\ATasks.vb" />
+    <Compile Include="TaskManager\ALATasks.vb" />
+    <Compile Include="TaskManager\ALFixedDateTasks.vb" />
+    <Compile Include="TaskManager\ALPeriodicTasks.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

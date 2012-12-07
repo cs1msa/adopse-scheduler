@@ -1,5 +1,4 @@
-﻿Public Class DatabaseDeleteException
-
+﻿Public Class ALProccessNotFoundException
     Inherits System.ApplicationException
 
     Public Sub New(ByVal message As String)

@@ -44,7 +44,7 @@ Public Class ALDatabaseHandler
             Dim row_string As New String("")
             For Each item As Object In i.ItemArray
 
-                row_string = row_string & item.ToString & " | "
+                row_string = row_string & item.ToString & "|"
 
             Next
             row_list.Add(row_string)
@@ -96,7 +96,7 @@ Public Class ALDatabaseHandler
 
         End Using
         If number_of_rows_affected = 0 Then
-            Throw New DatabaseInsertException(command_string)
+            Throw New ALDatabaseInsertException(command_string)
         End If
     End Sub
 
@@ -118,7 +118,7 @@ Public Class ALDatabaseHandler
 
         End Using
         If number_of_rows_affected = 0 Then
-            Throw New DatabaseDeleteException(command_string)
+            Throw New ALDatabaseDeleteException(command_string)
         End If
     End Sub
 

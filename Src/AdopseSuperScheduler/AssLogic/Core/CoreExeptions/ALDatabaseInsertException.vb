@@ -1,4 +1,4 @@
-﻿Public Class PathDoesntExistCMDException
+﻿Public Class ALDatabaseInsertException
     Inherits System.ApplicationException
 
     Public Sub New(ByVal message As String)

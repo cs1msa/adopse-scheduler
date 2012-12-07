@@ -1,7 +1,7 @@
-﻿Public MustInherit Class ATasks
-    Dim m_next_run As Date      'the date this tasks is supposed to run
+﻿Public MustInherit Class ALATasks
+    Protected m_next_run As Date      'the date this tasks is supposed to run
 
-    Dim m_full_path As String   'contains prorgam name and path
+    Protected m_full_path As String   'contains prorgam name and path
 
     Sub New(ByVal a_full_path As String, ByVal a_date As Date)
         m_full_path = a_full_path
