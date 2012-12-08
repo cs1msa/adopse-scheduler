@@ -20,40 +20,36 @@ Public Class NewTaskForm
 
 
 #Region "what kind of task -> checkbuttons"
+
     Private Sub ExecutableCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ExecutableCheckButton.Click
 
-        chooseFilePanel.Enabled = True
-        chooseFileLabel.Text = "Please choose your .exe file"
+        'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
 
+        'handles ChooseFile Panel (visibility and label text)
+        HandleChooseFilePanel(True, ".exe ")
+
+        'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "Executable Files(*.exe)|*.exe"
-
-        If chooseFileTextBox.Text = "" Then
-            chooseFileOkButton.Enabled = False
-
-        End If
 
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
-
 
     End Sub
 
     Private Sub MultimediaCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles MultimediaCheckButton.Click
 
-        chooseFilePanel.Enabled = True
-        chooseFileLabel.Text = "Please choose your multimedia file"
+        'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
 
+        'handles ChooseFile Panel (visibility and label text)
+        HandleChooseFilePanel(True, "multimedia ")
+
+        'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "Audio Files(*.mp3, *.wav, *.wma, *.flac, *.ogg, *.oga, *.mpa, *.mid, *.m4a, *.m3u, *.aif, *.iff)" _
                               + "|*.mp3;*.wav;*.wma,*.flac;*.ogg;*.oga;*.mpa;*.mid;*.m4a;*.m3u;*.aif;*.iff|" _
                               + "Video Files(*.wmv, *.avi, *.mp4, *.mov, *.mkv, *.flv, *.ogg, *.ogv, *.3gp, *.3g2, *.swf, *.rm, *.vob, *.asf, *.asx)" _
                               + "|*.wmv;*.avi;*.mp4;*.mov;*.mkv;*.flv;*.ogg;*.ogv;*.3gp;*.3g2;*.swf;*.rm;*.vob;*.asf;*.asx"
-
-        If chooseFileTextBox.Text = "" Then
-            chooseFileOkButton.Enabled = False
-
-        End If
 
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
@@ -61,15 +57,15 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub OtherCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OtherCheckButton.Click
-        chooseFilePanel.Enabled = True
+
+        'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
 
+        'handles ChooseFile Panel (visibility and label text)
+        HandleChooseFilePanel(True, " ")
+
+        'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "All Files(*.*)|*.*"
-
-        If chooseFileTextBox.Text = "" Then
-            chooseFileOkButton.Enabled = False
-
-        End If
 
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
@@ -142,7 +138,11 @@ Public Class NewTaskForm
 
         MoreOptionsButton.Enabled = True
 
-        OnceOKButtonPanel.Visible = True
+        With OnceOKButtonPanel
+            .Visible = True
+            .Enabled = True
+
+        End With
 
     End Sub
 
@@ -331,6 +331,8 @@ Public Class NewTaskForm
         MoreOptionsButton.Enabled = True
         ArrowLabel4.Visible = True
 
+        SaveTaskButton.Enabled = False
+
         'hidets itself
         resetTypeOfTaskButton.Visible = False
 
@@ -367,11 +369,28 @@ Public Class NewTaskForm
 
     End Sub
 
+    'handles the blue directional ArrowLabels
     Public Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
         ArrowLabel1.Visible = label1
         ArrowLabel2.Visible = label2
         ArrowLabel3.Visible = label3
         ArrowLabel4.Visible = label4
         ArrowLabel5.Visible = label5
+    End Sub
+
+    'handles ChooseFile Panel (visibility and label text)
+    Public Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
+
+        'handles the panel's status
+        chooseFilePanel.Enabled = status
+
+        'handles the label's text
+        chooseFileLabel.Text = "Please choose your " + label + "file"
+
+        'disables OK button if the user didn't choose a program
+        If chooseFileTextBox.Text = "" Then
+            chooseFileOkButton.Enabled = False
+        End If
+
     End Sub
 End Class

@@ -22,6 +22,10 @@ Partial Class NewTaskForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewTaskForm))
         Me.addNewTaskMainPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.OnceOKButtonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.OnceOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.resetTypeOfTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
@@ -126,12 +130,10 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems4 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuCheckBox43 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox51 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.OnceOKButtonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.OnceOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
+        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.OnceOKButtonPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RecurrencePanel.SuspendLayout()
         CType(Me.DateTimePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,8 +146,6 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.SuspendLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.OnceOKButtonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'addNewTaskMainPanel
@@ -171,6 +171,50 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
         Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 597)
         Me.addNewTaskMainPanel.TabIndex = 0
+        '
+        'OnceOKButtonPanel
+        '
+        Me.OnceOKButtonPanel.Controls.Add(Me.OnceOKButton)
+        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 527)
+        Me.OnceOKButtonPanel.Name = "OnceOKButtonPanel"
+        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 58)
+        Me.OnceOKButtonPanel.TabIndex = 31
+        Me.OnceOKButtonPanel.Visible = False
+        '
+        'OnceOKButton
+        '
+        Me.OnceOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.OnceOKButton.Location = New System.Drawing.Point(29, 11)
+        Me.OnceOKButton.Name = "OnceOKButton"
+        Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
+        Me.OnceOKButton.TabIndex = 32
+        Me.ToolTip1.SetToolTip(Me.OnceOKButton, "OK !")
+        Me.OnceOKButton.Values.Image = CType(resources.GetObject("OnceOKButton.Values.Image"), System.Drawing.Image)
+        Me.OnceOKButton.Values.Text = ""
+        '
+        'SaveTaskButton
+        '
+        Me.SaveTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.SaveTaskButton.Enabled = False
+        Me.SaveTaskButton.Location = New System.Drawing.Point(433, 538)
+        Me.SaveTaskButton.Name = "SaveTaskButton"
+        Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
+        Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.SaveTaskButton.TabIndex = 29
+        Me.SaveTaskButton.Values.Image = CType(resources.GetObject("SaveTaskButton.Values.Image"), System.Drawing.Image)
+        Me.SaveTaskButton.Values.Text = "Save"
+        '
+        'MoreOptionsButton
+        '
+        Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.MoreOptionsButton.Enabled = False
+        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 553)
+        Me.MoreOptionsButton.Name = "MoreOptionsButton"
+        Me.MoreOptionsButton.Size = New System.Drawing.Size(52, 41)
+        Me.MoreOptionsButton.TabIndex = 28
+        Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
+        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("MoreOptionsButton.Values.Image"), System.Drawing.Image)
+        Me.MoreOptionsButton.Values.Text = ""
         '
         'resetTypeOfTaskButton
         '
@@ -923,50 +967,6 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox51.ExtraText = ""
         Me.KryptonContextMenuCheckBox51.Text = "Last"
         '
-        'MoreOptionsButton
-        '
-        Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.MoreOptionsButton.Enabled = False
-        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 553)
-        Me.MoreOptionsButton.Name = "MoreOptionsButton"
-        Me.MoreOptionsButton.Size = New System.Drawing.Size(52, 41)
-        Me.MoreOptionsButton.TabIndex = 28
-        Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
-        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image"), System.Drawing.Image)
-        Me.MoreOptionsButton.Values.Text = ""
-        '
-        'SaveTaskButton
-        '
-        Me.SaveTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.SaveTaskButton.Enabled = False
-        Me.SaveTaskButton.Location = New System.Drawing.Point(433, 538)
-        Me.SaveTaskButton.Name = "SaveTaskButton"
-        Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
-        Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
-        Me.SaveTaskButton.TabIndex = 29
-        Me.SaveTaskButton.Values.Image = CType(resources.GetObject("SaveTaskButton.Values.Image"), System.Drawing.Image)
-        Me.SaveTaskButton.Values.Text = "Save"
-        '
-        'OnceOKButtonPanel
-        '
-        Me.OnceOKButtonPanel.Controls.Add(Me.OnceOKButton)
-        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 527)
-        Me.OnceOKButtonPanel.Name = "OnceOKButtonPanel"
-        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 58)
-        Me.OnceOKButtonPanel.TabIndex = 31
-        Me.OnceOKButtonPanel.Visible = False
-        '
-        'OnceOKButton
-        '
-        Me.OnceOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.OnceOKButton.Location = New System.Drawing.Point(29, 11)
-        Me.OnceOKButton.Name = "OnceOKButton"
-        Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
-        Me.OnceOKButton.TabIndex = 32
-        Me.ToolTip1.SetToolTip(Me.OnceOKButton, "OK !")
-        Me.OnceOKButton.Values.Image = CType(resources.GetObject("KryptonButton1.Values.Image1"), System.Drawing.Image)
-        Me.OnceOKButton.Values.Text = ""
-        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -981,6 +981,8 @@ Partial Class NewTaskForm
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.addNewTaskMainPanel.ResumeLayout(False)
         Me.addNewTaskMainPanel.PerformLayout()
+        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.OnceOKButtonPanel.ResumeLayout(False)
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RecurrencePanel.ResumeLayout(False)
         Me.RecurrencePanel.PerformLayout()
@@ -998,8 +1000,6 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.PerformLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.OnceOKButtonPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
