@@ -17,6 +17,9 @@ Public Class NewTaskForm
 
     End Sub
 
+
+
+#Region "what kind of task -> checkbuttons"
     Private Sub ExecutableCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ExecutableCheckButton.Click
 
         chooseFilePanel.Enabled = True
@@ -30,9 +33,8 @@ Public Class NewTaskForm
 
         End If
 
-        'shows the directional blue arrows
-        ArrowLabel1.Visible = False
-        ArrowLabel2.Visible = True
+        'handles the arrow labels
+        HandleArrowLabels(False, True, False, False, False)
 
 
     End Sub
@@ -53,11 +55,28 @@ Public Class NewTaskForm
 
         End If
 
-        'shows the directional blue arrows
-        ArrowLabel1.Visible = False
-        ArrowLabel2.Visible = True
+        'handles the arrow labels
+        HandleArrowLabels(False, True, False, False, False)
 
     End Sub
+
+    Private Sub OtherCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OtherCheckButton.Click
+        chooseFilePanel.Enabled = True
+        chooseFileTextBox.Text = ""
+
+        OpenFileDialog.Filter = "All Files(*.*)|*.*"
+
+        If chooseFileTextBox.Text = "" Then
+            chooseFileOkButton.Enabled = False
+
+        End If
+
+        'handles the arrow labels
+        HandleArrowLabels(False, True, False, False, False)
+
+    End Sub
+
+#End Region
 
     Private Sub chooseFileTextBox_TextChanged(sender As System.Object, e As System.EventArgs) Handles chooseFileTextBox.TextChanged
         chooseFileOkButton.Enabled = True
@@ -75,10 +94,8 @@ Public Class NewTaskForm
         'Shows Reset Button
         resetChooseFileButton.Visible = True
 
-        'shows the directional blue arrows
-        ArrowLabel1.Visible = False
-        ArrowLabel2.Visible = False
-        ArrowLabel3.Visible = True
+        'handles the arrow labels
+        HandleArrowLabels(False, False, True, False, False)
 
         'enables date and time picker panel
         DateTimePanel.Enabled = True
@@ -92,15 +109,12 @@ Public Class NewTaskForm
         'Enables choosFile Panel
         chooseFilePanel.Enabled = True
 
-        'handles all directional blue arrows
-        ArrowLabel1.Visible = True
-        ArrowLabel2.Visible = False
-        ArrowLabel3.Visible = False
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = False
+        'handles the arrow labels
+        HandleArrowLabels(True, False, False, False, False)
 
         'handles all reset buttons
         resetDateTimeButton.Visible = False
+        resetTypeOfTaskButton.Visible = False
 
         'handles all panels
         DateTimePanel.Enabled = False
@@ -116,23 +130,6 @@ Public Class NewTaskForm
         resetChooseFileButton.Visible = False
     End Sub
 
-    Private Sub OtherCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OtherCheckButton.Click
-        chooseFilePanel.Enabled = True
-        chooseFileTextBox.Text = ""
-
-        OpenFileDialog.Filter = "All Files(*.*)|*.*"
-
-        If chooseFileTextBox.Text = "" Then
-            chooseFileOkButton.Enabled = False
-
-        End If
-
-        'shows the directional blue arrows
-        ArrowLabel1.Visible = False
-        ArrowLabel2.Visible = True
-
-    End Sub
-
     Private Sub ReminderCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ReminderCheckButton.Click
         MsgBox("Does nothing yet")
     End Sub
@@ -140,6 +137,7 @@ Public Class NewTaskForm
     Private Sub OnceCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceCheckButton.Click
 
         RecurrencePanel.Visible = False
+
         ArrowLabel5.Visible = False
 
         MoreOptionsButton.Enabled = True
@@ -149,9 +147,9 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub DailyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles DailyCheckButton.Click
-        'handles directional blue arrows
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = True
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
 
 
         'Shows Recurrence Panel
@@ -180,9 +178,9 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub WeeklyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles WeeklyCheckButton.Click
-        'handles directional blue arrows
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = True
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
 
 
         'Shows Recurrence Panel
@@ -214,9 +212,9 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub MonthlyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles MonthlyCheckButton.Click
-        'handles directional blue arrows
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = True
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
 
 
         'Shows Recurrence Panel
@@ -252,9 +250,8 @@ Public Class NewTaskForm
 
     Private Sub YearlyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles YearlyCheckButton.Click
 
-        'handles directional blue arrows
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = True
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
@@ -283,7 +280,6 @@ Public Class NewTaskForm
 
     End Sub
 
-
     Private Sub chooseDateTimeOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseDateTimeOkButton.Click
 
         'disables DateTimePanel
@@ -293,10 +289,8 @@ Public Class NewTaskForm
         'Shows Reset Buttton
         resetDateTimeButton.Visible = True
 
-        'shows the directional blue arrows
-        ArrowLabel3.Visible = False
-        ArrowLabel4.Visible = True
-        ArrowLabel5.Visible = False
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, True, False)
 
         'enables TypeOFTask Panel
         TypeOfTaskPanel.Enabled = True
@@ -311,12 +305,8 @@ Public Class NewTaskForm
         'enables DateTime Panel
         DateTimePanel.Enabled = True
 
-        'handles directional blue arrows
-        ArrowLabel1.Visible = False
-        ArrowLabel2.Visible = False
-        ArrowLabel3.Visible = True
-        ArrowLabel4.Visible = False
-        ArrowLabel5.Visible = False
+        'handles the arrow labels
+        HandleArrowLabels(False, False, True, False, False)
 
         'handles panels
         TypeOfTaskPanel.Enabled = False
@@ -332,7 +322,6 @@ Public Class NewTaskForm
 
 
     End Sub
-
 
     Private Sub resetTypeOfTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles resetTypeOfTaskButton.Click
 
@@ -376,5 +365,13 @@ Public Class NewTaskForm
     Private Sub MoreOptionsButton_Click(sender As System.Object, e As System.EventArgs) Handles MoreOptionsButton.Click
         MoreOptionsForm.ShowDialog()
 
+    End Sub
+
+    Public Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
+        ArrowLabel1.Visible = label1
+        ArrowLabel2.Visible = label2
+        ArrowLabel3.Visible = label3
+        ArrowLabel4.Visible = label4
+        ArrowLabel5.Visible = label5
     End Sub
 End Class
