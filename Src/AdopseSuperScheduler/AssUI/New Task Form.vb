@@ -139,6 +139,9 @@ Public Class NewTaskForm
         'handles all Reset buttons' visibility
         HandleResetButtons(True, True, True)
 
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, False)
+
     End Sub
 
     Private Sub OnceOKButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceOKButton.Click
@@ -222,9 +225,7 @@ Public Class NewTaskForm
 
     Private Sub OnceCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceCheckButton.Click
 
-        RecurrencePanel.Visible = False
-
-        ''ArrowLabel5.Visible = False
+        'handles all the arrow labels
         HandleArrowLabels(False, False, False, False, False)
 
         'handles MoreOptions & SaveTask buttons' visibility
@@ -233,10 +234,8 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, False)
 
-        With OnceOKButtonPanel
-            .Visible = True
-            .Enabled = True
-        End With
+        'handles RecurrencePanel and OnceOkButtonPanell
+        HandleRecurrence_and_OnceOkButton_Panels(False, True, True, True)
 
     End Sub
 
@@ -245,29 +244,21 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'Shows Recurrence Panel
-        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
-        RecurrencePanel.Visible = True
-        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-
-        Label2.Text = "days"
-
-        'enables ok button
-        typeOfTaskOkButton.Enabled = True
-
-        'handles things that other Types have enabled
-        WeekdaysLabel.Visible = False
-        WeekdaysDropDownButton.Visible = False
-        MonthDaysLabel.Visible = False
-        MonthDaysDropDownButton.Visible = False
-        MonthsLabel.Visible = False
-        MonthsDropDownButton.Visible = False
-
         'handles MoreOptions & SaveTask buttons' visibility
         HandleMoreAndSaveButtons(True, False)
 
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
+
+        'handles RecurrencePanel and OnceOkButtonPanell
+        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+
+        'handles RecurrencePanel's content
+        HandleRecPanelContent(False, False, False, False, False, False)
+
+        Label2.Text = "days"
+
+        typeOfTaskOkButton.Enabled = True 'enables ok button
 
     End Sub
 
@@ -276,35 +267,21 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'Shows Recurrence Panel
-        RecurrencePanel.Visible = True
-        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
-
-        'changes Label2 days->weeks
-        Label2.Text = "weeks"
-
-        'handles things that other Types have enabled
-        MonthDaysLabel.Visible = False
-        MonthDaysDropDownButton.Visible = False
-        MonthsLabel.Visible = False
-        MonthsDropDownButton.Visible = False
-
-        'shows Weekdays Label
-        WeekdaysLabel.Visible = True
-
-        'shows WeekdaysDropDown Button
-        WeekdaysDropDownButton.Visible = True
-
-        'enables the OK button
-        typeOfTaskOkButton.Enabled = True
-
-        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-
         'handles MoreOptions & SaveTask buttons' visibility
         HandleMoreAndSaveButtons(True, False)
 
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
+
+        'handles RecurrencePanel and OnceOkButtonPanell
+        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+
+        'handles RecurrencePanel's content
+        HandleRecPanelContent(True, True, False, False, False, False)
+
+        Label2.Text = "weeks"
+
+        typeOfTaskOkButton.Enabled = True 'enables the OK button
 
     End Sub
 
@@ -313,38 +290,24 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'Shows Recurrence Panel
-        RecurrencePanel.Visible = True
-        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
-
-        'enables ok button
-        typeOfTaskOkButton.Enabled = True
-
-        'changes Label2 days->months
-        Label2.Text = "months"
-
-        'handles things that other Types have enabled
-        WeekdaysLabel.Visible = False
-        WeekdaysDropDownButton.Visible = False
-        MonthsLabel.Visible = False
-        MonthsDropDownButton.Visible = False
-
-        'shows MonthDay sLabel
-        MonthDaysLabel.Visible = True
-
-        'shows MonthDays DropDown Button
-        MonthDaysDropDownButton.Visible = True
-
-        'enables the OK button
-        typeOfTaskOkButton.Enabled = True
-
-        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-
         'handles MoreOptions & SaveTask buttons' visibility
         HandleMoreAndSaveButtons(True, False)
 
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
+
+        'handles RecurrencePanel and OnceOkButtonPanell
+        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+
+        'enables ok button
+        typeOfTaskOkButton.Enabled = True
+
+        'handles RecurrencePanel's content
+        HandleRecPanelContent(False, False, True, True, False, False)
+
+        Label2.Text = "months"
+
+        typeOfTaskOkButton.Enabled = True 'enables the OK button
 
     End Sub
 
@@ -353,34 +316,21 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'Shows Recurrence Panel
-        RecurrencePanel.Visible = True
-        RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
-
-        'enables ok button
-        typeOfTaskOkButton.Enabled = True
-
-        'changes Label2 days->years
-        Label2.Text = "years"
-
-        'handles things that other Types have enabled
-        WeekdaysLabel.Visible = False
-        WeekdaysDropDownButton.Visible = False
-        MonthDaysLabel.Visible = False
-        MonthDaysDropDownButton.Visible = False
-
-        'shows Months Label
-        MonthsLabel.Visible = True
-        'shows Months DropDown Button
-        MonthsDropDownButton.Visible = True
-
-        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-
         'handles MoreOptions & SaveTask buttons' visibility
         HandleMoreAndSaveButtons(True, False)
 
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
+
+        'handles RecurrencePanel and OnceOkButtonPanell
+        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+
+        'handles RecurrencePanel's content
+        HandleRecPanelContent(False, False, False, False, True, True)
+
+        Label2.Text = "years"
+
+        typeOfTaskOkButton.Enabled = True 'enables ok button
 
     End Sub
 #End Region
@@ -394,7 +344,7 @@ Public Class NewTaskForm
 
 #Region "My handle-methods"
     'handles the blue directional ArrowLabels visibility
-    Public Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
+    Private Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
                                     ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
         ArrowLabel1.Visible = label1
         ArrowLabel2.Visible = label2
@@ -404,7 +354,7 @@ Public Class NewTaskForm
     End Sub
 
     'handles ChooseFile Panel (visibility and label text)
-    Public Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
+    Private Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
 
         'handles the panel's status
         chooseFilePanel.Enabled = status
@@ -420,7 +370,7 @@ Public Class NewTaskForm
     End Sub
 
     'handles all panels' visibility
-    Public Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
+    Private Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
                                 ByVal panel4 As Boolean, ByVal panel5 As Boolean, ByVal panel6 As Boolean)
 
         KindOfTaskPanel.Enabled = panel1
@@ -433,13 +383,13 @@ Public Class NewTaskForm
     End Sub
 
     'handles MoreOptions & SaveTask buttons' visibility
-    Public Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
+    Private Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
         MoreOptionsButton.Enabled = more
         SaveTaskButton.Enabled = save
     End Sub
 
     'handles all Reset buttons' visibility
-    Public Sub HandleResetButtons(ByVal first As Boolean, ByVal second As Boolean, ByVal third As Boolean)
+    Private Sub HandleResetButtons(ByVal first As Boolean, ByVal second As Boolean, ByVal third As Boolean)
 
         resetChooseFileButton.Visible = first
         resetDateTimeButton.Visible = second
@@ -448,7 +398,7 @@ Public Class NewTaskForm
     End Sub
 
     'handles all Rectangle Shapes
-    Public Sub HandleRectangles(ByVal rectangle1 As Boolean, ByVal rectangle2 As Boolean, _
+    Private Sub HandleRectangles(ByVal rectangle1 As Boolean, ByVal rectangle2 As Boolean, _
                                 ByVal rectangle3 As Boolean, ByVal rectangle4 As Boolean, ByVal rectangle5 As Boolean)
 
         RectangleShape1.Visible = rectangle1
@@ -456,6 +406,30 @@ Public Class NewTaskForm
         RectangleShape3.Visible = rectangle3
         RectangleShape4.Visible = rectangle4
         RectangleShape5.Visible = rectangle5
+
+    End Sub
+
+    'handles RecurrencePanel and OnceOkButtonPanell
+    Private Sub HandleRecurrence_and_OnceOkButton_Panels(ByVal RecVis As Boolean, ByVal RecEn As Boolean, _
+                                                         ByVal OnceVis As Boolean, ByVal OnceEn As Boolean)
+        RecurrencePanel.Visible = RecVis
+        RecurrencePanel.Enabled = RecEn
+        OnceOKButtonPanel.Visible = OnceVis
+        OnceOKButtonPanel.Enabled = OnceEn
+
+    End Sub
+
+    'handles RecurrencePanel's content
+    Private Sub HandleRecPanelContent(ByVal wkLbl As Boolean, ByVal wkDrpDnBtn As Boolean, _
+                                      ByVal mnthDLbl As Boolean, ByVal mnthDDrpDnBtn As Boolean, _
+                                      ByVal mnthLbl As Boolean, ByVal mnthDrpDnBtn As Boolean)
+
+        WeekdaysLabel.Visible = wkLbl
+        WeekdaysDropDownButton.Visible = wkDrpDnBtn
+        MonthDaysLabel.Visible = mnthDLbl
+        MonthDaysDropDownButton.Visible = mnthDDrpDnBtn
+        MonthsLabel.Visible = mnthLbl
+        MonthsDropDownButton.Visible = mnthDrpDnBtn
 
     End Sub
 
