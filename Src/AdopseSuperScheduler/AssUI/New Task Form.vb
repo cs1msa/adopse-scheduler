@@ -2,24 +2,20 @@ Imports Microsoft.Win32
 
 Public Class NewTaskForm
 
-    Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs)
-        MsgBox("wtf")
-    End Sub
+    Private Sub chooseFileBrowseButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileBrowseButton.Click
 
-
-    Private Sub exeBrowseButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileBrowseButton.Click
         OpenFileDialog.ShowDialog()
 
     End Sub
 
     Private Sub OpenFileDialog_FileOk(sender As System.Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog.FileOk
+
         chooseFileTextBox.Text = OpenFileDialog.FileName
 
     End Sub
 
 
-
-#Region "what kind of task -> checkbuttons"
+#Region "kind of task(exe, multimedia, etc) checkbuttons"
 
     Private Sub ExecutableCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ExecutableCheckButton.Click
 
@@ -34,6 +30,9 @@ Public Class NewTaskForm
 
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, True, False, False, False)
 
     End Sub
 
@@ -54,6 +53,9 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
 
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, True, False, False, False)
+
     End Sub
 
     Private Sub OtherCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OtherCheckButton.Click
@@ -70,78 +72,170 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, True, False, False, False)
 
-    End Sub
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, True, False, False, False)
 
-#End Region
-
-    Private Sub chooseFileTextBox_TextChanged(sender As System.Object, e As System.EventArgs) Handles chooseFileTextBox.TextChanged
-        chooseFileOkButton.Enabled = True
-
-    End Sub
-
-    Private Sub chooseFileOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileOkButton.Click
-
-        'disables kind of task panel
-        KindOfTaskPanel.Enabled = False
-
-        'disables choose file panel
-        chooseFilePanel.Enabled = False
-
-        'Shows Reset Button
-        resetChooseFileButton.Visible = True
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, True, False, False)
-
-        'enables date and time picker panel
-        DateTimePanel.Enabled = True
-
-    End Sub
-
-    Private Sub resetChooseFileButton_Click(sender As System.Object, e As System.EventArgs) Handles resetChooseFileButton.Click
-        'enables KindOfTask Panel
-        KindOfTaskPanel.Enabled = True
-
-        'Enables choosFile Panel
-        chooseFilePanel.Enabled = True
-
-        'handles the arrow labels
-        HandleArrowLabels(True, False, False, False, False)
-
-        'handles all reset buttons
-        resetDateTimeButton.Visible = False
-        resetTypeOfTaskButton.Visible = False
-
-        'handles all panels
-        DateTimePanel.Enabled = False
-        TypeOfTaskPanel.Enabled = False
-        RecurrencePanel.Enabled = False
-        OnceOKButtonPanel.Visible = False
-
-        'handles MoreOptions and SaveTask buttons
-        MoreOptionsButton.Enabled = False
-        SaveTaskButton.Enabled = False
-
-        'Hides itself
-        resetChooseFileButton.Visible = False
     End Sub
 
     Private Sub ReminderCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ReminderCheckButton.Click
         MsgBox("Does nothing yet")
     End Sub
 
+#End Region
+
+    Private Sub chooseFileTextBox_TextChanged(sender As System.Object, e As System.EventArgs) Handles chooseFileTextBox.TextChanged
+
+        chooseFileOkButton.Enabled = True
+
+    End Sub
+
+#Region "OK Buttons"
+    Private Sub chooseFileOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileOkButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, True, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, True, False, False)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, False, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, True, False, False)
+
+    End Sub
+
+    Private Sub chooseDateTimeOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseDateTimeOkButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, False, True, True, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, True, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, True, False)
+
+    End Sub
+
+    Private Sub typeOfTaskOkButton_Click(sender As System.Object, e As System.EventArgs) Handles typeOfTaskOkButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, False, False, False, False)
+
+        ''ArrowLabel5.Visible = False
+        HandleArrowLabels(False, False, False, False, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(False, True)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, True, True)
+
+    End Sub
+
+    Private Sub OnceOKButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceOKButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, False, False, False, False)
+
+        ''ArrowLabel4.Visible = False
+        HandleArrowLabels(False, False, False, False, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(False, True)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, True, True)
+
+    End Sub
+#End Region
+
+#Region "Reset Buttons"
+    Private Sub resetChooseFileButton_Click(sender As System.Object, e As System.EventArgs) Handles resetChooseFileButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(True, True, False, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(True, False, False, False, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(False, False)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(False, False, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(True, False, False, False, False)
+
+    End Sub
+
+    Private Sub resetDateTimeButton_Click(sender As System.Object, e As System.EventArgs) Handles resetDateTimeButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, True, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, True, False, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(False, False)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, False, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, True, False, False)
+
+    End Sub
+
+    Private Sub resetTypeOfTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles resetTypeOfTaskButton.Click
+
+        'handles all panels' visibility
+        HandleAllPanels(False, False, False, True, True, True)
+
+        ''ArrowLabel4.Visible = True
+        HandleArrowLabels(False, False, False, True, False)
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Reset buttons' visibility
+        HandleResetButtons(True, True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, True, False)
+
+    End Sub
+
+#End Region
+
+#Region "type of task(once, daily, weekly, etc) checkbuttons"
+
     Private Sub OnceCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceCheckButton.Click
 
         RecurrencePanel.Visible = False
 
-        ArrowLabel5.Visible = False
+        ''ArrowLabel5.Visible = False
+        HandleArrowLabels(False, False, False, False, False)
 
-        MoreOptionsButton.Enabled = True
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, False)
 
         With OnceOKButtonPanel
             .Visible = True
             .Enabled = True
-
         End With
 
     End Sub
@@ -151,10 +245,10 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-
         'Shows Recurrence Panel
-        RecurrencePanel.Visible = True
         RecurrencePanel.Enabled = True 'because it might have been disabled from a Reset Button
+        RecurrencePanel.Visible = True
+        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
 
         Label2.Text = "days"
 
@@ -169,11 +263,11 @@ Public Class NewTaskForm
         MonthsLabel.Visible = False
         MonthsDropDownButton.Visible = False
 
-        OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
 
-        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
-        MoreOptionsButton.Enabled = True
-
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
 
     End Sub
 
@@ -181,7 +275,6 @@ Public Class NewTaskForm
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
-
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
@@ -206,8 +299,12 @@ Public Class NewTaskForm
         typeOfTaskOkButton.Enabled = True
 
         OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
-        MoreOptionsButton.Enabled = True
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
 
     End Sub
 
@@ -215,7 +312,6 @@ Public Class NewTaskForm
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
-
 
         'Shows Recurrence Panel
         RecurrencePanel.Visible = True
@@ -243,8 +339,12 @@ Public Class NewTaskForm
         typeOfTaskOkButton.Enabled = True
 
         OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
-        MoreOptionsButton.Enabled = True
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
 
     End Sub
 
@@ -275,102 +375,27 @@ Public Class NewTaskForm
         MonthsDropDownButton.Visible = True
 
         OnceOKButtonPanel.Visible = False 'in case it has been enabled by Once button
-        SaveTaskButton.Enabled = False 'in case it has been enabled by Once button
-        MoreOptionsButton.Enabled = True
+
+        'handles MoreOptions & SaveTask buttons' visibility
+        HandleMoreAndSaveButtons(True, False)
+
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
 
     End Sub
+#End Region
 
-    Private Sub chooseDateTimeOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseDateTimeOkButton.Click
-
-        'disables DateTimePanel
-        DateTimePanel.Enabled = False
-
-
-        'Shows Reset Buttton
-        resetDateTimeButton.Visible = True
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, True, False)
-
-        'enables TypeOFTask Panel
-        TypeOfTaskPanel.Enabled = True
-
-        RecurrencePanel.Enabled = True 'because of Reset Buttons
-
-
-    End Sub
-
-    Private Sub resetDateTimeButton_Click(sender As System.Object, e As System.EventArgs) Handles resetDateTimeButton.Click
-
-        'enables DateTime Panel
-        DateTimePanel.Enabled = True
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, True, False, False)
-
-        'handles panels
-        TypeOfTaskPanel.Enabled = False
-        RecurrencePanel.Enabled = False
-        OnceOKButtonPanel.Visible = False
-
-        'handles MoreOptions and SaveTask buttons
-        MoreOptionsButton.Enabled = False
-        SaveTaskButton.Enabled = False
-
-        'hides itself
-        resetDateTimeButton.Visible = False
-
-
-    End Sub
-
-    Private Sub resetTypeOfTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles resetTypeOfTaskButton.Click
-
-        TypeOfTaskPanel.Enabled = True
-        RecurrencePanel.Enabled = True
-        OnceOKButtonPanel.Enabled = True
-        MoreOptionsButton.Enabled = True
-        ArrowLabel4.Visible = True
-
-        SaveTaskButton.Enabled = False
-
-        'hidets itself
-        resetTypeOfTaskButton.Visible = False
-
-    End Sub
-
-    Private Sub typeOfTaskOkButton_Click(sender As System.Object, e As System.EventArgs) Handles typeOfTaskOkButton.Click
-
-        TypeOfTaskPanel.Enabled = False
-        RecurrencePanel.Enabled = False
-
-        MoreOptionsButton.Enabled = False
-
-        SaveTaskButton.Enabled = True
-        resetTypeOfTaskButton.Visible = True
-
-        ArrowLabel5.Visible = False
-    End Sub
-
-    Private Sub OnceOKButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceOKButton.Click
-        TypeOfTaskPanel.Enabled = False
-        RecurrencePanel.Enabled = False
-
-        MoreOptionsButton.Enabled = False
-        ArrowLabel4.Visible = False
-
-        OnceOKButtonPanel.Enabled = False
-
-        SaveTaskButton.Enabled = True
-        resetTypeOfTaskButton.Visible = True
-    End Sub
 
     Private Sub MoreOptionsButton_Click(sender As System.Object, e As System.EventArgs) Handles MoreOptionsButton.Click
+
         MoreOptionsForm.ShowDialog()
 
     End Sub
 
-    'handles the blue directional ArrowLabels
-    Public Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
+#Region "My handle-methods"
+    'handles the blue directional ArrowLabels visibility
+    Public Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
+                                    ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
         ArrowLabel1.Visible = label1
         ArrowLabel2.Visible = label2
         ArrowLabel3.Visible = label3
@@ -392,5 +417,63 @@ Public Class NewTaskForm
             chooseFileOkButton.Enabled = False
         End If
 
+    End Sub
+
+    'handles all panels' visibility
+    Public Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
+                                ByVal panel4 As Boolean, ByVal panel5 As Boolean, ByVal panel6 As Boolean)
+
+        KindOfTaskPanel.Enabled = panel1
+        chooseFilePanel.Enabled = panel2
+        DateTimePanel.Enabled = panel3
+        TypeOfTaskPanel.Enabled = panel4
+        RecurrencePanel.Enabled = panel5
+        OnceOKButtonPanel.Enabled = panel6
+
+    End Sub
+
+    'handles MoreOptions & SaveTask buttons' visibility
+    Public Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
+        MoreOptionsButton.Enabled = more
+        SaveTaskButton.Enabled = save
+    End Sub
+
+    'handles all Reset buttons' visibility
+    Public Sub HandleResetButtons(ByVal first As Boolean, ByVal second As Boolean, ByVal third As Boolean)
+
+        resetChooseFileButton.Visible = first
+        resetDateTimeButton.Visible = second
+        resetTypeOfTaskButton.Visible = third
+
+    End Sub
+
+    'handles all Rectangle Shapes
+    Public Sub HandleRectangles(ByVal rectangle1 As Boolean, ByVal rectangle2 As Boolean, _
+                                ByVal rectangle3 As Boolean, ByVal rectangle4 As Boolean, ByVal rectangle5 As Boolean)
+
+        RectangleShape1.Visible = rectangle1
+        RectangleShape2.Visible = rectangle2
+        RectangleShape3.Visible = rectangle3
+        RectangleShape4.Visible = rectangle4
+        RectangleShape5.Visible = rectangle5
+
+    End Sub
+
+#End Region
+
+    Private Sub chooseFilePanel_MouseEnter(sender As System.Object, e As System.EventArgs) Handles chooseFilePanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, True, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, True, False, False, False)
+    End Sub
+
+    Private Sub RecurrencePanel_MouseEnter(sender As System.Object, e As System.EventArgs) Handles RecurrencePanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
     End Sub
 End Class

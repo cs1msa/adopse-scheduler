@@ -85,6 +85,8 @@ Partial Class NewTaskForm
         Me.KryptonNumericUpDown1 = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.Label1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.KryptonLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.ShapeContainer6 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ArrowLabel4 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.resetDateTimeButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -97,6 +99,8 @@ Partial Class NewTaskForm
         Me.KryptonLabel2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.DateLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.DatePicker = New ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.TypeOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.YearlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.DailyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
@@ -104,17 +108,23 @@ Partial Class NewTaskForm
         Me.OnceCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.MonthlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.WeeklyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.ShapeContainer4 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.KindOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.ExecutableCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.OtherCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.MultimediaCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.ReminderCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.KindOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.chooseFilePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.chooseFileOkButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileBrowseButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileTextBox = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.chooseFileLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.resetChooseFileButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
@@ -175,16 +185,16 @@ Partial Class NewTaskForm
         'OnceOKButtonPanel
         '
         Me.OnceOKButtonPanel.Controls.Add(Me.OnceOKButton)
-        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 527)
+        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 520)
         Me.OnceOKButtonPanel.Name = "OnceOKButtonPanel"
-        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 58)
+        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 65)
         Me.OnceOKButtonPanel.TabIndex = 31
         Me.OnceOKButtonPanel.Visible = False
         '
         'OnceOKButton
         '
         Me.OnceOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.OnceOKButton.Location = New System.Drawing.Point(29, 11)
+        Me.OnceOKButton.Location = New System.Drawing.Point(29, 18)
         Me.OnceOKButton.Name = "OnceOKButton"
         Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
         Me.OnceOKButton.TabIndex = 32
@@ -251,9 +261,10 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.Controls.Add(Me.KryptonNumericUpDown1)
         Me.RecurrencePanel.Controls.Add(Me.Label1)
         Me.RecurrencePanel.Controls.Add(Me.KryptonLabel3)
+        Me.RecurrencePanel.Controls.Add(Me.ShapeContainer6)
         Me.RecurrencePanel.Location = New System.Drawing.Point(58, 380)
         Me.RecurrencePanel.Name = "RecurrencePanel"
-        Me.RecurrencePanel.Size = New System.Drawing.Size(383, 141)
+        Me.RecurrencePanel.Size = New System.Drawing.Size(383, 152)
         Me.RecurrencePanel.TabIndex = 25
         Me.RecurrencePanel.Visible = False
         '
@@ -557,7 +568,7 @@ Partial Class NewTaskForm
         '
         Me.typeOfTaskOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.typeOfTaskOkButton.Enabled = False
-        Me.typeOfTaskOkButton.Location = New System.Drawing.Point(154, 102)
+        Me.typeOfTaskOkButton.Location = New System.Drawing.Point(162, 102)
         Me.typeOfTaskOkButton.Name = "typeOfTaskOkButton"
         Me.typeOfTaskOkButton.Size = New System.Drawing.Size(33, 32)
         Me.typeOfTaskOkButton.TabIndex = 24
@@ -600,8 +611,29 @@ Partial Class NewTaskForm
         Me.KryptonLabel3.Location = New System.Drawing.Point(71, 3)
         Me.KryptonLabel3.Name = "KryptonLabel3"
         Me.KryptonLabel3.Size = New System.Drawing.Size(223, 20)
+        Me.KryptonLabel3.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel3.TabIndex = 0
         Me.KryptonLabel3.Values.Text = "Please choose the recurrence of the task"
+        '
+        'ShapeContainer6
+        '
+        Me.ShapeContainer6.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer6.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer6.Name = "ShapeContainer6"
+        Me.ShapeContainer6.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape5})
+        Me.ShapeContainer6.Size = New System.Drawing.Size(383, 152)
+        Me.ShapeContainer6.TabIndex = 31
+        Me.ShapeContainer6.TabStop = False
+        '
+        'RectangleShape5
+        '
+        Me.RectangleShape5.BorderColor = System.Drawing.Color.Gold
+        Me.RectangleShape5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
+        Me.RectangleShape5.Location = New System.Drawing.Point(8, 13)
+        Me.RectangleShape5.Name = "RectangleShape5"
+        Me.RectangleShape5.SelectionColor = System.Drawing.Color.Transparent
+        Me.RectangleShape5.Size = New System.Drawing.Size(352, 126)
+        Me.RectangleShape5.Visible = False
         '
         'ArrowLabel4
         '
@@ -662,10 +694,11 @@ Partial Class NewTaskForm
         Me.DateTimePanel.Controls.Add(Me.KryptonLabel2)
         Me.DateTimePanel.Controls.Add(Me.DateLabel)
         Me.DateTimePanel.Controls.Add(Me.DatePicker)
+        Me.DateTimePanel.Controls.Add(Me.ShapeContainer1)
         Me.DateTimePanel.Enabled = False
         Me.DateTimePanel.Location = New System.Drawing.Point(47, 205)
         Me.DateTimePanel.Name = "DateTimePanel"
-        Me.DateTimePanel.Size = New System.Drawing.Size(433, 91)
+        Me.DateTimePanel.Size = New System.Drawing.Size(433, 102)
         Me.DateTimePanel.TabIndex = 19
         '
         'chooseDateTimeOkButton
@@ -685,6 +718,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel1.Location = New System.Drawing.Point(82, 0)
         Me.KryptonLabel1.Name = "KryptonLabel1"
         Me.KryptonLabel1.Size = New System.Drawing.Size(257, 20)
+        Me.KryptonLabel1.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel1.TabIndex = 15
         Me.KryptonLabel1.Values.Text = "Please choose start date and time for the task!"
         '
@@ -722,6 +756,26 @@ Partial Class NewTaskForm
         Me.DatePicker.Size = New System.Drawing.Size(208, 21)
         Me.DatePicker.TabIndex = 14
         '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape3})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(433, 102)
+        Me.ShapeContainer1.TabIndex = 24
+        Me.ShapeContainer1.TabStop = False
+        '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.BorderColor = System.Drawing.Color.Gold
+        Me.RectangleShape3.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
+        Me.RectangleShape3.Location = New System.Drawing.Point(5, 9)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.SelectionColor = System.Drawing.Color.Transparent
+        Me.RectangleShape3.Size = New System.Drawing.Size(421, 85)
+        Me.RectangleShape3.Visible = False
+        '
         'TypeOfTaskPanel
         '
         Me.TypeOfTaskPanel.Controls.Add(Me.YearlyCheckButton)
@@ -730,15 +784,16 @@ Partial Class NewTaskForm
         Me.TypeOfTaskPanel.Controls.Add(Me.OnceCheckButton)
         Me.TypeOfTaskPanel.Controls.Add(Me.MonthlyCheckButton)
         Me.TypeOfTaskPanel.Controls.Add(Me.WeeklyCheckButton)
+        Me.TypeOfTaskPanel.Controls.Add(Me.ShapeContainer4)
         Me.TypeOfTaskPanel.Enabled = False
-        Me.TypeOfTaskPanel.Location = New System.Drawing.Point(47, 302)
+        Me.TypeOfTaskPanel.Location = New System.Drawing.Point(39, 302)
         Me.TypeOfTaskPanel.Name = "TypeOfTaskPanel"
-        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(394, 72)
+        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(433, 83)
         Me.TypeOfTaskPanel.TabIndex = 13
         '
         'YearlyCheckButton
         '
-        Me.YearlyCheckButton.Location = New System.Drawing.Point(331, 29)
+        Me.YearlyCheckButton.Location = New System.Drawing.Point(351, 29)
         Me.YearlyCheckButton.Name = "YearlyCheckButton"
         Me.YearlyCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.YearlyCheckButton.TabIndex = 4
@@ -746,7 +801,7 @@ Partial Class NewTaskForm
         '
         'DailyCheckButton
         '
-        Me.DailyCheckButton.Location = New System.Drawing.Point(85, 29)
+        Me.DailyCheckButton.Location = New System.Drawing.Point(96, 29)
         Me.DailyCheckButton.Name = "DailyCheckButton"
         Me.DailyCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.DailyCheckButton.TabIndex = 1
@@ -758,12 +813,13 @@ Partial Class NewTaskForm
         Me.TypeOfTaskLabel.Location = New System.Drawing.Point(85, 3)
         Me.TypeOfTaskLabel.Name = "TypeOfTaskLabel"
         Me.TypeOfTaskLabel.Size = New System.Drawing.Size(223, 20)
+        Me.TypeOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.TypeOfTaskLabel.TabIndex = 12
         Me.TypeOfTaskLabel.Values.Text = "What type of task do you want it to be ?"
         '
         'OnceCheckButton
         '
-        Me.OnceCheckButton.Location = New System.Drawing.Point(3, 29)
+        Me.OnceCheckButton.Location = New System.Drawing.Point(13, 29)
         Me.OnceCheckButton.Name = "OnceCheckButton"
         Me.OnceCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.OnceCheckButton.TabIndex = 0
@@ -771,7 +827,7 @@ Partial Class NewTaskForm
         '
         'MonthlyCheckButton
         '
-        Me.MonthlyCheckButton.Location = New System.Drawing.Point(251, 29)
+        Me.MonthlyCheckButton.Location = New System.Drawing.Point(263, 29)
         Me.MonthlyCheckButton.Name = "MonthlyCheckButton"
         Me.MonthlyCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.MonthlyCheckButton.TabIndex = 3
@@ -779,11 +835,31 @@ Partial Class NewTaskForm
         '
         'WeeklyCheckButton
         '
-        Me.WeeklyCheckButton.Location = New System.Drawing.Point(165, 29)
+        Me.WeeklyCheckButton.Location = New System.Drawing.Point(174, 29)
         Me.WeeklyCheckButton.Name = "WeeklyCheckButton"
         Me.WeeklyCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.WeeklyCheckButton.TabIndex = 2
         Me.WeeklyCheckButton.Values.Text = "Weekly"
+        '
+        'ShapeContainer4
+        '
+        Me.ShapeContainer4.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer4.Name = "ShapeContainer4"
+        Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4})
+        Me.ShapeContainer4.Size = New System.Drawing.Size(433, 83)
+        Me.ShapeContainer4.TabIndex = 13
+        Me.ShapeContainer4.TabStop = False
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.BorderColor = System.Drawing.Color.Gold
+        Me.RectangleShape4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
+        Me.RectangleShape4.Location = New System.Drawing.Point(4, 13)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.SelectionColor = System.Drawing.Color.Transparent
+        Me.RectangleShape4.Size = New System.Drawing.Size(421, 61)
+        Me.RectangleShape4.Visible = False
         '
         'KindOfTaskPanel
         '
@@ -792,8 +868,10 @@ Partial Class NewTaskForm
         Me.KindOfTaskPanel.Controls.Add(Me.MultimediaCheckButton)
         Me.KindOfTaskPanel.Controls.Add(Me.ReminderCheckButton)
         Me.KindOfTaskPanel.Controls.Add(Me.KindOfTaskLabel)
+        Me.KindOfTaskPanel.Controls.Add(Me.ShapeContainer2)
         Me.KindOfTaskPanel.Location = New System.Drawing.Point(94, 12)
         Me.KindOfTaskPanel.Name = "KindOfTaskPanel"
+        Me.KindOfTaskPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile
         Me.KindOfTaskPanel.Size = New System.Drawing.Size(317, 84)
         Me.KindOfTaskPanel.TabIndex = 11
         '
@@ -847,8 +925,28 @@ Partial Class NewTaskForm
         Me.KindOfTaskLabel.Location = New System.Drawing.Point(41, 3)
         Me.KindOfTaskLabel.Name = "KindOfTaskLabel"
         Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 20)
+        Me.KindOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KindOfTaskLabel.TabIndex = 1
         Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
+        '
+        'ShapeContainer2
+        '
+        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer2.Name = "ShapeContainer2"
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape1})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(317, 84)
+        Me.ShapeContainer2.TabIndex = 11
+        Me.ShapeContainer2.TabStop = False
+        '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Gold
+        Me.RectangleShape1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
+        Me.RectangleShape1.Location = New System.Drawing.Point(6, 11)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.SelectionColor = System.Drawing.Color.Transparent
+        Me.RectangleShape1.Size = New System.Drawing.Size(299, 68)
         '
         'chooseFilePanel
         '
@@ -856,17 +954,18 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.Controls.Add(Me.chooseFileBrowseButton)
         Me.chooseFilePanel.Controls.Add(Me.chooseFileTextBox)
         Me.chooseFilePanel.Controls.Add(Me.chooseFileLabel)
+        Me.chooseFilePanel.Controls.Add(Me.ShapeContainer3)
         Me.chooseFilePanel.Enabled = False
-        Me.chooseFilePanel.Location = New System.Drawing.Point(66, 99)
+        Me.chooseFilePanel.Location = New System.Drawing.Point(47, 99)
         Me.chooseFilePanel.Name = "chooseFilePanel"
-        Me.chooseFilePanel.Size = New System.Drawing.Size(388, 89)
+        Me.chooseFilePanel.Size = New System.Drawing.Size(407, 100)
         Me.chooseFilePanel.TabIndex = 6
         '
         'chooseFileOkButton
         '
         Me.chooseFileOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.chooseFileOkButton.Enabled = False
-        Me.chooseFileOkButton.Location = New System.Drawing.Point(155, 55)
+        Me.chooseFileOkButton.Location = New System.Drawing.Point(173, 55)
         Me.chooseFileOkButton.Name = "chooseFileOkButton"
         Me.chooseFileOkButton.Size = New System.Drawing.Size(33, 32)
         Me.chooseFileOkButton.TabIndex = 3
@@ -876,7 +975,7 @@ Partial Class NewTaskForm
         '
         'chooseFileBrowseButton
         '
-        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(297, 29)
+        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(319, 29)
         Me.chooseFileBrowseButton.Name = "chooseFileBrowseButton"
         Me.chooseFileBrowseButton.Size = New System.Drawing.Size(74, 20)
         Me.chooseFileBrowseButton.StateCommon.Content.LongText.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
@@ -886,7 +985,7 @@ Partial Class NewTaskForm
         '
         'chooseFileTextBox
         '
-        Me.chooseFileTextBox.Location = New System.Drawing.Point(3, 29)
+        Me.chooseFileTextBox.Location = New System.Drawing.Point(20, 29)
         Me.chooseFileTextBox.Name = "chooseFileTextBox"
         Me.chooseFileTextBox.ReadOnly = True
         Me.chooseFileTextBox.Size = New System.Drawing.Size(288, 20)
@@ -895,11 +994,32 @@ Partial Class NewTaskForm
         'chooseFileLabel
         '
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.chooseFileLabel.Location = New System.Drawing.Point(91, 3)
+        Me.chooseFileLabel.Location = New System.Drawing.Point(96, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
         Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
+        Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.chooseFileLabel.TabIndex = 0
         Me.chooseFileLabel.Values.Text = "Please choose your  file"
+        '
+        'ShapeContainer3
+        '
+        Me.ShapeContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer3.Name = "ShapeContainer3"
+        Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape2})
+        Me.ShapeContainer3.Size = New System.Drawing.Size(407, 100)
+        Me.ShapeContainer3.TabIndex = 4
+        Me.ShapeContainer3.TabStop = False
+        '
+        'RectangleShape2
+        '
+        Me.RectangleShape2.BorderColor = System.Drawing.Color.Gold
+        Me.RectangleShape2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
+        Me.RectangleShape2.Location = New System.Drawing.Point(6, 12)
+        Me.RectangleShape2.Name = "RectangleShape2"
+        Me.RectangleShape2.SelectionColor = System.Drawing.Color.Transparent
+        Me.RectangleShape2.Size = New System.Drawing.Size(398, 84)
+        Me.RectangleShape2.Visible = False
         '
         'resetChooseFileButton
         '
@@ -976,6 +1096,7 @@ Partial Class NewTaskForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "NewTaskForm"
+        Me.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add New Task"
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1125,4 +1246,14 @@ Partial Class NewTaskForm
     Friend WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents OnceOKButtonPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Friend WithEvents OnceOKButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents RectangleShape5 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents ShapeContainer4 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents ShapeContainer3 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
 End Class

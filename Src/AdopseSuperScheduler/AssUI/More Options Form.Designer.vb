@@ -22,6 +22,7 @@ Partial Class MoreOptionsForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MoreOptionsForm))
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.MoreOptionsOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonGroupBox3 = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
         Me.RunWhenPcOpensRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.DisplayDialogAskingRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
@@ -37,7 +38,6 @@ Partial Class MoreOptionsForm
         Me.NeverEndRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.EndAfterRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
-        Me.MoreOptionsOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
         CType(Me.KryptonGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +66,16 @@ Partial Class MoreOptionsForm
         Me.KryptonPanel.Size = New System.Drawing.Size(292, 395)
         Me.KryptonPanel.TabIndex = 0
         '
+        'MoreOptionsOKButton
+        '
+        Me.MoreOptionsOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.MoreOptionsOKButton.Location = New System.Drawing.Point(117, 339)
+        Me.MoreOptionsOKButton.Name = "MoreOptionsOKButton"
+        Me.MoreOptionsOKButton.Size = New System.Drawing.Size(53, 44)
+        Me.MoreOptionsOKButton.TabIndex = 3
+        Me.MoreOptionsOKButton.Values.Image = CType(resources.GetObject("MoreOptionsOKButton.Values.Image"), System.Drawing.Image)
+        Me.MoreOptionsOKButton.Values.Text = ""
+        '
         'KryptonGroupBox3
         '
         Me.KryptonGroupBox3.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
@@ -82,6 +92,8 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox3.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.KryptonGroupBox3.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Yellow
+        Me.KryptonGroupBox3.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonGroupBox3.TabIndex = 2
         Me.KryptonGroupBox3.Text = "If task is missed"
         Me.KryptonGroupBox3.Values.Description = "(PC was closed)"
@@ -130,6 +142,7 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox2.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.KryptonGroupBox2.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonGroupBox2.TabIndex = 1
         Me.KryptonGroupBox2.Text = "State"
         Me.KryptonGroupBox2.Values.Heading = "State"
@@ -173,6 +186,7 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox1.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.KryptonGroupBox1.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonGroupBox1.TabIndex = 0
         Me.KryptonGroupBox1.Text = "Set End Date"
         Me.KryptonGroupBox1.Values.Heading = "Set End Date"
@@ -186,7 +200,7 @@ Partial Class MoreOptionsForm
         '
         'occurencesLabel
         '
-        Me.occurencesLabel.Location = New System.Drawing.Point(139, 33)
+        Me.occurencesLabel.Location = New System.Drawing.Point(129, 31)
         Me.occurencesLabel.Name = "occurencesLabel"
         Me.occurencesLabel.Size = New System.Drawing.Size(71, 20)
         Me.occurencesLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -232,16 +246,6 @@ Partial Class MoreOptionsForm
         'KryptonManager
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
-        '
-        'MoreOptionsOKButton
-        '
-        Me.MoreOptionsOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.MoreOptionsOKButton.Location = New System.Drawing.Point(117, 339)
-        Me.MoreOptionsOKButton.Name = "MoreOptionsOKButton"
-        Me.MoreOptionsOKButton.Size = New System.Drawing.Size(53, 44)
-        Me.MoreOptionsOKButton.TabIndex = 3
-        Me.MoreOptionsOKButton.Values.Image = CType(resources.GetObject("MoreOptionsOKButton.Values.Image"), System.Drawing.Image)
-        Me.MoreOptionsOKButton.Values.Text = ""
         '
         'MoreOptionsForm
         '
