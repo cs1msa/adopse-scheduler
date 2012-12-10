@@ -1,4 +1,5 @@
 ﻿Public MustInherit Class ALATasks
+    Implements IComparable
     Protected m_next_run As Date      'the date this tasks is supposed to run
 
     Protected m_full_path As String   'contains prorgam name and path
@@ -11,7 +12,12 @@
 
     MustOverride Sub UpdateNextRun()    'updates depend on the type of the task
 
+    Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+        Dim other As ALATasks = DirectCast(obj,  _
+            ALATasks)
 
+        Return Me.m_next_run.CompareTo(other.next_run_date)
+    End Function
 
 
     Public Property program_full_path() As String
@@ -23,7 +29,7 @@
         End Set
     End Property
 
-    Public ReadOnly Property next_run_date
+    Public ReadOnly Property next_run_date As Date
         Get
             Return m_next_run
         End Get

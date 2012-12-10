@@ -8,6 +8,13 @@
         m_task_manager = New ALTaskManager()
     End Sub
 
+    'run this after the constructor
+    Public Sub Init()
+        RetrieveTasks()
+        m_task_manager.SortTasks()
+    End Sub
+
+
     Public Sub RetrieveTasks()
 
         Dim tasks_string As New List(Of String)
@@ -51,26 +58,76 @@
             (Not splited_period(1).Equals("0")) Or _
             (Not splited_period(2).Equals("0")) Then
 
-            Dim m_daily_task As New ALPeriodicTasks(a_path, m_date, _
+            Dim task As New ALPeriodicTasks(a_path, m_date, _
                                                     UInteger.Parse(splited_period(0)), _
                                                     UInteger.Parse(splited_period(1)), _
                                                     UInteger.Parse(splited_period(2)))
-            m_task_manager.AddTask(m_daily_task)
+            m_task_manager.AddTask(task)
 
         Else 'in case there is not a period create a fixed date task
-            Dim m_daily_task As New ALFixedDateTasks(a_path, m_date)
-            m_task_manager.AddTask(m_daily_task)
+            Dim task As New ALFixedDateTasks(a_path, m_date)
+            m_task_manager.AddTask(task)
         End If
 
 
     End Sub
 
+    'checks the tasks and returns the tasks the should run now or should have runned
+    Public Function CheckTasks() As List(Of ALATasks)
 
+        Dim now_date As Date = Date.Now 'System time
+        Dim list_to_return As New List(Of ALATasks)
+        For i As UInteger = 0 To m_task_manager.Count - 1 Step 1
+            Dim working_task = m_task_manager.GetTask(i)
+
+            'first check if it is supposed to run later
+            If working_task.next_run_date.CompareTo(now_date) > 0 Then
+                Exit For
+            Else
+                'else add them to the list
+                list_to_return.Add(working_task)
+            End If
+
+        Next
+        Return list_to_return
+    End Function
+
+
+    'runs the tasks that should run
     Public Sub RunTasks()
-        'na pernei thn wra tou systhmatos. (thn zhtas apo mena) 
-        'kai na perneis ta tasks kai na sygrineis tis wres aytonwn me thn wra tou systhmatos... 
-        'an einai idia kaleis thn methodo tou core pou leei runProgramm or something
+
+
+        Dim tasks As List(Of ALATasks) = checkTasks()
+
+        For Each task In tasks
+            'run the program
+            m_core.RunFullPathProgram(task.program_full_path)
+            task.UpdateNextRun()
+
+        Next
+
+
+
     End Sub
 
+
+    'add task
+    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, _
+            Optional ByVal a_period_in_days As UInteger = 0, _
+            Optional ByVal a_period_in_months As UInteger = 0, _
+            Optional ByVal a_period_in_years As UInteger = 0)
+
+        If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
+            'if it a fixed date task
+            Dim task As New ALFixedDateTasks(a_full_path, a_date)
+            m_task_manager.AddTask(task)
+
+        Else
+            'if it is a periodic task
+            Dim task As New ALPeriodicTasks(a_full_path, a_date, a_period_in_days, a_period_in_months, a_period_in_years)
+            m_task_manager.AddTask(task)
+        End If
+
+    End Sub
 
 End Class
