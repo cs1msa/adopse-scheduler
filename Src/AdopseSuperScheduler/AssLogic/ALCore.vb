@@ -58,8 +58,10 @@ Public Class ALCore
             End If
 
         End If
+
         'returns the pid
         a_pid_return = pid
+
 
 
     End Sub
