@@ -153,23 +153,6 @@
 
 
 
-    'add task
-    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, _
-            Optional ByVal a_period_in_days As UInteger = 0, _
-            Optional ByVal a_period_in_months As UInteger = 0, _
-            Optional ByVal a_period_in_years As UInteger = 0)
-
-        If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
-            'if it a fixed date task
-            Dim task As New ALFixedDateTasks(a_full_path, a_date)
-            m_task_manager.AddTask(task)
-
-        Else
-            'if it is a periodic task
-            Dim task As New ALPeriodicTasks(a_full_path, a_date, a_period_in_days, a_period_in_months, a_period_in_years)
-            m_task_manager.AddTask(task)
-        End If
-
-    End Sub
+    
 
 End Class
