@@ -27,3 +27,5 @@ C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperSch
 C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
 C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.NewTaskForm.resources
 C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MoreOptionsForm.resources
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses
+C:\Users\Lloyd\Desktop\Angry Super Scheduler\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MainForm.resources

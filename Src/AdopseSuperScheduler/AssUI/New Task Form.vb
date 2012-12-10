@@ -450,4 +450,8 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
     End Sub
+
+    Private Sub addNewTaskMainPanel_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles addNewTaskMainPanel.Paint
+
+    End Sub
 End Class

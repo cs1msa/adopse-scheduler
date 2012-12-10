@@ -210,10 +210,13 @@ Partial Class MoreOptionsForm
         'EndAfterNumericUpDown
         '
         Me.EndAfterNumericUpDown.Location = New System.Drawing.Point(87, 31)
+        Me.EndAfterNumericUpDown.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.EndAfterNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.EndAfterNumericUpDown.Name = "EndAfterNumericUpDown"
         Me.EndAfterNumericUpDown.Size = New System.Drawing.Size(36, 22)
         Me.EndAfterNumericUpDown.TabIndex = 3
         Me.EndAfterNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.EndAfterNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'EndAtRadioButton
         '
@@ -256,6 +259,7 @@ Partial Class MoreOptionsForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MoreOptionsForm"
+        Me.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "More Options"
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
