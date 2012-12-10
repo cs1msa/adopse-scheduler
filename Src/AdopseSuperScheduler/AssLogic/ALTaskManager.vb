@@ -10,7 +10,6 @@
         If Not m_task_list.Contains(a_task) Then
             m_task_list.Add(a_task)
         End If
-
     End Sub
 
     Public Sub RemoveTask(ByVal a_task As ALATasks)
@@ -36,6 +35,9 @@
         End Get
     End Property
 
+    Public Function GetTaskList()
+        Return m_task_list
+    End Function
 
 
 End Class

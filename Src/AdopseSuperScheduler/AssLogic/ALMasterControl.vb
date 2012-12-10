@@ -130,4 +130,19 @@
 
     End Sub
 
+
+    'delete task
+    Public Sub DeleteTask(a_task As ALATasks)
+        Dim m_temp_list As List(Of ALATasks)
+        m_temp_list = m_task_manager.GetTaskList()
+        If m_temp_list.Contains(a_task) Then
+            m_task_manager.RemoveTask(a_task)
+        End If
+
+        'na ginei kai to delete apo thn database
+
+    End Sub
+
+
+
 End Class
