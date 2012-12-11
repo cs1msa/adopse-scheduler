@@ -34,6 +34,7 @@ Partial Class TestingForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -48,10 +49,10 @@ Partial Class TestingForm
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
-        Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -162,6 +163,12 @@ Partial Class TestingForm
         Me.ShapeContainer1.TabIndex = 11
         Me.ShapeContainer1.TabStop = False
         '
+        'RectangleShape5
+        '
+        Me.RectangleShape5.Location = New System.Drawing.Point(258, 259)
+        Me.RectangleShape5.Name = "RectangleShape5"
+        Me.RectangleShape5.Size = New System.Drawing.Size(233, 241)
+        '
         'RectangleShape4
         '
         Me.RectangleShape4.Location = New System.Drawing.Point(9, 259)
@@ -184,7 +191,7 @@ Partial Class TestingForm
         '
         Me.RectangleShape1.Location = New System.Drawing.Point(234, 4)
         Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(257, 172)
+        Me.RectangleShape1.Size = New System.Drawing.Size(257, 205)
         '
         'Label3
         '
@@ -275,12 +282,6 @@ Partial Class TestingForm
         Me.Button11.Text = "AddFixedDateTask"
         Me.Button11.UseVisualStyleBackColor = True
         '
-        'RectangleShape5
-        '
-        Me.RectangleShape5.Location = New System.Drawing.Point(258, 259)
-        Me.RectangleShape5.Name = "RectangleShape5"
-        Me.RectangleShape5.Size = New System.Drawing.Size(233, 241)
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -308,11 +309,21 @@ Partial Class TestingForm
         Me.Button14.Text = "RetrieveTasksTest"
         Me.Button14.UseVisualStyleBackColor = True
         '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(267, 163)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(205, 23)
+        Me.Button15.TabIndex = 26
+        Me.Button15.Text = "TestUpdateToTables"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(781, 566)
+        Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Label7)
@@ -374,4 +385,5 @@ Partial Class TestingForm
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Button13 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button
+    Friend WithEvents Button15 As System.Windows.Forms.Button
 End Class

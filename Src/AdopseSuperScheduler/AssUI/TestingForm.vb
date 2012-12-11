@@ -45,6 +45,8 @@ Public Class TestingForm
 
         Dim insert_statement = database_query_factory.CreateInsertStatement("log", {"3", "'takis'", "'malakia'"})
 
+        Dim update_statement = database_query_factory.CreateUpdateStatement("log", {"pid = pid +1"})
+
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
@@ -146,5 +148,13 @@ Public Class TestingForm
 
     Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
         m_master_control.RetrieveTasks()
+    End Sub
+
+    Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
+        'create a database handler ONLY for testing purposes
+        Dim database_handler As New ALDatabaseHandler
+
+        database_handler.ExecuteUpdate("[Scheduler Tasks]", {"Program_Name = 'C:/Firefox.exe'"}, {"Task_ID = 7"})
+
     End Sub
 End Class

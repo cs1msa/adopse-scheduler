@@ -72,6 +72,7 @@
     <Compile Include="Core\ALCommandLineHandler.vb" />
     <Compile Include="Core\CoreExeptions\ALDatabaseDeleteException.vb" />
     <Compile Include="Core\CoreExeptions\ALDatabaseInsertException.vb" />
+    <Compile Include="Core\CoreExeptions\ALDatabaseUpdateException.vb" />
     <Compile Include="Core\CoreExeptions\ALPathDoesntExistCMDException.vb" />
     <Compile Include="Core\CoreExeptions\ALProccessNotFoundException.vb" />
     <Compile Include="Core\CoreExeptions\ALProgramDoesntExistCMDException.vb" />

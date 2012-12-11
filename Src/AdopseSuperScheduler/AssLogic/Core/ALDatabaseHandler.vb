@@ -122,4 +122,27 @@ Public Class ALDatabaseHandler
         End If
     End Sub
 
+    Public Sub ExecuteUpdate(ByVal a_table As String, ByVal a_updates As String(), ByVal ParamArray a_restrictions As String())
+
+        Dim number_of_rows_affected As Integer
+        Dim command_string As String
+
+        Using m_database_connection As New OleDbConnection(m_connection_String)
+            command_string = m_database_query_factory.CreateUpdateStatement(a_table, a_updates, a_restrictions)
+
+            m_database_command = New OleDbCommand(command_string, m_database_connection)
+
+            'connect and execute
+            m_database_connection.Open()
+            number_of_rows_affected = m_database_command.ExecuteNonQuery()
+            m_database_connection.Close()
+
+        End Using
+
+        If number_of_rows_affected = 0 Then
+            Throw New ALDatabaseUpdateException(command_string)
+        End If
+
+    End Sub
+
 End Class
