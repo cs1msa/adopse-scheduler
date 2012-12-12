@@ -6,6 +6,7 @@ Public Class ALCore
     Dim m_command_line_handler As ALCommandLineHandler
     Dim m_database_handler As ALDatabaseHandler
 
+   
 
     Public Sub New()
 
@@ -89,14 +90,14 @@ Public Class ALCore
     'tables till now are "Log" and "[Scheduler Tasks]"
     'Log : Action_ID, Action_Date, Program_Name, Details
     '[Scheduler Tasks] : Task_ID, Program_Name, Next_Run, Period, Status, Description, Close_After
-    Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+    Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String()) As DataTable
 
         m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)
         Return m_database_handler.GetSelectResultAsDataTable()
 
     End Function
 
-    Public Function GetFromATableAsStringList(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
+    Public Function GetFromATableAsStringList(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String()) As List(Of String)
 
         m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)
         Return m_database_handler.GetSelectResultAsStringList()
@@ -113,6 +114,11 @@ Public Class ALCore
         m_database_handler.ExecuteDelete(a_table, a_restrictions)
 
     End Sub
+
+    Public Sub UpdateInTable(ByVal a_table As String, ByVal a_updates As String(), ByVal ParamArray a_restrictions As String())
+        m_database_handler.ExecuteUpdate(a_table, a_updates, a_restrictions)
+    End Sub
+
     '-------------------------------------DataBase functions End-------------------------------------------------------
 
 

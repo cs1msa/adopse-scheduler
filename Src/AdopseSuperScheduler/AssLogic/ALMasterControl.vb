@@ -3,6 +3,9 @@
     Dim m_core As ALCore
     Dim m_task_manager As ALTaskManager
 
+    Dim m_last_log_id As Integer
+    Dim m_last_scheduler_tasks_id As Integer
+
     Public Sub New()
         m_core = New ALCore()
         m_task_manager = New ALTaskManager()
@@ -10,32 +13,45 @@
 
     'run this after the constructor
     Public Sub Init()
+
+        Dim data_table As DataTable = m_core.GetFromATableAsDataTable("Log", {"Action_ID"})
+        m_last_log_id = data_table.Rows(data_table.Rows.Count - 1).Item(0)
+        data_table = m_core.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID"})
+        m_last_scheduler_tasks_id = data_table.Rows(data_table.Rows.Count - 1).Item(0)
+
+
         RetrieveTasks()
         m_task_manager.SortTasks()
+
     End Sub
 
 
     Public Sub RetrieveTasks()
 
         Dim tasks_string As New List(Of String)
-        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Program_Name", "Run_Date", "Period"})
+        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Program_Name", "Next_Run", "Period", "Status", "Description", "Close_After"})
 
         Dim path As String
         Dim date_ As String
         Dim period As String
-
+        Dim status As String
+        Dim description As String
+        Dim close_after As String
         For Each row As String In tasks_string
             Dim splitted_row = row.Split("|")
-            path = splitted_row(0).ToString
-            date_ = splitted_row(1).ToString
-            period = splitted_row(2).ToString
+            path = splitted_row(0)
+            date_ = splitted_row(1)
+            period = splitted_row(2)
+            status = splitted_row(3)
+            description = splitted_row(4)
+            close_after = splitted_row(5)
 
-            CreateTasks(path, date_, period)
+            CreateTasks(path, date_, period, status, description, close_after)
         Next
     End Sub
 
 
-    Public Sub CreateTasks(ByVal a_path As String, ByVal a_date As String, ByVal a_period As String) 'na proseksw na kanw metatroph apo function se sub an den kanei return
+    Public Sub CreateTasks(ByVal a_path As String, ByVal a_date As String, ByVal a_period As String, ByVal a_status As String, ByVal a_description As String, ByVal a_close_after As String)
 
         'create the date to send to the task to run
         Dim date_y_m_d As String = a_date.Split(" ")(0)
@@ -58,14 +74,14 @@
             (Not splited_period(1).Equals("0")) Or _
             (Not splited_period(2).Equals("0")) Then
 
-            Dim task As New ALPeriodicTasks(a_path, m_date, _
+            Dim task As New ALPeriodicTasks(a_path, m_date, Boolean.Parse(a_status), a_description, Integer.Parse(a_close_after), _
                                                     UInteger.Parse(splited_period(0)), _
                                                     UInteger.Parse(splited_period(1)), _
                                                     UInteger.Parse(splited_period(2)))
             m_task_manager.AddTask(task)
 
         Else 'in case there is not a period create a fixed date task
-            Dim task As New ALFixedDateTasks(a_path, m_date)
+            Dim task As New ALFixedDateTasks(a_path, m_date, Boolean.Parse(a_status), a_description, Integer.Parse(a_close_after))
             m_task_manager.AddTask(task)
         End If
 
@@ -120,34 +136,65 @@
 
 
     'add task
-    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, _
-            Optional ByVal a_period_in_days As UInteger = 0, _
-            Optional ByVal a_period_in_months As UInteger = 0, _
-            Optional ByVal a_period_in_years As UInteger = 0)
+    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, _
+                       Optional ByVal a_description As String = "", _
+                       Optional ByVal a_close_after As Integer = 0, _
+                       Optional ByVal a_period_in_days As UInteger = 0, _
+                       Optional ByVal a_period_in_months As UInteger = 0, _
+                       Optional ByVal a_period_in_years As UInteger = 0)
 
+        'add the task to the task manager 
         If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
             'if it a fixed date task
-            Dim task As New ALFixedDateTasks(a_full_path, a_date)
+            Dim task As New ALFixedDateTasks(a_full_path, a_date, a_status, a_description, a_close_after)
             m_task_manager.AddTask(task)
 
         Else
             'if it is a periodic task
-            Dim task As New ALPeriodicTasks(a_full_path, a_date, a_period_in_days, a_period_in_months, a_period_in_years)
+            Dim task As New ALPeriodicTasks(a_full_path, a_date, a_status, a_description, a_close_after, a_period_in_days, a_period_in_months, a_period_in_years)
             m_task_manager.AddTask(task)
         End If
+
+        m_task_manager.SortTasks()
+
+        'add the task to the database(scheduler tasks)
+        'add a log row for the addition
+        Try
+            m_last_log_id = m_last_log_id + 1
+            m_last_scheduler_tasks_id = m_last_scheduler_tasks_id + 1
+            m_core.InsertToTable("[Scheduler Tasks]", {m_last_scheduler_tasks_id.ToString(), "'" & a_full_path & "'", "'" & a_date & "'", _
+                                                      "'" & a_period_in_days.ToString() & "/" & a_period_in_months.ToString() & "/" & a_period_in_years.ToString() & "'", _
+                                                      a_status.ToString(), "'" & a_description & "'", a_close_after.ToString()})
+
+            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'added or something like that'"})
+        Catch ex As ALDatabaseInsertException
+
+        End Try
+
 
     End Sub
 
 
     'delete task
-    Public Sub DeleteTask(a_task As ALATasks)
-        Dim m_temp_list As List(Of ALATasks)
-        m_temp_list = m_task_manager.GetTaskList()
-        If m_temp_list.Contains(a_task) Then
-            m_task_manager.RemoveTask(a_task)
-        End If
+    Public Sub DeleteTask(ByVal a_full_path As String)
+        'remove it from task manager
+        m_task_manager.RemoveTasksWithFullPath(a_full_path)
 
-        'na ginei kai to delete apo thn database
+        'remove it from database(scheduler tasks)
+        'add a log row for the deletion 
+        Try
+            m_core.DeleteFromTable("[Scheduler Tasks]", {"Program_Name = '" & a_full_path & "'"})
+            m_last_log_id = m_last_log_id + 1
+            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'deleted or something like that'"})
+
+        Catch ex As ALDatabaseDeleteException
+
+        Catch ex2 As ALDatabaseInsertException
+
+
+
+        End Try
+
 
     End Sub
 

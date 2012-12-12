@@ -53,6 +53,9 @@ Partial Class TestingForm
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Button18 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -293,7 +296,7 @@ Partial Class TestingForm
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(283, 305)
+        Me.Button13.Location = New System.Drawing.Point(283, 363)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(189, 23)
         Me.Button13.TabIndex = 24
@@ -318,11 +321,41 @@ Partial Class TestingForm
         Me.Button15.Text = "TestUpdateToTables"
         Me.Button15.UseVisualStyleBackColor = True
         '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(283, 305)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(189, 23)
+        Me.Button16.TabIndex = 27
+        Me.Button16.Text = "InitTest"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Button17
+        '
+        Me.Button17.Location = New System.Drawing.Point(283, 392)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(189, 23)
+        Me.Button17.TabIndex = 28
+        Me.Button17.Text = "AddANewTaskTest"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Button18
+        '
+        Me.Button18.Location = New System.Drawing.Point(283, 421)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(189, 23)
+        Me.Button18.TabIndex = 29
+        Me.Button18.Text = "DeleteTheNewTaskTest"
+        Me.Button18.UseVisualStyleBackColor = True
+        '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(781, 566)
+        Me.Controls.Add(Me.Button18)
+        Me.Controls.Add(Me.Button17)
+        Me.Controls.Add(Me.Button16)
         Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Button13)
@@ -386,4 +419,7 @@ Partial Class TestingForm
     Friend WithEvents Button13 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents Button17 As System.Windows.Forms.Button
+    Friend WithEvents Button18 As System.Windows.Forms.Button
 End Class

@@ -4,9 +4,16 @@
 
     Protected m_full_path As String   'contains prorgam name and path
 
-    Sub New(ByVal a_full_path As String, ByVal a_date As Date)
+    Protected m_status As Boolean     'is the task active??
+    Protected m_description As String 'description of the task
+    Protected m_close_after As Integer 'in minutes
+
+    Sub New(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer)
         m_full_path = a_full_path
         m_next_run = a_date
+        m_status = a_status
+        m_description = a_description
+        m_close_after = a_close_after
     End Sub
 
 
