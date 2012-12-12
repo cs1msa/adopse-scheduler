@@ -460,9 +460,13 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles SaveTaskButton.Click
-        '  m_master_control.AddTask(NewTaskForm.Text, DatePicker.date, )
-        '' incomplete for now, paw gia ypno den thn paleuw
-    End Sub
+        Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
+                              TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
 
+        m_master_control.AddTask(chooseFileTextBox.Text, m_date, )
+
+
+
+    End Sub
 
 End Class

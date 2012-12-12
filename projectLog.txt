@@ -7,3 +7,4 @@
 7. 25/11/2012 Skype meeting 	-> exception policy discussed, basic class diagram for ALLogic created
 8. 29/11/2012 Skype meeting	-> task managing discussed, AssLogic class diagram Updated
 9. 30/11/2012 Physical Meeting	-> 
+10. 12/12/2012 Physical Meeting -> finalized database scheme

@@ -88,7 +88,7 @@ Public Class ALCore
     '-------------------------------------DataBase functions-------------------------------------------------------
     'tables till now are "Log" and "[Scheduler Tasks]"
     'Log : Action_ID, Action_Date, Action_Description, Program_Name, Success
-    '[Scheduler Tasks] : Task_ID, Program_Name, Run_Date, Object_Type
+    '[Scheduler Tasks] : Task_ID, Program_Name, Next_Run, Period, Status, Description
     Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String())
 
         m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)
