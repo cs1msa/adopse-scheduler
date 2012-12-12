@@ -1,6 +1,10 @@
 Imports ComponentFactory.Krypton.Toolkit
+Imports AssLogic
 
 Public Class MainForm
+
+    Dim m_master_control As ALMasterControl
+
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
@@ -93,12 +97,12 @@ Public Class MainForm
 
     Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
         NewTaskForm.ShowDialog()
-
     End Sub
 
 
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        NewTaskForm.SetMasterControl(m_master_control)
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
     End Sub

@@ -1,6 +1,9 @@
 Imports Microsoft.Win32
+Imports AssLogic
 
 Public Class NewTaskForm
+
+    Dim m_master_control As ALMasterControl
 
     Private Sub chooseFileBrowseButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileBrowseButton.Click
 
@@ -451,7 +454,15 @@ Public Class NewTaskForm
         HandleArrowLabels(False, False, False, False, True)
     End Sub
 
-    Private Sub addNewTaskMainPanel_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles addNewTaskMainPanel.Paint
 
+    Public Sub SetMasterControl(ByRef a_master_control As ALMasterControl)
+        m_master_control = a_master_control
     End Sub
+
+    Public Sub SaveTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles SaveTaskButton.Click
+        '  m_master_control.AddTask(NewTaskForm.Text, DatePicker.date, )
+        '' incomplete for now, paw gia ypno den thn paleuw
+    End Sub
+
+
 End Class
