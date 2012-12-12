@@ -1,5 +1,5 @@
 -LOG
-ID energias | Hmeromhnia Energias | Perigrafh energeias | Onoma programmatos | ID programmatos | epityxia(lew na to vgaloume, na perilamvanetai sto 'Perigrafh energeias')
+ID energias | Hmeromhnia Energias |Onoma programmatos | Details
 
 -Scheduled tasks
-task ID | Onoma programmatos | RunDate | period( d/m/y) <-if 0/0/0 then its a fixed date task
+task ID | Onoma programmatos | Next Run | Status | Description | Close After
