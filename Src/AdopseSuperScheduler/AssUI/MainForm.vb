@@ -124,6 +124,7 @@ Public Class MainForm
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
         System.Windows.Forms.Application.Exit()
+        TrayIcon.Dispose()
 
     End Sub
 
@@ -135,5 +136,6 @@ Public Class MainForm
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
         System.Windows.Forms.Application.Exit()
+        TrayIcon.Dispose()
     End Sub
 End Class
