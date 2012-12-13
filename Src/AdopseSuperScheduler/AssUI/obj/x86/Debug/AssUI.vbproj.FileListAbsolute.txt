@@ -50,3 +50,8 @@ C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssU
 C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.TestingForm.resources
 C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.vbproj.GenerateResource.Cache
 C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses
+C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\DataGridViewExtension.dll
+C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\DataGridViewExtension.XmlSerializers.dll
+C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\DGVEExcelExporting.dll
+C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\DGVEHtmlExporting.dll
+C:\Users\Lloyd\Desktop\TO PROJECT\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\DGVEPdfExporting.dll

@@ -118,6 +118,7 @@ Partial Class MainForm
         Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -445,7 +446,7 @@ Partial Class MainForm
         '
         'LogHeaderGroup
         '
-        Me.LogHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.ButtonSpecHeaderGroup2})
+        Me.LogHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.LogButtonSpecExportToPDF, Me.ButtonSpecHeaderGroup2})
         Me.LogHeaderGroup.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogHeaderGroup.HeaderVisibleSecondary = False
         Me.LogHeaderGroup.Location = New System.Drawing.Point(0, 0)
@@ -644,6 +645,12 @@ Partial Class MainForm
         Me.Details_Column.ReadOnly = True
         Me.Details_Column.Width = 311
         '
+        'LogButtonSpecExportToPDF
+        '
+        Me.LogButtonSpecExportToPDF.Image = CType(resources.GetObject("LogButtonSpecExportToPDF.Image"), System.Drawing.Image)
+        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -746,4 +753,5 @@ Partial Class MainForm
     Friend WithEvents DateTime_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TaskName_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Details_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
 End Class

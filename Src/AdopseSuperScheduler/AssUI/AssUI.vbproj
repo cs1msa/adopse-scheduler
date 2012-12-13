@@ -51,6 +51,21 @@
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="DataGridViewExtension">
+      <HintPath>..\..\..\..\..\DataGridViewExtension\v1.1.1\Bin\DataGridViewExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="DataGridViewExtension.XmlSerializers">
+      <HintPath>..\..\..\..\..\DataGridViewExtension\v1.1.1\Bin\DataGridViewExtension.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="DGVEExcelExporting">
+      <HintPath>..\..\..\..\..\DataGridViewExtension\v1.1.1\Bin\DGVEExcelExporting.dll</HintPath>
+    </Reference>
+    <Reference Include="DGVEHtmlExporting">
+      <HintPath>..\..\..\..\..\DataGridViewExtension\v1.1.1\Bin\DGVEHtmlExporting.dll</HintPath>
+    </Reference>
+    <Reference Include="DGVEPdfExporting">
+      <HintPath>..\..\..\..\..\DataGridViewExtension\v1.1.1\Bin\DGVEPdfExporting.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

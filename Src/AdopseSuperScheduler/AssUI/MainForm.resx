@@ -172,6 +172,23 @@
         XkhJSeF27drFtbW1ceySxtQ9VuGzXIjpaOPUavUjCIfDT7xY/wUJ7lHPpKh40gAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="LogButtonSpecExportToPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACg0lEQVQ4T43TW0jTcRQH8APi
+        g/QWaCAEE1yEJD300AhMCYIGBo0MfFBioJmUxGQUWk6oh556sbduhK2IIktBu5sutlmbrW02TGdt013w
+        QjJ1N7edvuePk3qqH3zYfts553d+/52Rk4gaTCY61dt7HM78Q+XJnh7SdXfTia4u2ltTQyQFBlQqwhdt
+        G9ks/0qneTGR4PD6OofW1jgYjysGLRaWGFAXCkgR+kJ0Y5qIZ8EP3+EbfIXPMGky8VQ4zA9HRlgWks+C
+        WpKVAhI8D4uwDFH4CT5wwLgUjET4ptm8Ta3VXgES5EZAACIQKy5mzuc5qFLxFPaf4L10FYspRaQTuU69
+        0XgOSNAkAmbgB4Srqznj9XK0pYVd2H+EV9LR8vJ2ESlwzGA4DyTIhgDP1r1jbW0c1us5abezr66O3+Hz
+        IXg+NsajLhcP22zKgz3a0dEBJGgUAXbpQKfj3Nwcr/b3c9JqZUbb00YjP5UD5ufZHQqxKxBQfp0j7e0X
+        gAQNI+A1cDDI0b4+dtfX84fych4qKuJn+PwBWHCtcY+HX05M8GIyyYdbWw1AggYQIAa3vMCrJMrJT+Au
+        yMPzLiwoncicHNLrO4EEPcYcmBHUD/fhHtyB23ALzM3NbPX5+K3TqXQSz2T4YFOTEUjQI0zitbIyOtDY
+        eDGPQfGvrChm8eRnlpY4gYT1VIrjaH0VE7qGvcSC5BCdLi2l/Q0N4pJMmpz0xuFgh9+v3Du1uflXkQ3s
+        JVZyKmtrcTzWbo2G9mi1l5VZxcpjmLK5HG9CGv+PP4skUEBiJaewSvCmbJdGc7VQQCkCOSkEUigDKRRL
+        Yy+xkgOSSzthX0lFReeOqqrr/0NiJUdyfwM/UTkKXvBIJwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="EventID_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

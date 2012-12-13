@@ -1,5 +1,9 @@
 Imports ComponentFactory.Krypton.Toolkit
 Imports AssLogic
+Imports CompletIT.Windows.Forms.Export.Pdf
+Imports CompletIT.Windows.Forms.Export
+
+
 
 Public Class MainForm
 
@@ -138,4 +142,23 @@ Public Class MainForm
         System.Windows.Forms.Application.Exit()
         TrayIcon.Dispose()
     End Sub
+
+    Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
+        'You can export any DataGridView control, no matter managed or not by the extension
+        Dim pdfExporter As DGVEPdfExporter = New DGVEPdfExporter()
+        Dim dialog As DGVEBaseExportSettingsEditorForm = DGVEExportSettingsEditorFormBuilder.CreateWrappingForm(pdfExporter)
+        dialog.Settings = New DGVEPdfExportSettings()
+        If (DialogResult.OK <> dialog.ShowDialog()) Then
+            Return
+        End If
+
+        AddHandler pdfExporter.ExportFailed, AddressOf exporter_ExportFailed
+        pdfExporter.Export(LogDataGridView, dialog.Settings)
+    End Sub
+
+    Private Sub exporter_ExportFailed(ByVal sender As Object, ByVal e As CompletIT.Windows.Forms.Export.ExportFailedEventArgs)
+        'Show message box with the occured exception 
+        MessageBox.Show(e.Exception.Message)
+    End Sub
+
 End Class
