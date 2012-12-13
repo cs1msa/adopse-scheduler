@@ -20,64 +20,64 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode175 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode176 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode177 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode178 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode179 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode175, TreeNode176, TreeNode177, TreeNode178})
-        Dim TreeNode180 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode181 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode182 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode183 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode184 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode180, TreeNode181, TreeNode182, TreeNode183})
-        Dim TreeNode185 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode186 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode187 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode188 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode189 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode185, TreeNode186, TreeNode187, TreeNode188})
-        Dim TreeNode190 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode191 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode192 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode193 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode194 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode190, TreeNode191, TreeNode192, TreeNode193})
-        Dim TreeNode195 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode196 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode197 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode198 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode199 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode195, TreeNode196, TreeNode197, TreeNode198})
-        Dim TreeNode200 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode179, TreeNode184, TreeNode189, TreeNode194, TreeNode199})
-        Dim TreeNode201 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode202 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode203 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode204 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode205 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode201, TreeNode202, TreeNode203, TreeNode204})
-        Dim TreeNode206 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode207 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode208 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode209 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode210 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode206, TreeNode207, TreeNode208, TreeNode209})
-        Dim TreeNode211 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode212 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode213 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode214 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode215 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode211, TreeNode212, TreeNode213, TreeNode214})
-        Dim TreeNode216 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode217 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode218 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode219 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode220 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode216, TreeNode217, TreeNode218, TreeNode219})
-        Dim TreeNode221 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode222 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
-        Dim TreeNode223 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
-        Dim TreeNode224 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
-        Dim TreeNode225 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode221, TreeNode222, TreeNode223, TreeNode224})
-        Dim TreeNode226 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode205, TreeNode210, TreeNode215, TreeNode220, TreeNode225})
-        Dim TreeNode227 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode200, TreeNode226})
-        Dim TreeNode228 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
-        Dim TreeNode229 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
-        Dim TreeNode230 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
-        Dim TreeNode231 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
-        Dim TreeNode232 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("History", New System.Windows.Forms.TreeNode() {TreeNode228, TreeNode229, TreeNode230, TreeNode231})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4})
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode6, TreeNode7, TreeNode8, TreeNode9})
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode11, TreeNode12, TreeNode13, TreeNode14})
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode19 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode20 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode16, TreeNode17, TreeNode18, TreeNode19})
+        Dim TreeNode21 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode22 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode23 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode24 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode25 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode21, TreeNode22, TreeNode23, TreeNode24})
+        Dim TreeNode26 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode10, TreeNode15, TreeNode20, TreeNode25})
+        Dim TreeNode27 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode28 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode29 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode30 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode31 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode27, TreeNode28, TreeNode29, TreeNode30})
+        Dim TreeNode32 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode33 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode34 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode35 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode36 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode32, TreeNode33, TreeNode34, TreeNode35})
+        Dim TreeNode37 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode38 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode39 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode40 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode41 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode37, TreeNode38, TreeNode39, TreeNode40})
+        Dim TreeNode42 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode43 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode44 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode45 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode46 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode42, TreeNode43, TreeNode44, TreeNode45})
+        Dim TreeNode47 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode48 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Multimedia")
+        Dim TreeNode49 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reminder")
+        Dim TreeNode50 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Other")
+        Dim TreeNode51 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode47, TreeNode48, TreeNode49, TreeNode50})
+        Dim TreeNode52 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode31, TreeNode36, TreeNode41, TreeNode46, TreeNode51})
+        Dim TreeNode53 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode26, TreeNode52})
+        Dim TreeNode54 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
+        Dim TreeNode55 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
+        Dim TreeNode56 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
+        Dim TreeNode57 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
+        Dim TreeNode58 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("History", New System.Windows.Forms.TreeNode() {TreeNode54, TreeNode55, TreeNode56, TreeNode57})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LowerPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonSplitContainer1 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
@@ -97,11 +97,6 @@ Partial Class MainForm
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
-        Me.EventID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LogTaskID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.UpperPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.AddTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -110,6 +105,7 @@ Partial Class MainForm
         Me.DeleteTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -118,7 +114,10 @@ Partial Class MainForm
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EventID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,123 +211,123 @@ Partial Class MainForm
         Me.NavigationTreeView.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.InputControl
         Me.NavigationTreeView.Location = New System.Drawing.Point(0, 0)
         Me.NavigationTreeView.Name = "NavigationTreeView"
-        TreeNode175.Name = "A_O_ExecutableNode"
-        TreeNode175.Text = "Executable"
-        TreeNode176.Name = "A_O_MultimediaNode"
-        TreeNode176.Text = "Multimedia"
-        TreeNode177.Name = "A_O_ReminderNode"
-        TreeNode177.Text = "Reminder"
-        TreeNode178.Name = "A_O_OtherNode"
-        TreeNode178.Text = "Other"
-        TreeNode179.Name = "A_OnceNode"
-        TreeNode179.Text = "Once"
-        TreeNode180.Name = "A_D_ExecutableNode"
-        TreeNode180.Text = "Executable"
-        TreeNode181.Name = "A_D_MultimediaNode"
-        TreeNode181.Text = "Multimedia"
-        TreeNode182.Name = "A_D_ReminderNode"
-        TreeNode182.Text = "Reminder"
-        TreeNode183.Name = "A_D_OtherNode"
-        TreeNode183.Text = "Other"
-        TreeNode184.Name = "A_DailyNode"
-        TreeNode184.Text = "Daily"
-        TreeNode185.Name = "A_W_ExecutableNode"
-        TreeNode185.Text = "Executable"
-        TreeNode186.Name = "A_W_MultimediaNode"
-        TreeNode186.Text = "Multimedia"
-        TreeNode187.Name = "A_W_ReminderNode"
-        TreeNode187.Text = "Reminder"
-        TreeNode188.Name = "A_W_OtherNode"
-        TreeNode188.Text = "Other"
-        TreeNode189.Name = "A_WeeklyNode"
-        TreeNode189.Text = "Weekly"
-        TreeNode190.Name = "A_M_ExecutableNode"
-        TreeNode190.Text = "Executable"
-        TreeNode191.Name = "A_M_MultimediaNode"
-        TreeNode191.Text = "Multimedia"
-        TreeNode192.Name = "A_M_ReminderNode"
-        TreeNode192.Text = "Reminder"
-        TreeNode193.Name = "A_M_OtherNode"
-        TreeNode193.Text = "Other"
-        TreeNode194.Name = "A_MonthlyNode"
-        TreeNode194.Text = "Monthly"
-        TreeNode195.Name = "A_Y_ExecutableNode"
-        TreeNode195.Text = "Executable"
-        TreeNode196.Name = "A_Y_MultimediaNode"
-        TreeNode196.Text = "Multimedia"
-        TreeNode197.Name = "A_Y_ReminderNode"
-        TreeNode197.Text = "Reminder"
-        TreeNode198.Name = "A_Y_OtherNode"
-        TreeNode198.Text = "Other"
-        TreeNode199.Name = "A_YearlyNode"
-        TreeNode199.Text = "Yearly"
-        TreeNode200.Name = "ActiveNode"
-        TreeNode200.Text = "Active"
-        TreeNode201.Name = "I_O_ExecutableNode"
-        TreeNode201.Text = "Executable"
-        TreeNode202.Name = "I_O_MultimediaNode"
-        TreeNode202.Text = "Multimedia"
-        TreeNode203.Name = "I_O_ReminderNode"
-        TreeNode203.Text = "Reminder"
-        TreeNode204.Name = "I_O_OtherNode"
-        TreeNode204.Text = "Other"
-        TreeNode205.Name = "I_OnceNode"
-        TreeNode205.Text = "Once"
-        TreeNode206.Name = "I_D_ExecutableNode"
-        TreeNode206.Text = "Executable"
-        TreeNode207.Name = "I_D_MultimediaNode"
-        TreeNode207.Text = "Multimedia"
-        TreeNode208.Name = "I_D_ReminderNode"
-        TreeNode208.Text = "Reminder"
-        TreeNode209.Name = "I_D_OtherNode"
-        TreeNode209.Text = "Other"
-        TreeNode210.Name = "I_DailyNode"
-        TreeNode210.Text = "Daily"
-        TreeNode211.Name = "I_W_ExecutableNode"
-        TreeNode211.Text = "Executable"
-        TreeNode212.Name = "I_W_MultimediaNode"
-        TreeNode212.Text = "Multimedia"
-        TreeNode213.Name = "I_W_ReminderNode"
-        TreeNode213.Text = "Reminder"
-        TreeNode214.Name = "I_W_OtherNode"
-        TreeNode214.Text = "Other"
-        TreeNode215.Name = "I_WeeklyNode"
-        TreeNode215.Text = "Weekly"
-        TreeNode216.Name = "I_M_ExecutableNode"
-        TreeNode216.Text = "Executable"
-        TreeNode217.Name = "I_M_MultimediaNode"
-        TreeNode217.Text = "Multimedia"
-        TreeNode218.Name = "I_M_ReminderNode"
-        TreeNode218.Text = "Reminder"
-        TreeNode219.Name = "I_M_OtherNode"
-        TreeNode219.Text = "Other"
-        TreeNode220.Name = "I_MonthlyNode"
-        TreeNode220.Text = "Monthly"
-        TreeNode221.Name = "I_Y_ExecutableNode"
-        TreeNode221.Text = "Executable"
-        TreeNode222.Name = "I_Y_MultimediaNode"
-        TreeNode222.Text = "Multimedia"
-        TreeNode223.Name = "I_Y_ReminderNode"
-        TreeNode223.Text = "Reminder"
-        TreeNode224.Name = "I_Y_OtherNode"
-        TreeNode224.Text = "Other"
-        TreeNode225.Name = "I_YearlyNode"
-        TreeNode225.Text = "Yearly"
-        TreeNode226.Name = "InactiveNode"
-        TreeNode226.Text = "Inactive"
-        TreeNode227.Name = "TasksNode"
-        TreeNode227.Text = "Tasks"
-        TreeNode228.Name = "AddedNode"
-        TreeNode228.Text = "Added"
-        TreeNode229.Name = "RemovedNode"
-        TreeNode229.Text = "Removed"
-        TreeNode230.Name = "SuccessfulNode"
-        TreeNode230.Text = "Successful"
-        TreeNode231.Name = "UnsuccessfulNode"
-        TreeNode231.Text = "Unsuccessful"
-        TreeNode232.Name = "HistoryNode"
-        TreeNode232.Text = "History"
-        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode227, TreeNode232})
+        TreeNode1.Name = "A_O_ExecutableNode"
+        TreeNode1.Text = "Executable"
+        TreeNode2.Name = "A_O_MultimediaNode"
+        TreeNode2.Text = "Multimedia"
+        TreeNode3.Name = "A_O_ReminderNode"
+        TreeNode3.Text = "Reminder"
+        TreeNode4.Name = "A_O_OtherNode"
+        TreeNode4.Text = "Other"
+        TreeNode5.Name = "A_OnceNode"
+        TreeNode5.Text = "Once"
+        TreeNode6.Name = "A_D_ExecutableNode"
+        TreeNode6.Text = "Executable"
+        TreeNode7.Name = "A_D_MultimediaNode"
+        TreeNode7.Text = "Multimedia"
+        TreeNode8.Name = "A_D_ReminderNode"
+        TreeNode8.Text = "Reminder"
+        TreeNode9.Name = "A_D_OtherNode"
+        TreeNode9.Text = "Other"
+        TreeNode10.Name = "A_DailyNode"
+        TreeNode10.Text = "Daily"
+        TreeNode11.Name = "A_W_ExecutableNode"
+        TreeNode11.Text = "Executable"
+        TreeNode12.Name = "A_W_MultimediaNode"
+        TreeNode12.Text = "Multimedia"
+        TreeNode13.Name = "A_W_ReminderNode"
+        TreeNode13.Text = "Reminder"
+        TreeNode14.Name = "A_W_OtherNode"
+        TreeNode14.Text = "Other"
+        TreeNode15.Name = "A_WeeklyNode"
+        TreeNode15.Text = "Weekly"
+        TreeNode16.Name = "A_M_ExecutableNode"
+        TreeNode16.Text = "Executable"
+        TreeNode17.Name = "A_M_MultimediaNode"
+        TreeNode17.Text = "Multimedia"
+        TreeNode18.Name = "A_M_ReminderNode"
+        TreeNode18.Text = "Reminder"
+        TreeNode19.Name = "A_M_OtherNode"
+        TreeNode19.Text = "Other"
+        TreeNode20.Name = "A_MonthlyNode"
+        TreeNode20.Text = "Monthly"
+        TreeNode21.Name = "A_Y_ExecutableNode"
+        TreeNode21.Text = "Executable"
+        TreeNode22.Name = "A_Y_MultimediaNode"
+        TreeNode22.Text = "Multimedia"
+        TreeNode23.Name = "A_Y_ReminderNode"
+        TreeNode23.Text = "Reminder"
+        TreeNode24.Name = "A_Y_OtherNode"
+        TreeNode24.Text = "Other"
+        TreeNode25.Name = "A_YearlyNode"
+        TreeNode25.Text = "Yearly"
+        TreeNode26.Name = "ActiveNode"
+        TreeNode26.Text = "Active"
+        TreeNode27.Name = "I_O_ExecutableNode"
+        TreeNode27.Text = "Executable"
+        TreeNode28.Name = "I_O_MultimediaNode"
+        TreeNode28.Text = "Multimedia"
+        TreeNode29.Name = "I_O_ReminderNode"
+        TreeNode29.Text = "Reminder"
+        TreeNode30.Name = "I_O_OtherNode"
+        TreeNode30.Text = "Other"
+        TreeNode31.Name = "I_OnceNode"
+        TreeNode31.Text = "Once"
+        TreeNode32.Name = "I_D_ExecutableNode"
+        TreeNode32.Text = "Executable"
+        TreeNode33.Name = "I_D_MultimediaNode"
+        TreeNode33.Text = "Multimedia"
+        TreeNode34.Name = "I_D_ReminderNode"
+        TreeNode34.Text = "Reminder"
+        TreeNode35.Name = "I_D_OtherNode"
+        TreeNode35.Text = "Other"
+        TreeNode36.Name = "I_DailyNode"
+        TreeNode36.Text = "Daily"
+        TreeNode37.Name = "I_W_ExecutableNode"
+        TreeNode37.Text = "Executable"
+        TreeNode38.Name = "I_W_MultimediaNode"
+        TreeNode38.Text = "Multimedia"
+        TreeNode39.Name = "I_W_ReminderNode"
+        TreeNode39.Text = "Reminder"
+        TreeNode40.Name = "I_W_OtherNode"
+        TreeNode40.Text = "Other"
+        TreeNode41.Name = "I_WeeklyNode"
+        TreeNode41.Text = "Weekly"
+        TreeNode42.Name = "I_M_ExecutableNode"
+        TreeNode42.Text = "Executable"
+        TreeNode43.Name = "I_M_MultimediaNode"
+        TreeNode43.Text = "Multimedia"
+        TreeNode44.Name = "I_M_ReminderNode"
+        TreeNode44.Text = "Reminder"
+        TreeNode45.Name = "I_M_OtherNode"
+        TreeNode45.Text = "Other"
+        TreeNode46.Name = "I_MonthlyNode"
+        TreeNode46.Text = "Monthly"
+        TreeNode47.Name = "I_Y_ExecutableNode"
+        TreeNode47.Text = "Executable"
+        TreeNode48.Name = "I_Y_MultimediaNode"
+        TreeNode48.Text = "Multimedia"
+        TreeNode49.Name = "I_Y_ReminderNode"
+        TreeNode49.Text = "Reminder"
+        TreeNode50.Name = "I_Y_OtherNode"
+        TreeNode50.Text = "Other"
+        TreeNode51.Name = "I_YearlyNode"
+        TreeNode51.Text = "Yearly"
+        TreeNode52.Name = "InactiveNode"
+        TreeNode52.Text = "Inactive"
+        TreeNode53.Name = "TasksNode"
+        TreeNode53.Text = "Tasks"
+        TreeNode54.Name = "AddedNode"
+        TreeNode54.Text = "Added"
+        TreeNode55.Name = "RemovedNode"
+        TreeNode55.Text = "Removed"
+        TreeNode56.Name = "SuccessfulNode"
+        TreeNode56.Text = "Successful"
+        TreeNode57.Name = "UnsuccessfulNode"
+        TreeNode57.Text = "Unsuccessful"
+        TreeNode58.Name = "HistoryNode"
+        TreeNode58.Text = "History"
+        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode53, TreeNode58})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
         Me.NavigationTreeView.Size = New System.Drawing.Size(190, 393)
         Me.NavigationTreeView.TabIndex = 1
@@ -472,7 +471,7 @@ Partial Class MainForm
         Me.LogDataGridView.AllowUserToOrderColumns = True
         Me.LogDataGridView.AllowUserToResizeRows = False
         Me.LogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LogDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EventID_Column, Me.DateTime_Column, Me.TaskName_Column, Me.LogTaskID_Column, Me.Details_Column})
+        Me.LogDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EventID_Column, Me.DateTime_Column, Me.TaskName_Column, Me.Details_Column})
         Me.LogDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.LogDataGridView.Name = "LogDataGridView"
@@ -480,45 +479,6 @@ Partial Class MainForm
         Me.LogDataGridView.RowHeadersVisible = False
         Me.LogDataGridView.Size = New System.Drawing.Size(712, 171)
         Me.LogDataGridView.TabIndex = 0
-        '
-        'EventID_Column
-        '
-        Me.EventID_Column.HeaderText = "Event ID"
-        Me.EventID_Column.MinimumWidth = 60
-        Me.EventID_Column.Name = "EventID_Column"
-        Me.EventID_Column.ReadOnly = True
-        Me.EventID_Column.Width = 80
-        '
-        'DateTime_Column
-        '
-        Me.DateTime_Column.HeaderText = "Date & Time"
-        Me.DateTime_Column.MinimumWidth = 150
-        Me.DateTime_Column.Name = "DateTime_Column"
-        Me.DateTime_Column.ReadOnly = True
-        Me.DateTime_Column.Width = 160
-        '
-        'TaskName_Column
-        '
-        Me.TaskName_Column.HeaderText = "Task"
-        Me.TaskName_Column.MinimumWidth = 100
-        Me.TaskName_Column.Name = "TaskName_Column"
-        Me.TaskName_Column.ReadOnly = True
-        '
-        'LogTaskID_Column
-        '
-        Me.LogTaskID_Column.HeaderText = "Task ID"
-        Me.LogTaskID_Column.MinimumWidth = 60
-        Me.LogTaskID_Column.Name = "LogTaskID_Column"
-        Me.LogTaskID_Column.ReadOnly = True
-        Me.LogTaskID_Column.Width = 60
-        '
-        'Details_Column
-        '
-        Me.Details_Column.HeaderText = "Details"
-        Me.Details_Column.MinimumWidth = 200
-        Me.Details_Column.Name = "Details_Column"
-        Me.Details_Column.ReadOnly = True
-        Me.Details_Column.Width = 311
         '
         'KryptonManager
         '
@@ -603,6 +563,12 @@ Partial Class MainForm
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
+        'ExitToolStripMenuItem1
+        '
+        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Text = "Exit"
+        '
         'TaskToolStripMenuItem
         '
         Me.TaskToolStripMenuItem.Name = "TaskToolStripMenuItem"
@@ -638,20 +604,45 @@ Partial Class MainForm
         'ShowToolStripMenuItem
         '
         Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ShowToolStripMenuItem.Text = "Show"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'ExitToolStripMenuItem1
+        'EventID_Column
         '
-        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem1.Text = "Exit"
+        Me.EventID_Column.HeaderText = "Event ID"
+        Me.EventID_Column.MinimumWidth = 60
+        Me.EventID_Column.Name = "EventID_Column"
+        Me.EventID_Column.ReadOnly = True
+        Me.EventID_Column.Width = 80
+        '
+        'DateTime_Column
+        '
+        Me.DateTime_Column.HeaderText = "Date & Time"
+        Me.DateTime_Column.MinimumWidth = 150
+        Me.DateTime_Column.Name = "DateTime_Column"
+        Me.DateTime_Column.ReadOnly = True
+        Me.DateTime_Column.Width = 160
+        '
+        'TaskName_Column
+        '
+        Me.TaskName_Column.HeaderText = "Task"
+        Me.TaskName_Column.MinimumWidth = 100
+        Me.TaskName_Column.Name = "TaskName_Column"
+        Me.TaskName_Column.ReadOnly = True
+        '
+        'Details_Column
+        '
+        Me.Details_Column.HeaderText = "Details"
+        Me.Details_Column.MinimumWidth = 200
+        Me.Details_Column.Name = "Details_Column"
+        Me.Details_Column.ReadOnly = True
+        Me.Details_Column.Width = 311
         '
         'MainForm
         '
@@ -746,14 +737,13 @@ Partial Class MainForm
     Friend WithEvents EditTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents LogDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
-    Friend WithEvents EventID_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DateTime_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TaskName_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LogTaskID_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Details_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TrayIcon As System.Windows.Forms.NotifyIcon
     Friend WithEvents TrayContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EventID_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DateTime_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TaskName_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Details_Column As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
