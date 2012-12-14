@@ -1,5 +1,5 @@
 Imports Microsoft.Win32
-Imports AssLogic
+Imports AssLogic 
 
 Public Class NewTaskForm
 
@@ -460,10 +460,29 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles SaveTaskButton.Click
+
         Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
 
-        'm_master_control.AddTask(chooseFileTextBox.Text, m_date, )
+        If OnceCheckButton.Checked Then
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, True, "one-off tasl", 0, 0, 0, 0)
+        ElseIf DailyCheckButton.Checked Then
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, True, "daily task", 0, KryptonNumericUpDown1.Value, 0, 0)
+        ElseIf WeeklyCheckButton.Checked Then
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, True, "weekly task", 0, 0, KryptonNumericUpDown1.Value, 0)
+        Else
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, True, "yearly task", 0, 0, 0, KryptonNumericUpDown1.Value)
+        End If
+
+        'to be resolved : null reference exception
+        'KryptonRadioButton4.value access problem (for active/inactive boolean parameter)
+        'add end date?
+
+        ' note to lloyd : add 
+        ' 1. status selector
+        ' 2. description box
+        ' 3. close after input
+        ' modify it so we can add mutiple intervals 
 
 
 
