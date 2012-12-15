@@ -96,10 +96,10 @@
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="More Options Form.Designer.vb">
-      <DependentUpon>More Options Form.vb</DependentUpon>
+    <Compile Include="MoreOptionsForm.Designer.vb">
+      <DependentUpon>MoreOptionsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="More Options Form.vb">
+    <Compile Include="MoreOptionsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
@@ -107,10 +107,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="New Task Form.Designer.vb">
-      <DependentUpon>New Task Form.vb</DependentUpon>
+    <Compile Include="NewTaskForm.Designer.vb">
+      <DependentUpon>NewTaskForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="New Task Form.vb">
+    <Compile Include="NewTaskForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -135,13 +135,13 @@
       <DependentUpon>MainForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="More Options Form.resx">
-      <DependentUpon>More Options Form.vb</DependentUpon>
+    <EmbeddedResource Include="MoreOptionsForm.resx">
+      <DependentUpon>MoreOptionsForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
-    <EmbeddedResource Include="New Task Form.resx">
-      <DependentUpon>New Task Form.vb</DependentUpon>
+    <EmbeddedResource Include="NewTaskForm.resx">
+      <DependentUpon>NewTaskForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -155,6 +155,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
