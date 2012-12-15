@@ -95,8 +95,13 @@ Partial Class MainForm
         Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Description_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
+        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
+        Me.EventID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.UpperPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.AddTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -114,36 +119,30 @@ Partial Class MainForm
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EventID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
+        Me.close_after = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.end_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdopseSuperSchedulerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel1.SuspendLayout()
-        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel2.SuspendLayout()
         Me.KryptonSplitContainer1.SuspendLayout()
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NavigateHeaderGroup.Panel.SuspendLayout()
         Me.NavigateHeaderGroup.SuspendLayout()
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel1.SuspendLayout()
-        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel2.SuspendLayout()
         Me.KryptonSplitContainer2.SuspendLayout()
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ScheduledTasksHeaderGroup.Panel.SuspendLayout()
         Me.ScheduledTasksHeaderGroup.SuspendLayout()
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogHeaderGroup.Panel.SuspendLayout()
         Me.LogHeaderGroup.SuspendLayout()
         CType(Me.LogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,7 +160,7 @@ Partial Class MainForm
         Me.LowerPanel.Controls.Add(Me.KryptonSplitContainer1)
         Me.LowerPanel.Location = New System.Drawing.Point(0, 93)
         Me.LowerPanel.Name = "LowerPanel"
-        Me.LowerPanel.Size = New System.Drawing.Size(911, 425)
+        Me.LowerPanel.Size = New System.Drawing.Size(1164, 484)
         Me.LowerPanel.TabIndex = 0
         '
         'KryptonSplitContainer1
@@ -178,8 +177,8 @@ Partial Class MainForm
         'KryptonSplitContainer1.Panel2
         '
         Me.KryptonSplitContainer1.Panel2.Controls.Add(Me.KryptonSplitContainer2)
-        Me.KryptonSplitContainer1.Size = New System.Drawing.Size(911, 425)
-        Me.KryptonSplitContainer1.SplitterDistance = 192
+        Me.KryptonSplitContainer1.Size = New System.Drawing.Size(1164, 484)
+        Me.KryptonSplitContainer1.SplitterDistance = 245
         Me.KryptonSplitContainer1.TabIndex = 0
         '
         'NavigateHeaderGroup
@@ -193,7 +192,7 @@ Partial Class MainForm
         'NavigateHeaderGroup.Panel
         '
         Me.NavigateHeaderGroup.Panel.Controls.Add(Me.NavigationTreeView)
-        Me.NavigateHeaderGroup.Size = New System.Drawing.Size(192, 425)
+        Me.NavigateHeaderGroup.Size = New System.Drawing.Size(245, 484)
         Me.NavigateHeaderGroup.TabIndex = 0
         Me.NavigateHeaderGroup.ValuesPrimary.Heading = "Navigator"
         Me.NavigateHeaderGroup.ValuesPrimary.Image = Nothing
@@ -330,7 +329,7 @@ Partial Class MainForm
         TreeNode58.Text = "History"
         Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode53, TreeNode58})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
-        Me.NavigationTreeView.Size = New System.Drawing.Size(190, 393)
+        Me.NavigationTreeView.Size = New System.Drawing.Size(243, 452)
         Me.NavigationTreeView.TabIndex = 1
         '
         'KryptonSplitContainer2
@@ -348,8 +347,8 @@ Partial Class MainForm
         'KryptonSplitContainer2.Panel2
         '
         Me.KryptonSplitContainer2.Panel2.Controls.Add(Me.LogHeaderGroup)
-        Me.KryptonSplitContainer2.Size = New System.Drawing.Size(714, 425)
-        Me.KryptonSplitContainer2.SplitterDistance = 212
+        Me.KryptonSplitContainer2.Size = New System.Drawing.Size(914, 484)
+        Me.KryptonSplitContainer2.SplitterDistance = 241
         Me.KryptonSplitContainer2.TabIndex = 0
         '
         'ScheduledTasksHeaderGroup
@@ -362,7 +361,7 @@ Partial Class MainForm
         'ScheduledTasksHeaderGroup.Panel
         '
         Me.ScheduledTasksHeaderGroup.Panel.Controls.Add(Me.ScheduledTasksDataGridView)
-        Me.ScheduledTasksHeaderGroup.Size = New System.Drawing.Size(714, 212)
+        Me.ScheduledTasksHeaderGroup.Size = New System.Drawing.Size(914, 241)
         Me.ScheduledTasksHeaderGroup.TabIndex = 0
         Me.ScheduledTasksHeaderGroup.ValuesPrimary.Heading = "Scheduled Tasks"
         Me.ScheduledTasksHeaderGroup.ValuesPrimary.Image = CType(resources.GetObject("ScheduledTasksHeaderGroup.ValuesPrimary.Image"), System.Drawing.Image)
@@ -374,13 +373,13 @@ Partial Class MainForm
         Me.ScheduledTasksDataGridView.AllowUserToOrderColumns = True
         Me.ScheduledTasksDataGridView.AllowUserToResizeRows = False
         Me.ScheduledTasksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ScheduledTasksDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.taskID_Column, Me.taskGenre_Column, Me.Task_Column, Me.Type_Column, Me.NextExecution_Column, Me.Status_Column, Me.Description_Column})
+        Me.ScheduledTasksDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.taskID_Column, Me.taskGenre_Column, Me.Task_Column, Me.Type_Column, Me.NextExecution_Column, Me.Status_Column, Me.Description_Column, Me.close_after, Me.end_date})
         Me.ScheduledTasksDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ScheduledTasksDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.ScheduledTasksDataGridView.Name = "ScheduledTasksDataGridView"
         Me.ScheduledTasksDataGridView.ReadOnly = True
         Me.ScheduledTasksDataGridView.RowHeadersVisible = False
-        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(712, 179)
+        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(912, 208)
         Me.ScheduledTasksDataGridView.TabIndex = 1
         '
         'taskID_Column
@@ -455,10 +454,16 @@ Partial Class MainForm
         'LogHeaderGroup.Panel
         '
         Me.LogHeaderGroup.Panel.Controls.Add(Me.LogDataGridView)
-        Me.LogHeaderGroup.Size = New System.Drawing.Size(714, 208)
+        Me.LogHeaderGroup.Size = New System.Drawing.Size(914, 238)
         Me.LogHeaderGroup.TabIndex = 0
         Me.LogHeaderGroup.ValuesPrimary.Heading = "Log"
         Me.LogHeaderGroup.ValuesPrimary.Image = CType(resources.GetObject("LogHeaderGroup.ValuesPrimary.Image"), System.Drawing.Image)
+        '
+        'LogButtonSpecExportToPDF
+        '
+        Me.LogButtonSpecExportToPDF.Image = CType(resources.GetObject("LogButtonSpecExportToPDF.Image"), System.Drawing.Image)
+        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
         '
         'ButtonSpecHeaderGroup2
         '
@@ -478,141 +483,8 @@ Partial Class MainForm
         Me.LogDataGridView.Name = "LogDataGridView"
         Me.LogDataGridView.ReadOnly = True
         Me.LogDataGridView.RowHeadersVisible = False
-        Me.LogDataGridView.Size = New System.Drawing.Size(712, 171)
+        Me.LogDataGridView.Size = New System.Drawing.Size(912, 201)
         Me.LogDataGridView.TabIndex = 0
-        '
-        'KryptonManager
-        '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
-        '
-        'UpperPanel
-        '
-        Me.UpperPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UpperPanel.Controls.Add(Me.AddTaskButton)
-        Me.UpperPanel.Controls.Add(Me.RunNowButton)
-        Me.UpperPanel.Controls.Add(Me.EditTaskButton)
-        Me.UpperPanel.Controls.Add(Me.DeleteTaskButton)
-        Me.UpperPanel.Controls.Add(Me.MenuStrip)
-        Me.UpperPanel.Location = New System.Drawing.Point(0, 0)
-        Me.UpperPanel.Name = "UpperPanel"
-        Me.UpperPanel.Size = New System.Drawing.Size(911, 93)
-        Me.UpperPanel.TabIndex = 1
-        '
-        'AddTaskButton
-        '
-        Me.AddTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.AddTaskButton.Location = New System.Drawing.Point(241, 16)
-        Me.AddTaskButton.Name = "AddTaskButton"
-        Me.AddTaskButton.Size = New System.Drawing.Size(79, 58)
-        Me.AddTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
-        Me.AddTaskButton.TabIndex = 1
-        Me.ToolTip1.SetToolTip(Me.AddTaskButton, "Add New Task")
-        Me.AddTaskButton.Values.Image = CType(resources.GetObject("AddTaskButton.Values.Image"), System.Drawing.Image)
-        Me.AddTaskButton.Values.Text = "Add Task"
-        '
-        'RunNowButton
-        '
-        Me.RunNowButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.RunNowButton.Location = New System.Drawing.Point(571, 16)
-        Me.RunNowButton.Name = "RunNowButton"
-        Me.RunNowButton.Size = New System.Drawing.Size(79, 58)
-        Me.RunNowButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
-        Me.RunNowButton.TabIndex = 4
-        Me.ToolTip1.SetToolTip(Me.RunNowButton, "Run Selected Task Now")
-        Me.RunNowButton.Values.Image = CType(resources.GetObject("RunNowButton.Values.Image"), System.Drawing.Image)
-        Me.RunNowButton.Values.Text = "Run Now"
-        '
-        'EditTaskButton
-        '
-        Me.EditTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.EditTaskButton.Location = New System.Drawing.Point(348, 16)
-        Me.EditTaskButton.Name = "EditTaskButton"
-        Me.EditTaskButton.Size = New System.Drawing.Size(79, 58)
-        Me.EditTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
-        Me.EditTaskButton.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.EditTaskButton, "Edit Selected Task")
-        Me.EditTaskButton.Values.Image = CType(resources.GetObject("EditTaskButton.Values.Image"), System.Drawing.Image)
-        Me.EditTaskButton.Values.Text = "Edit Task"
-        '
-        'DeleteTaskButton
-        '
-        Me.DeleteTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.DeleteTaskButton.Location = New System.Drawing.Point(462, 16)
-        Me.DeleteTaskButton.Name = "DeleteTaskButton"
-        Me.DeleteTaskButton.Size = New System.Drawing.Size(79, 58)
-        Me.DeleteTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
-        Me.DeleteTaskButton.TabIndex = 3
-        Me.ToolTip1.SetToolTip(Me.DeleteTaskButton, "Delete Selected Task")
-        Me.DeleteTaskButton.Values.Image = CType(resources.GetObject("DeleteTaskButton.Values.Image"), System.Drawing.Image)
-        Me.DeleteTaskButton.Values.Text = "Delete Task"
-        '
-        'MenuStrip
-        '
-        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.TaskToolStripMenuItem, Me.ViewToolStripMenuItem, Me.AboutToolStripMenuItem})
-        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(911, 24)
-        Me.MenuStrip.TabIndex = 0
-        Me.MenuStrip.Text = "MenuStrip1"
-        '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem1})
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
-        'ExitToolStripMenuItem1
-        '
-        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem1.Text = "Exit"
-        '
-        'TaskToolStripMenuItem
-        '
-        Me.TaskToolStripMenuItem.Name = "TaskToolStripMenuItem"
-        Me.TaskToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
-        Me.TaskToolStripMenuItem.Text = "Task"
-        '
-        'ViewToolStripMenuItem
-        '
-        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.ViewToolStripMenuItem.Text = "View"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'TrayIcon
-        '
-        Me.TrayIcon.ContextMenuStrip = Me.TrayContextMenu
-        Me.TrayIcon.Icon = CType(resources.GetObject("TrayIcon.Icon"), System.Drawing.Icon)
-        Me.TrayIcon.Text = "NotifyIcon1"
-        Me.TrayIcon.Visible = True
-        '
-        'TrayContextMenu
-        '
-        Me.TrayContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowToolStripMenuItem, Me.ExitToolStripMenuItem})
-        Me.TrayContextMenu.Name = "TrayContextMenu"
-        Me.TrayContextMenu.Size = New System.Drawing.Size(104, 48)
-        '
-        'ShowToolStripMenuItem
-        '
-        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ShowToolStripMenuItem.Text = "Show"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EventID_Column
         '
@@ -645,17 +517,181 @@ Partial Class MainForm
         Me.Details_Column.ReadOnly = True
         Me.Details_Column.Width = 311
         '
-        'LogButtonSpecExportToPDF
+        'KryptonManager
         '
-        Me.LogButtonSpecExportToPDF.Image = CType(resources.GetObject("LogButtonSpecExportToPDF.Image"), System.Drawing.Image)
-        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        '
+        'UpperPanel
+        '
+        Me.UpperPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.UpperPanel.Controls.Add(Me.AddTaskButton)
+        Me.UpperPanel.Controls.Add(Me.RunNowButton)
+        Me.UpperPanel.Controls.Add(Me.EditTaskButton)
+        Me.UpperPanel.Controls.Add(Me.DeleteTaskButton)
+        Me.UpperPanel.Controls.Add(Me.MenuStrip)
+        Me.UpperPanel.Location = New System.Drawing.Point(0, 0)
+        Me.UpperPanel.Name = "UpperPanel"
+        Me.UpperPanel.Size = New System.Drawing.Size(1164, 93)
+        Me.UpperPanel.TabIndex = 1
+        '
+        'AddTaskButton
+        '
+        Me.AddTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.AddTaskButton.Location = New System.Drawing.Point(423, 16)
+        Me.AddTaskButton.Name = "AddTaskButton"
+        Me.AddTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.AddTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.AddTaskButton.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.AddTaskButton, "Add New Task")
+        Me.AddTaskButton.Values.Image = CType(resources.GetObject("AddTaskButton.Values.Image"), System.Drawing.Image)
+        Me.AddTaskButton.Values.Text = "Add Task"
+        '
+        'RunNowButton
+        '
+        Me.RunNowButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.RunNowButton.Location = New System.Drawing.Point(871, 16)
+        Me.RunNowButton.Name = "RunNowButton"
+        Me.RunNowButton.Size = New System.Drawing.Size(79, 58)
+        Me.RunNowButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.RunNowButton.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.RunNowButton, "Run Selected Task Now")
+        Me.RunNowButton.Values.Image = CType(resources.GetObject("RunNowButton.Values.Image"), System.Drawing.Image)
+        Me.RunNowButton.Values.Text = "Run Now"
+        '
+        'EditTaskButton
+        '
+        Me.EditTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.EditTaskButton.Location = New System.Drawing.Point(568, 16)
+        Me.EditTaskButton.Name = "EditTaskButton"
+        Me.EditTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.EditTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.EditTaskButton.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.EditTaskButton, "Edit Selected Task")
+        Me.EditTaskButton.Values.Image = CType(resources.GetObject("EditTaskButton.Values.Image"), System.Drawing.Image)
+        Me.EditTaskButton.Values.Text = "Edit Task"
+        '
+        'DeleteTaskButton
+        '
+        Me.DeleteTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.DeleteTaskButton.Location = New System.Drawing.Point(718, 16)
+        Me.DeleteTaskButton.Name = "DeleteTaskButton"
+        Me.DeleteTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.DeleteTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
+        Me.DeleteTaskButton.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.DeleteTaskButton, "Delete Selected Task")
+        Me.DeleteTaskButton.Values.Image = CType(resources.GetObject("DeleteTaskButton.Values.Image"), System.Drawing.Image)
+        Me.DeleteTaskButton.Values.Text = "Delete Task"
+        '
+        'MenuStrip
+        '
+        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.TaskToolStripMenuItem, Me.ViewToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(1164, 24)
+        Me.MenuStrip.TabIndex = 0
+        Me.MenuStrip.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddTaskToolStripMenuItem, Me.EditTaskToolStripMenuItem, Me.DeleteTaskToolStripMenuItem, Me.ExitToolStripMenuItem1})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'ExitToolStripMenuItem1
+        '
+        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Text = "Exit"
+        '
+        'TaskToolStripMenuItem
+        '
+        Me.TaskToolStripMenuItem.Name = "TaskToolStripMenuItem"
+        Me.TaskToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.TaskToolStripMenuItem.Text = "Task"
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdopseSuperSchedulerToolStripMenuItem})
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'TrayIcon
+        '
+        Me.TrayIcon.ContextMenuStrip = Me.TrayContextMenu
+        Me.TrayIcon.Icon = CType(resources.GetObject("TrayIcon.Icon"), System.Drawing.Icon)
+        Me.TrayIcon.Text = "NotifyIcon1"
+        Me.TrayIcon.Visible = True
+        '
+        'TrayContextMenu
+        '
+        Me.TrayContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.TrayContextMenu.Name = "TrayContextMenu"
+        Me.TrayContextMenu.Size = New System.Drawing.Size(104, 48)
+        '
+        'ShowToolStripMenuItem
+        '
+        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
+        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ShowToolStripMenuItem.Text = "Show"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'close_after
+        '
+        Me.close_after.HeaderText = "Remaining Runs"
+        Me.close_after.Name = "close_after"
+        Me.close_after.ReadOnly = True
+        '
+        'end_date
+        '
+        Me.end_date.HeaderText = "End Date"
+        Me.end_date.Name = "end_date"
+        Me.end_date.ReadOnly = True
+        '
+        'AddTaskToolStripMenuItem
+        '
+        Me.AddTaskToolStripMenuItem.Name = "AddTaskToolStripMenuItem"
+        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddTaskToolStripMenuItem.Text = "Add Task"
+        '
+        'EditTaskToolStripMenuItem
+        '
+        Me.EditTaskToolStripMenuItem.Name = "EditTaskToolStripMenuItem"
+        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditTaskToolStripMenuItem.Text = "Edit Task"
+        '
+        'DeleteTaskToolStripMenuItem
+        '
+        Me.DeleteTaskToolStripMenuItem.Name = "DeleteTaskToolStripMenuItem"
+        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteTaskToolStripMenuItem.Text = "Delete Task"
+        '
+        'AdopseSuperSchedulerToolStripMenuItem
+        '
+        Me.AdopseSuperSchedulerToolStripMenuItem.Name = "AdopseSuperSchedulerToolStripMenuItem"
+        Me.AdopseSuperSchedulerToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.AdopseSuperSchedulerToolStripMenuItem.Text = "Adopse Super Scheduler"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(911, 517)
+        Me.ClientSize = New System.Drawing.Size(1164, 576)
         Me.Controls.Add(Me.UpperPanel)
         Me.Controls.Add(Me.LowerPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -666,28 +702,21 @@ Partial Class MainForm
         Me.Text = "Adopse Super Scheduler"
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LowerPanel.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel1.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.ResumeLayout(False)
-        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel1.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.ResumeLayout(False)
-        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.ResumeLayout(False)
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.ResumeLayout(False)
@@ -754,4 +783,10 @@ Partial Class MainForm
     Friend WithEvents TaskName_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Details_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
+    Friend WithEvents close_after As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents end_date As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AddTaskToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EditTaskToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteTaskToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AdopseSuperSchedulerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

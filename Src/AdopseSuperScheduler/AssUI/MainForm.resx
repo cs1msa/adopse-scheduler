@@ -138,11 +138,17 @@
   <metadata name="Description_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="close_after.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="end_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ScheduledTasksHeaderGroup.ValuesPrimary.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAGYktHRAD/AP8A/6C9p5MAAAZNSURBVEhL5VZpbFRVGH0S
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAAAGYktHRAD/AP8A/6C9p5MAAAZNSURBVEhL5VZpbFRVGH0S
         0EKQBPSfBGNSopIYsAkWTRBotBUNoZaGH1KjFEmVhEisYFMSeNAYYsoe0ihNICCytMWW7kM3uk6hMNB2
         OrSzdNbOvu9bOX73YacLSyRE/zjJycy77957vvN957tzOQDcgwcPuJnfjxv7J3Oeto69e4RoYtN/lZCR
         /Ff4nygcHx/nKq81LKuuFaGpuV2AqOkGOrtuPjcaGltQVlEDvz+AhGmisRhXVlHLt7Z1gqGlrQNt7V2Q
@@ -285,7 +291,7 @@
   <data name="RunNowButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAGYktHRAD/AP8A/6C9p5MAAAckSURBVFhH7Zd7VFTVHscH
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAAAGYktHRAD/AP8A/6C9p5MAAAckSURBVFhH7Zd7VFTVHscH
         LHDp0qu5lhkWoS4XXB9JijJokAtU0vJ5e5qZpfeKpSUmEaVQiIDCxVc+EENDQUDRQfGBIC8RGh4ikYog
         IEiIxgDDzJlzzoB872+f06wwHkr1V+uetb5rZs7ss/dnf3+PPaNQ/P/qpQN9+vRRWFtbz1MqnQyz3Gdj
         1itzMO0lZ4wePZqzsLBw6OV0jz/cxsZm0JpPPZGSlonSilrUaTho9G2S6hp5lFbWIT1bjc99fDF27FjQ
@@ -6759,6 +6765,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAA=
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>93</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAoIAQAZgAAAICAAAABACAAKAgBAI4gBABAQAAAAQAgAChCAAC2KAUAMDAAAAEA

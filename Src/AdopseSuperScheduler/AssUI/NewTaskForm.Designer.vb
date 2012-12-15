@@ -26,8 +26,6 @@ Partial Class NewTaskForm
         Me.OnceOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.resetTypeOfTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.MonthsLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -87,6 +85,8 @@ Partial Class NewTaskForm
         Me.KryptonLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ShapeContainer6 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.resetTypeOfTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ArrowLabel4 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.resetDateTimeButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -163,9 +163,9 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Controls.Add(Me.OnceOKButtonPanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.MoreOptionsButton)
+        Me.addNewTaskMainPanel.Controls.Add(Me.RecurrencePanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.resetTypeOfTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel5)
-        Me.addNewTaskMainPanel.Controls.Add(Me.RecurrencePanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel4)
         Me.addNewTaskMainPanel.Controls.Add(Me.resetDateTimeButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel3)
@@ -226,28 +226,6 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("MoreOptionsButton.Values.Image"), System.Drawing.Image)
         Me.MoreOptionsButton.Values.Text = ""
         '
-        'resetTypeOfTaskButton
-        '
-        Me.resetTypeOfTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.resetTypeOfTaskButton.Location = New System.Drawing.Point(469, 334)
-        Me.resetTypeOfTaskButton.Name = "resetTypeOfTaskButton"
-        Me.resetTypeOfTaskButton.Size = New System.Drawing.Size(39, 40)
-        Me.resetTypeOfTaskButton.TabIndex = 27
-        Me.ToolTip1.SetToolTip(Me.resetTypeOfTaskButton, "Change")
-        Me.resetTypeOfTaskButton.Values.Image = CType(resources.GetObject("resetTypeOfTaskButton.Values.Image"), System.Drawing.Image)
-        Me.resetTypeOfTaskButton.Values.Text = ""
-        Me.resetTypeOfTaskButton.Visible = False
-        '
-        'ArrowLabel5
-        '
-        Me.ArrowLabel5.Location = New System.Drawing.Point(3, 409)
-        Me.ArrowLabel5.Name = "ArrowLabel5"
-        Me.ArrowLabel5.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel5.TabIndex = 26
-        Me.ArrowLabel5.Values.Image = CType(resources.GetObject("ArrowLabel5.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel5.Values.Text = ""
-        Me.ArrowLabel5.Visible = False
-        '
         'RecurrencePanel
         '
         Me.RecurrencePanel.Controls.Add(Me.MonthsDropDownButton)
@@ -291,7 +269,7 @@ Partial Class NewTaskForm
         '
         Me.MonthDaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.MonthDaysDropDownButton.KryptonContextMenu = Me.MonthDaysContextMenu
-        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(85, 70)
+        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(799, 258)
         Me.MonthDaysDropDownButton.Name = "MonthDaysDropDownButton"
         Me.MonthDaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthDaysDropDownButton.TabIndex = 28
@@ -481,7 +459,7 @@ Partial Class NewTaskForm
         '
         Me.WeekdaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.WeekdaysDropDownButton.KryptonContextMenu = Me.WeekdaysContextMenu
-        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(85, 70)
+        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(559, 252)
         Me.WeekdaysDropDownButton.Name = "WeekdaysDropDownButton"
         Me.WeekdaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.WeekdaysDropDownButton.TabIndex = 26
@@ -634,6 +612,28 @@ Partial Class NewTaskForm
         Me.RectangleShape5.SelectionColor = System.Drawing.Color.Transparent
         Me.RectangleShape5.Size = New System.Drawing.Size(352, 126)
         Me.RectangleShape5.Visible = False
+        '
+        'resetTypeOfTaskButton
+        '
+        Me.resetTypeOfTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.resetTypeOfTaskButton.Location = New System.Drawing.Point(469, 334)
+        Me.resetTypeOfTaskButton.Name = "resetTypeOfTaskButton"
+        Me.resetTypeOfTaskButton.Size = New System.Drawing.Size(39, 40)
+        Me.resetTypeOfTaskButton.TabIndex = 27
+        Me.ToolTip1.SetToolTip(Me.resetTypeOfTaskButton, "Change")
+        Me.resetTypeOfTaskButton.Values.Image = CType(resources.GetObject("resetTypeOfTaskButton.Values.Image"), System.Drawing.Image)
+        Me.resetTypeOfTaskButton.Values.Text = ""
+        Me.resetTypeOfTaskButton.Visible = False
+        '
+        'ArrowLabel5
+        '
+        Me.ArrowLabel5.Location = New System.Drawing.Point(3, 409)
+        Me.ArrowLabel5.Name = "ArrowLabel5"
+        Me.ArrowLabel5.Size = New System.Drawing.Size(38, 34)
+        Me.ArrowLabel5.TabIndex = 26
+        Me.ArrowLabel5.Values.Image = CType(resources.GetObject("ArrowLabel5.Values.Image"), System.Drawing.Image)
+        Me.ArrowLabel5.Values.Text = ""
+        Me.ArrowLabel5.Visible = False
         '
         'ArrowLabel4
         '
@@ -1124,8 +1124,6 @@ Partial Class NewTaskForm
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents addNewTaskMainPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents KryptonManager As ComponentFactory.Krypton.Toolkit.KryptonManager
 
     Public Sub New()
 
@@ -1139,52 +1137,8 @@ Partial Class NewTaskForm
     Protected Overrides Sub Finalize()
         MyBase.Finalize()
     End Sub
-    Friend WithEvents resetChooseFileButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents KindOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents chooseFilePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents chooseFileTextBox As ComponentFactory.Krypton.Toolkit.KryptonTextBox
     Friend WithEvents OpenFileDialog As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents OtherCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents ReminderCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents MultimediaCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
-    Friend WithEvents chooseFileOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents TypeOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents YearlyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents DailyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents OnceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents MonthlyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents WeeklyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents TypeOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
-    Friend WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
-    Friend WithEvents KryptonLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
-    Friend WithEvents KryptonLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents DateLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents DateTimePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents ArrowLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents ArrowLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents ArrowLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents chooseDateTimeOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents resetDateTimeButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents ArrowLabel4 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents Label2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
-    Friend WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents typeOfTaskOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents resetTypeOfTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Friend WithEvents WeekdaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Friend WithEvents KryptonContextMenuCheckBox1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
@@ -1192,18 +1146,9 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox5 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox6 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox7 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents KryptonContextMenuItems2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
-    Friend WithEvents KryptonContextMenuItem1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Friend WithEvents KryptonContextMenuCheckBox8 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents SelectAllWeekdaysCommand As ComponentFactory.Krypton.Toolkit.KryptonCommand
-    Friend WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Friend WithEvents MonthDaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents MonthDaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
-    Friend WithEvents KryptonContextMenuItems1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
-    Friend WithEvents KryptonContextMenuItem2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Friend WithEvents KryptonContextMenuSeparator3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator
     Friend WithEvents KryptonContextMenuCheckBox42 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents KryptonContextMenuItems4 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Friend WithEvents KryptonContextMenuCheckBox43 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox17 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox18 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
@@ -1240,12 +1185,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuSeparator5 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator
     Friend WithEvents KryptonContextMenuCheckBox52 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox51 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Friend WithEvents MonthsLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents OnceOKButtonPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Friend WithEvents OnceOKButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
@@ -1256,4 +1195,65 @@ Partial Class NewTaskForm
     Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer3 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Private WithEvents addNewTaskMainPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents KryptonManager As ComponentFactory.Krypton.Toolkit.KryptonManager
+    Private WithEvents resetChooseFileButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents KindOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents chooseFilePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents chooseFileTextBox As ComponentFactory.Krypton.Toolkit.KryptonTextBox
+    Private WithEvents OtherCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents ReminderCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents MultimediaCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
+    Private WithEvents chooseFileOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents TypeOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents YearlyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents DailyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents OnceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents MonthlyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents WeeklyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents TypeOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
+    Private WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
+    Private WithEvents KryptonLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
+    Private WithEvents KryptonLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents DateLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents DateTimePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents ArrowLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents ArrowLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents ArrowLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents chooseDateTimeOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents resetDateTimeButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents ArrowLabel4 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents Label2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
+    Private WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents typeOfTaskOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents resetTypeOfTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Private WithEvents WeekdaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
+    Private WithEvents KryptonContextMenuItems2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
+    Private WithEvents KryptonContextMenuItem1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
+    Private WithEvents SelectAllWeekdaysCommand As ComponentFactory.Krypton.Toolkit.KryptonCommand
+    Private WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Private WithEvents MonthDaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents MonthDaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
+    Private WithEvents KryptonContextMenuItems1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
+    Private WithEvents KryptonContextMenuItem2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
+    Private WithEvents KryptonContextMenuItems4 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
+    Private WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Private WithEvents MonthsLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Private WithEvents OnceOKButtonPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Private WithEvents OnceOKButton As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

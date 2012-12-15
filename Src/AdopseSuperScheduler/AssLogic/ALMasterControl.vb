@@ -136,12 +136,18 @@
 
 
     'add task
-    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, _
+
+    '-Scheduled tasks
+    'Task_ID | Program_Path | Next Run | Status | Description | Close After | If_Not_Run | End_Date
+
+
+    Public Sub AddTask(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_end_date As Date, ByVal a_status As Boolean, _
                        Optional ByVal a_description As String = "", _
                        Optional ByVal a_close_after As Integer = 0, _
                        Optional ByVal a_period_in_days As UInteger = 0, _
                        Optional ByVal a_period_in_months As UInteger = 0, _
-                       Optional ByVal a_period_in_years As UInteger = 0)
+                       Optional ByVal a_period_in_years As UInteger = 0, _
+                       Optional ByVal a_if_not_run As String = "RUN")
 
         'add the task to the task manager 
         If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
@@ -200,6 +206,6 @@
 
 
 
-    
+
 
 End Class

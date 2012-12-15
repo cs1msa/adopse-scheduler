@@ -163,8 +163,8 @@ Public Class TestingForm
     End Sub
 
     Private Sub Button17_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button17.Click
-        m_master_control.AddTask("c:/Firefox.exe", New Date(2066, 6, 6, 15, 30, 0), True, "just a test", 15, 7)
-
+        '' m_master_control.AddTask("c:/Firefox.exe", New Date(2066, 6, 6, 15, 30, 0), True, "just a test", 15, 7)
+        'DOES NOT WORK, NEEDS TO BE UPDATED TO THE NEW DATABASE SCHEME
     End Sub
 
     Private Sub Button18_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button18.Click

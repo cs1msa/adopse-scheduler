@@ -1,5 +1,22 @@
 -LOG
-ID energias | Hmeromhnia Energias |Onoma programmatos | Details
+Action_ID | Action_Date | Program_Name| Details
+
+Action_ID (Number) - ID energeias
+Action_Date (Date/Time) - Hmerominia Energeias
+Program_Name (text)
+Details (text)
+
+
 
 -Scheduled tasks
-task ID | Onoma programmatos | Next Run | Status | Description | Close After
+Task_ID | Program_Path | Next Run | Status | Description | Close After | If_Not_Run | End_Date
+
+Task Id (number)      
+Program Path (text) 	- path to runable
+Next Run (Date/Time) 
+Period (Text) 		- Run Interval
+Status (Yes/No)		- Active or inactive task
+Description (Text)
+Close_After (Number) 	- Kill proccess after user defined hours 
+If_Not_Run (Text) 	- Words "RUN-DIALOG-NOTHING"
+End_Date (Date/Time) 	- Stop executing the program after said date
