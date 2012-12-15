@@ -106,6 +106,8 @@ Public Class MainForm
 
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        m_master_control = New ALMasterControl()
+        m_master_control.Init()
         NewTaskForm.SetMasterControl(m_master_control)
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
