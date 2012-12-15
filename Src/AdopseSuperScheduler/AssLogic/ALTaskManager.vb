@@ -13,8 +13,6 @@
 
     End Sub
 
-    
-
     Public Sub SortTasks()
         m_task_list.Sort()
     End Sub
@@ -38,8 +36,6 @@
         For i As Integer = indexes.Count - 1 To 0 Step -1
             m_task_list.RemoveAt(indexes(i))
         Next
-
-
     End Sub
 
     'if there is a task with the given program name it returns true

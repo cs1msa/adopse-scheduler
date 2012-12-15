@@ -111,6 +111,7 @@ Public Class MainForm
         NewTaskForm.SetMasterControl(m_master_control)
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
+        Timer.Start()
     End Sub
 
     'changes the default action of the X button
@@ -163,4 +164,7 @@ Public Class MainForm
         MessageBox.Show(e.Exception.Message)
     End Sub
 
+    Private Sub Timer_Tick(sender As System.Object, e As System.EventArgs) Handles Timer.Tick
+        m_master_control.RunTasks()
+    End Sub
 End Class
