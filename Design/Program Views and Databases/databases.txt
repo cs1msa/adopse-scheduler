@@ -9,7 +9,7 @@ Details (text)
 
 
 -Scheduled tasks
-Task_ID | Program_Path | Next Run | Status | Description | Close After | If_Not_Run | End_Date
+Task_ID | Program_Path | Next_Run | Status | Description | Close_After | If_Not_Run | End_Date
 
 Task Id (number)      
 Program Path (text) 	- path to runable

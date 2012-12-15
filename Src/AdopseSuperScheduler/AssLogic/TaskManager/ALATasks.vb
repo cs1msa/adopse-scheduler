@@ -8,12 +8,18 @@
     Protected m_description As String 'description of the task
     Protected m_close_after As Integer 'in minutes
 
-    Sub New(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer)
+    Protected m_if_not_run As String    '"RUN-DIALOG-NOTHING"
+    Protected m_end_date As Date        'the date that this tasks it being diactivated
+
+    Sub New(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer, _
+            ByVal a_if_not_run As String, ByVal a_end_date As Date)
         m_full_path = a_full_path
         m_next_run = a_date
         m_status = a_status
         m_description = a_description
         m_close_after = a_close_after
+        m_if_not_run = a_if_not_run
+        m_end_date = a_end_date
     End Sub
 
 
@@ -26,6 +32,9 @@
         Return Me.m_next_run.CompareTo(other.next_run_date)
     End Function
 
+    Public Function GetStatus() As Boolean
+        Return m_status
+    End Function
 
     Public Property program_full_path() As String
         Get
@@ -41,6 +50,7 @@
             Return m_next_run
         End Get
     End Property
+
 
 
 End Class

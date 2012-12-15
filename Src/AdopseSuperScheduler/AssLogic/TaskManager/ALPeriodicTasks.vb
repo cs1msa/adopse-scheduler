@@ -5,13 +5,15 @@
     Dim m_period_in_years As Integer
 
     Sub New(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, _
-                       Optional ByVal a_description As String = "", _
-                       Optional ByVal a_close_after As Integer = 0, _
-                       Optional ByVal a_period_in_days As UInteger = 0, _
-                       Optional ByVal a_period_in_months As UInteger = 0, _
-                       Optional ByVal a_period_in_years As UInteger = 0)
+                        ByVal a_end_date As Date, _
+                        Optional ByVal a_if_not_run As String = "DIALOG", _
+                        Optional ByVal a_description As String = "", _
+                        Optional ByVal a_close_after As Integer = 0, _
+                        Optional ByVal a_period_in_days As UInteger = 0, _
+                        Optional ByVal a_period_in_months As UInteger = 0, _
+                        Optional ByVal a_period_in_years As UInteger = 0)
 
-        MyBase.New(a_full_path, a_date, a_status, a_description, a_close_after)
+        MyBase.New(a_full_path, a_date, a_status, a_description, a_close_after, a_if_not_run, a_end_date)
         m_period_in_days = a_period_in_days
         m_period_in_months = a_period_in_months
         m_period_in_years = a_period_in_years

@@ -62,6 +62,7 @@ Public Class TestingForm
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         'create a database handler ONLY for testing purposes
         Dim database_handler As New ALDatabaseHandler
+        'will now work
         database_handler.ExecuteInsert("Log", {"1", "21/12/2012", "'C:/firefox.exe'", "'this is a testing of details'"})
         database_handler.ExecuteInsert("Log", {"2", "1/3/2009", "'C:/chrome.exe'", "'this is a testing of details 2'"})
 
@@ -143,7 +144,7 @@ Public Class TestingForm
 
    
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
-        m_master_control.CreateTasks("c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0", False, "ria", "65")
+        m_master_control.CreateTasks("c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0", False, Date.Now, "DIALOG", "ria", "65")
     End Sub
 
     Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
@@ -154,7 +155,7 @@ Public Class TestingForm
         'create a database handler ONLY for testing purposes
         Dim database_handler As New ALDatabaseHandler
 
-        database_handler.ExecuteUpdate("[Scheduler Tasks]", {"Program_Name = 'C:/Firefox.exe'"}, {"Task_ID = 2"})
+        database_handler.ExecuteUpdate("[Scheduler Tasks]", {"Program_Path = 'C:/Firefox.exe'"}, {"Task_ID = 2"})
 
     End Sub
 
