@@ -138,13 +138,13 @@ Public Class TestingForm
 
     Private Sub Button11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button11.Click
 
-        m_task_manager.AddTask(New ALFixedDateTasks("C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0), True, "papa", 4))
+        m_task_manager.AddTask(New ALFixedDateTasks(100, "C:/firefox.exe", New Date(2012, 12, 4, 20, 20, 0), True, "papa", 4))
 
     End Sub
 
    
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
-        m_master_control.CreateTasks("c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0", False, Date.Now, "DIALOG", "ria", "65")
+        m_master_control.CreateTasks(101, "c:/firefox.exe", "30/12/1899 12:00:50 πμ", "3/5/0", False, Date.Now, "DIALOG", "ria", "65")
     End Sub
 
     Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click

@@ -38,26 +38,27 @@
     Public Sub RetrieveTasks()
 
         Dim tasks_string As New List(Of String)
-        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Program_Path", "Next_Run", "Period", "Status", "Description", "Close_After", "If_Not_Run", "End_Date"})
+        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Task_ID,Program_Path", "Next_Run", "Period", "Status", "Description", "Close_After", "If_Not_Run", "End_Date"})
 
 
         For Each row As String In tasks_string
             Dim splitted_row = row.Split("|")
-            Dim path = splitted_row(0)
-            Dim date_ = splitted_row(1)
-            Dim period = splitted_row(2)
-            Dim status = splitted_row(3)
-            Dim description = splitted_row(4)
-            Dim close_after = splitted_row(5)
-            Dim if_not_run = splitted_row(6)
-            Dim end_date = splitted_row(7)
+            Dim id = splitted_row(0)
+            Dim path = splitted_row(1)
+            Dim date_ = splitted_row(2)
+            Dim period = splitted_row(3)
+            Dim status = splitted_row(4)
+            Dim description = splitted_row(5)
+            Dim close_after = splitted_row(6)
+            Dim if_not_run = splitted_row(7)
+            Dim end_date = splitted_row(8)
 
-            CreateTasks(path, date_, period, status, end_date, if_not_run, description, close_after)
+            CreateTasks(id, path, date_, period, status, end_date, if_not_run, description, close_after)
         Next
     End Sub
 
 
-    Public Sub CreateTasks(ByVal a_path As String, ByVal a_date As String, ByVal a_period As String, ByVal a_status As String, ByVal a_end_date As Date, ByVal a_if_not_run As String, ByVal a_description As String, ByVal a_close_after As String)
+    Public Sub CreateTasks(ByVal a_id As Integer, ByVal a_path As String, ByVal a_date As String, ByVal a_period As String, ByVal a_status As String, ByVal a_end_date As Date, ByVal a_if_not_run As String, ByVal a_description As String, ByVal a_close_after As String)
 
         'create the date to send to the task to run
         Dim date_y_m_d As String = a_date.Split(" ")(0)
@@ -80,14 +81,14 @@
             (Not splited_period(1).Equals("0")) Or _
             (Not splited_period(2).Equals("0")) Then
 
-            Dim task As New ALPeriodicTasks(a_path, m_date, Boolean.Parse(a_status), a_end_date, a_if_not_run, a_description, Integer.Parse(a_close_after), _
+            Dim task As New ALPeriodicTasks(a_id, a_path, m_date, Boolean.Parse(a_status), a_end_date, a_if_not_run, a_description, Integer.Parse(a_close_after), _
                                                     UInteger.Parse(splited_period(0)), _
                                                     UInteger.Parse(splited_period(1)), _
                                                     UInteger.Parse(splited_period(2)))
             m_task_manager.AddTask(task)
 
         Else 'in case there is not a period create a fixed date task
-            Dim task As New ALFixedDateTasks(a_path, m_date, Boolean.Parse(a_status), a_if_not_run, a_description, Integer.Parse(a_close_after))
+            Dim task As New ALFixedDateTasks(a_id, a_path, m_date, Boolean.Parse(a_status), a_if_not_run, a_description, Integer.Parse(a_close_after))
             m_task_manager.AddTask(task)
         End If
 
@@ -127,11 +128,17 @@
 
         For Each task As ALATasks In tasks
             'run the program
+            Try
+
+            
             m_core.RunFullPathProgram(task.program_full_path)
             m_last_log_id = m_last_log_id + 1
-            m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that"})
+            m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that'"})
             task.UpdateNextRun()
+            m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
+            Catch ex As Exception
 
+            End Try
         Next
 
     End Sub
@@ -150,26 +157,27 @@
                        Optional ByVal a_period_in_months As UInteger = 0, _
                        Optional ByVal a_period_in_years As UInteger = 0, _
                        Optional ByVal a_if_not_run As String = "DIALOG")
-
-        'add the task to the task manager 
-        If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
-            'if it a fixed date task
-            Dim task As New ALFixedDateTasks(a_full_path, a_date, a_status, a_if_not_run, a_description, a_close_after)
-            m_task_manager.AddTask(task)
-
-        Else
-            'if it is a periodic task
-            Dim task As New ALPeriodicTasks(a_full_path, a_date, a_status, a_end_date, a_if_not_run, a_description, a_close_after, a_period_in_days, a_period_in_months, a_period_in_years)
-            m_task_manager.AddTask(task)
-        End If
-
-        m_task_manager.SortTasks()
-
-        'add the task to the database(scheduler tasks)
-        'add a log row for the addition
         Try
             m_last_log_id = m_last_log_id + 1
             m_last_scheduler_tasks_id = m_last_scheduler_tasks_id + 1
+            'add the task to the task manager 
+            If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
+                'if it a fixed date task
+                Dim task As New ALFixedDateTasks(m_last_scheduler_tasks_id, a_full_path, a_date, a_status, a_if_not_run, a_description, a_close_after)
+                m_task_manager.AddTask(task)
+
+            Else
+                'if it is a periodic task
+                Dim task As New ALPeriodicTasks(m_last_scheduler_tasks_id, a_full_path, a_date, a_status, a_end_date, a_if_not_run, a_description, a_close_after, a_period_in_days, a_period_in_months, a_period_in_years)
+                m_task_manager.AddTask(task)
+            End If
+
+            m_task_manager.SortTasks()
+
+            'add the task to the database(scheduler tasks)
+            'add a log row for the addition
+
+
             m_core.InsertToTable("[Scheduler Tasks]", {m_last_scheduler_tasks_id.ToString(), "'" & a_full_path & "'", "'" & a_date & "'", _
                                                       "'" & a_period_in_days.ToString() & "/" & a_period_in_months.ToString() & "/" & a_period_in_years.ToString() & "'", _
                                                       a_status.ToString(), "'" & a_description & "'", a_close_after.ToString(), _
@@ -199,8 +207,6 @@
         Catch ex As ALDatabaseDeleteException
 
         Catch ex2 As ALDatabaseInsertException
-
-
 
         End Try
 

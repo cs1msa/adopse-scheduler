@@ -1,5 +1,6 @@
 ﻿Public MustInherit Class ALATasks
     Implements IComparable
+    Protected m_id As Integer
     Protected m_next_run As Date      'the date this tasks is supposed to run
 
     Protected m_full_path As String   'contains prorgam name and path
@@ -11,8 +12,10 @@
     Protected m_if_not_run As String    '"RUN-DIALOG-NOTHING"
     Protected m_end_date As Date        'the date that this tasks it being diactivated
 
-    Sub New(ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer, _
+
+    Sub New(ByVal a_id As Integer, ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer, _
             ByVal a_if_not_run As String, ByVal a_end_date As Date)
+        m_id = a_id
         m_full_path = a_full_path
         m_next_run = a_date
         m_status = a_status
@@ -36,6 +39,8 @@
         Return m_status
     End Function
 
+
+
     Public Property program_full_path() As String
         Get
             Return m_full_path
@@ -51,7 +56,11 @@
         End Get
     End Property
 
-
+    Public ReadOnly Property id As Integer
+        Get
+            Return m_id
+        End Get
+    End Property
 
 End Class
 
