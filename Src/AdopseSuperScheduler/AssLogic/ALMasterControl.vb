@@ -99,6 +99,7 @@
 
         Dim now_date As Date = Date.Now 'System time
         Dim list_to_return As New List(Of ALATasks)
+        'if there are tasks in task manager
         If m_task_manager.Count > 0 Then
             For i As UInteger = 0 To m_task_manager.Count - 1 Step 1
 
@@ -107,7 +108,7 @@
                 'first check if it is supposed to run later
                 If working_task.next_run_date.CompareTo(now_date) > 0 Then
                     Exit For
-                Else
+                ElseIf working_task.GetStatus Then
                     'else add them to the list
                     list_to_return.Add(working_task)
                 End If
@@ -124,9 +125,11 @@
 
         Dim tasks As List(Of ALATasks) = checkTasks()
 
-        For Each task In tasks
+        For Each task As ALATasks In tasks
             'run the program
             m_core.RunFullPathProgram(task.program_full_path)
+            m_last_log_id = m_last_log_id + 1
+            m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that"})
             task.UpdateNextRun()
 
         Next

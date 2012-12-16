@@ -15,6 +15,6 @@
 
 
     Public Overrides Sub UpdateNextRun()
-
+        Me.m_status = False
     End Sub
 End Class
