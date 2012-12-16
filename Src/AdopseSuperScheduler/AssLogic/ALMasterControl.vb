@@ -99,20 +99,21 @@
 
         Dim now_date As Date = Date.Now 'System time
         Dim list_to_return As New List(Of ALATasks)
+        If m_task_manager.Count > 0 Then
+            For i As UInteger = 0 To m_task_manager.Count - 1 Step 1
 
-        For i As UInteger = 0 To m_task_manager.Count - 1 Step 1
+                Dim working_task = m_task_manager.GetTask(i)
 
-            Dim working_task = m_task_manager.GetTask(i)
+                'first check if it is supposed to run later
+                If working_task.next_run_date.CompareTo(now_date) > 0 Then
+                    Exit For
+                Else
+                    'else add them to the list
+                    list_to_return.Add(working_task)
+                End If
 
-            'first check if it is supposed to run later
-            If working_task.next_run_date.CompareTo(now_date) > 0 Then
-                Exit For
-            Else
-                'else add them to the list
-                list_to_return.Add(working_task)
-            End If
-
-        Next
+            Next
+        End If
 
         Return list_to_return
     End Function
