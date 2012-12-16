@@ -54,6 +54,7 @@ Public Class ALCore
                 'if there is no instance of this program running
             Else
                 m_command_line_handler.RunProgram(a_path:=path, a_program:=program)
+
                 Dim new_pids As List(Of Integer) = m_command_line_handler.GetPids(program)
                 pid = new_pids(0)
             End If

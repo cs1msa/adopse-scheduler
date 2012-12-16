@@ -7,7 +7,7 @@ Public Class ALCommandLineHandler
     Dim m_cmd_process As Process
     Dim m_path As String
     Dim m_program As String
-    Dim m_last_command_output As String
+    'Dim m_last_command_output As String
 
     'creates an instance of process that opens the programs and sets the info needed
     Public Sub New()
@@ -24,9 +24,7 @@ Public Class ALCommandLineHandler
         m_cmd_process.StartInfo = StartInfo
     End Sub
 
-    Public Function GetLastCommandOutput()
-        Return m_last_command_output
-    End Function
+
 
     'sets the path and the program, starts a new thread to open the program
     Public Sub RunProgram(ByVal a_path As String, ByVal a_program As String)
@@ -34,7 +32,7 @@ Public Class ALCommandLineHandler
         m_program = a_program
 
 
-        If Not ExecuteCMDCommand("cd " & m_path) Then
+        If Not ExecuteCMDCommand("cd " & m_path, New String("0")) Then
             Throw New ALPathDoesntExistCMDException(a_path)
         End If
         If Not ExecuteCMDCommand("cd " & m_path & vbCrLf & m_program) Then
@@ -72,7 +70,8 @@ Public Class ALCommandLineHandler
 
         ExecuteCMDCommand(input, task_list_output)
 
-
+        task_list_output = task_list_output.ToLower()
+        a_program = a_program.ToLower()
         'there may be more than one open programs with that name
         While task_list_output.Contains(a_program)
 
@@ -122,7 +121,7 @@ Public Class ALCommandLineHandler
 
                 a_memory_use_return = splited_line(splited_line.Length - 2)
 
-                m_last_command_output = task_list_output
+
             End If
 
 
@@ -137,13 +136,30 @@ Public Class ALCommandLineHandler
     End Function
 
     'runs the cmd command
-    Private Function ExecuteCMDCommand(ByVal a_input As String, Optional ByRef a_output As String = vbNullString)
+    Private Function ExecuteCMDCommand(ByVal a_input As String)
         m_cmd_process.Start()
+        Dim SW As System.IO.StreamWriter = m_cmd_process.StandardInput
+        SW.WriteLine(a_input)    'the command we want to execute
+        SW.WriteLine("exit") 'exits command prompt window
+        SW.Close()
+        Return True
+    End Function
+
+    Private Function ExecuteCMDCommand(ByVal a_input As String, ByRef a_output As String)
+        m_cmd_process.Start()
+
         Dim SR As System.IO.StreamReader = m_cmd_process.StandardOutput
         Dim SW As System.IO.StreamWriter = m_cmd_process.StandardInput
         Dim SE As System.IO.StreamReader = m_cmd_process.StandardError
 
+
+
         SW.WriteLine(a_input)    'the command we want to execute
+
+
+
+
+
 
         SW.WriteLine("exit") 'exits command prompt window
 
@@ -160,32 +176,39 @@ Public Class ALCommandLineHandler
         'if it is a command that doesnt open a program(this is done because opening a program makes it the process and we cant take output nor error)
         'like setting a path(without opening a program),       or killing a proccess,      or calling tasklist 
         'if we want to use more commands we must add them here too
-        If (a_input.Contains("cd") And Not a_input.Contains(".")) _
-            Or a_input.Contains("taskkill") _
-            Or a_input.Contains("tasklist") Then
-
-            'wait until you get an error or an output
-            Do While error_str = vbNullString And output_str = vbNullString
-
-            Loop
-        End If
 
 
+        'wait until you get an error or an output
+        Do While error_str = vbNullString And output_str = vbNullString
 
-        error_reading_thread.Abort()
-        output_reading_thread.Abort()
+        Loop
+        Try
+
+
+            If error_str = vbNullString Then
+                error_reading_thread.Abort()
+            End If
+            If output_str = vbNullString Then
+                output_reading_thread.Abort()
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+
+
 
 
         SW.Close()
         SR.Close()
         SE.Close()
-
         a_output = output_str
-        m_last_command_output = a_output
 
         If Not error_str = vbNullString Then
             Return False
         End If
+
 
         Return True
     End Function
