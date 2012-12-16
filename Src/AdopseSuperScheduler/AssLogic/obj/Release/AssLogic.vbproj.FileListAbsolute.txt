@@ -1,0 +1,11 @@
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Release\AssLogic.dll.config
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Release\AssLogic.dll
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Release\AssLogic.pdb
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Release\AssLogic.xml
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\AssLogic.Resources.resources
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\GenerateResource.read.1.tlog
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\GenerateResource.write.1.tlog
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\AssLogic.dll
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\AssLogic.xml
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Release\AssLogic.pdb
