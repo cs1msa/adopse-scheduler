@@ -75,3 +75,23 @@ F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\Adop
 F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
 C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.exe
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.pdb
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.dll
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.pdb
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MainForm.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MoreOptionsForm.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.NewTaskForm.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.Resources.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.TestingForm.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses

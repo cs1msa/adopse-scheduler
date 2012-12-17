@@ -1,5 +1,7 @@
 Imports Microsoft.Win32
-Imports AssLogic 
+Imports AssLogic
+Imports System.IO
+
 
 Public Class NewTaskForm
 
@@ -88,12 +90,34 @@ Public Class NewTaskForm
 
     Private Sub chooseFileTextBox_TextChanged(sender As System.Object, e As System.EventArgs) Handles chooseFileTextBox.TextChanged
 
-        chooseFileOkButton.Enabled = True
+        If (ExecutableCheckButton.Checked = True) Then
+            checkIfFileExists(".exe")
+
+        ElseIf (MultimediaCheckButton.Checked = True) Then
+            checkIfFileExists(".mp3'or'.flac")
+
+        ElseIf (OtherCheckButton.Checked = True) Then
+            checkIfFileExists("")
+        End If
 
     End Sub
 
+    Private Sub checkIfFileExists(ByVal type As String)
+
+        If (File.Exists(chooseFileTextBox.Text) And chooseFileTextBox.Text.EndsWith(type)) Then
+
+            chooseFileOkButton.Enabled = True
+        Else
+            chooseFileOkButton.Enabled = False
+        End If
+
+    End Sub
+
+
+
+
 #Region "OK Buttons"
-    Private Sub chooseFileOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileOkButton.Click
+    Private Sub chooseFileOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileOkButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, True, False, False, False)
@@ -109,7 +133,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub chooseDateTimeOkButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseDateTimeOkButton.Click
+    Private Sub chooseDateTimeOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseDateTimeOkButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, False, True, True, False)
@@ -128,7 +152,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub typeOfTaskOkButton_Click(sender As System.Object, e As System.EventArgs) Handles typeOfTaskOkButton.Click
+    Private Sub typeOfTaskOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles typeOfTaskOkButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, False, False, False, False)
@@ -147,7 +171,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub OnceOKButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceOKButton.Click
+    Private Sub OnceOKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnceOKButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, False, False, False, False)
@@ -165,7 +189,7 @@ Public Class NewTaskForm
 #End Region
 
 #Region "Reset Buttons"
-    Private Sub resetChooseFileButton_Click(sender As System.Object, e As System.EventArgs) Handles resetChooseFileButton.Click
+    Private Sub resetChooseFileButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetChooseFileButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(True, True, False, False, False, False)
@@ -184,7 +208,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub resetDateTimeButton_Click(sender As System.Object, e As System.EventArgs) Handles resetDateTimeButton.Click
+    Private Sub resetDateTimeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetDateTimeButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, True, False, False, False)
@@ -203,7 +227,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub resetTypeOfTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles resetTypeOfTaskButton.Click
+    Private Sub resetTypeOfTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetTypeOfTaskButton.Click
 
         'handles all panels' visibility
         HandleAllPanels(False, False, False, True, True, True)
@@ -226,7 +250,7 @@ Public Class NewTaskForm
 
 #Region "type of task(once, daily, weekly, etc) checkbuttons"
 
-    Private Sub OnceCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OnceCheckButton.Click
+    Private Sub OnceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnceCheckButton.Click
 
         'handles all the arrow labels
         HandleArrowLabels(False, False, False, False, False)
@@ -242,7 +266,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub DailyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles DailyCheckButton.Click
+    Private Sub DailyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DailyCheckButton.Click
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
@@ -265,7 +289,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub WeeklyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles WeeklyCheckButton.Click
+    Private Sub WeeklyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WeeklyCheckButton.Click
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
@@ -288,7 +312,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub MonthlyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles MonthlyCheckButton.Click
+    Private Sub MonthlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MonthlyCheckButton.Click
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
@@ -314,7 +338,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub YearlyCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles YearlyCheckButton.Click
+    Private Sub YearlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles YearlyCheckButton.Click
 
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
@@ -339,7 +363,7 @@ Public Class NewTaskForm
 #End Region
 
 
-    Private Sub MoreOptionsButton_Click(sender As System.Object, e As System.EventArgs) Handles MoreOptionsButton.Click
+    Private Sub MoreOptionsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MoreOptionsButton.Click
 
         MoreOptionsForm.ShowDialog()
 
@@ -348,7 +372,7 @@ Public Class NewTaskForm
 #Region "My handle-methods"
     'handles the blue directional ArrowLabels visibility
     Private Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
-                                    ByVal label3 As Boolean, ByVal label4 As Boolean, label5 As Boolean)
+                                    ByVal label3 As Boolean, ByVal label4 As Boolean, ByVal label5 As Boolean)
         ArrowLabel1.Visible = label1
         ArrowLabel2.Visible = label2
         ArrowLabel3.Visible = label3
@@ -438,7 +462,7 @@ Public Class NewTaskForm
 
 #End Region
 
-    Private Sub chooseFilePanel_MouseEnter(sender As System.Object, e As System.EventArgs) Handles chooseFilePanel.MouseEnter
+    Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
@@ -446,7 +470,7 @@ Public Class NewTaskForm
         HandleArrowLabels(False, True, False, False, False)
     End Sub
 
-    Private Sub RecurrencePanel_MouseEnter(sender As System.Object, e As System.EventArgs) Handles RecurrencePanel.MouseEnter
+    Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
 
@@ -459,7 +483,7 @@ Public Class NewTaskForm
         m_master_control = a_master_control
     End Sub
 
-    Public Sub SaveTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles SaveTaskButton.Click
+    Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
 
         Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
@@ -477,19 +501,19 @@ Public Class NewTaskForm
         End If
 
         If OnceCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
             MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
 
         ElseIf DailyCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
             MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
         ElseIf WeeklyCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
             MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, KryptonNumericUpDown1.Value, 0, m_not_run)
 
         Else
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
             MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
         End If
 
@@ -497,7 +521,9 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub NewTaskForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub
+
+
 End Class

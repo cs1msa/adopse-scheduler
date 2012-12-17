@@ -156,8 +156,8 @@ Partial Class MainForm
         'LowerPanel
         '
         Me.LowerPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LowerPanel.Controls.Add(Me.KryptonSplitContainer1)
         Me.LowerPanel.Location = New System.Drawing.Point(0, 93)
         Me.LowerPanel.Name = "LowerPanel"
@@ -537,7 +537,7 @@ Partial Class MainForm
         'UpperPanel
         '
         Me.UpperPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UpperPanel.Controls.Add(Me.AddTaskButton)
         Me.UpperPanel.Controls.Add(Me.RunNowButton)
         Me.UpperPanel.Controls.Add(Me.EditTaskButton)
@@ -616,25 +616,25 @@ Partial Class MainForm
         'AddTaskToolStripMenuItem
         '
         Me.AddTaskToolStripMenuItem.Name = "AddTaskToolStripMenuItem"
-        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddTaskToolStripMenuItem.Text = "Add Task"
         '
         'EditTaskToolStripMenuItem
         '
         Me.EditTaskToolStripMenuItem.Name = "EditTaskToolStripMenuItem"
-        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditTaskToolStripMenuItem.Text = "Edit Task"
         '
         'DeleteTaskToolStripMenuItem
         '
         Me.DeleteTaskToolStripMenuItem.Name = "DeleteTaskToolStripMenuItem"
-        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DeleteTaskToolStripMenuItem.Text = "Delete Task"
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'TaskToolStripMenuItem
@@ -666,7 +666,7 @@ Partial Class MainForm
         '
         Me.TrayIcon.ContextMenuStrip = Me.TrayContextMenu
         Me.TrayIcon.Icon = CType(resources.GetObject("TrayIcon.Icon"), System.Drawing.Icon)
-        Me.TrayIcon.Text = "NotifyIcon1"
+        Me.TrayIcon.Text = "ASScheduler"
         Me.TrayIcon.Visible = True
         '
         'TrayContextMenu

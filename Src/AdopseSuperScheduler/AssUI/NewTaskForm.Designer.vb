@@ -218,13 +218,14 @@ Partial Class NewTaskForm
         '
         Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.MoreOptionsButton.Enabled = False
-        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 553)
+        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 538)
         Me.MoreOptionsButton.Name = "MoreOptionsButton"
-        Me.MoreOptionsButton.Size = New System.Drawing.Size(52, 41)
+        Me.MoreOptionsButton.Size = New System.Drawing.Size(87, 56)
+        Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsButton.TabIndex = 28
         Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
         Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("MoreOptionsButton.Values.Image"), System.Drawing.Image)
-        Me.MoreOptionsButton.Values.Text = ""
+        Me.MoreOptionsButton.Values.Text = "More Options"
         '
         'RecurrencePanel
         '
@@ -987,7 +988,6 @@ Partial Class NewTaskForm
         '
         Me.chooseFileTextBox.Location = New System.Drawing.Point(20, 29)
         Me.chooseFileTextBox.Name = "chooseFileTextBox"
-        Me.chooseFileTextBox.ReadOnly = True
         Me.chooseFileTextBox.Size = New System.Drawing.Size(288, 20)
         Me.chooseFileTextBox.TabIndex = 1
         '

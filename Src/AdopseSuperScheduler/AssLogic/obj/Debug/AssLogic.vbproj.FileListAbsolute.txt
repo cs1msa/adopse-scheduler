@@ -38,3 +38,14 @@ F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\Adop
 F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.dll
 F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
 F:\Neskio\Desktop\Documents\Programming Projects\adopse-super-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll.config
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.pdb
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.Resources.resources
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.dll
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
+C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb

@@ -9,7 +9,7 @@ Details (text)
 
 
 -Scheduled tasks
-Task_ID | Program_Path | Next_Run | Status | Description | Close_After | If_Not_Run | End_Date
+Task_ID | Program_Path | Next_Run | Status | Description | Close_After | If_Not_Run | End_Date | Type
 
 Task Id (number)      
 Program Path (text) 	- path to runable
@@ -20,3 +20,4 @@ Description (Text)
 Close_After (Number) 	- Kill proccess after user defined hours 
 If_Not_Run (Text) 	- Words "RUN-DIALOG-NOTHING"
 End_Date (Date/Time) 	- Stop executing the program after said date
+Type (Text)		- "EXE", "SERVICE", "FILE"

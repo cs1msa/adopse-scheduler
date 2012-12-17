@@ -12,7 +12,9 @@ Public Class MainForm
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
-    Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
+#Region "Navigator & Log ButtonSpecs"
+
+    Private Sub ButtonSpecHeaderGroup1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer1.SuspendLayout()
 
@@ -61,7 +63,7 @@ Public Class MainForm
         KryptonSplitContainer1.ResumeLayout()
     End Sub
 
-    Private Sub ButtonSpecHeaderGroup2_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup2.Click
+    Private Sub ButtonSpecHeaderGroup2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSpecHeaderGroup2.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer2.SuspendLayout()
 
@@ -99,13 +101,15 @@ Public Class MainForm
         KryptonSplitContainer2.ResumeLayout()
     End Sub
 
-    Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
+#End Region
+
+    Private Sub AddTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddTaskButton.Click
         NewTaskForm.ShowDialog()
     End Sub
 
 
     'expands the tree view nodes Task and History on startup
-    Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         m_master_control = New ALMasterControl()
         m_master_control.Init()
         NewTaskForm.SetMasterControl(m_master_control)
@@ -116,37 +120,38 @@ Public Class MainForm
 
     'changes the default action of the X button
     'instead of closing the programm it hides it in the tray
-    Private Sub MainForm_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub MainForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True
             Me.Hide()
         End If
     End Sub
 
-    Private Sub ShowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ShowToolStripMenuItem.Click
+    Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click
         Me.Show()
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+    Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
-        System.Windows.Forms.Application.Exit()
         TrayIcon.Dispose()
+        System.Windows.Forms.Application.Exit()
 
     End Sub
 
-    Private Sub TrayIcon_MouseDoubleClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
+    Private Sub TrayIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
         Me.Show()
     End Sub
 
-    Private Sub ExitToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
+    Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
-        System.Windows.Forms.Application.Exit()
         TrayIcon.Dispose()
+        System.Windows.Forms.Application.Exit()
+
     End Sub
 
-    Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
+    Private Sub LogButtonSpecExportToPDF_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
         'You can export any DataGridView control, no matter managed or not by the extension
         Dim pdfExporter As DGVEPdfExporter = New DGVEPdfExporter()
         Dim dialog As DGVEBaseExportSettingsEditorForm = DGVEExportSettingsEditorFormBuilder.CreateWrappingForm(pdfExporter)
@@ -164,7 +169,7 @@ Public Class MainForm
         MessageBox.Show(e.Exception.Message)
     End Sub
 
-    Private Sub Timer_Tick(sender As System.Object, e As System.EventArgs) Handles Timer.Tick
+    Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
         m_master_control.RunTasks()
     End Sub
 End Class
