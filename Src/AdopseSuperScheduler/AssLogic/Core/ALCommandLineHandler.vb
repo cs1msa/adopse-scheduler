@@ -43,6 +43,14 @@ Public Class ALCommandLineHandler
 
     End Sub
 
+    Public Sub StartService(ByVal a_service As String)
+        ExecuteCMDCommand("NET START " & Chr(34) & a_service & Chr(34))
+    End Sub
+
+    Public Sub EndService(ByVal a_service As String)
+        ExecuteCMDCommand("NET STOP " & Chr(34) & a_service & Chr(34))
+    End Sub
+
     'checks if the program is running, if yes it kills it
     'can use name of the program OR PID, better use pid
     Public Sub KillProgram(ByVal a_program As String)

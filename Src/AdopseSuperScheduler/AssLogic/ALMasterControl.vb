@@ -1,4 +1,5 @@
-﻿Public Class ALMasterControl
+﻿
+Public Class ALMasterControl
 
     Dim m_core As ALCore
     Dim m_task_manager As ALTaskManager
@@ -124,18 +125,18 @@
     'runs the tasks that should run
     Public Sub RunTasks()
 
-        Dim tasks As List(Of ALATasks) = checkTasks()
+        Dim tasks As List(Of ALATasks) = CheckTasks()
 
         For Each task As ALATasks In tasks
             'run the program
             Try
 
-            
-            m_core.RunFullPathProgram(task.program_full_path)
-            m_last_log_id = m_last_log_id + 1
-            m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that'"})
-            task.UpdateNextRun()
-            m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
+
+                m_core.RunFullPathProgram(task.program_full_path)
+                m_last_log_id = m_last_log_id + 1
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that'"})
+                task.UpdateNextRun()
+                m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
             Catch ex As Exception
 
             End Try

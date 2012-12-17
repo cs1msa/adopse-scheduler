@@ -67,8 +67,15 @@ Public Class ALCore
         'returns the pid
         a_pid_return = pid
 
+    End Sub
 
+    'run a service
+    Public Sub StartService(ByVal a_service As String)
+        m_command_line_handler.StartService(a_service)
+    End Sub
 
+    Public Sub EndService(ByVal a_service As String)
+        m_command_line_handler.EndService(a_service)
     End Sub
 
     'kill a program using the pid or the same of the program
