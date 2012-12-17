@@ -69,6 +69,17 @@ Public Class ALCore
 
     End Sub
 
+
+    Public Sub RunFile(ByVal a_file As String)
+        If (a_file.Contains("\")) Then
+            Dim path_index As String = a_file.LastIndexOf("\")
+            Dim path As String = a_file.Substring(0, path_index)
+            Dim file As String = a_file.Substring(path_index + 1)
+            m_command_line_handler.RunProgram(path, file)
+        End If
+
+    End Sub
+
     'run a service
     Public Sub StartService(ByVal a_service As String)
         m_command_line_handler.StartService(a_service)
@@ -100,7 +111,7 @@ Public Class ALCore
     '-------------------------------------DataBase functions-------------------------------------------------------
     'tables till now are "Log" and "[Scheduler Tasks]"
     'Log : Action_ID, Action_Date, Program_Name, Details
-    '[Scheduler Tasks] : Task_ID, Program_Path, Next_Run, Period, Status, Description, Close_After, If_Not_Run, End_Date
+    '[Scheduler Tasks] : Task_ID, Program_Path, Next_Run, Period, Status, Description, Close_After, If_Not_Run, End_Date, Type
     Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String()) As DataTable
 
         m_database_handler.ExecuteSelect(a_table, a_columns, a_restrictions)

@@ -500,6 +500,8 @@ Public Class NewTaskForm
             m_not_run = "NOTHING"
         End If
 
+        'here write code that takes the type and put it in the addtask.. it works now but it works wrong... SO FIX IT>>> :D
+
         If OnceCheckButton.Checked Then
             m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
             MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
@@ -517,7 +519,7 @@ Public Class NewTaskForm
             MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
         End If
 
-        'to be resolved : null reference exception
+
 
     End Sub
 

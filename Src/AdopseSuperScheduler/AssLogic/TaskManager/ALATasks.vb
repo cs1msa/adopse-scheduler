@@ -12,9 +12,10 @@
     Protected m_if_not_run As String    '"RUN-DIALOG-NOTHING"
     Protected m_end_date As Date        'the date that this tasks it being diactivated
 
+    Protected m_type As String
 
     Sub New(ByVal a_id As Integer, ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer, _
-            ByVal a_if_not_run As String, ByVal a_end_date As Date)
+            ByVal a_if_not_run As String, ByVal a_end_date As Date, ByVal a_type As String)
         m_id = a_id
         m_full_path = a_full_path
         m_next_run = a_date
@@ -23,6 +24,7 @@
         m_close_after = a_close_after
         m_if_not_run = a_if_not_run
         m_end_date = a_end_date
+        m_type = a_type
     End Sub
 
 
@@ -60,6 +62,15 @@
         Get
             Return m_id
         End Get
+    End Property
+
+    Public Property type As String
+        Get
+            Return m_type
+        End Get
+        Set(ByVal value As String)
+            m_type = value
+        End Set
     End Property
 
 End Class
