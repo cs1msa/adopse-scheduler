@@ -22,6 +22,7 @@ Partial Class NewTaskForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewTaskForm))
         Me.addNewTaskMainPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.ServiceLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ServicesListView = New System.Windows.Forms.ListView()
         Me.colName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colStatus = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -139,6 +140,7 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox51 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,6 +159,7 @@ Partial Class NewTaskForm
         '
         'addNewTaskMainPanel
         '
+        Me.addNewTaskMainPanel.Controls.Add(Me.ServiceLabel)
         Me.addNewTaskMainPanel.Controls.Add(Me.ServicesListView)
         Me.addNewTaskMainPanel.Controls.Add(Me.chooseFileCheckLabel)
         Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
@@ -177,12 +180,23 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 683)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
+        'ServiceLabel
+        '
+        Me.ServiceLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
+        Me.ServiceLabel.Location = New System.Drawing.Point(165, 102)
+        Me.ServiceLabel.Name = "ServiceLabel"
+        Me.ServiceLabel.Size = New System.Drawing.Size(133, 20)
+        Me.ServiceLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.Yellow
+        Me.ServiceLabel.TabIndex = 32
+        Me.ServiceLabel.Values.Text = "Please choose a service"
+        Me.ServiceLabel.Visible = False
+        '
         'ServicesListView
         '
         Me.ServicesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colName, Me.colStatus, Me.colServiceType})
         Me.ServicesListView.FullRowSelect = True
         Me.ServicesListView.HideSelection = False
-        Me.ServicesListView.Location = New System.Drawing.Point(44, 128)
+        Me.ServicesListView.Location = New System.Drawing.Point(41, 128)
         Me.ServicesListView.Name = "ServicesListView"
         Me.ServicesListView.Size = New System.Drawing.Size(426, 120)
         Me.ServicesListView.TabIndex = 31
@@ -262,7 +276,7 @@ Partial Class NewTaskForm
         'MonthsDropDownButton
         '
         Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
-        Me.MonthsDropDownButton.Location = New System.Drawing.Point(85, 70)
+        Me.MonthsDropDownButton.Location = New System.Drawing.Point(91, 70)
         Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
         Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthsDropDownButton.TabIndex = 30
@@ -282,7 +296,7 @@ Partial Class NewTaskForm
         '
         Me.MonthDaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.MonthDaysDropDownButton.KryptonContextMenu = Me.MonthDaysContextMenu
-        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(799, 258)
+        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(91, 70)
         Me.MonthDaysDropDownButton.Name = "MonthDaysDropDownButton"
         Me.MonthDaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthDaysDropDownButton.TabIndex = 28
@@ -472,12 +486,11 @@ Partial Class NewTaskForm
         '
         Me.WeekdaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.WeekdaysDropDownButton.KryptonContextMenu = Me.WeekdaysContextMenu
-        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(559, 252)
+        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(91, 70)
         Me.WeekdaysDropDownButton.Name = "WeekdaysDropDownButton"
         Me.WeekdaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.WeekdaysDropDownButton.TabIndex = 26
         Me.WeekdaysDropDownButton.Values.Text = "All Weekdays"
-        Me.WeekdaysDropDownButton.Visible = False
         '
         'WeekdaysContextMenu
         '
@@ -534,16 +547,13 @@ Partial Class NewTaskForm
         '
         'KryptonContextMenuCheckBox8
         '
-        Me.KryptonContextMenuCheckBox8.Checked = True
-        Me.KryptonContextMenuCheckBox8.CheckState = System.Windows.Forms.CheckState.Checked
         Me.KryptonContextMenuCheckBox8.ExtraText = ""
         Me.KryptonContextMenuCheckBox8.KryptonCommand = Me.SelectAllWeekdaysCommand
         Me.KryptonContextMenuCheckBox8.Text = "Select All"
-        Me.KryptonContextMenuCheckBox8.ThreeState = True
         '
         'SelectAllWeekdaysCommand
         '
-        Me.SelectAllWeekdaysCommand.Text = "KryptonCommand1"
+        Me.SelectAllWeekdaysCommand.Text = "Select All"
         '
         'WeekdaysLabel
         '
@@ -689,6 +699,7 @@ Partial Class NewTaskForm
         '
         'TimePicker
         '
+        Me.TimePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.TimePicker.Location = New System.Drawing.Point(321, 27)
         Me.TimePicker.Name = "TimePicker"
@@ -716,6 +727,7 @@ Partial Class NewTaskForm
         '
         'DatePicker
         '
+        Me.DatePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.DatePicker.Location = New System.Drawing.Point(65, 27)
         Me.DatePicker.Name = "DatePicker"
         Me.DatePicker.Size = New System.Drawing.Size(208, 21)
@@ -946,7 +958,7 @@ Partial Class NewTaskForm
         'chooseFileLabel
         '
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.chooseFileLabel.Location = New System.Drawing.Point(119, 3)
+        Me.chooseFileLabel.Location = New System.Drawing.Point(105, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
         Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
         Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
@@ -1114,7 +1126,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox5 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox6 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox7 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents KryptonContextMenuCheckBox8 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuSeparator3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator
     Friend WithEvents KryptonContextMenuCheckBox42 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox43 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
@@ -1155,7 +1166,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox51 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape5 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
@@ -1223,4 +1233,8 @@ Partial Class NewTaskForm
     Friend WithEvents colName As System.Windows.Forms.ColumnHeader
     Friend WithEvents colStatus As System.Windows.Forms.ColumnHeader
     Friend WithEvents colServiceType As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ServiceLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents KryptonContextMenuCheckBox8 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
+    Friend WithEvents KryptonContextMenuItems3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
 End Class

@@ -67,6 +67,7 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
+        'will make a handle function for those
         chooseFileCheckLabel.Visible = True
         ServicesListView.Visible = False
         ServiceLabel.Visible = False
@@ -90,6 +91,7 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
+        'will make a handle function for those
         chooseFileCheckLabel.Visible = True
         ServicesListView.Visible = False
         ServiceLabel.Visible = False
@@ -97,9 +99,12 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub ReminderCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
+
+        'will make a handle function for those
         chooseFileCheckLabel.Visible = False
         ServiceLabel.Visible = True
         ServicesListView.Visible = True
+
         HandleChooseFilePanel(False, " ")
         ListServices()
 
@@ -369,23 +374,6 @@ Public Class NewTaskForm
 
 #End Region
 
-    Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, True, False, False, False)
-
-        'handles the arrow labels
-        HandleArrowLabels(False, True, False, False, False)
-    End Sub
-
-    Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
-    End Sub
-
-
     Public Sub SetMasterControl(ByRef a_master_control As ALMasterControl)
         m_master_control = a_master_control
     End Sub
@@ -452,8 +440,14 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+#Region "Mouse Enter handle methods"
 
+    Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, True, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, True, False, False, False)
     End Sub
 
     Private Sub DateTimePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePanel.MouseEnter
@@ -472,6 +466,17 @@ Public Class NewTaskForm
         HandleArrowLabels(False, False, False, True, False)
     End Sub
 
+    Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, False, True)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, False, True)
+    End Sub
+
+#End Region
+
+    'clears all of the form's fields
     Private Sub ClearFields()
 
         chooseFileTextBox.Text = Nothing
@@ -483,7 +488,7 @@ Public Class NewTaskForm
 
     End Sub
 
-
+    'enables the rest of the panels if ServicesListView is visible
     Private Sub ServicesListView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesListView.VisibleChanged
         If ServicesListView.Visible = True Then
             enableRestOfPanels(True)
@@ -491,4 +496,5 @@ Public Class NewTaskForm
             enableRestOfPanels(False)
         End If
     End Sub
+
 End Class
