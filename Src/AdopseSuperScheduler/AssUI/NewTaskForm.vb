@@ -363,28 +363,38 @@ Public Class NewTaskForm
                 m_not_run = "NOTHING"
             End If
 
+            Dim m_type As String
+            If ExecutableCheckButton.Checked Then
+                m_type = "EXE"
+                ' ElseIf .Checked Then
+                '     m_type = "DIALOG"   ''SERVICE OPTION RESERVED, TO BE DONE
+            Else
+                m_type = "FILE"
+            End If
+
             If OnceCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
 
             ElseIf DailyCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             ElseIf WeeklyCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, KryptonNumericUpDown1.Value, 0, m_not_run)
 
             Else
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
-            'to be resolved : null reference exception
             SuccessTaskDialog.ShowDialog()
             'will add reset function, it will reset all fields of the form
+            ClearFields()
             Me.Close()
         Else
+            ClearFields()
             Exit Sub
         End If
 
@@ -412,11 +422,15 @@ Public Class NewTaskForm
         HandleArrowLabels(False, False, False, True, False)
     End Sub
 
-    Private Sub chooseFileOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub ClearFields()
+
+        chooseFileTextBox.Text = Nothing
+        MoreOptionsForm.DescriptionTextBox.Text = "Your Description..."
+        MoreOptionsForm.KryptonRadioButton2.Checked = True
+        MoreOptionsForm.DisplayDialogAskingRadioButton.Checked = True
+        MoreOptionsForm.NeverEndRadioButton.Checked = True
+        MoreOptionsForm.EndAfterNumericUpDown.Value = 1
 
     End Sub
 
-    Private Sub RectangleShape1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RectangleShape1.Click
-
-    End Sub
 End Class
