@@ -7,13 +7,13 @@ Public Class NewTaskForm
 
     Dim m_master_control As ALMasterControl
 
-    Private Sub chooseFileBrowseButton_Click(sender As System.Object, e As System.EventArgs) Handles chooseFileBrowseButton.Click
+    Private Sub chooseFileBrowseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileBrowseButton.Click
 
         OpenFileDialog.ShowDialog()
 
     End Sub
 
-    Private Sub OpenFileDialog_FileOk(sender As System.Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog.FileOk
+    Private Sub OpenFileDialog_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog.FileOk
 
         chooseFileTextBox.Text = OpenFileDialog.FileName
 
@@ -22,7 +22,7 @@ Public Class NewTaskForm
 
 #Region "kind of task(exe, multimedia, etc) checkbuttons"
 
-    Private Sub ExecutableCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ExecutableCheckButton.Click
+    Private Sub ExecutableCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExecutableCheckButton.Click
 
         'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
@@ -39,9 +39,11 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
+        chooseFileCheckLabel.Visible = True
+
     End Sub
 
-    Private Sub MultimediaCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles MultimediaCheckButton.Click
+    Private Sub MultimediaCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MultimediaCheckButton.Click
 
         'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
@@ -61,9 +63,11 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
+        chooseFileCheckLabel.Visible = True
+
     End Sub
 
-    Private Sub OtherCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles OtherCheckButton.Click
+    Private Sub OtherCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OtherCheckButton.Click
 
         'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
@@ -80,25 +84,27 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
+        chooseFileCheckLabel.Visible = True
+
     End Sub
 
-    Private Sub ReminderCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles ReminderCheckButton.Click
+    Private Sub ReminderCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReminderCheckButton.Click
         MsgBox("Does nothing yet")
     End Sub
 
 #End Region
 
-    Private Sub chooseFileTextBox_TextChanged(sender As System.Object, e As System.EventArgs) Handles chooseFileTextBox.TextChanged
-
+    Private Sub chooseFileTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileTextBox.TextChanged
         If (ExecutableCheckButton.Checked = True) Then
             checkIfFileExists(".exe")
 
         ElseIf (MultimediaCheckButton.Checked = True) Then
-            checkIfFileExists(".mp3'or'.flac")
+            checkIfFileExists(".mp3")   'will be changed using a regular expression
 
         ElseIf (OtherCheckButton.Checked = True) Then
             checkIfFileExists("")
         End If
+
 
     End Sub
 
@@ -106,147 +112,44 @@ Public Class NewTaskForm
 
         If (File.Exists(chooseFileTextBox.Text) And chooseFileTextBox.Text.EndsWith(type)) Then
 
-            chooseFileOkButton.Enabled = True
+            enableRestOfPanels(True)
+            chooseFileCheckLabel.Values.Image = AssUI.My.Resources.tick
+
         Else
-            chooseFileOkButton.Enabled = False
+            enableRestOfPanels(False)
+            chooseFileCheckLabel.Values.Image = AssUI.My.Resources.cross
         End If
 
     End Sub
 
+    Private Sub enableRestOfPanels(ByVal state As Boolean)
+        If state Then
+            'handles all panels' visibility
+            HandleAllPanels(True, True, True, True, True)
 
+            'handles the arrow labels
+            HandleArrowLabels(False, False, True, False, False)
 
+            'handles all Rectangle Shapes' visibility
+            HandleRectangles(False, False, True, False, False)
 
-#Region "OK Buttons"
-    Private Sub chooseFileOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileOkButton.Click
+            'handles MoreOptions & SaveTask buttons' visibility
+            HandleMoreAndSaveButtons(True, True)
 
-        'handles all panels' visibility
-        HandleAllPanels(False, False, True, False, False, False)
+        Else
+            'handles all panels' visibility
+            HandleAllPanels(True, True, False, False, False)
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, True, False, False)
+            'handles the arrow labels
+            HandleArrowLabels(False, True, False, False, False)
 
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, False, False)
+            'handles all Rectangle Shapes' visibility
+            HandleRectangles(False, True, False, False, False)
 
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, True, False, False)
-
+            'handles MoreOptions & SaveTask buttons' visibility
+            HandleMoreAndSaveButtons(False, False)
+        End If
     End Sub
-
-    Private Sub chooseDateTimeOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseDateTimeOkButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(False, False, False, True, True, False)
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, True, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, True, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, True, False)
-
-    End Sub
-
-    Private Sub typeOfTaskOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles typeOfTaskOkButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(False, False, False, False, False, False)
-
-        ''ArrowLabel5.Visible = False
-        HandleArrowLabels(False, False, False, False, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(False, True)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, True, True)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, False)
-
-    End Sub
-
-    Private Sub OnceOKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnceOKButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(False, False, False, False, False, False)
-
-        ''ArrowLabel4.Visible = False
-        HandleArrowLabels(False, False, False, False, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(False, True)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, True, True)
-
-    End Sub
-#End Region
-
-#Region "Reset Buttons"
-    Private Sub resetChooseFileButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetChooseFileButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(True, True, False, False, False, False)
-
-        'handles the arrow labels
-        HandleArrowLabels(True, False, False, False, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(False, False)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(False, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(True, False, False, False, False)
-
-    End Sub
-
-    Private Sub resetDateTimeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetDateTimeButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(False, False, True, False, False, False)
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, True, False, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(False, False)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, True, False, False)
-
-    End Sub
-
-    Private Sub resetTypeOfTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles resetTypeOfTaskButton.Click
-
-        'handles all panels' visibility
-        HandleAllPanels(False, False, False, True, True, True)
-
-        ''ArrowLabel4.Visible = True
-        HandleArrowLabels(False, False, False, True, False)
-
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
-        'handles all Reset buttons' visibility
-        HandleResetButtons(True, True, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, True, False)
-
-    End Sub
-
-#End Region
 
 #Region "type of task(once, daily, weekly, etc) checkbuttons"
 
@@ -255,14 +158,11 @@ Public Class NewTaskForm
         'handles all the arrow labels
         HandleArrowLabels(False, False, False, False, False)
 
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, False)
 
-        'handles RecurrencePanel and OnceOkButtonPanell
-        HandleRecurrence_and_OnceOkButton_Panels(False, True, True, True)
+        'handles RecurrencePanel's Visibility
+        HandleRecPanel(False, True)
 
     End Sub
 
@@ -271,21 +171,16 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
 
-        'handles RecurrencePanel and OnceOkButtonPanell
-        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+        'handles RecurrencePanel's Visibility
+        HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, False, False, False, False, False)
 
         Label2.Text = "days"
-
-        typeOfTaskOkButton.Enabled = True 'enables ok button
 
     End Sub
 
@@ -294,21 +189,16 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
 
-        'handles RecurrencePanel and OnceOkButtonPanell
-        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+        'handles RecurrencePanel's Visibility
+        HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
         HandleRecPanelContent(True, True, False, False, False, False)
 
         Label2.Text = "weeks"
-
-        typeOfTaskOkButton.Enabled = True 'enables the OK button
 
     End Sub
 
@@ -317,24 +207,16 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
 
-        'handles RecurrencePanel and OnceOkButtonPanell
-        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
-
-        'enables ok button
-        typeOfTaskOkButton.Enabled = True
+        'handles RecurrencePanel's Visibility
+        HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, False, True, True, False, False)
 
         Label2.Text = "months"
-
-        typeOfTaskOkButton.Enabled = True 'enables the OK button
 
     End Sub
 
@@ -343,21 +225,16 @@ Public Class NewTaskForm
         'handles the arrow labels
         HandleArrowLabels(False, False, False, False, True)
 
-        'handles MoreOptions & SaveTask buttons' visibility
-        HandleMoreAndSaveButtons(True, False)
-
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, False, False, False, True)
 
-        'handles RecurrencePanel and OnceOkButtonPanell
-        HandleRecurrence_and_OnceOkButton_Panels(True, True, False, True)
+        'handles RecurrencePanel's Visibility
+        HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, False, False, False, True, True)
 
         Label2.Text = "years"
-
-        typeOfTaskOkButton.Enabled = True 'enables ok button
 
     End Sub
 #End Region
@@ -389,23 +266,17 @@ Public Class NewTaskForm
         'handles the label's text
         chooseFileLabel.Text = "Please choose your " + label + "file"
 
-        'disables OK button if the user didn't choose a program
-        If chooseFileTextBox.Text = "" Then
-            chooseFileOkButton.Enabled = False
-        End If
-
     End Sub
 
     'handles all panels' visibility
     Private Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
-                                ByVal panel4 As Boolean, ByVal panel5 As Boolean, ByVal panel6 As Boolean)
+                                ByVal panel4 As Boolean, ByVal panel5 As Boolean)
 
         KindOfTaskPanel.Enabled = panel1
         chooseFilePanel.Enabled = panel2
         DateTimePanel.Enabled = panel3
         TypeOfTaskPanel.Enabled = panel4
         RecurrencePanel.Enabled = panel5
-        OnceOKButtonPanel.Enabled = panel6
 
     End Sub
 
@@ -413,15 +284,6 @@ Public Class NewTaskForm
     Private Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
         MoreOptionsButton.Enabled = more
         SaveTaskButton.Enabled = save
-    End Sub
-
-    'handles all Reset buttons' visibility
-    Private Sub HandleResetButtons(ByVal first As Boolean, ByVal second As Boolean, ByVal third As Boolean)
-
-        resetChooseFileButton.Visible = first
-        resetDateTimeButton.Visible = second
-        resetTypeOfTaskButton.Visible = third
-
     End Sub
 
     'handles all Rectangle Shapes
@@ -436,14 +298,10 @@ Public Class NewTaskForm
 
     End Sub
 
-    'handles RecurrencePanel and OnceOkButtonPanell
-    Private Sub HandleRecurrence_and_OnceOkButton_Panels(ByVal RecVis As Boolean, ByVal RecEn As Boolean, _
-                                                         ByVal OnceVis As Boolean, ByVal OnceEn As Boolean)
+    'handles RecurrencePanel's Visibility
+    Private Sub HandleRecPanel(ByVal RecVis As Boolean, ByVal RecEn As Boolean)
         RecurrencePanel.Visible = RecVis
         RecurrencePanel.Enabled = RecEn
-        OnceOKButtonPanel.Visible = OnceVis
-        OnceOKButtonPanel.Enabled = OnceEn
-
     End Sub
 
     'handles RecurrencePanel's content
@@ -484,39 +342,50 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
+        'gets the result from the Dialog (asking the user)
+        Dim result As DialogResult
+        result = SaveButtonTaskDialog.ShowDialog()
 
-        Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
+        If (result = DialogResult.Yes) Then
+
+            Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
+                                  TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
+
+            Dim m_end_date As Date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
 
-        Dim m_end_date As Date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
-                          TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
+            Dim m_not_run As String
+            If MoreOptionsForm.RunWhenPcOpensRadioButton.Checked Then
+                m_not_run = "RUN"
+            ElseIf MoreOptionsForm.DisplayDialogAskingRadioButton.Checked Then
+                m_not_run = "DIALOG"
+            Else
+                m_not_run = "NOTHING"
+            End If
 
-        Dim m_not_run As String
-        If MoreOptionsForm.RunWhenPcOpensRadioButton.Checked Then
-            m_not_run = "RUN"
-        ElseIf MoreOptionsForm.DisplayDialogAskingRadioButton.Checked Then
-            m_not_run = "DIALOG"
+            If OnceCheckButton.Checked Then
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
+
+            ElseIf DailyCheckButton.Checked Then
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, KryptonNumericUpDown1.Value, 0, 0, m_not_run)
+
+            ElseIf WeeklyCheckButton.Checked Then
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, KryptonNumericUpDown1.Value, 0, m_not_run)
+
+            Else
+                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.KryptonRadioButton2.Checked, _
+                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
+            End If
+
+            'to be resolved : null reference exception
+            SuccessTaskDialog.ShowDialog()
+            'will add reset function, it will reset all fields of the form
+            Me.Close()
         Else
-            m_not_run = "NOTHING"
-        End If
-
-        'here write code that takes the type and put it in the addtask.. it works now but it works wrong... SO FIX IT>>> :D
-
-        If OnceCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
-            MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
-
-        ElseIf DailyCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
-            MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, KryptonNumericUpDown1.Value, 0, 0, m_not_run)
-
-        ElseIf WeeklyCheckButton.Checked Then
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
-            MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, KryptonNumericUpDown1.Value, 0, m_not_run)
-
-        Else
-            m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.StateActiveRadioButton.Checked, _
-            MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
+            Exit Sub
         End If
 
 
@@ -527,5 +396,27 @@ Public Class NewTaskForm
 
     End Sub
 
+    Private Sub DateTimePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, True, False, False)
 
+        'handles the arrow labels
+        HandleArrowLabels(False, False, True, False, False)
+    End Sub
+
+    Private Sub TypeOfTaskPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TypeOfTaskPanel.MouseEnter
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(False, False, False, True, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(False, False, False, True, False)
+    End Sub
+
+    Private Sub chooseFileOkButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub RectangleShape1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RectangleShape1.Click
+
+    End Sub
 End Class

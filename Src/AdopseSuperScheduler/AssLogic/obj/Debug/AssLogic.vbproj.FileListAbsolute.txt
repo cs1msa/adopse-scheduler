@@ -49,3 +49,14 @@ C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperSche
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.dll
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll.config
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.dll
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.pdb
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\bin\Debug\AssLogic.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\ResolveAssemblyReference.cache
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.Resources.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\GenerateResource.read.1.tlog
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\GenerateResource.write.1.tlog
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.dll
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssLogic\obj\Debug\AssLogic.pdb

@@ -22,8 +22,7 @@ Partial Class NewTaskForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewTaskForm))
         Me.addNewTaskMainPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.OnceOKButtonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.OnceOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.chooseFileCheckLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
@@ -78,22 +77,18 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.SelectAllWeekdaysCommand = New ComponentFactory.Krypton.Toolkit.KryptonCommand()
         Me.WeekdaysLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.typeOfTaskOkButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Label2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.KryptonNumericUpDown1 = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.Label1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.KryptonLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ShapeContainer6 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.resetTypeOfTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ArrowLabel4 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.resetDateTimeButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ArrowLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ArrowLabel2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ArrowLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.DateTimePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.chooseDateTimeOkButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.TimePicker = New ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker()
         Me.KryptonLabel2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -119,13 +114,11 @@ Partial Class NewTaskForm
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.chooseFilePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.chooseFileOkButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileBrowseButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.chooseFileTextBox = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.chooseFileLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.resetChooseFileButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.KindOfTaskCheckSet = New ComponentFactory.Krypton.Toolkit.KryptonCheckSet(Me.components)
@@ -140,10 +133,10 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems4 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuCheckBox43 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox51 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
-        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.OnceOKButtonPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RecurrencePanel.SuspendLayout()
         CType(Me.DateTimePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -160,14 +153,12 @@ Partial Class NewTaskForm
         '
         'addNewTaskMainPanel
         '
-        Me.addNewTaskMainPanel.Controls.Add(Me.OnceOKButtonPanel)
+        Me.addNewTaskMainPanel.Controls.Add(Me.chooseFileCheckLabel)
         Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.MoreOptionsButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.RecurrencePanel)
-        Me.addNewTaskMainPanel.Controls.Add(Me.resetTypeOfTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel5)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel4)
-        Me.addNewTaskMainPanel.Controls.Add(Me.resetDateTimeButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel3)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel2)
         Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel1)
@@ -175,32 +166,21 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Controls.Add(Me.TypeOfTaskPanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.KindOfTaskPanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.chooseFilePanel)
-        Me.addNewTaskMainPanel.Controls.Add(Me.resetChooseFileButton)
         Me.addNewTaskMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.addNewTaskMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
         Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 597)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
-        'OnceOKButtonPanel
+        'chooseFileCheckLabel
         '
-        Me.OnceOKButtonPanel.Controls.Add(Me.OnceOKButton)
-        Me.OnceOKButtonPanel.Location = New System.Drawing.Point(191, 520)
-        Me.OnceOKButtonPanel.Name = "OnceOKButtonPanel"
-        Me.OnceOKButtonPanel.Size = New System.Drawing.Size(85, 65)
-        Me.OnceOKButtonPanel.TabIndex = 31
-        Me.OnceOKButtonPanel.Visible = False
-        '
-        'OnceOKButton
-        '
-        Me.OnceOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.OnceOKButton.Location = New System.Drawing.Point(29, 18)
-        Me.OnceOKButton.Name = "OnceOKButton"
-        Me.OnceOKButton.Size = New System.Drawing.Size(33, 32)
-        Me.OnceOKButton.TabIndex = 32
-        Me.ToolTip1.SetToolTip(Me.OnceOKButton, "OK !")
-        Me.OnceOKButton.Values.Image = CType(resources.GetObject("OnceOKButton.Values.Image"), System.Drawing.Image)
-        Me.OnceOKButton.Values.Text = ""
+        Me.chooseFileCheckLabel.Location = New System.Drawing.Point(461, 114)
+        Me.chooseFileCheckLabel.Name = "chooseFileCheckLabel"
+        Me.chooseFileCheckLabel.Size = New System.Drawing.Size(38, 34)
+        Me.chooseFileCheckLabel.TabIndex = 30
+        Me.chooseFileCheckLabel.Values.Image = Global.AssUI.My.Resources.Resources.cross
+        Me.chooseFileCheckLabel.Values.Text = ""
+        Me.chooseFileCheckLabel.Visible = False
         '
         'SaveTaskButton
         '
@@ -220,7 +200,7 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton.Enabled = False
         Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 538)
         Me.MoreOptionsButton.Name = "MoreOptionsButton"
-        Me.MoreOptionsButton.Size = New System.Drawing.Size(87, 56)
+        Me.MoreOptionsButton.Size = New System.Drawing.Size(86, 56)
         Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsButton.TabIndex = 28
         Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
@@ -235,7 +215,6 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.Controls.Add(Me.MonthDaysLabel)
         Me.RecurrencePanel.Controls.Add(Me.WeekdaysDropDownButton)
         Me.RecurrencePanel.Controls.Add(Me.WeekdaysLabel)
-        Me.RecurrencePanel.Controls.Add(Me.typeOfTaskOkButton)
         Me.RecurrencePanel.Controls.Add(Me.Label2)
         Me.RecurrencePanel.Controls.Add(Me.KryptonNumericUpDown1)
         Me.RecurrencePanel.Controls.Add(Me.Label1)
@@ -543,18 +522,6 @@ Partial Class NewTaskForm
         Me.WeekdaysLabel.Values.Text = "Weekdays: "
         Me.WeekdaysLabel.Visible = False
         '
-        'typeOfTaskOkButton
-        '
-        Me.typeOfTaskOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.typeOfTaskOkButton.Enabled = False
-        Me.typeOfTaskOkButton.Location = New System.Drawing.Point(162, 102)
-        Me.typeOfTaskOkButton.Name = "typeOfTaskOkButton"
-        Me.typeOfTaskOkButton.Size = New System.Drawing.Size(33, 32)
-        Me.typeOfTaskOkButton.TabIndex = 24
-        Me.ToolTip1.SetToolTip(Me.typeOfTaskOkButton, "OK !")
-        Me.typeOfTaskOkButton.Values.Image = CType(resources.GetObject("typeOfTaskOkButton.Values.Image"), System.Drawing.Image)
-        Me.typeOfTaskOkButton.Values.Text = ""
-        '
         'Label2
         '
         Me.Label2.Location = New System.Drawing.Point(111, 31)
@@ -614,18 +581,6 @@ Partial Class NewTaskForm
         Me.RectangleShape5.Size = New System.Drawing.Size(352, 126)
         Me.RectangleShape5.Visible = False
         '
-        'resetTypeOfTaskButton
-        '
-        Me.resetTypeOfTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.resetTypeOfTaskButton.Location = New System.Drawing.Point(469, 334)
-        Me.resetTypeOfTaskButton.Name = "resetTypeOfTaskButton"
-        Me.resetTypeOfTaskButton.Size = New System.Drawing.Size(39, 40)
-        Me.resetTypeOfTaskButton.TabIndex = 27
-        Me.ToolTip1.SetToolTip(Me.resetTypeOfTaskButton, "Change")
-        Me.resetTypeOfTaskButton.Values.Image = CType(resources.GetObject("resetTypeOfTaskButton.Values.Image"), System.Drawing.Image)
-        Me.resetTypeOfTaskButton.Values.Text = ""
-        Me.resetTypeOfTaskButton.Visible = False
-        '
         'ArrowLabel5
         '
         Me.ArrowLabel5.Location = New System.Drawing.Point(3, 409)
@@ -645,18 +600,6 @@ Partial Class NewTaskForm
         Me.ArrowLabel4.Values.Image = CType(resources.GetObject("ArrowLabel4.Values.Image"), System.Drawing.Image)
         Me.ArrowLabel4.Values.Text = ""
         Me.ArrowLabel4.Visible = False
-        '
-        'resetDateTimeButton
-        '
-        Me.resetDateTimeButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.resetDateTimeButton.Location = New System.Drawing.Point(469, 221)
-        Me.resetDateTimeButton.Name = "resetDateTimeButton"
-        Me.resetDateTimeButton.Size = New System.Drawing.Size(39, 40)
-        Me.resetDateTimeButton.TabIndex = 23
-        Me.ToolTip1.SetToolTip(Me.resetDateTimeButton, "Change")
-        Me.resetDateTimeButton.Values.Image = CType(resources.GetObject("resetDateTimeButton.Values.Image"), System.Drawing.Image)
-        Me.resetDateTimeButton.Values.Text = ""
-        Me.resetDateTimeButton.Visible = False
         '
         'ArrowLabel3
         '
@@ -689,7 +632,6 @@ Partial Class NewTaskForm
         '
         'DateTimePanel
         '
-        Me.DateTimePanel.Controls.Add(Me.chooseDateTimeOkButton)
         Me.DateTimePanel.Controls.Add(Me.KryptonLabel1)
         Me.DateTimePanel.Controls.Add(Me.TimePicker)
         Me.DateTimePanel.Controls.Add(Me.KryptonLabel2)
@@ -701,17 +643,6 @@ Partial Class NewTaskForm
         Me.DateTimePanel.Name = "DateTimePanel"
         Me.DateTimePanel.Size = New System.Drawing.Size(433, 102)
         Me.DateTimePanel.TabIndex = 19
-        '
-        'chooseDateTimeOkButton
-        '
-        Me.chooseDateTimeOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.chooseDateTimeOkButton.Location = New System.Drawing.Point(174, 59)
-        Me.chooseDateTimeOkButton.Name = "chooseDateTimeOkButton"
-        Me.chooseDateTimeOkButton.Size = New System.Drawing.Size(33, 32)
-        Me.chooseDateTimeOkButton.TabIndex = 23
-        Me.ToolTip1.SetToolTip(Me.chooseDateTimeOkButton, "OK !")
-        Me.chooseDateTimeOkButton.Values.Image = CType(resources.GetObject("chooseDateTimeOkButton.Values.Image"), System.Drawing.Image)
-        Me.chooseDateTimeOkButton.Values.Text = ""
         '
         'KryptonLabel1
         '
@@ -820,6 +751,7 @@ Partial Class NewTaskForm
         '
         'OnceCheckButton
         '
+        Me.OnceCheckButton.Checked = True
         Me.OnceCheckButton.Location = New System.Drawing.Point(13, 29)
         Me.OnceCheckButton.Name = "OnceCheckButton"
         Me.OnceCheckButton.Size = New System.Drawing.Size(64, 38)
@@ -951,7 +883,6 @@ Partial Class NewTaskForm
         '
         'chooseFilePanel
         '
-        Me.chooseFilePanel.Controls.Add(Me.chooseFileOkButton)
         Me.chooseFilePanel.Controls.Add(Me.chooseFileBrowseButton)
         Me.chooseFilePanel.Controls.Add(Me.chooseFileTextBox)
         Me.chooseFilePanel.Controls.Add(Me.chooseFileLabel)
@@ -961,18 +892,6 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.Name = "chooseFilePanel"
         Me.chooseFilePanel.Size = New System.Drawing.Size(407, 100)
         Me.chooseFilePanel.TabIndex = 6
-        '
-        'chooseFileOkButton
-        '
-        Me.chooseFileOkButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.chooseFileOkButton.Enabled = False
-        Me.chooseFileOkButton.Location = New System.Drawing.Point(173, 55)
-        Me.chooseFileOkButton.Name = "chooseFileOkButton"
-        Me.chooseFileOkButton.Size = New System.Drawing.Size(33, 32)
-        Me.chooseFileOkButton.TabIndex = 3
-        Me.ToolTip1.SetToolTip(Me.chooseFileOkButton, "OK !")
-        Me.chooseFileOkButton.Values.Image = CType(resources.GetObject("chooseFileOkButton.Values.Image"), System.Drawing.Image)
-        Me.chooseFileOkButton.Values.Text = ""
         '
         'chooseFileBrowseButton
         '
@@ -1021,18 +940,6 @@ Partial Class NewTaskForm
         Me.RectangleShape2.Size = New System.Drawing.Size(398, 84)
         Me.RectangleShape2.Visible = False
         '
-        'resetChooseFileButton
-        '
-        Me.resetChooseFileButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.resetChooseFileButton.Location = New System.Drawing.Point(469, 82)
-        Me.resetChooseFileButton.Name = "resetChooseFileButton"
-        Me.resetChooseFileButton.Size = New System.Drawing.Size(39, 40)
-        Me.resetChooseFileButton.TabIndex = 0
-        Me.ToolTip1.SetToolTip(Me.resetChooseFileButton, "Change")
-        Me.resetChooseFileButton.Values.Image = CType(resources.GetObject("resetChooseFileButton.Values.Image"), System.Drawing.Image)
-        Me.resetChooseFileButton.Values.Text = ""
-        Me.resetChooseFileButton.Visible = False
-        '
         'KryptonManager
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
@@ -1057,6 +964,7 @@ Partial Class NewTaskForm
         Me.TypeOfTaskCheckSet.CheckButtons.Add(Me.WeeklyCheckButton)
         Me.TypeOfTaskCheckSet.CheckButtons.Add(Me.MonthlyCheckButton)
         Me.TypeOfTaskCheckSet.CheckButtons.Add(Me.YearlyCheckButton)
+        Me.TypeOfTaskCheckSet.CheckedButton = Me.OnceCheckButton
         '
         'KryptonContextMenuItems2
         '
@@ -1087,6 +995,35 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox51.ExtraText = ""
         Me.KryptonContextMenuCheckBox51.Text = "Last"
         '
+        'SaveButtonTaskDialog
+        '
+        Me.SaveButtonTaskDialog.AllowDialogClose = True
+        Me.SaveButtonTaskDialog.CheckboxText = Nothing
+        Me.SaveButtonTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
+        Me.SaveButtonTaskDialog.Content = "Are you sure you want to save this task ?"
+        Me.SaveButtonTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.question
+        Me.SaveButtonTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No
+        Me.SaveButtonTaskDialog.DefaultRadioButton = Nothing
+        Me.SaveButtonTaskDialog.FooterHyperlink = Nothing
+        Me.SaveButtonTaskDialog.FooterText = Nothing
+        Me.SaveButtonTaskDialog.MainInstruction = Nothing
+        Me.SaveButtonTaskDialog.Tag = Nothing
+        Me.SaveButtonTaskDialog.WindowTitle = "Save New Task"
+        '
+        'SuccessTaskDialog
+        '
+        Me.SuccessTaskDialog.AllowDialogClose = True
+        Me.SuccessTaskDialog.CheckboxText = Nothing
+        Me.SuccessTaskDialog.Content = "Your task was successfully added!"
+        Me.SuccessTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.tick
+        Me.SuccessTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Close
+        Me.SuccessTaskDialog.DefaultRadioButton = Nothing
+        Me.SuccessTaskDialog.FooterHyperlink = Nothing
+        Me.SuccessTaskDialog.FooterText = Nothing
+        Me.SuccessTaskDialog.MainInstruction = Nothing
+        Me.SuccessTaskDialog.Tag = Nothing
+        Me.SuccessTaskDialog.WindowTitle = "Success!!!"
+        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1102,8 +1039,6 @@ Partial Class NewTaskForm
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.addNewTaskMainPanel.ResumeLayout(False)
         Me.addNewTaskMainPanel.PerformLayout()
-        CType(Me.OnceOKButtonPanel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.OnceOKButtonPanel.ResumeLayout(False)
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RecurrencePanel.ResumeLayout(False)
         Me.RecurrencePanel.PerformLayout()
@@ -1197,7 +1132,6 @@ Partial Class NewTaskForm
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Private WithEvents addNewTaskMainPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents KryptonManager As ComponentFactory.Krypton.Toolkit.KryptonManager
-    Private WithEvents resetChooseFileButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents KindOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents chooseFilePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
@@ -1208,7 +1142,6 @@ Partial Class NewTaskForm
     Private WithEvents MultimediaCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
-    Private WithEvents chooseFileOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents TypeOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
@@ -1227,8 +1160,6 @@ Partial Class NewTaskForm
     Private WithEvents ArrowLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents chooseDateTimeOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Private WithEvents resetDateTimeButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents ArrowLabel4 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents Label2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
@@ -1236,8 +1167,6 @@ Partial Class NewTaskForm
     Private WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents typeOfTaskOkButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Private WithEvents resetTypeOfTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Private WithEvents WeekdaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
@@ -1254,6 +1183,7 @@ Partial Class NewTaskForm
     Private WithEvents MonthsLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Private WithEvents OnceOKButtonPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents OnceOKButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents SuccessTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents chooseFileCheckLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
 End Class

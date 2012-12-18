@@ -29,8 +29,8 @@ Partial Class MoreOptionsForm
         Me.DisplayDialogAskingRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.DoNothingRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.KryptonGroupBox2 = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
-        Me.StateInactiveRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
-        Me.StateActiveRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
+        Me.KryptonRadioButton4 = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
+        Me.KryptonRadioButton2 = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.KryptonGroupBox1 = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
         Me.EndAtDateTimePicker = New ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker()
         Me.occurencesLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -66,23 +66,23 @@ Partial Class MoreOptionsForm
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Name = "KryptonPanel"
-        Me.KryptonPanel.Size = New System.Drawing.Size(513, 265)
+        Me.KryptonPanel.Size = New System.Drawing.Size(560, 308)
         Me.KryptonPanel.TabIndex = 0
         '
         'DescriptionTextBox
         '
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(18, 3)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(268, 20)
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(282, 20)
         Me.DescriptionTextBox.TabIndex = 0
-        Me.DescriptionTextBox.Text = "Your Description..."
+        Me.DescriptionTextBox.Text = "Your Description ..."
         '
         'MoreOptionsOKButton
         '
         Me.MoreOptionsOKButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.MoreOptionsOKButton.Location = New System.Drawing.Point(221, 198)
+        Me.MoreOptionsOKButton.Location = New System.Drawing.Point(247, 237)
         Me.MoreOptionsOKButton.Name = "MoreOptionsOKButton"
-        Me.MoreOptionsOKButton.Size = New System.Drawing.Size(53, 64)
+        Me.MoreOptionsOKButton.Size = New System.Drawing.Size(53, 59)
         Me.MoreOptionsOKButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsOKButton.TabIndex = 3
         Me.MoreOptionsOKButton.Values.Image = CType(resources.GetObject("MoreOptionsOKButton.Values.Image"), System.Drawing.Image)
@@ -91,7 +91,7 @@ Partial Class MoreOptionsForm
         'KryptonGroupBox3
         '
         Me.KryptonGroupBox3.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KryptonGroupBox3.Location = New System.Drawing.Point(304, 12)
+        Me.KryptonGroupBox3.Location = New System.Drawing.Point(326, 23)
         Me.KryptonGroupBox3.Name = "KryptonGroupBox3"
         '
         'KryptonGroupBox3.Panel
@@ -99,7 +99,7 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox3.Panel.Controls.Add(Me.RunWhenPcOpensRadioButton)
         Me.KryptonGroupBox3.Panel.Controls.Add(Me.DisplayDialogAskingRadioButton)
         Me.KryptonGroupBox3.Panel.Controls.Add(Me.DoNothingRadioButton)
-        Me.KryptonGroupBox3.Size = New System.Drawing.Size(197, 109)
+        Me.KryptonGroupBox3.Size = New System.Drawing.Size(218, 109)
         Me.KryptonGroupBox3.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.KryptonGroupBox3.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
@@ -142,14 +142,14 @@ Partial Class MoreOptionsForm
         'KryptonGroupBox2
         '
         Me.KryptonGroupBox2.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KryptonGroupBox2.Location = New System.Drawing.Point(304, 143)
+        Me.KryptonGroupBox2.Location = New System.Drawing.Point(377, 168)
         Me.KryptonGroupBox2.Name = "KryptonGroupBox2"
         '
         'KryptonGroupBox2.Panel
         '
-        Me.KryptonGroupBox2.Panel.Controls.Add(Me.StateInactiveRadioButton)
-        Me.KryptonGroupBox2.Panel.Controls.Add(Me.StateActiveRadioButton)
-        Me.KryptonGroupBox2.Size = New System.Drawing.Size(167, 53)
+        Me.KryptonGroupBox2.Panel.Controls.Add(Me.KryptonRadioButton4)
+        Me.KryptonGroupBox2.Panel.Controls.Add(Me.KryptonRadioButton2)
+        Me.KryptonGroupBox2.Size = New System.Drawing.Size(167, 63)
         Me.KryptonGroupBox2.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.KryptonGroupBox2.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
@@ -159,29 +159,29 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox2.Text = "State"
         Me.KryptonGroupBox2.Values.Heading = "State"
         '
-        'StateInactiveRadioButton
+        'KryptonRadioButton4
         '
-        Me.StateInactiveRadioButton.Location = New System.Drawing.Point(83, 3)
-        Me.StateInactiveRadioButton.Name = "StateInactiveRadioButton"
-        Me.StateInactiveRadioButton.Size = New System.Drawing.Size(64, 20)
-        Me.StateInactiveRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.StateInactiveRadioButton.TabIndex = 1
-        Me.StateInactiveRadioButton.Values.Text = "Inactive"
+        Me.KryptonRadioButton4.Location = New System.Drawing.Point(83, 3)
+        Me.KryptonRadioButton4.Name = "KryptonRadioButton4"
+        Me.KryptonRadioButton4.Size = New System.Drawing.Size(64, 20)
+        Me.KryptonRadioButton4.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.KryptonRadioButton4.TabIndex = 1
+        Me.KryptonRadioButton4.Values.Text = "Inactive"
         '
-        'StateActiveRadioButton
+        'KryptonRadioButton2
         '
-        Me.StateActiveRadioButton.Checked = True
-        Me.StateActiveRadioButton.Location = New System.Drawing.Point(9, 3)
-        Me.StateActiveRadioButton.Name = "StateActiveRadioButton"
-        Me.StateActiveRadioButton.Size = New System.Drawing.Size(56, 20)
-        Me.StateActiveRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.StateActiveRadioButton.TabIndex = 0
-        Me.StateActiveRadioButton.Values.Text = "Active"
+        Me.KryptonRadioButton2.Checked = True
+        Me.KryptonRadioButton2.Location = New System.Drawing.Point(9, 3)
+        Me.KryptonRadioButton2.Name = "KryptonRadioButton2"
+        Me.KryptonRadioButton2.Size = New System.Drawing.Size(56, 20)
+        Me.KryptonRadioButton2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.KryptonRadioButton2.TabIndex = 0
+        Me.KryptonRadioButton2.Values.Text = "Active"
         '
         'KryptonGroupBox1
         '
         Me.KryptonGroupBox1.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KryptonGroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.KryptonGroupBox1.Location = New System.Drawing.Point(12, 23)
         Me.KryptonGroupBox1.Name = "KryptonGroupBox1"
         '
         'KryptonGroupBox1.Panel
@@ -192,7 +192,7 @@ Partial Class MoreOptionsForm
         Me.KryptonGroupBox1.Panel.Controls.Add(Me.EndAtRadioButton)
         Me.KryptonGroupBox1.Panel.Controls.Add(Me.NeverEndRadioButton)
         Me.KryptonGroupBox1.Panel.Controls.Add(Me.EndAfterRadioButton)
-        Me.KryptonGroupBox1.Size = New System.Drawing.Size(277, 109)
+        Me.KryptonGroupBox1.Size = New System.Drawing.Size(288, 109)
         Me.KryptonGroupBox1.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.KryptonGroupBox1.StateCommon.Border.Color2 = System.Drawing.Color.White
         Me.KryptonGroupBox1.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
@@ -207,7 +207,7 @@ Partial Class MoreOptionsForm
         '
         Me.EndAtDateTimePicker.Location = New System.Drawing.Point(72, 56)
         Me.EndAtDateTimePicker.Name = "EndAtDateTimePicker"
-        Me.EndAtDateTimePicker.Size = New System.Drawing.Size(198, 21)
+        Me.EndAtDateTimePicker.Size = New System.Drawing.Size(203, 21)
         Me.EndAtDateTimePicker.TabIndex = 5
         '
         'occurencesLabel
@@ -265,18 +265,21 @@ Partial Class MoreOptionsForm
         'KryptonGroupBox4
         '
         Me.KryptonGroupBox4.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KryptonGroupBox4.Location = New System.Drawing.Point(12, 143)
+        Me.KryptonGroupBox4.Location = New System.Drawing.Point(12, 168)
         Me.KryptonGroupBox4.Name = "KryptonGroupBox4"
         '
         'KryptonGroupBox4.Panel
         '
         Me.KryptonGroupBox4.Panel.Controls.Add(Me.DescriptionTextBox)
-        Me.KryptonGroupBox4.Size = New System.Drawing.Size(277, 53)
+        Me.KryptonGroupBox4.Size = New System.Drawing.Size(341, 63)
         Me.KryptonGroupBox4.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.KryptonGroupBox4.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.KryptonGroupBox4.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.Yellow
+        Me.KryptonGroupBox4.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Yellow
+        Me.KryptonGroupBox4.StateDisabled.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+                    Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+                    Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
         Me.KryptonGroupBox4.TabIndex = 6
         Me.KryptonGroupBox4.Text = "Enter a description for your task"
         Me.KryptonGroupBox4.Values.Heading = "Enter a description for your task"
@@ -285,7 +288,7 @@ Partial Class MoreOptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(513, 265)
+        Me.ClientSize = New System.Drawing.Size(560, 308)
         Me.Controls.Add(Me.KryptonPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -334,8 +337,8 @@ Partial Class MoreOptionsForm
     Friend WithEvents NeverEndRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents EndAfterRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents KryptonGroupBox2 As ComponentFactory.Krypton.Toolkit.KryptonGroupBox
-    Friend WithEvents StateInactiveRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
-    Friend WithEvents StateActiveRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
+    Friend WithEvents KryptonRadioButton4 As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
+    Friend WithEvents KryptonRadioButton2 As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents EndAtDateTimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Friend WithEvents occurencesLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents EndAfterNumericUpDown As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown

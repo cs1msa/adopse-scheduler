@@ -95,3 +95,23 @@ C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperSche
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Lloyd\Favorites\Desktop\To Project\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MainForm.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.MoreOptionsForm.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.NewTaskForm.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.TestingForm.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.exe
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.pdb
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.dll
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.pdb
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssLogic.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.Resources.resources
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe.licenses
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.xml
+F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
