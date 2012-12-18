@@ -115,6 +115,7 @@ Partial Class MainForm
         Me.AddTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteTaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -124,28 +125,34 @@ Partial Class MainForm
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel1.SuspendLayout()
+        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel2.SuspendLayout()
         Me.KryptonSplitContainer1.SuspendLayout()
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NavigateHeaderGroup.Panel.SuspendLayout()
         Me.NavigateHeaderGroup.SuspendLayout()
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel1.SuspendLayout()
+        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel2.SuspendLayout()
         Me.KryptonSplitContainer2.SuspendLayout()
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ScheduledTasksHeaderGroup.Panel.SuspendLayout()
         Me.ScheduledTasksHeaderGroup.SuspendLayout()
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogHeaderGroup.Panel.SuspendLayout()
         Me.LogHeaderGroup.SuspendLayout()
         CType(Me.LogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,8 +165,8 @@ Partial Class MainForm
         'LowerPanel
         '
         Me.LowerPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LowerPanel.Controls.Add(Me.KryptonSplitContainer1)
         Me.LowerPanel.Location = New System.Drawing.Point(0, 93)
         Me.LowerPanel.Name = "LowerPanel"
@@ -539,7 +546,7 @@ Partial Class MainForm
         'UpperPanel
         '
         Me.UpperPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UpperPanel.Controls.Add(Me.AddTaskButton)
         Me.UpperPanel.Controls.Add(Me.RunNowButton)
         Me.UpperPanel.Controls.Add(Me.EditTaskButton)
@@ -553,7 +560,7 @@ Partial Class MainForm
         'AddTaskButton
         '
         Me.AddTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.AddTaskButton.Location = New System.Drawing.Point(423, 16)
+        Me.AddTaskButton.Location = New System.Drawing.Point(329, 12)
         Me.AddTaskButton.Name = "AddTaskButton"
         Me.AddTaskButton.Size = New System.Drawing.Size(79, 58)
         Me.AddTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -565,7 +572,7 @@ Partial Class MainForm
         'RunNowButton
         '
         Me.RunNowButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.RunNowButton.Location = New System.Drawing.Point(871, 16)
+        Me.RunNowButton.Location = New System.Drawing.Point(777, 12)
         Me.RunNowButton.Name = "RunNowButton"
         Me.RunNowButton.Size = New System.Drawing.Size(79, 58)
         Me.RunNowButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -577,7 +584,7 @@ Partial Class MainForm
         'EditTaskButton
         '
         Me.EditTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.EditTaskButton.Location = New System.Drawing.Point(568, 16)
+        Me.EditTaskButton.Location = New System.Drawing.Point(474, 12)
         Me.EditTaskButton.Name = "EditTaskButton"
         Me.EditTaskButton.Size = New System.Drawing.Size(79, 58)
         Me.EditTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -589,7 +596,7 @@ Partial Class MainForm
         'DeleteTaskButton
         '
         Me.DeleteTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.DeleteTaskButton.Location = New System.Drawing.Point(718, 16)
+        Me.DeleteTaskButton.Location = New System.Drawing.Point(624, 12)
         Me.DeleteTaskButton.Name = "DeleteTaskButton"
         Me.DeleteTaskButton.Size = New System.Drawing.Size(79, 58)
         Me.DeleteTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -618,25 +625,30 @@ Partial Class MainForm
         'AddTaskToolStripMenuItem
         '
         Me.AddTaskToolStripMenuItem.Name = "AddTaskToolStripMenuItem"
-        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.AddTaskToolStripMenuItem.Text = "Add Task"
         '
         'EditTaskToolStripMenuItem
         '
         Me.EditTaskToolStripMenuItem.Name = "EditTaskToolStripMenuItem"
-        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.EditTaskToolStripMenuItem.Text = "Edit Task"
         '
         'DeleteTaskToolStripMenuItem
         '
         Me.DeleteTaskToolStripMenuItem.Name = "DeleteTaskToolStripMenuItem"
-        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.DeleteTaskToolStripMenuItem.Text = "Delete Task"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(131, 6)
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'TaskToolStripMenuItem
@@ -684,6 +696,11 @@ Partial Class MainForm
         Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ShowToolStripMenuItem.Text = "Show"
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
+        '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
@@ -693,16 +710,6 @@ Partial Class MainForm
         'Timer
         '
         Me.Timer.Interval = 60000
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
         '
         'MainForm
         '
@@ -719,21 +726,28 @@ Partial Class MainForm
         Me.Text = "Adopse Super Scheduler"
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LowerPanel.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel1.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.ResumeLayout(False)
+        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel1.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.ResumeLayout(False)
+        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.ResumeLayout(False)
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.ResumeLayout(False)

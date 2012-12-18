@@ -1,6 +1,7 @@
 Imports Microsoft.Win32
 Imports AssLogic
 Imports System.IO
+Imports System.ServiceProcess
 
 
 Public Class NewTaskForm
@@ -40,6 +41,9 @@ Public Class NewTaskForm
         HandleRectangles(False, True, False, False, False)
 
         chooseFileCheckLabel.Visible = True
+        ServicesListView.Visible = False
+        ServiceLabel.Visible = False
+
 
     End Sub
 
@@ -64,6 +68,8 @@ Public Class NewTaskForm
         HandleRectangles(False, True, False, False, False)
 
         chooseFileCheckLabel.Visible = True
+        ServicesListView.Visible = False
+        ServiceLabel.Visible = False
 
     End Sub
 
@@ -85,12 +91,55 @@ Public Class NewTaskForm
         HandleRectangles(False, True, False, False, False)
 
         chooseFileCheckLabel.Visible = True
+        ServicesListView.Visible = False
+        ServiceLabel.Visible = False
 
     End Sub
 
-    Private Sub ReminderCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReminderCheckButton.Click
-        MsgBox("Does nothing yet")
+    Private Sub ReminderCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
+        chooseFileCheckLabel.Visible = False
+        ServiceLabel.Visible = True
+        ServicesListView.Visible = True
+        HandleChooseFilePanel(False, " ")
+        ListServices()
+
     End Sub
+
+    Private Sub ListServices()
+        Dim svcs As ServiceController() = _
+         ServiceController.GetServices()
+
+        For Each svc As ServiceController In svcs
+            Dim lvi As ListViewItem = _
+             ServicesListView.Items.Add(svc.DisplayName)
+
+            lvi.SubItems.Add(FormatStatus(svc.Status))
+            lvi.SubItems.Add(svc.ServiceType.ToString)
+            lvi.SubItems.Add(svc.ServiceName)
+        Next svc
+    End Sub
+
+    Private Function FormatStatus( _
+ ByVal st As ServiceControllerStatus) As String
+        Dim result As String = Nothing
+        Select Case st
+            Case ServiceControllerStatus.ContinuePending
+                result = "Continuing"
+            Case ServiceControllerStatus.Paused
+                result = "Paused"
+            Case ServiceControllerStatus.PausePending
+                result = "Pausing"
+            Case ServiceControllerStatus.Running
+                result = "Started"
+            Case ServiceControllerStatus.StartPending
+                result = "Starting"
+            Case ServiceControllerStatus.Stopped
+                result = String.Empty
+            Case ServiceControllerStatus.StopPending
+                result = "Stopping"
+        End Select
+        Return result
+    End Function
 
 #End Region
 
@@ -346,6 +395,7 @@ Public Class NewTaskForm
         Dim result As DialogResult
         result = SaveButtonTaskDialog.ShowDialog()
 
+
         If (result = DialogResult.Yes) Then
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
@@ -394,7 +444,7 @@ Public Class NewTaskForm
             ClearFields()
             Me.Close()
         Else
-            ClearFields()
+            'ClearFields()
             Exit Sub
         End If
 
@@ -433,4 +483,12 @@ Public Class NewTaskForm
 
     End Sub
 
+
+    Private Sub ServicesListView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesListView.VisibleChanged
+        If ServicesListView.Visible = True Then
+            enableRestOfPanels(True)
+        Else
+            enableRestOfPanels(False)
+        End If
+    End Sub
 End Class
