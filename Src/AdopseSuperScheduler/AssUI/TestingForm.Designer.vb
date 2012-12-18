@@ -56,6 +56,8 @@ Partial Class TestingForm
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button20 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -170,7 +172,7 @@ Partial Class TestingForm
         '
         Me.RectangleShape5.Location = New System.Drawing.Point(258, 259)
         Me.RectangleShape5.Name = "RectangleShape5"
-        Me.RectangleShape5.Size = New System.Drawing.Size(233, 241)
+        Me.RectangleShape5.Size = New System.Drawing.Size(233, 245)
         '
         'RectangleShape4
         '
@@ -182,13 +184,13 @@ Partial Class TestingForm
         '
         Me.RectangleShape3.Location = New System.Drawing.Point(516, 2)
         Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(257, 209)
+        Me.RectangleShape3.Size = New System.Drawing.Size(257, 252)
         '
         'RectangleShape2
         '
         Me.RectangleShape2.Location = New System.Drawing.Point(9, 4)
         Me.RectangleShape2.Name = "RectangleShape2"
-        Me.RectangleShape2.Size = New System.Drawing.Size(214, 229)
+        Me.RectangleShape2.Size = New System.Drawing.Size(214, 251)
         '
         'RectangleShape1
         '
@@ -348,11 +350,31 @@ Partial Class TestingForm
         Me.Button18.Text = "DeleteTheNewTaskTest"
         Me.Button18.UseVisualStyleBackColor = True
         '
+        'Button19
+        '
+        Me.Button19.Location = New System.Drawing.Point(549, 192)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(187, 23)
+        Me.Button19.TabIndex = 30
+        Me.Button19.Text = "Start Service"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'Button20
+        '
+        Me.Button20.Location = New System.Drawing.Point(549, 221)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(187, 23)
+        Me.Button20.TabIndex = 31
+        Me.Button20.Text = "Stop Service"
+        Me.Button20.UseVisualStyleBackColor = True
+        '
         'TestingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(781, 566)
+        Me.Controls.Add(Me.Button20)
+        Me.Controls.Add(Me.Button19)
         Me.Controls.Add(Me.Button18)
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.Button16)
@@ -422,4 +444,6 @@ Partial Class TestingForm
     Friend WithEvents Button16 As System.Windows.Forms.Button
     Friend WithEvents Button17 As System.Windows.Forms.Button
     Friend WithEvents Button18 As System.Windows.Forms.Button
+    Friend WithEvents Button19 As System.Windows.Forms.Button
+    Friend WithEvents Button20 As System.Windows.Forms.Button
 End Class

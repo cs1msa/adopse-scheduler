@@ -1,6 +1,9 @@
 ﻿
 'contain basic operations for command line
 'such as opening/closing programs
+Imports System.ServiceProcess
+
+
 
 Public Class ALCommandLineHandler
 
@@ -21,6 +24,8 @@ Public Class ALCommandLineHandler
         StartInfo.CreateNoWindow = True
         StartInfo.UseShellExecute = False 'required to redirect
 
+        StartInfo.Verb = "runas"
+        StartInfo.Arguments = ""
         m_cmd_process.StartInfo = StartInfo
     End Sub
 
@@ -44,11 +49,23 @@ Public Class ALCommandLineHandler
     End Sub
 
     Public Sub StartService(ByVal a_service As String)
-        ExecuteCMDCommand("NET START " & Chr(34) & a_service & Chr(34))
+
+        Dim sc As New ServiceController(a_service)
+        sc.Start()
+
     End Sub
 
     Public Sub EndService(ByVal a_service As String)
-        ExecuteCMDCommand("NET STOP " & Chr(34) & a_service & Chr(34))
+        'example AdobeFlashPlayerUpdateSvc
+        Dim s As New ServiceController(a_service)
+
+
+        If s.CanStop() Then
+            s.Stop()
+        End If
+
+
+
     End Sub
 
     'checks if the program is running, if yes it kills it
@@ -147,6 +164,8 @@ Public Class ALCommandLineHandler
     Private Function ExecuteCMDCommand(ByVal a_input As String)
         m_cmd_process.Start()
         Dim SW As System.IO.StreamWriter = m_cmd_process.StandardInput
+
+
         SW.WriteLine(a_input)    'the command we want to execute
         SW.WriteLine("exit") 'exits command prompt window
         SW.Close()
@@ -193,11 +212,12 @@ Public Class ALCommandLineHandler
         Try
 
 
-            If error_str = vbNullString Then
-                error_reading_thread.Abort()
-            End If
+            
             If output_str = vbNullString Then
                 output_reading_thread.Abort()
+            End If
+            If error_str = vbNullString Then
+                error_reading_thread.Abort()
             End If
 
         Catch ex As Exception

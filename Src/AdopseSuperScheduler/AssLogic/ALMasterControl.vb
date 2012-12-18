@@ -133,17 +133,23 @@ Public Class ALMasterControl
         For Each task As ALATasks In tasks
             'run the program
             Try
+                Dim success As Boolean = True
+                Try
 
-                If task.type.Equals("EXE") Then
-                    m_core.RunFullPathProgram(task.program_full_path)
-                ElseIf task.type.Equals("FILE") Then
-                    m_core.RunFile(task.program_full_path)
-                ElseIf task.type.Equals("SERVICE") Then
-                    m_core.StartService(task.program_full_path)
-                End If
+                    If task.type.Equals("EXE") Then
+                        m_core.RunFullPathProgram(task.program_full_path)
+                    ElseIf task.type.Equals("FILE") Then
+                        m_core.RunFile(task.program_full_path)
+                    ElseIf task.type.Equals("SERVICE") Then
+                        m_core.StartService(task.program_full_path)
+                    End If
+
+                Catch ex1 As Exception
+                    success = False
+                End Try
 
                 m_last_log_id = m_last_log_id + 1
-                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run Or something like that'"})
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run " & " " & task.type & success & "'"})
                 task.UpdateNextRun()
                 m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
             Catch ex As Exception

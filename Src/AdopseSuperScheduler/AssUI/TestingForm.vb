@@ -171,4 +171,16 @@ Public Class TestingForm
     Private Sub Button18_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button18.Click
         m_master_control.DeleteTask("c:/Firefox.exe")
     End Sub
+
+    Private Sub Button19_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button19.Click
+        'create a ALCore ONLY for testing purposes
+        Dim core As New ALCore
+        core.StartService(TextBox3.Text)
+    End Sub
+
+    Private Sub Button20_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button20.Click
+        'create a ALCore ONLY for testing purposes
+        Dim core As New ALCore
+        core.EndService(TextBox3.Text)
+    End Sub
 End Class
