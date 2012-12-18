@@ -432,7 +432,7 @@ Public Class NewTaskForm
             ClearFields()
             Me.Close()
         Else
-            'ClearFields()
+            'ClearFields()  'we don't need this here
             Exit Sub
         End If
 
@@ -496,5 +496,12 @@ Public Class NewTaskForm
             enableRestOfPanels(False)
         End If
     End Sub
+
+    Private Sub MonthDaysDropDownButton_Click(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.Click
+        ' it needs to check the selected Day and automatically Check the equivalent checkbox
+        ' MonthDaysContextMenu.Items.Item(DatePicker.Value.Day - 1).
+
+    End Sub
+
 
 End Class

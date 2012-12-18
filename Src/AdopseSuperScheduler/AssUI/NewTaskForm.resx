@@ -190,15 +190,6 @@
         KeZQMHVoUzB7NpetwcDWY0T+P+PfwJnH747o8noAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="MonthDaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>995, 17</value>
-  </metadata>
-  <metadata name="WeekdaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>814, 17</value>
-  </metadata>
-  <metadata name="SelectAllWeekdaysCommand.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>803, 50</value>
-  </metadata>
   <data name="ArrowLabel5.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -339,6 +330,15 @@
         rkJggg==
 </value>
   </data>
+  <metadata name="MonthsContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1010, 54</value>
+  </metadata>
+  <metadata name="MonthDaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>995, 17</value>
+  </metadata>
+  <metadata name="WeekdaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>814, 17</value>
+  </metadata>
   <data name="ExecutableCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -426,7 +426,7 @@
   <data name="ServiceCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAAGYktHRAD/AP8A/6C9p5MAAAhMSURBVFhH7Vf5U5T3HX65
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAAAGYktHRAD/AP8A/6C9p5MAAAhMSURBVFhH7Vf5U5T3HX65
         lGNZAbnvc7lZYGEX2IVd7pvd5VxgdzlEuREKQQeMAgqCNZJO+EE0ZpLJmNMkahU742T4oWOdqhOsFqIG
         Y5K22ukv/Qc68/Tz/XIMKLMmbX8sM8/svMu77/N8ns/1fQXh/3+/wAFHR0chMjKqpLmlFWfOzOL8+Xcx
         PT0Dk9kMo9GErCw1wsLCFyMiJOZf8Nidb2VkEklkhdFkxqlfn8bCjd9h5dtH+Nvz5/jxx5/w3eoqHj16
@@ -473,6 +473,9 @@
   </metadata>
   <metadata name="KindOfTaskCheckSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>486, 17</value>
+  </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 56</value>
   </metadata>
   <metadata name="TypeOfTaskCheckSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>649, 17</value>
