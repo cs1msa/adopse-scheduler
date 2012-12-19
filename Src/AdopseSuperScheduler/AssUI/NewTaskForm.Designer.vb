@@ -45,7 +45,6 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox52 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox53 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox54 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.MonthsLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.MonthDaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.MonthDaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
         Me.KryptonContextMenuCheckBox17 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
@@ -80,7 +79,6 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox48 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox49 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox50 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.MonthDaysLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.WeekdaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.WeekdaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
         Me.KryptonContextMenuCheckBox1 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
@@ -90,7 +88,6 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox5 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox6 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox7 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.WeekdaysLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.Label2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.KryptonNumericUpDown1 = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.Label1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -194,7 +191,7 @@ Partial Class NewTaskForm
         'ServiceLabel
         '
         Me.ServiceLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.ServiceLabel.Location = New System.Drawing.Point(165, 102)
+        Me.ServiceLabel.Location = New System.Drawing.Point(174, 102)
         Me.ServiceLabel.Name = "ServiceLabel"
         Me.ServiceLabel.Size = New System.Drawing.Size(133, 20)
         Me.ServiceLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.Yellow
@@ -268,19 +265,16 @@ Partial Class NewTaskForm
         'RecurrencePanel
         '
         Me.RecurrencePanel.Controls.Add(Me.MonthsDropDownButton)
-        Me.RecurrencePanel.Controls.Add(Me.MonthsLabel)
         Me.RecurrencePanel.Controls.Add(Me.MonthDaysDropDownButton)
-        Me.RecurrencePanel.Controls.Add(Me.MonthDaysLabel)
         Me.RecurrencePanel.Controls.Add(Me.WeekdaysDropDownButton)
-        Me.RecurrencePanel.Controls.Add(Me.WeekdaysLabel)
         Me.RecurrencePanel.Controls.Add(Me.Label2)
         Me.RecurrencePanel.Controls.Add(Me.KryptonNumericUpDown1)
         Me.RecurrencePanel.Controls.Add(Me.Label1)
         Me.RecurrencePanel.Controls.Add(Me.KryptonLabel3)
         Me.RecurrencePanel.Controls.Add(Me.ShapeContainer6)
-        Me.RecurrencePanel.Location = New System.Drawing.Point(69, 450)
+        Me.RecurrencePanel.Location = New System.Drawing.Point(65, 450)
         Me.RecurrencePanel.Name = "RecurrencePanel"
-        Me.RecurrencePanel.Size = New System.Drawing.Size(383, 124)
+        Me.RecurrencePanel.Size = New System.Drawing.Size(386, 139)
         Me.RecurrencePanel.TabIndex = 25
         Me.RecurrencePanel.Visible = False
         '
@@ -288,11 +282,11 @@ Partial Class NewTaskForm
         '
         Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.MonthsDropDownButton.KryptonContextMenu = Me.MonthsContextMenu
-        Me.MonthsDropDownButton.Location = New System.Drawing.Point(91, 71)
+        Me.MonthsDropDownButton.Location = New System.Drawing.Point(113, 72)
         Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
         Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthsDropDownButton.TabIndex = 30
-        Me.MonthsDropDownButton.Values.Text = "All Months"
+        Me.MonthsDropDownButton.Values.Text = "Months"
         Me.MonthsDropDownButton.Visible = False
         '
         'MonthsContextMenu
@@ -359,24 +353,15 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox54.ExtraText = ""
         Me.KryptonContextMenuCheckBox54.Text = "December"
         '
-        'MonthsLabel
-        '
-        Me.MonthsLabel.Location = New System.Drawing.Point(24, 70)
-        Me.MonthsLabel.Name = "MonthsLabel"
-        Me.MonthsLabel.Size = New System.Drawing.Size(55, 20)
-        Me.MonthsLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.MonthsLabel.TabIndex = 29
-        Me.MonthsLabel.Values.Text = "Months: "
-        '
         'MonthDaysDropDownButton
         '
         Me.MonthDaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.MonthDaysDropDownButton.KryptonContextMenu = Me.MonthDaysContextMenu
-        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(91, 71)
+        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(113, 106)
         Me.MonthDaysDropDownButton.Name = "MonthDaysDropDownButton"
         Me.MonthDaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthDaysDropDownButton.TabIndex = 28
-        Me.MonthDaysDropDownButton.Values.Text = "All Month Days"
+        Me.MonthDaysDropDownButton.Values.Text = "Month Days"
         Me.MonthDaysDropDownButton.Visible = False
         '
         'MonthDaysContextMenu
@@ -543,25 +528,15 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox50.ExtraText = ""
         Me.KryptonContextMenuCheckBox50.Text = "31th"
         '
-        'MonthDaysLabel
-        '
-        Me.MonthDaysLabel.Location = New System.Drawing.Point(40, 70)
-        Me.MonthDaysLabel.Name = "MonthDaysLabel"
-        Me.MonthDaysLabel.Size = New System.Drawing.Size(39, 20)
-        Me.MonthDaysLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.MonthDaysLabel.TabIndex = 27
-        Me.MonthDaysLabel.Values.Text = "Days: "
-        Me.MonthDaysLabel.Visible = False
-        '
         'WeekdaysDropDownButton
         '
         Me.WeekdaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.WeekdaysDropDownButton.KryptonContextMenu = Me.WeekdaysContextMenu
-        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(91, 70)
+        Me.WeekdaysDropDownButton.Location = New System.Drawing.Point(113, 72)
         Me.WeekdaysDropDownButton.Name = "WeekdaysDropDownButton"
         Me.WeekdaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.WeekdaysDropDownButton.TabIndex = 26
-        Me.WeekdaysDropDownButton.Values.Text = "All Weekdays"
+        Me.WeekdaysDropDownButton.Values.Text = "Weekdays"
         '
         'WeekdaysContextMenu
         '
@@ -602,19 +577,9 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox7.ExtraText = ""
         Me.KryptonContextMenuCheckBox7.Text = "Sunday"
         '
-        'WeekdaysLabel
-        '
-        Me.WeekdaysLabel.Location = New System.Drawing.Point(16, 70)
-        Me.WeekdaysLabel.Name = "WeekdaysLabel"
-        Me.WeekdaysLabel.Size = New System.Drawing.Size(69, 20)
-        Me.WeekdaysLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.WeekdaysLabel.TabIndex = 25
-        Me.WeekdaysLabel.Values.Text = "Weekdays: "
-        Me.WeekdaysLabel.Visible = False
-        '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(111, 31)
+        Me.Label2.Location = New System.Drawing.Point(204, 39)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 20)
         Me.Label2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -623,7 +588,7 @@ Partial Class NewTaskForm
         '
         'KryptonNumericUpDown1
         '
-        Me.KryptonNumericUpDown1.Location = New System.Drawing.Point(65, 29)
+        Me.KryptonNumericUpDown1.Location = New System.Drawing.Point(158, 37)
         Me.KryptonNumericUpDown1.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.KryptonNumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.KryptonNumericUpDown1.Name = "KryptonNumericUpDown1"
@@ -634,7 +599,7 @@ Partial Class NewTaskForm
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(16, 29)
+        Me.Label1.Location = New System.Drawing.Point(109, 37)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 20)
         Me.Label1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -644,7 +609,7 @@ Partial Class NewTaskForm
         'KryptonLabel3
         '
         Me.KryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.KryptonLabel3.Location = New System.Drawing.Point(71, 3)
+        Me.KryptonLabel3.Location = New System.Drawing.Point(75, 13)
         Me.KryptonLabel3.Name = "KryptonLabel3"
         Me.KryptonLabel3.Size = New System.Drawing.Size(223, 20)
         Me.KryptonLabel3.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
@@ -657,7 +622,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer6.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer6.Name = "ShapeContainer6"
         Me.ShapeContainer6.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape5})
-        Me.ShapeContainer6.Size = New System.Drawing.Size(383, 124)
+        Me.ShapeContainer6.Size = New System.Drawing.Size(386, 139)
         Me.ShapeContainer6.TabIndex = 31
         Me.ShapeContainer6.TabStop = False
         '
@@ -665,10 +630,10 @@ Partial Class NewTaskForm
         '
         Me.RectangleShape5.BorderColor = System.Drawing.Color.Gold
         Me.RectangleShape5.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
-        Me.RectangleShape5.Location = New System.Drawing.Point(8, 13)
+        Me.RectangleShape5.Location = New System.Drawing.Point(26, 20)
         Me.RectangleShape5.Name = "RectangleShape5"
         Me.RectangleShape5.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape5.Size = New System.Drawing.Size(352, 93)
+        Me.RectangleShape5.Size = New System.Drawing.Size(327, 115)
         Me.RectangleShape5.Visible = False
         '
         'ArrowLabel5
@@ -1263,18 +1228,15 @@ Partial Class NewTaskForm
     Private WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Private WithEvents WeekdaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Private WithEvents KryptonContextMenuItems2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents KryptonContextMenuItem1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Private WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Private WithEvents MonthDaysLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents MonthDaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Private WithEvents KryptonContextMenuItems1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents KryptonContextMenuItem2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Private WithEvents KryptonContextMenuItems4 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Private WithEvents MonthsLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
