@@ -165,7 +165,8 @@ Public Class MainForm
     End Sub
 
     Private Sub Timer_Tick(sender As System.Object, e As System.EventArgs) Handles Timer.Tick
-        m_master_control.RunTasks()
+        m_master_control.ProgramLoop()
+
     End Sub
 
 End Class

@@ -17,6 +17,17 @@
         m_task_list.Sort()
     End Sub
 
+    Public Function GetRunningTasks() As List(Of ALATasks)
+        Dim return_list As New List(Of ALATasks)
+        For Each task As ALATasks In m_task_list
+            If task.is_running Then
+                return_list.Add(task)
+            End If
+        Next
+        Return return_list
+
+    End Function
+
     Public Function GetTask(ByVal a_index As Integer) As ALATasks
         If a_index > m_task_list.Count - 1 Then
             Throw New IndexOutOfRangeException()

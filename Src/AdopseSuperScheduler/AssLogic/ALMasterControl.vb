@@ -124,13 +124,24 @@ Public Class ALMasterControl
         Return list_to_return
     End Function
 
+    'this is the function that will run when the program is idle
+    Public Sub ProgramLoop()
+        Dim tasks_to_run As List(Of ALATasks) = CheckTasks()
+
+        RunTasks(tasks_to_run)
+
+        Dim running_tasks As List(Of ALATasks) = m_task_manager.GetRunningTasks()
+
+        CloseTasks(running_tasks)
+
+    End Sub
 
     'runs the tasks that should run
-    Public Sub RunTasks()
+    Public Sub RunTasks(ByRef a_tasks As List(Of ALATasks))
 
-        Dim tasks As List(Of ALATasks) = CheckTasks()
 
-        For Each task As ALATasks In tasks
+
+        For Each task As ALATasks In a_tasks
             'run the program
             Try
                 Dim success As Boolean = True
@@ -146,11 +157,16 @@ Public Class ALMasterControl
 
                 Catch ex1 As Exception
                     success = False
-                End Try
 
-                m_last_log_id = m_last_log_id + 1
-                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run " & " " & task.type & success & "'"})
+                End Try
+                If success Then
+                    task.is_running = True
+                End If
+
                 task.UpdateNextRun()
+                'write every thing in the log and update the [scheduler tasks] table
+                m_last_log_id = m_last_log_id + 1
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run " & " " & task.type & " " & success & "'"})
                 m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
             Catch ex As Exception
 
@@ -159,6 +175,55 @@ Public Class ALMasterControl
 
     End Sub
 
+    Public Sub CloseTasks(ByRef a_tasks As List(Of ALATasks))
+
+        For Each task As ALATasks In a_tasks
+            Dim closes_after_minutes As Integer = task.closes_after_x_minutes
+
+            'in case the program closed by it self
+            If Not m_core.IsRunning(task.program_full_path) Then
+                task.is_running = False
+                m_last_log_id = m_last_log_id + 1
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Closed by itself" & " " & task.type & " " & True.ToString & "'"})
+                Continue For
+            End If
+
+            'if the program did not close by itself and is supposed to close after some time...
+            If closes_after_minutes <> 0 Then
+
+                Dim date_that_should_stop_running As Date = task.last_run.AddMinutes(closes_after_minutes)
+
+                Dim success As Boolean = True
+                Try
+
+                    If date_that_should_stop_running.CompareTo(Date.Now) <= 0 Then
+                        'prorgam killing here
+                        If task.type.Equals("EXE") Then
+                            m_core.KillProgram(task.program_full_path)
+                        ElseIf task.type.Equals("FILE") Then
+                            'we have no way of closing a file :P
+                        ElseIf task.type.Equals("SERVICE") Then
+                            m_core.EndService(task.program_full_path)
+                        End If
+                    End If
+
+
+                Catch ex As Exception
+                    success = False
+                End Try
+                If success Then
+                    task.is_running = False
+                End If
+
+                m_last_log_id = m_last_log_id + 1
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Forced End " & " " & task.type & " " & success & "'"})
+
+            End If
+
+
+        Next
+
+    End Sub
 
     'add task
 

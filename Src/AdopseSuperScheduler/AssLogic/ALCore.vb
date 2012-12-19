@@ -69,6 +69,11 @@ Public Class ALCore
 
     End Sub
 
+    Public Function IsRunning(ByVal a_program_or_service As String) As Boolean
+
+        Return m_command_line_handler.CheckIfRuns(a_program_or_service)
+
+    End Function
 
     Public Sub RunFile(ByVal a_file As String)
         If (a_file.Contains("\")) Then

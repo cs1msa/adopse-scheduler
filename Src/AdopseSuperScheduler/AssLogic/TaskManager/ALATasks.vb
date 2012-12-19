@@ -14,6 +14,9 @@
 
     Protected m_type As String
 
+    Protected m_running As Boolean      'is the program running now?
+
+    Protected m_last_run As Date        'when was the date that the program last started to run
     Sub New(ByVal a_id As Integer, ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_description As String, ByVal a_close_after As Integer, _
             ByVal a_if_not_run As String, ByVal a_end_date As Date, ByVal a_type As String)
         m_id = a_id
@@ -25,6 +28,7 @@
         m_if_not_run = a_if_not_run
         m_end_date = a_end_date
         m_type = a_type
+        m_running = False
     End Sub
 
 
@@ -41,7 +45,18 @@
         Return m_status
     End Function
 
+    Public Property is_running As Boolean
+        Get
+            Return m_running
+        End Get
+        Set(ByVal value As Boolean)
+            m_running = value
+            If value Then
+                m_last_run = Date.Now
+            End If
 
+        End Set
+    End Property
 
     Public Property program_full_path() As String
         Get
@@ -73,5 +88,20 @@
         End Set
     End Property
 
+    Public Property closes_after_x_minutes As Integer
+        Get
+            Return m_close_after
+        End Get
+        Set(ByVal value As Integer)
+            m_close_after = value
+        End Set
+    End Property
+
+    Public ReadOnly Property last_run As Date
+        Get
+            Return m_last_run
+        End Get
+
+    End Property
 End Class
 
