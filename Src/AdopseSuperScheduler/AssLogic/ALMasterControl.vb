@@ -39,7 +39,7 @@ Public Class ALMasterControl
     Public Sub RetrieveTasks()
 
         Dim tasks_string As New List(Of String)
-        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Task_ID,Program_Path", "Next_Run", "Period", "Status", "Description", "Close_After", "If_Not_Run", "End_Date", "Type"})
+        tasks_string = m_core.GetFromATableAsStringList("[Scheduler Tasks]", {"Task_ID", "Program_Path", "Next_Run", "Period", "Status", "Description", "Close_After", "If_Not_Run", "End_Date", "Type"})
 
 
         For Each row As String In tasks_string
