@@ -411,19 +411,19 @@ Public Class NewTaskForm
 
             If OnceCheckButton.Checked Then
                 m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, 0, 0, 0, 0, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run)
 
             ElseIf DailyCheckButton.Checked Then
                 m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, KryptonNumericUpDown1.Value, 0, 0, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             ElseIf WeeklyCheckButton.Checked Then
                 m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, KryptonNumericUpDown1.Value, 0, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             Else
                 m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
             'Opens up a dialog show that the task was Successfully added
