@@ -166,7 +166,7 @@ Public Class ALMasterControl
                 task.UpdateNextRun()
                 'write every thing in the log and update the [scheduler tasks] table
                 m_last_log_id = m_last_log_id + 1
-                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Run " & " " & task.type & " " & success & "'"})
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Run " & " " & task.type & " " & success & "'"})
                 m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
             Catch ex As Exception
 
@@ -184,7 +184,7 @@ Public Class ALMasterControl
             If Not m_core.IsRunning(task.program_full_path) Then
                 task.is_running = False
                 m_last_log_id = m_last_log_id + 1
-                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Closed by itself" & " " & task.type & " " & True.ToString & "'"})
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Normally Closed" & " " & task.type & " " & True.ToString & "'"})
                 Continue For
             End If
 
@@ -216,7 +216,7 @@ Public Class ALMasterControl
                 End If
 
                 m_last_log_id = m_last_log_id + 1
-                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Forced End " & " " & task.type & " " & success & "'"})
+                m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Force Closed " & task.type & " " & success & "'"})
 
             End If
 
@@ -264,7 +264,7 @@ Public Class ALMasterControl
                                                       a_status.ToString(), "'" & a_description & "'", a_close_after.ToString(), _
                                                        "'" & a_if_not_run & "'", "'" & a_end_date & "'", "'" & a_type & "'"})
 
-            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'added or something like that'"})
+            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task added " & a_type & "'"})
         Catch ex As ALDatabaseInsertException
 
         End Try
@@ -283,7 +283,8 @@ Public Class ALMasterControl
         Try
             m_core.DeleteFromTable("[Scheduler Tasks]", {"Program_Name = '" & a_full_path & "'"})
             m_last_log_id = m_last_log_id + 1
-            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'deleted or something like that'"})
+
+            m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task deleted  " & a_full_path & "'"})
 
         Catch ex As ALDatabaseDeleteException
 
