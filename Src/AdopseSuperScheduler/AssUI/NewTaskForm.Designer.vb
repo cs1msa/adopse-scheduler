@@ -1235,9 +1235,7 @@ Partial Class NewTaskForm
     Private WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents chooseFileTextBox As ComponentFactory.Krypton.Toolkit.KryptonTextBox
     Private WithEvents OtherCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Private WithEvents ServiceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents MultimediaCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Private WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
@@ -1304,4 +1302,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox52 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox53 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox54 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
+    Friend WithEvents ServiceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Friend WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
 End Class
