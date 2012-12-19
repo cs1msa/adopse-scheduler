@@ -118,8 +118,7 @@ Partial Class NewTaskForm
         Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.KindOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.ExecutableCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.OtherCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.MultimediaCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.FileCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.ServiceCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.KindOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -854,21 +853,20 @@ Partial Class NewTaskForm
         'KindOfTaskPanel
         '
         Me.KindOfTaskPanel.Controls.Add(Me.ExecutableCheckButton)
-        Me.KindOfTaskPanel.Controls.Add(Me.OtherCheckButton)
-        Me.KindOfTaskPanel.Controls.Add(Me.MultimediaCheckButton)
+        Me.KindOfTaskPanel.Controls.Add(Me.FileCheckButton)
         Me.KindOfTaskPanel.Controls.Add(Me.ServiceCheckButton)
         Me.KindOfTaskPanel.Controls.Add(Me.KindOfTaskLabel)
         Me.KindOfTaskPanel.Controls.Add(Me.ShapeContainer2)
         Me.KindOfTaskPanel.Location = New System.Drawing.Point(89, 12)
         Me.KindOfTaskPanel.Name = "KindOfTaskPanel"
         Me.KindOfTaskPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile
-        Me.KindOfTaskPanel.Size = New System.Drawing.Size(317, 84)
+        Me.KindOfTaskPanel.Size = New System.Drawing.Size(317, 91)
         Me.KindOfTaskPanel.TabIndex = 11
         '
         'ExecutableCheckButton
         '
         Me.ExecutableCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.ExecutableCheckButton.Location = New System.Drawing.Point(14, 27)
+        Me.ExecutableCheckButton.Location = New System.Drawing.Point(51, 27)
         Me.ExecutableCheckButton.Name = "ExecutableCheckButton"
         Me.ExecutableCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ExecutableCheckButton.TabIndex = 7
@@ -876,32 +874,21 @@ Partial Class NewTaskForm
         Me.ExecutableCheckButton.Values.Image = CType(resources.GetObject("ExecutableCheckButton.Values.Image"), System.Drawing.Image)
         Me.ExecutableCheckButton.Values.Text = ""
         '
-        'OtherCheckButton
+        'FileCheckButton
         '
-        Me.OtherCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.OtherCheckButton.Location = New System.Drawing.Point(249, 27)
-        Me.OtherCheckButton.Name = "OtherCheckButton"
-        Me.OtherCheckButton.Size = New System.Drawing.Size(55, 47)
-        Me.OtherCheckButton.TabIndex = 10
-        Me.ToolTip1.SetToolTip(Me.OtherCheckButton, "Other")
-        Me.OtherCheckButton.Values.Image = CType(resources.GetObject("OtherCheckButton.Values.Image"), System.Drawing.Image)
-        Me.OtherCheckButton.Values.Text = ""
-        '
-        'MultimediaCheckButton
-        '
-        Me.MultimediaCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.MultimediaCheckButton.Location = New System.Drawing.Point(94, 27)
-        Me.MultimediaCheckButton.Name = "MultimediaCheckButton"
-        Me.MultimediaCheckButton.Size = New System.Drawing.Size(55, 47)
-        Me.MultimediaCheckButton.TabIndex = 8
-        Me.ToolTip1.SetToolTip(Me.MultimediaCheckButton, "Multimedia")
-        Me.MultimediaCheckButton.Values.Image = CType(resources.GetObject("MultimediaCheckButton.Values.Image"), System.Drawing.Image)
-        Me.MultimediaCheckButton.Values.Text = ""
+        Me.FileCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.FileCheckButton.Location = New System.Drawing.Point(134, 29)
+        Me.FileCheckButton.Name = "FileCheckButton"
+        Me.FileCheckButton.Size = New System.Drawing.Size(55, 47)
+        Me.FileCheckButton.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.FileCheckButton, "File")
+        Me.FileCheckButton.Values.Image = CType(resources.GetObject("FileCheckButton.Values.Image"), System.Drawing.Image)
+        Me.FileCheckButton.Values.Text = ""
         '
         'ServiceCheckButton
         '
         Me.ServiceCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.ServiceCheckButton.Location = New System.Drawing.Point(171, 27)
+        Me.ServiceCheckButton.Location = New System.Drawing.Point(217, 27)
         Me.ServiceCheckButton.Name = "ServiceCheckButton"
         Me.ServiceCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ServiceCheckButton.TabIndex = 9
@@ -925,7 +912,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
         Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape1})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(317, 84)
+        Me.ShapeContainer2.Size = New System.Drawing.Size(317, 91)
         Me.ShapeContainer2.TabIndex = 11
         Me.ShapeContainer2.TabStop = False
         '
@@ -936,7 +923,7 @@ Partial Class NewTaskForm
         Me.RectangleShape1.Location = New System.Drawing.Point(6, 11)
         Me.RectangleShape1.Name = "RectangleShape1"
         Me.RectangleShape1.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape1.Size = New System.Drawing.Size(299, 68)
+        Me.RectangleShape1.Size = New System.Drawing.Size(299, 75)
         '
         'chooseFilePanel
         '
@@ -1010,9 +997,8 @@ Partial Class NewTaskForm
         'KindOfTaskCheckSet
         '
         Me.KindOfTaskCheckSet.CheckButtons.Add(Me.ExecutableCheckButton)
-        Me.KindOfTaskCheckSet.CheckButtons.Add(Me.MultimediaCheckButton)
         Me.KindOfTaskCheckSet.CheckButtons.Add(Me.ServiceCheckButton)
-        Me.KindOfTaskCheckSet.CheckButtons.Add(Me.OtherCheckButton)
+        Me.KindOfTaskCheckSet.CheckButtons.Add(Me.FileCheckButton)
         '
         'TypeOfTaskCheckSet
         '
@@ -1199,8 +1185,7 @@ Partial Class NewTaskForm
     Private WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents chooseFileTextBox As ComponentFactory.Krypton.Toolkit.KryptonTextBox
-    Private WithEvents OtherCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Private WithEvents MultimediaCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Private WithEvents FileCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel

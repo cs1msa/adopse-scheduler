@@ -46,32 +46,8 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub MultimediaCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MultimediaCheckButton.Click
 
-        'makes sure the textbox is empy because another checkbutton might had filled it
-        chooseFileTextBox.Text = ""
-
-        'handles ChooseFile Panel (visibility and label text)
-        HandleChooseFilePanel(True, "multimedia ")
-
-        'sets the kind of files the OpenDialog is allowed to open
-        OpenFileDialog.Filter = "Audio Files(*.mp3, *.wav, *.wma, *.flac, *.ogg, *.oga, *.mpa, *.mid, *.m4a, *.m3u, *.aif, *.iff)" _
-                              + "|*.mp3;*.wav;*.wma,*.flac;*.ogg;*.oga;*.mpa;*.mid;*.m4a;*.m3u;*.aif;*.iff|" _
-                              + "Video Files(*.wmv, *.avi, *.mp4, *.mov, *.mkv, *.flv, *.ogg, *.ogv, *.3gp, *.3g2, *.swf, *.rm, *.vob, *.asf, *.asx)" _
-                              + "|*.wmv;*.avi;*.mp4;*.mov;*.mkv;*.flv;*.ogg;*.ogv;*.3gp;*.3g2;*.swf;*.rm;*.vob;*.asf;*.asx"
-
-        'handles the arrow labels
-        HandleArrowLabels(False, True, False, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, True, False, False, False)
-
-        'handles things that the Service Check Button opens
-        HandleServiceCheckButtonFunction(True, False, False)
-
-    End Sub
-
-    Private Sub OtherCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OtherCheckButton.Click
+    Private Sub FileCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FileCheckButton.Click
 
         'makes sure the textbox is empy because another checkbutton might had filled it
         chooseFileTextBox.Text = ""
@@ -146,10 +122,7 @@ Public Class NewTaskForm
         If (ExecutableCheckButton.Checked = True) Then
             checkIfFileExists(".exe")
 
-        ElseIf (MultimediaCheckButton.Checked = True) Then
-            checkIfFileExists(".mp3")   'will be changed using a regular expression
-
-        ElseIf (OtherCheckButton.Checked = True) Then
+        ElseIf (FileCheckButton.Checked = True) Then
             checkIfFileExists("")
         End If
 

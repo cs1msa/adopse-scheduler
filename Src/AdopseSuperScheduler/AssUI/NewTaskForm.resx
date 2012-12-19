@@ -190,6 +190,15 @@
         KeZQMHVoUzB7NpetwcDWY0T+P+PfwJnH747o8noAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="MonthsContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1010, 54</value>
+  </metadata>
+  <metadata name="MonthDaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>995, 17</value>
+  </metadata>
+  <metadata name="WeekdaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>814, 17</value>
+  </metadata>
   <data name="ArrowLabel5.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -330,15 +339,6 @@
         rkJggg==
 </value>
   </data>
-  <metadata name="MonthsContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1010, 54</value>
-  </metadata>
-  <metadata name="MonthDaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>995, 17</value>
-  </metadata>
-  <metadata name="WeekdaysContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>814, 17</value>
-  </metadata>
   <data name="ExecutableCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -364,7 +364,7 @@
         jf8a4ewRHoK/AWD2U4CW7CotAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="OtherCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="FileCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAGYktHRAD/AP8A/6C9p5MAAAc8SURBVFhHfVfZchtVEB1S
@@ -399,28 +399,6 @@
         2ReGO5bdEoABLsHbWJ1DPIyAHiNZGCjzbgekeNlkpOEij2FGu89og1xjf8YiH/s8EO8y4p2kQduJHO0m
         8xTQSxQrcCmsGsWzBcrk8u8bhjFeAzenZ/gVffWTNNMEFuQVmzdlk8ezaZo8pp0oMsJCqeREsURGsUhG
         wYl8oUB5o0C5XD4cjkQ+W13feGd+afmtRy+XtfuLK8f2QQjxP9FXCaLmqbisAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="MultimediaCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAGYktHRAD/AP8A/6C9p5MAAAOsSURBVFhHzZdZS1tBFIBH
-        W1taFxCsYBXxQcHtUWmk/gCpIBQKgiIuIKKUuNQHF1yjwSVEjTFIUNRoXGLcQFsfrBUal1i10WpF44IL
-        ikvqU0vfTs8Eb7BqnSt6oYGPe+8w55zvDnNnJoRc+vn5+ZHa2lpQKpV3IjAwEC7n5vWMxcnZ2RnclcTE
-        RPDx8bm9BL45sVgscFeysrIgOjoafH19bydxXwIlJSWQlpYGCQkJ4O/vz1+ivr6enJ6ewl2prq6GnJwc
-        yMzMhNTUVAgODuYncV8CIyMjUF5eDhKJBOhoFBUVQXh4OFtCoVCQk5MTEILBwUF+AsfHxyAEAwMDbIG6
-        ujpydHQEQtDf388WoOvA4eEhCEFfXx9boKamhhwcHIAQ6PV6fgL7+/sgBL29vWwBuVxO9vb2gGO9owM2
-        3r2DdbH4WswZGbAulcLuxoYthovdGhuDLaPR1q7T6dgCMpmM7OzsAGVjchLmRCL46OV1I1O4yHyXy60x
-        Vra3Yb2hARbwu1/Folx7T08PWwBXMLKNCSjLOGs/eHvDsIcHE2N6ujXGPD8Pyzha40FB1phv3d3WdkpX
-        VxdboKqqimxubgLFhJNG5+7Oi08pKbCC37kxKgr6PD1tMSYU4PJ1dnayBSorK4nZbAbKPA5Zq5sbL0aT
-        k+F9ZOSVvnOYg8vXgfOJeSaoqKgga2trQJnBIVO5uvJiKCkJNCEhV/rSHFy+9vZ2toBUKiWrq6tAMWi1
-        IHNx4YUuPh6MQ0OgCgj4q/8kCnD52tra2AK4g5GVlRWgTGg0IHF05EVHXJw15uvMDDRFRNhiPuMc4PK1
-        tLSwBXD7JEtLS0CZGh6GUhTgQy/u+1zc0uIi6LOzQeLsDBM48bj25uZmtkBpaSkxmUzAMVRWBsqwMFCE
-        hv6TtthYmJuetsVwsWOtrWAcH7e1NzU1sQWKi4vJPH7LQqBWq9kChYWFZHZ2FoSgsbGRLVBQUEBmcCIJ
-        gUqlYgvk5+eTSdwDhADPm2yBvLw8YjAYQAj+XwEnJyeC/2DsRSLRI9wNnwrx9jQn/QyxxhOs5YA17a37
-        Qm5urr1Wq41BWpAJxIQnl208Pu0iP5Czc37h9fct+Hkh1oL3O5h7C1lAxhA11n5FNBoNwYfnyEvkDSJG
-        SpBaRIn0I4MXoMFfkLlroO2jl/rr8Vlxnq8Ar2+R18gLrP2MDj2JiYkhYrGY0EWInopxyaRSdufQEXpw
-        AQe8f3wDDy/1p/F2mNOO5qY1aC1ak9b+AxisAlpym2dgAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ServiceCheckButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -473,9 +451,6 @@
   </metadata>
   <metadata name="KindOfTaskCheckSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>486, 17</value>
-  </metadata>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 56</value>
   </metadata>
   <metadata name="TypeOfTaskCheckSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>649, 17</value>
