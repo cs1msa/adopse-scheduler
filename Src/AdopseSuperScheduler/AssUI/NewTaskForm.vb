@@ -40,10 +40,8 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
-        chooseFileCheckLabel.Visible = True
-        ServicesListView.Visible = False
-        ServiceLabel.Visible = False
-
+        'handles things that the Service Check Button opens
+        HandleServiceCheckButtonFunction(True, False, False)
 
     End Sub
 
@@ -67,10 +65,8 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
-        'will make a handle function for those
-        chooseFileCheckLabel.Visible = True
-        ServicesListView.Visible = False
-        ServiceLabel.Visible = False
+        'handles things that the Service Check Button opens
+        HandleServiceCheckButtonFunction(True, False, False)
 
     End Sub
 
@@ -91,22 +87,19 @@ Public Class NewTaskForm
         'handles all Rectangle Shapes' visibility
         HandleRectangles(False, True, False, False, False)
 
-        'will make a handle function for those
-        chooseFileCheckLabel.Visible = True
-        ServicesListView.Visible = False
-        ServiceLabel.Visible = False
+        'handles things that the Service Check Button opens
+        HandleServiceCheckButtonFunction(True, False, False)
 
     End Sub
 
-    Private Sub ReminderCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
+    Private Sub ServiceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
 
-        'will make a handle function for those
-        chooseFileCheckLabel.Visible = False
-        ServiceLabel.Visible = True
-        ServicesListView.Visible = True
-
+        HandleServiceCheckButtonFunction(False, True, True)
         HandleChooseFilePanel(False, " ")
         ListServices()
+        HandleArrowLabels(False, True, False, False, False)
+        HandleRectangles(False, False, False, False, False)
+
 
     End Sub
 
@@ -372,6 +365,13 @@ Public Class NewTaskForm
 
     End Sub
 
+    'handles things that the Service Check Button opens
+    Private Sub HandleServiceCheckButtonFunction(ByVal checkLabel As Boolean, ByVal srvcLabel As Boolean, ByVal srvcListView As Boolean)
+        chooseFileCheckLabel.Visible = checkLabel
+        ServiceLabel.Visible = srvcLabel
+        ServicesListView.Visible = srvcListView
+    End Sub
+
 #End Region
 
     Public Sub SetMasterControl(ByRef a_master_control As ALMasterControl)
@@ -382,7 +382,6 @@ Public Class NewTaskForm
         'gets the result from the Dialog (asking the user)
         Dim result As DialogResult
         result = SaveButtonTaskDialog.ShowDialog()
-
 
         If (result = DialogResult.Yes) Then
 
@@ -427,16 +426,21 @@ Public Class NewTaskForm
                 MoreOptionsForm.DescriptionTextBox.Text, KryptonNumericUpDown1.Value, 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
+            'Opens up a dialog show that the task was Successfully added
             SuccessTaskDialog.ShowDialog()
-            'will add reset function, it will reset all fields of the form
-            ClearFields()
+
+            ' displose the Form object, so when we open the form again all fields will be cleared
+            MoreOptionsForm.Dispose()
+            Me.Dispose()
+
+            'closes the current form
             Me.Close()
+
         Else
-            'ClearFields()  'we don't need this here
+
             Exit Sub
+
         End If
-
-
 
     End Sub
 
@@ -476,20 +480,8 @@ Public Class NewTaskForm
 
 #End Region
 
-    'clears all of the form's fields
-    Private Sub ClearFields()
-
-        chooseFileTextBox.Text = Nothing
-        MoreOptionsForm.DescriptionTextBox.Text = "Your Description..."
-        MoreOptionsForm.KryptonRadioButton2.Checked = True
-        MoreOptionsForm.DisplayDialogAskingRadioButton.Checked = True
-        MoreOptionsForm.NeverEndRadioButton.Checked = True
-        MoreOptionsForm.EndAfterNumericUpDown.Value = 1
-
-    End Sub
-
     'enables the rest of the panels if ServicesListView is visible
-    Private Sub ServicesListView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesListView.VisibleChanged
+    Private Sub ServicesListView_VisibleChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServicesListView.VisibleChanged
         If ServicesListView.Visible = True Then
             enableRestOfPanels(True)
         Else
@@ -497,11 +489,23 @@ Public Class NewTaskForm
         End If
     End Sub
 
-    Private Sub MonthDaysDropDownButton_Click(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.Click
+    Private Sub MonthDaysDropDownButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MonthDaysDropDownButton.Click
         ' it needs to check the selected Day and automatically Check the equivalent checkbox
         ' MonthDaysContextMenu.Items.Item(DatePicker.Value.Day - 1).
 
     End Sub
 
 
+    Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'handles all Rectangle Shapes' visibility
+        HandleRectangles(True, False, False, False, False)
+
+        'handles the arrow labels
+        HandleArrowLabels(True, False, False, False, False)
+    End Sub
+
+    Private Sub ServicesListView_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServicesListView.SelectedIndexChanged
+        HandleArrowLabels(False, False, True, False, False)
+        HandleRectangles(False, False, True, False, False)
+    End Sub
 End Class

@@ -32,6 +32,19 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
+        Me.MonthsContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
+        Me.KryptonContextMenuCheckBox9 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox10 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox11 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox12 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox13 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox14 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox15 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox55 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox16 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox52 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox53 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox54 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.MonthsLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.MonthDaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.MonthDaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
@@ -139,19 +152,6 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.MonthsContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
-        Me.KryptonContextMenuCheckBox9 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox10 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox11 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox12 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox13 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox14 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox15 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox16 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox52 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox53 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox54 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox55 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -188,7 +188,7 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.addNewTaskMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
-        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 662)
+        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 638)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
         'ServiceLabel
@@ -207,7 +207,7 @@ Partial Class NewTaskForm
         Me.ServicesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colName, Me.colStatus, Me.colServiceType})
         Me.ServicesListView.FullRowSelect = True
         Me.ServicesListView.HideSelection = False
-        Me.ServicesListView.Location = New System.Drawing.Point(41, 128)
+        Me.ServicesListView.Location = New System.Drawing.Point(48, 128)
         Me.ServicesListView.Name = "ServicesListView"
         Me.ServicesListView.Size = New System.Drawing.Size(426, 120)
         Me.ServicesListView.TabIndex = 31
@@ -244,7 +244,7 @@ Partial Class NewTaskForm
         '
         Me.SaveTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.SaveTaskButton.Enabled = False
-        Me.SaveTaskButton.Location = New System.Drawing.Point(433, 593)
+        Me.SaveTaskButton.Location = New System.Drawing.Point(442, 580)
         Me.SaveTaskButton.Name = "SaveTaskButton"
         Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
         Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -256,7 +256,7 @@ Partial Class NewTaskForm
         '
         Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.MoreOptionsButton.Enabled = False
-        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 593)
+        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 580)
         Me.MoreOptionsButton.Name = "MoreOptionsButton"
         Me.MoreOptionsButton.Size = New System.Drawing.Size(86, 56)
         Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
@@ -278,7 +278,7 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.Controls.Add(Me.Label1)
         Me.RecurrencePanel.Controls.Add(Me.KryptonLabel3)
         Me.RecurrencePanel.Controls.Add(Me.ShapeContainer6)
-        Me.RecurrencePanel.Location = New System.Drawing.Point(65, 463)
+        Me.RecurrencePanel.Location = New System.Drawing.Point(69, 450)
         Me.RecurrencePanel.Name = "RecurrencePanel"
         Me.RecurrencePanel.Size = New System.Drawing.Size(383, 124)
         Me.RecurrencePanel.TabIndex = 25
@@ -294,6 +294,70 @@ Partial Class NewTaskForm
         Me.MonthsDropDownButton.TabIndex = 30
         Me.MonthsDropDownButton.Values.Text = "All Months"
         Me.MonthsDropDownButton.Visible = False
+        '
+        'MonthsContextMenu
+        '
+        Me.MonthsContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox9, Me.KryptonContextMenuCheckBox10, Me.KryptonContextMenuCheckBox11, Me.KryptonContextMenuCheckBox12, Me.KryptonContextMenuCheckBox13, Me.KryptonContextMenuCheckBox14, Me.KryptonContextMenuCheckBox15, Me.KryptonContextMenuCheckBox55, Me.KryptonContextMenuCheckBox16, Me.KryptonContextMenuCheckBox52, Me.KryptonContextMenuCheckBox53, Me.KryptonContextMenuCheckBox54})
+        '
+        'KryptonContextMenuCheckBox9
+        '
+        Me.KryptonContextMenuCheckBox9.ExtraText = ""
+        Me.KryptonContextMenuCheckBox9.Text = "January"
+        '
+        'KryptonContextMenuCheckBox10
+        '
+        Me.KryptonContextMenuCheckBox10.ExtraText = ""
+        Me.KryptonContextMenuCheckBox10.Text = "February"
+        '
+        'KryptonContextMenuCheckBox11
+        '
+        Me.KryptonContextMenuCheckBox11.ExtraText = ""
+        Me.KryptonContextMenuCheckBox11.Text = "March"
+        '
+        'KryptonContextMenuCheckBox12
+        '
+        Me.KryptonContextMenuCheckBox12.ExtraText = ""
+        Me.KryptonContextMenuCheckBox12.Text = "April"
+        '
+        'KryptonContextMenuCheckBox13
+        '
+        Me.KryptonContextMenuCheckBox13.ExtraText = ""
+        Me.KryptonContextMenuCheckBox13.Text = "May"
+        '
+        'KryptonContextMenuCheckBox14
+        '
+        Me.KryptonContextMenuCheckBox14.ExtraText = ""
+        Me.KryptonContextMenuCheckBox14.Text = "June"
+        '
+        'KryptonContextMenuCheckBox15
+        '
+        Me.KryptonContextMenuCheckBox15.ExtraText = ""
+        Me.KryptonContextMenuCheckBox15.Text = "July"
+        '
+        'KryptonContextMenuCheckBox55
+        '
+        Me.KryptonContextMenuCheckBox55.ExtraText = ""
+        Me.KryptonContextMenuCheckBox55.Text = "August"
+        '
+        'KryptonContextMenuCheckBox16
+        '
+        Me.KryptonContextMenuCheckBox16.ExtraText = ""
+        Me.KryptonContextMenuCheckBox16.Text = "September"
+        '
+        'KryptonContextMenuCheckBox52
+        '
+        Me.KryptonContextMenuCheckBox52.ExtraText = ""
+        Me.KryptonContextMenuCheckBox52.Text = "November"
+        '
+        'KryptonContextMenuCheckBox53
+        '
+        Me.KryptonContextMenuCheckBox53.ExtraText = ""
+        Me.KryptonContextMenuCheckBox53.Text = "October"
+        '
+        'KryptonContextMenuCheckBox54
+        '
+        Me.KryptonContextMenuCheckBox54.ExtraText = ""
+        Me.KryptonContextMenuCheckBox54.Text = "December"
         '
         'MonthsLabel
         '
@@ -609,7 +673,7 @@ Partial Class NewTaskForm
         '
         'ArrowLabel5
         '
-        Me.ArrowLabel5.Location = New System.Drawing.Point(1, 494)
+        Me.ArrowLabel5.Location = New System.Drawing.Point(1, 481)
         Me.ArrowLabel5.Name = "ArrowLabel5"
         Me.ArrowLabel5.Size = New System.Drawing.Size(38, 34)
         Me.ArrowLabel5.TabIndex = 26
@@ -619,7 +683,7 @@ Partial Class NewTaskForm
         '
         'ArrowLabel4
         '
-        Me.ArrowLabel4.Location = New System.Drawing.Point(1, 407)
+        Me.ArrowLabel4.Location = New System.Drawing.Point(1, 394)
         Me.ArrowLabel4.Name = "ArrowLabel4"
         Me.ArrowLabel4.Size = New System.Drawing.Size(38, 34)
         Me.ArrowLabel4.TabIndex = 24
@@ -649,7 +713,7 @@ Partial Class NewTaskForm
         '
         'ArrowLabel1
         '
-        Me.ArrowLabel1.Location = New System.Drawing.Point(3, 23)
+        Me.ArrowLabel1.Location = New System.Drawing.Point(3, 39)
         Me.ArrowLabel1.Name = "ArrowLabel1"
         Me.ArrowLabel1.Size = New System.Drawing.Size(38, 34)
         Me.ArrowLabel1.TabIndex = 20
@@ -667,7 +731,7 @@ Partial Class NewTaskForm
         Me.DateTimePanel.Enabled = False
         Me.DateTimePanel.Location = New System.Drawing.Point(45, 266)
         Me.DateTimePanel.Name = "DateTimePanel"
-        Me.DateTimePanel.Size = New System.Drawing.Size(433, 102)
+        Me.DateTimePanel.Size = New System.Drawing.Size(433, 73)
         Me.DateTimePanel.TabIndex = 19
         '
         'KryptonLabel1
@@ -684,7 +748,7 @@ Partial Class NewTaskForm
         '
         Me.TimePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.TimePicker.Location = New System.Drawing.Point(321, 27)
+        Me.TimePicker.Location = New System.Drawing.Point(310, 27)
         Me.TimePicker.Name = "TimePicker"
         Me.TimePicker.ShowUpDown = True
         Me.TimePicker.Size = New System.Drawing.Size(104, 21)
@@ -692,7 +756,7 @@ Partial Class NewTaskForm
         '
         'KryptonLabel2
         '
-        Me.KryptonLabel2.Location = New System.Drawing.Point(279, 28)
+        Me.KryptonLabel2.Location = New System.Drawing.Point(268, 27)
         Me.KryptonLabel2.Name = "KryptonLabel2"
         Me.KryptonLabel2.Size = New System.Drawing.Size(40, 20)
         Me.KryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -701,7 +765,7 @@ Partial Class NewTaskForm
         '
         'DateLabel
         '
-        Me.DateLabel.Location = New System.Drawing.Point(20, 27)
+        Me.DateLabel.Location = New System.Drawing.Point(7, 27)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(39, 20)
         Me.DateLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -711,7 +775,7 @@ Partial Class NewTaskForm
         'DatePicker
         '
         Me.DatePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
-        Me.DatePicker.Location = New System.Drawing.Point(65, 27)
+        Me.DatePicker.Location = New System.Drawing.Point(48, 26)
         Me.DatePicker.Name = "DatePicker"
         Me.DatePicker.Size = New System.Drawing.Size(208, 21)
         Me.DatePicker.TabIndex = 14
@@ -722,7 +786,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape3})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(433, 102)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(433, 73)
         Me.ShapeContainer1.TabIndex = 24
         Me.ShapeContainer1.TabStop = False
         '
@@ -733,7 +797,7 @@ Partial Class NewTaskForm
         Me.RectangleShape3.Location = New System.Drawing.Point(5, 9)
         Me.RectangleShape3.Name = "RectangleShape3"
         Me.RectangleShape3.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape3.Size = New System.Drawing.Size(421, 85)
+        Me.RectangleShape3.Size = New System.Drawing.Size(421, 54)
         Me.RectangleShape3.Visible = False
         '
         'TypeOfTaskPanel
@@ -746,14 +810,14 @@ Partial Class NewTaskForm
         Me.TypeOfTaskPanel.Controls.Add(Me.WeeklyCheckButton)
         Me.TypeOfTaskPanel.Controls.Add(Me.ShapeContainer4)
         Me.TypeOfTaskPanel.Enabled = False
-        Me.TypeOfTaskPanel.Location = New System.Drawing.Point(37, 374)
+        Me.TypeOfTaskPanel.Location = New System.Drawing.Point(41, 361)
         Me.TypeOfTaskPanel.Name = "TypeOfTaskPanel"
-        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(433, 83)
+        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(437, 83)
         Me.TypeOfTaskPanel.TabIndex = 13
         '
         'YearlyCheckButton
         '
-        Me.YearlyCheckButton.Location = New System.Drawing.Point(335, 29)
+        Me.YearlyCheckButton.Location = New System.Drawing.Point(346, 29)
         Me.YearlyCheckButton.Name = "YearlyCheckButton"
         Me.YearlyCheckButton.Size = New System.Drawing.Size(64, 38)
         Me.YearlyCheckButton.TabIndex = 4
@@ -808,7 +872,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer4.Name = "ShapeContainer4"
         Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4})
-        Me.ShapeContainer4.Size = New System.Drawing.Size(433, 83)
+        Me.ShapeContainer4.Size = New System.Drawing.Size(437, 83)
         Me.ShapeContainer4.TabIndex = 13
         Me.ShapeContainer4.TabStop = False
         '
@@ -816,10 +880,10 @@ Partial Class NewTaskForm
         '
         Me.RectangleShape4.BorderColor = System.Drawing.Color.Gold
         Me.RectangleShape4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
-        Me.RectangleShape4.Location = New System.Drawing.Point(4, 13)
+        Me.RectangleShape4.Location = New System.Drawing.Point(8, 13)
         Me.RectangleShape4.Name = "RectangleShape4"
         Me.RectangleShape4.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape4.Size = New System.Drawing.Size(413, 61)
+        Me.RectangleShape4.Size = New System.Drawing.Size(420, 61)
         Me.RectangleShape4.Visible = False
         '
         'KindOfTaskPanel
@@ -1061,75 +1125,11 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox8.ExtraText = ""
         '
-        'MonthsContextMenu
-        '
-        Me.MonthsContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox9, Me.KryptonContextMenuCheckBox10, Me.KryptonContextMenuCheckBox11, Me.KryptonContextMenuCheckBox12, Me.KryptonContextMenuCheckBox13, Me.KryptonContextMenuCheckBox14, Me.KryptonContextMenuCheckBox15, Me.KryptonContextMenuCheckBox55, Me.KryptonContextMenuCheckBox16, Me.KryptonContextMenuCheckBox52, Me.KryptonContextMenuCheckBox53, Me.KryptonContextMenuCheckBox54})
-        '
-        'KryptonContextMenuCheckBox9
-        '
-        Me.KryptonContextMenuCheckBox9.ExtraText = ""
-        Me.KryptonContextMenuCheckBox9.Text = "January"
-        '
-        'KryptonContextMenuCheckBox10
-        '
-        Me.KryptonContextMenuCheckBox10.ExtraText = ""
-        Me.KryptonContextMenuCheckBox10.Text = "February"
-        '
-        'KryptonContextMenuCheckBox11
-        '
-        Me.KryptonContextMenuCheckBox11.ExtraText = ""
-        Me.KryptonContextMenuCheckBox11.Text = "March"
-        '
-        'KryptonContextMenuCheckBox12
-        '
-        Me.KryptonContextMenuCheckBox12.ExtraText = ""
-        Me.KryptonContextMenuCheckBox12.Text = "April"
-        '
-        'KryptonContextMenuCheckBox13
-        '
-        Me.KryptonContextMenuCheckBox13.ExtraText = ""
-        Me.KryptonContextMenuCheckBox13.Text = "May"
-        '
-        'KryptonContextMenuCheckBox14
-        '
-        Me.KryptonContextMenuCheckBox14.ExtraText = ""
-        Me.KryptonContextMenuCheckBox14.Text = "June"
-        '
-        'KryptonContextMenuCheckBox15
-        '
-        Me.KryptonContextMenuCheckBox15.ExtraText = ""
-        Me.KryptonContextMenuCheckBox15.Text = "July"
-        '
-        'KryptonContextMenuCheckBox16
-        '
-        Me.KryptonContextMenuCheckBox16.ExtraText = ""
-        Me.KryptonContextMenuCheckBox16.Text = "September"
-        '
-        'KryptonContextMenuCheckBox52
-        '
-        Me.KryptonContextMenuCheckBox52.ExtraText = ""
-        Me.KryptonContextMenuCheckBox52.Text = "November"
-        '
-        'KryptonContextMenuCheckBox53
-        '
-        Me.KryptonContextMenuCheckBox53.ExtraText = ""
-        Me.KryptonContextMenuCheckBox53.Text = "October"
-        '
-        'KryptonContextMenuCheckBox54
-        '
-        Me.KryptonContextMenuCheckBox54.ExtraText = ""
-        Me.KryptonContextMenuCheckBox54.Text = "December"
-        '
-        'KryptonContextMenuCheckBox55
-        '
-        Me.KryptonContextMenuCheckBox55.ExtraText = ""
-        Me.KryptonContextMenuCheckBox55.Text = "August"
-        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(511, 662)
+        Me.ClientSize = New System.Drawing.Size(511, 638)
         Me.Controls.Add(Me.addNewTaskMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
