@@ -2,6 +2,7 @@ Imports Microsoft.Win32
 Imports AssLogic
 Imports System.IO
 Imports System.ServiceProcess
+Imports ComponentFactory.Krypton.Toolkit
 
 
 Public Class NewTaskForm
@@ -225,7 +226,7 @@ Public Class NewTaskForm
         HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
-        HandleRecPanelContent(False, False, False, False, False, False)
+        HandleRecPanelContent(False, False, False)
 
         Label2.Text = "days"
 
@@ -243,9 +244,13 @@ Public Class NewTaskForm
         HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
-        HandleRecPanelContent(True, True, False, False, False, False)
+        HandleRecPanelContent(True, False, False)
 
         Label2.Text = "weeks"
+
+        'Automatically checks the day of the week you chose
+        'at the next dropdown button
+        AutoCheckDayOfWeek()
 
     End Sub
 
@@ -261,9 +266,13 @@ Public Class NewTaskForm
         HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
-        HandleRecPanelContent(False, False, True, True, False, False)
+        HandleRecPanelContent(False, True, False)
 
         Label2.Text = "months"
+
+        'Automatically checks the day of the month the user have chosen
+        'and ticks the checkbox at AllMonthkDays dropdown button
+        AutoCheckDayOfMonth()
 
     End Sub
 
@@ -279,13 +288,15 @@ Public Class NewTaskForm
         HandleRecPanel(True, True)
 
         'handles RecurrencePanel's content
-        HandleRecPanelContent(False, False, False, False, True, True)
+        HandleRecPanelContent(False, True, True)
 
         Label2.Text = "years"
 
-    End Sub
-#End Region
+        AutoCheckMonth()
 
+    End Sub
+
+#End Region
 
     Private Sub MoreOptionsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MoreOptionsButton.Click
 
@@ -352,15 +363,14 @@ Public Class NewTaskForm
     End Sub
 
     'handles RecurrencePanel's content
-    Private Sub HandleRecPanelContent(ByVal wkLbl As Boolean, ByVal wkDrpDnBtn As Boolean, _
-                                      ByVal mnthDLbl As Boolean, ByVal mnthDDrpDnBtn As Boolean, _
-                                      ByVal mnthLbl As Boolean, ByVal mnthDrpDnBtn As Boolean)
+    Private Sub HandleRecPanelContent(ByVal wkDrpDnBtn As Boolean, ByVal mnthDDrpDnBtn As Boolean, _
+                                      ByVal mnthDrpDnBtn As Boolean)
 
-        WeekdaysLabel.Visible = wkLbl
+        'WeekdaysLabel.Visible = wkLbl
         WeekdaysDropDownButton.Visible = wkDrpDnBtn
-        MonthDaysLabel.Visible = mnthDLbl
+        'MonthDaysLabel.Visible = mnthDLbl
         MonthDaysDropDownButton.Visible = mnthDDrpDnBtn
-        MonthsLabel.Visible = mnthLbl
+        'MonthsLabel.Visible = mnthLbl
         MonthsDropDownButton.Visible = mnthDrpDnBtn
 
     End Sub
@@ -489,23 +499,183 @@ Public Class NewTaskForm
         End If
     End Sub
 
-    Private Sub MonthDaysDropDownButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MonthDaysDropDownButton.Click
-        ' it needs to check the selected Day and automatically Check the equivalent checkbox
-        ' MonthDaysContextMenu.Items.Item(DatePicker.Value.Day - 1).
-
-    End Sub
-
-
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'handles all Rectangle Shapes' visibility
         HandleRectangles(True, False, False, False, False)
 
         'handles the arrow labels
         HandleArrowLabels(True, False, False, False, False)
+
     End Sub
 
     Private Sub ServicesListView_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServicesListView.SelectedIndexChanged
         HandleArrowLabels(False, False, True, False, False)
         HandleRectangles(False, False, True, False, False)
+    End Sub
+    'Automatically checks the day of the week the user have chosen
+    'and ticks the checkbox at AllWeekDays dropdown button
+    Private Sub AutoCheckDayOfWeek()
+        Dim day As String
+        day = DatePicker.Value.Date.DayOfWeek.ToString
+
+        Dim checkBoxes(6) As KryptonContextMenuCheckBox
+        checkBoxes(0) = KryptonContextMenuCheckBox1
+        checkBoxes(1) = KryptonContextMenuCheckBox2
+        checkBoxes(2) = KryptonContextMenuCheckBox3
+        checkBoxes(3) = KryptonContextMenuCheckBox4
+        checkBoxes(4) = KryptonContextMenuCheckBox5
+        checkBoxes(5) = KryptonContextMenuCheckBox6
+        checkBoxes(6) = KryptonContextMenuCheckBox7
+
+        For i As Integer = 0 To 6
+            If checkBoxes(i).ToString.Equals(day) Then
+                checkBoxes(i).Checked = True
+                checkBoxes(i).AutoCheck = False
+            Else
+                checkBoxes(i).Checked = False
+                checkBoxes(i).AutoCheck = True
+            End If
+        Next
+    End Sub
+
+    'Automatically checks the day of the month the user have chosen
+    'and ticks the checkbox at AllMonthkDays dropdown button
+    Private Sub AutoCheckDayOfMonth()
+        Dim day As String
+        day = DatePicker.Value.Date.Day.ToString
+
+        Dim checkBoxes(30) As KryptonContextMenuCheckBox
+        checkBoxes(0) = KryptonContextMenuCheckBox17
+        checkBoxes(1) = KryptonContextMenuCheckBox18
+        checkBoxes(2) = KryptonContextMenuCheckBox19
+        checkBoxes(3) = KryptonContextMenuCheckBox20
+        checkBoxes(4) = KryptonContextMenuCheckBox21
+        checkBoxes(5) = KryptonContextMenuCheckBox22
+        checkBoxes(6) = KryptonContextMenuCheckBox23
+        checkBoxes(7) = KryptonContextMenuCheckBox24
+        checkBoxes(8) = KryptonContextMenuCheckBox25
+        checkBoxes(9) = KryptonContextMenuCheckBox26
+        checkBoxes(10) = KryptonContextMenuCheckBox27
+        checkBoxes(11) = KryptonContextMenuCheckBox28
+        checkBoxes(12) = KryptonContextMenuCheckBox29
+        checkBoxes(13) = KryptonContextMenuCheckBox30
+        checkBoxes(14) = KryptonContextMenuCheckBox31
+        checkBoxes(15) = KryptonContextMenuCheckBox32
+        checkBoxes(16) = KryptonContextMenuCheckBox33
+        checkBoxes(17) = KryptonContextMenuCheckBox34
+        checkBoxes(18) = KryptonContextMenuCheckBox35
+        checkBoxes(19) = KryptonContextMenuCheckBox36
+        checkBoxes(20) = KryptonContextMenuCheckBox37
+        checkBoxes(21) = KryptonContextMenuCheckBox38
+        checkBoxes(22) = KryptonContextMenuCheckBox39
+        checkBoxes(23) = KryptonContextMenuCheckBox40
+        checkBoxes(24) = KryptonContextMenuCheckBox41
+        checkBoxes(25) = KryptonContextMenuCheckBox44
+        checkBoxes(26) = KryptonContextMenuCheckBox45
+        checkBoxes(27) = KryptonContextMenuCheckBox46
+        checkBoxes(28) = KryptonContextMenuCheckBox47
+        checkBoxes(29) = KryptonContextMenuCheckBox49
+        checkBoxes(30) = KryptonContextMenuCheckBox50
+
+
+        For i As Integer = 0 To 30
+            If checkBoxes(i).ToString.Equals(day + "th") Or checkBoxes(i).ToString.Equals(day + "st") _
+                    Or checkBoxes(i).ToString.Equals(day + "nd") Or checkBoxes(i).ToString.Equals(day + "rd") Then
+
+                checkBoxes(i).Checked = True
+                checkBoxes(i).AutoCheck = False
+            Else
+                checkBoxes(i).Checked = False
+                checkBoxes(i).AutoCheck = True
+            End If
+        Next
+    End Sub
+
+    'Automatically checks the month the user have chosen
+    'and ticks the checkbox at AllMonths dropdown button
+    Private Sub AutoCheckMonth()
+
+        Dim month As String
+        month = MonthName(DatePicker.Value.Date.Month, True)
+        convertMonthNameToEng(month)
+
+        Dim checkBoxes(11) As KryptonContextMenuCheckBox
+        checkBoxes(0) = KryptonContextMenuCheckBox9
+        checkBoxes(1) = KryptonContextMenuCheckBox10
+        checkBoxes(2) = KryptonContextMenuCheckBox11
+        checkBoxes(3) = KryptonContextMenuCheckBox12
+        checkBoxes(4) = KryptonContextMenuCheckBox13
+        checkBoxes(5) = KryptonContextMenuCheckBox14
+        checkBoxes(6) = KryptonContextMenuCheckBox15
+        checkBoxes(7) = KryptonContextMenuCheckBox55
+        checkBoxes(8) = KryptonContextMenuCheckBox16
+        checkBoxes(9) = KryptonContextMenuCheckBox52
+        checkBoxes(10) = KryptonContextMenuCheckBox53
+        checkBoxes(11) = KryptonContextMenuCheckBox54
+
+        For i As Integer = 0 To 11
+            If checkBoxes(i).ToString.Contains(Month) Then
+                checkBoxes(i).Checked = True
+                checkBoxes(i).AutoCheck = False
+            Else
+                checkBoxes(i).Checked = False
+                checkBoxes(i).AutoCheck = True
+            End If
+        Next
+    End Sub
+
+    'converts the greek month name to english (etc 'Ιαν' to 'Jan')
+    Private Function convertMonthNameToEng(ByRef month As String) As String
+        If month.Equals("Ιαν") Then
+            month = "Jan"
+        End If
+        If month.Equals("Φεβ") Then
+            month = "Feb"
+        End If
+        If month.Equals("Μαρ") Then
+            month = "Mar"
+        End If
+        If month.Equals("Απρ") Then
+            month = "Apr"
+        End If
+        If month.Equals("Μαϊ") Then
+            month = "May"
+        End If
+        If month.Equals("Ιουν") Then
+            month = "Jun"
+        End If
+        If month.Equals("Ιουλ") Then
+            month = "Jul"
+        End If
+        If month.Equals("Αυγ") Then
+            month = "Aug"
+        End If
+        If month.Equals("Σεπ") Then
+            month = "Sep"
+        End If
+        If month.Equals("Οκτ") Then
+            month = "Oct"
+        End If
+        If month.Equals("Νοε") Then
+            month = "Nov"
+        End If
+        If month.Equals("Δεκ") Then
+            month = "Dec"
+        End If
+
+
+        Return month
+    End Function
+
+    Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
+        AutoCheckMonth()
+    End Sub
+
+    Private Sub WeekdaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles WeekdaysDropDownButton.MouseEnter
+        AutoCheckDayOfWeek()
+    End Sub
+
+    Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
+        AutoCheckDayOfMonth()
     End Sub
 End Class
