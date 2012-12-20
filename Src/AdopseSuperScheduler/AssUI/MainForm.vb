@@ -100,7 +100,9 @@ Public Class MainForm
     End Sub
 
     Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
+        NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.ShowDialog()
+
     End Sub
 
 
@@ -108,10 +110,13 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         m_master_control = New ALMasterControl()
         m_master_control.Init()
-        NewTaskForm.SetMasterControl(m_master_control)
+
+
+        m_master_control.StartProgramLoop()
+
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
-        Timer.Start()
+
     End Sub
 
     'changes the default action of the X button
@@ -164,9 +169,6 @@ Public Class MainForm
         MessageBox.Show(e.Exception.Message)
     End Sub
 
-    Private Sub Timer_Tick(sender As System.Object, e As System.EventArgs) Handles Timer.Tick
-        m_master_control.ProgramLoop()
 
-    End Sub
 
 End Class

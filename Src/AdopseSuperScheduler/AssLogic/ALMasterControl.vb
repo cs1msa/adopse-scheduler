@@ -7,8 +7,14 @@ Public Class ALMasterControl
     Dim m_last_log_id As Integer
     Dim m_last_scheduler_tasks_id As Integer
 
+    Dim m_program_loop_thread_timer As Threading.Timer
+
+
     Public Sub New()
         m_core = New ALCore()
+
+
+
         m_task_manager = New ALTaskManager()
     End Sub
 
@@ -124,8 +130,10 @@ Public Class ALMasterControl
         Return list_to_return
     End Function
 
+
     'this is the function that will run when the program is idle
     Public Sub ProgramLoop()
+
         Dim tasks_to_run As List(Of ALATasks) = CheckTasks()
 
         RunTasks(tasks_to_run)
@@ -135,6 +143,14 @@ Public Class ALMasterControl
         CloseTasks(running_tasks)
 
     End Sub
+
+    Public Sub StartProgramLoop()   'which runs once a minute
+        Dim timer_call_back_sub As New Threading.TimerCallback(Sub() Me.ProgramLoop())
+
+        m_program_loop_thread_timer = New Threading.Timer(timer_call_back_sub, Me, 0, 60000)
+    End Sub
+
+
 
     'runs the tasks that should run
     Public Sub RunTasks(ByRef a_tasks As List(Of ALATasks))

@@ -418,7 +418,7 @@ Public Class NewTaskForm
 
             'closes the current form
             Me.Close()
-
+            Me.SetMasterControl(m_master_control)
         Else
 
             Exit Sub
