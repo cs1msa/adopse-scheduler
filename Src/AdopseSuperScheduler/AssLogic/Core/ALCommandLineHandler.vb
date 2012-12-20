@@ -40,7 +40,7 @@ Public Class ALCommandLineHandler
         If Not ExecuteCMDCommand("cd " & m_path, New String("0")) Then
             Throw New ALPathDoesntExistCMDException(a_path)
         End If
-        If Not ExecuteCMDCommand("cd " & m_path & vbCrLf & m_program) Then
+        If Not ExecuteCMDCommand("cd " & m_path & vbCrLf & Chr(34) & m_program & Chr(34)) Then
             Throw New ALProgramDoesntExistCMDException(a_program)
         End If
 
