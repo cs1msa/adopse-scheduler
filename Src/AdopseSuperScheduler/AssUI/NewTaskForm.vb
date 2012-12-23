@@ -85,13 +85,11 @@ Public Class NewTaskForm
          ServiceController.GetServices()
 
         For Each svc As ServiceController In svcs
-            Dim lvi As ListViewItem = _
-             ServicesListView.Items.Add(svc.DisplayName)
 
-            lvi.SubItems.Add(FormatStatus(svc.Status))
-            lvi.SubItems.Add(svc.ServiceType.ToString)
-            lvi.SubItems.Add(svc.ServiceName)
-        Next svc
+            ServicesDataGridView.Rows.Add(svc.DisplayName, svc.Status, svc.ServiceType.ToString())
+
+        Next (svc)
+
     End Sub
 
     Private Function FormatStatus( _
@@ -352,7 +350,7 @@ Public Class NewTaskForm
     Private Sub HandleServiceCheckButtonFunction(ByVal checkLabel As Boolean, ByVal srvcLabel As Boolean, ByVal srvcListView As Boolean)
         chooseFileCheckLabel.Visible = checkLabel
         ServiceLabel.Visible = srvcLabel
-        ServicesListView.Visible = srvcListView
+        ServicesDataGridView.Visible = srvcListView
     End Sub
 
 #End Region
@@ -463,15 +461,6 @@ Public Class NewTaskForm
 
 #End Region
 
-    'enables the rest of the panels if ServicesListView is visible
-    Private Sub ServicesListView_VisibleChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServicesListView.VisibleChanged
-        If ServicesListView.Visible = True Then
-            enableRestOfPanels(True)
-        Else
-            enableRestOfPanels(False)
-        End If
-    End Sub
-
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'handles all Rectangle Shapes' visibility
         HandleRectangles(True, False, False, False, False)
@@ -481,10 +470,7 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Sub ServicesListView_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServicesListView.SelectedIndexChanged
-        HandleArrowLabels(False, False, True, False, False)
-        HandleRectangles(False, False, True, False, False)
-    End Sub
+
     'Automatically checks the day of the week the user have chosen
     'and ticks the checkbox at AllWeekDays dropdown button
     Private Sub AutoCheckDayOfWeek()
@@ -650,5 +636,18 @@ Public Class NewTaskForm
 
     Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
         AutoCheckDayOfMonth()
+    End Sub
+
+    Private Sub ServicesDataGridView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.VisibleChanged
+        If ServicesDataGridView.Visible = True Then
+            enableRestOfPanels(True)
+        Else
+            enableRestOfPanels(False)
+        End If
+    End Sub
+
+    Private Sub ServicesDataGridView_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.SelectionChanged
+        HandleArrowLabels(False, False, True, False, False)
+        HandleRectangles(False, False, True, False, False)
     End Sub
 End Class

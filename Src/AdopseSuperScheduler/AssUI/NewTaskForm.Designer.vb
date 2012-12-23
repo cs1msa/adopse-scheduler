@@ -23,10 +23,6 @@ Partial Class NewTaskForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewTaskForm))
         Me.addNewTaskMainPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.ServiceLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ServicesListView = New System.Windows.Forms.ListView()
-        Me.colName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.colStatus = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.colServiceType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chooseFileCheckLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -148,6 +144,10 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.ServicesDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
+        Me.Name_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceType_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,12 +162,13 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.SuspendLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'addNewTaskMainPanel
         '
+        Me.addNewTaskMainPanel.Controls.Add(Me.ServicesDataGridView)
         Me.addNewTaskMainPanel.Controls.Add(Me.ServiceLabel)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ServicesListView)
         Me.addNewTaskMainPanel.Controls.Add(Me.chooseFileCheckLabel)
         Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.MoreOptionsButton)
@@ -184,7 +185,7 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.addNewTaskMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
-        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 638)
+        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 640)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
         'ServiceLabel
@@ -197,34 +198,6 @@ Partial Class NewTaskForm
         Me.ServiceLabel.TabIndex = 32
         Me.ServiceLabel.Values.Text = "Please choose a service"
         Me.ServiceLabel.Visible = False
-        '
-        'ServicesListView
-        '
-        Me.ServicesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colName, Me.colStatus, Me.colServiceType})
-        Me.ServicesListView.FullRowSelect = True
-        Me.ServicesListView.HideSelection = False
-        Me.ServicesListView.Location = New System.Drawing.Point(48, 128)
-        Me.ServicesListView.Name = "ServicesListView"
-        Me.ServicesListView.Size = New System.Drawing.Size(426, 120)
-        Me.ServicesListView.TabIndex = 31
-        Me.ServicesListView.UseCompatibleStateImageBehavior = False
-        Me.ServicesListView.View = System.Windows.Forms.View.Details
-        Me.ServicesListView.Visible = False
-        '
-        'colName
-        '
-        Me.colName.Text = "Name"
-        Me.colName.Width = 167
-        '
-        'colStatus
-        '
-        Me.colStatus.Text = "Status"
-        Me.colStatus.Width = 70
-        '
-        'colServiceType
-        '
-        Me.colServiceType.Text = "Service Type"
-        Me.colServiceType.Width = 191
         '
         'chooseFileCheckLabel
         '
@@ -1076,11 +1049,54 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox8.ExtraText = ""
         '
+        'ServicesDataGridView
+        '
+        Me.ServicesDataGridView.AllowUserToAddRows = False
+        Me.ServicesDataGridView.AllowUserToDeleteRows = False
+        Me.ServicesDataGridView.AllowUserToOrderColumns = True
+        Me.ServicesDataGridView.AllowUserToResizeRows = False
+        Me.ServicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ServicesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Name_Column, Me.Status_Column, Me.ServiceType_Column})
+        Me.ServicesDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
+        Me.ServicesDataGridView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.HideOuterBorders = True
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(52, 128)
+        Me.ServicesDataGridView.Name = "ServicesDataGridView"
+        Me.ServicesDataGridView.ReadOnly = True
+        Me.ServicesDataGridView.RowHeadersVisible = False
+        Me.ServicesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ServicesDataGridView.Size = New System.Drawing.Size(414, 111)
+        Me.ServicesDataGridView.TabIndex = 33
+        Me.ServicesDataGridView.Visible = False
+        '
+        'Name_Column
+        '
+        Me.Name_Column.HeaderText = "Name"
+        Me.Name_Column.Name = "Name_Column"
+        Me.Name_Column.ReadOnly = True
+        Me.Name_Column.Width = 180
+        '
+        'Status_Column
+        '
+        Me.Status_Column.HeaderText = "Status"
+        Me.Status_Column.Name = "Status_Column"
+        Me.Status_Column.ReadOnly = True
+        '
+        'ServiceType_Column
+        '
+        Me.ServiceType_Column.HeaderText = "Service Type"
+        Me.ServiceType_Column.Name = "ServiceType_Column"
+        Me.ServiceType_Column.ReadOnly = True
+        Me.ServiceType_Column.Width = 116
+        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(511, 638)
+        Me.ClientSize = New System.Drawing.Size(511, 640)
         Me.Controls.Add(Me.addNewTaskMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1108,6 +1124,7 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.PerformLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1227,10 +1244,6 @@ Partial Class NewTaskForm
     Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents SuccessTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents chooseFileCheckLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents ServicesListView As System.Windows.Forms.ListView
-    Friend WithEvents colName As System.Windows.Forms.ColumnHeader
-    Friend WithEvents colStatus As System.Windows.Forms.ColumnHeader
-    Friend WithEvents colServiceType As System.Windows.Forms.ColumnHeader
     Friend WithEvents ServiceLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents KryptonContextMenuItems3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
@@ -1251,4 +1264,8 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox54 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents ServiceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Friend WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Friend WithEvents ServicesDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
+    Friend WithEvents Name_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Status_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceType_Column As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
