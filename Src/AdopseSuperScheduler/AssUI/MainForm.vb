@@ -102,7 +102,6 @@ Public Class MainForm
     Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.ShowDialog()
-
     End Sub
 
 
@@ -117,6 +116,33 @@ Public Class MainForm
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
 
+        'just for debugging purposes
+        My.Settings.Reset() 'it will be removed later
+
+        checkIfTasksAreEmpty()
+
+    End Sub
+
+    'checks if no task exists in the ScheduledTasks DataGridView
+    'if so, prompts the user accordingly
+    'and asks him if he wants to add one
+    Private Sub checkIfTasksAreEmpty()
+        If (ScheduledTasksDataGridView.RowCount = 0) And _
+        (My.Settings.NoScheduledTaskDialogFlag = True) Then
+
+            NoScheduledTaskDialog.Content = "It seems that you don't have a task scheduled." & vbCrLf & "Would you like to add a task now?"
+            Dim result As DialogResult = NoScheduledTaskDialog.ShowDialog()
+
+            If result = DialogResult.Yes Then
+                NewTaskForm.SetMasterControl(m_master_control)
+                NewTaskForm.ShowDialog()
+            End If
+
+            If NoScheduledTaskDialog.CheckboxState = True Then
+                My.Settings.NoScheduledTaskDialogFlag = False
+            End If
+
+        End If
     End Sub
 
     'changes the default action of the X button
@@ -168,7 +194,5 @@ Public Class MainForm
         'Show message box with the occured exception 
         MessageBox.Show(e.Exception.Message)
     End Sub
-
-
 
 End Class
