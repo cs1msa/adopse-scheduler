@@ -366,8 +366,9 @@ Public Class NewTaskForm
         'if so, it changes it to the current time + 3min
         'and opens a dialog prompting the user
 
-        If (OnceCheckButton.Checked = True) And _
-                (DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString) Then
+        If OnceCheckButton.Checked = True And _
+                DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString And _
+                TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
 
             TimePicker.Value = DateTime.Now.ToLongTimeString
             TimePicker.Value = TimePicker.Value.AddMinutes(3.0)
