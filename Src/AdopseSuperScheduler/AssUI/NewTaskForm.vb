@@ -360,11 +360,38 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
-        'gets the result from the Dialog (asking the user)
-        Dim result As DialogResult
-        result = SaveButtonTaskDialog.ShowDialog()
 
-        If (result = DialogResult.Yes) Then
+        'checks if the task type is Once
+        'and if the time is before the current time
+        'if so, it changes it to the current time + 3min
+        'and opens a dialog prompting the user
+
+        If (OnceCheckButton.Checked = True) And _
+                (DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString) Then
+
+            TimePicker.Value = DateTime.Now.ToLongTimeString
+            TimePicker.Value = TimePicker.Value.AddMinutes(3.0)
+
+            TimeChangedTaskDialog.Content = "Scheduled time changed to *" & TimePicker.Value & "*" _
+                                    & vbCrLf & "so that the task won't be missed!" & vbCrLf _
+                                    & vbCrLf & "Do you want to continue ?"
+
+            Dim resultTime As DialogResult
+            resultTime = TimeChangedTaskDialog.ShowDialog()
+
+            If (resultTime = DialogResult.No) Then
+                Exit Sub
+            End If
+
+        End If
+
+
+        'gets the result from the Dialog 
+        'asking the user if he wants to save the task
+        Dim resultSave As DialogResult
+        resultSave = SaveButtonTaskDialog.ShowDialog()
+
+        If (resultSave = DialogResult.Yes) Then
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                                   TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
@@ -410,13 +437,14 @@ Public Class NewTaskForm
             'Opens up a dialog show that the task was Successfully added
             SuccessTaskDialog.ShowDialog()
 
-            ' displose the Form object, so when we open the form again all fields will be cleared
+            ' dispose the Form object, so when we open the form again all fields will be cleared
             MoreOptionsForm.Dispose()
             Me.Dispose()
 
             'closes the current form
             Me.Close()
             Me.SetMasterControl(m_master_control)
+
         Else
 
             Exit Sub
@@ -467,6 +495,9 @@ Public Class NewTaskForm
 
         'handles the arrow labels
         HandleArrowLabels(True, False, False, False, False)
+
+        'sets the minimum day the user can choose as the current day
+        DatePicker.MinDate = Today
 
     End Sub
 
@@ -650,4 +681,5 @@ Public Class NewTaskForm
         HandleArrowLabels(False, False, True, False, False)
         HandleRectangles(False, False, True, False, False)
     End Sub
+
 End Class

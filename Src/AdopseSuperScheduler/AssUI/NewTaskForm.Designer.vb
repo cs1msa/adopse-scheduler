@@ -22,6 +22,10 @@ Partial Class NewTaskForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewTaskForm))
         Me.addNewTaskMainPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.ServicesDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
+        Me.Name_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceType_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ServiceLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.chooseFileCheckLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -144,12 +148,10 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.ServicesDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
-        Me.Name_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceType_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
+        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RecurrencePanel.SuspendLayout()
         CType(Me.DateTimePanel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,7 +164,6 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.SuspendLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'addNewTaskMainPanel
@@ -187,6 +188,49 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
         Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 640)
         Me.addNewTaskMainPanel.TabIndex = 0
+        '
+        'ServicesDataGridView
+        '
+        Me.ServicesDataGridView.AllowUserToAddRows = False
+        Me.ServicesDataGridView.AllowUserToDeleteRows = False
+        Me.ServicesDataGridView.AllowUserToOrderColumns = True
+        Me.ServicesDataGridView.AllowUserToResizeRows = False
+        Me.ServicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ServicesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Name_Column, Me.Status_Column, Me.ServiceType_Column})
+        Me.ServicesDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
+        Me.ServicesDataGridView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
+        Me.ServicesDataGridView.HideOuterBorders = True
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(52, 128)
+        Me.ServicesDataGridView.Name = "ServicesDataGridView"
+        Me.ServicesDataGridView.ReadOnly = True
+        Me.ServicesDataGridView.RowHeadersVisible = False
+        Me.ServicesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.ServicesDataGridView.Size = New System.Drawing.Size(414, 111)
+        Me.ServicesDataGridView.TabIndex = 33
+        Me.ServicesDataGridView.Visible = False
+        '
+        'Name_Column
+        '
+        Me.Name_Column.HeaderText = "Name"
+        Me.Name_Column.Name = "Name_Column"
+        Me.Name_Column.ReadOnly = True
+        Me.Name_Column.Width = 180
+        '
+        'Status_Column
+        '
+        Me.Status_Column.HeaderText = "Status"
+        Me.Status_Column.Name = "Status_Column"
+        Me.Status_Column.ReadOnly = True
+        '
+        'ServiceType_Column
+        '
+        Me.ServiceType_Column.HeaderText = "Service Type"
+        Me.ServiceType_Column.Name = "ServiceType_Column"
+        Me.ServiceType_Column.ReadOnly = True
+        Me.ServiceType_Column.Width = 116
         '
         'ServiceLabel
         '
@@ -686,6 +730,7 @@ Partial Class NewTaskForm
         Me.TimePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.TimePicker.Location = New System.Drawing.Point(310, 27)
+        Me.TimePicker.MinDate = New Date(2012, 12, 24, 0, 0, 0, 0)
         Me.TimePicker.Name = "TimePicker"
         Me.TimePicker.ShowUpDown = True
         Me.TimePicker.Size = New System.Drawing.Size(104, 21)
@@ -713,6 +758,7 @@ Partial Class NewTaskForm
         '
         Me.DatePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.DatePicker.Location = New System.Drawing.Point(48, 26)
+        Me.DatePicker.MinDate = New Date(2012, 12, 24, 0, 0, 0, 0)
         Me.DatePicker.Name = "DatePicker"
         Me.DatePicker.Size = New System.Drawing.Size(208, 21)
         Me.DatePicker.TabIndex = 14
@@ -1049,48 +1095,18 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox8.ExtraText = ""
         '
-        'ServicesDataGridView
+        'TimeChangedTaskDialog
         '
-        Me.ServicesDataGridView.AllowUserToAddRows = False
-        Me.ServicesDataGridView.AllowUserToDeleteRows = False
-        Me.ServicesDataGridView.AllowUserToOrderColumns = True
-        Me.ServicesDataGridView.AllowUserToResizeRows = False
-        Me.ServicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ServicesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Name_Column, Me.Status_Column, Me.ServiceType_Column})
-        Me.ServicesDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
-        Me.ServicesDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
-        Me.ServicesDataGridView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
-        Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
-        Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
-        Me.ServicesDataGridView.HideOuterBorders = True
-        Me.ServicesDataGridView.Location = New System.Drawing.Point(52, 128)
-        Me.ServicesDataGridView.Name = "ServicesDataGridView"
-        Me.ServicesDataGridView.ReadOnly = True
-        Me.ServicesDataGridView.RowHeadersVisible = False
-        Me.ServicesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ServicesDataGridView.Size = New System.Drawing.Size(414, 111)
-        Me.ServicesDataGridView.TabIndex = 33
-        Me.ServicesDataGridView.Visible = False
-        '
-        'Name_Column
-        '
-        Me.Name_Column.HeaderText = "Name"
-        Me.Name_Column.Name = "Name_Column"
-        Me.Name_Column.ReadOnly = True
-        Me.Name_Column.Width = 180
-        '
-        'Status_Column
-        '
-        Me.Status_Column.HeaderText = "Status"
-        Me.Status_Column.Name = "Status_Column"
-        Me.Status_Column.ReadOnly = True
-        '
-        'ServiceType_Column
-        '
-        Me.ServiceType_Column.HeaderText = "Service Type"
-        Me.ServiceType_Column.Name = "ServiceType_Column"
-        Me.ServiceType_Column.ReadOnly = True
-        Me.ServiceType_Column.Width = 116
+        Me.TimeChangedTaskDialog.CheckboxText = Nothing
+        Me.TimeChangedTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
+        Me.TimeChangedTaskDialog.Content = Nothing
+        Me.TimeChangedTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes
+        Me.TimeChangedTaskDialog.DefaultRadioButton = Nothing
+        Me.TimeChangedTaskDialog.FooterHyperlink = Nothing
+        Me.TimeChangedTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Question
+        Me.TimeChangedTaskDialog.MainInstruction = Nothing
+        Me.TimeChangedTaskDialog.Tag = Nothing
+        Me.TimeChangedTaskDialog.WindowTitle = "Time Changed"
         '
         'NewTaskForm
         '
@@ -1107,6 +1123,7 @@ Partial Class NewTaskForm
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.addNewTaskMainPanel.ResumeLayout(False)
         Me.addNewTaskMainPanel.PerformLayout()
+        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RecurrencePanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RecurrencePanel.ResumeLayout(False)
         Me.RecurrencePanel.PerformLayout()
@@ -1124,7 +1141,6 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.PerformLayout()
         CType(Me.KindOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TypeOfTaskCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1268,4 +1284,5 @@ Partial Class NewTaskForm
     Friend WithEvents Name_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Status_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceType_Column As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TimeChangedTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
 End Class
