@@ -22,6 +22,9 @@ Partial Class MoreOptionsForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MoreOptionsForm))
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.TimeOpenGroupBox = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
+        Me.KryptonLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.MinutesUpDown = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.DescriptionGroupBox = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
         Me.DescriptionTextBox = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.MoreOptionsOKButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -40,11 +43,12 @@ Partial Class MoreOptionsForm
         Me.NeverEndRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.EndAfterRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
-        Me.TimeOpenGroupBox = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
-        Me.MinutesUpDown = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
-        Me.KryptonLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
+        CType(Me.TimeOpenGroupBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TimeOpenGroupBox.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TimeOpenGroupBox.Panel.SuspendLayout()
+        Me.TimeOpenGroupBox.SuspendLayout()
         CType(Me.DescriptionGroupBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescriptionGroupBox.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DescriptionGroupBox.Panel.SuspendLayout()
@@ -61,10 +65,6 @@ Partial Class MoreOptionsForm
         CType(Me.SetEndDateGroupBox.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SetEndDateGroupBox.Panel.SuspendLayout()
         Me.SetEndDateGroupBox.SuspendLayout()
-        CType(Me.TimeOpenGroupBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TimeOpenGroupBox.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TimeOpenGroupBox.Panel.SuspendLayout()
-        Me.TimeOpenGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'KryptonPanel
@@ -80,6 +80,48 @@ Partial Class MoreOptionsForm
         Me.KryptonPanel.Name = "KryptonPanel"
         Me.KryptonPanel.Size = New System.Drawing.Size(560, 308)
         Me.KryptonPanel.TabIndex = 0
+        '
+        'TimeOpenGroupBox
+        '
+        Me.TimeOpenGroupBox.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
+        Me.TimeOpenGroupBox.Location = New System.Drawing.Point(12, 237)
+        Me.TimeOpenGroupBox.Name = "TimeOpenGroupBox"
+        '
+        'TimeOpenGroupBox.Panel
+        '
+        Me.TimeOpenGroupBox.Panel.Controls.Add(Me.KryptonLabel1)
+        Me.TimeOpenGroupBox.Panel.Controls.Add(Me.MinutesUpDown)
+        Me.TimeOpenGroupBox.Size = New System.Drawing.Size(341, 59)
+        Me.TimeOpenGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.Gray
+        Me.TimeOpenGroupBox.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.TimeOpenGroupBox.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Yellow
+        Me.TimeOpenGroupBox.TabIndex = 7
+        Me.TimeOpenGroupBox.Text = "How much time will the program remain open?"
+        Me.TimeOpenGroupBox.Values.Heading = "How much time will the program remain open?"
+        Me.TimeOpenGroupBox.Visible = False
+        '
+        'KryptonLabel1
+        '
+        Me.KryptonLabel1.Location = New System.Drawing.Point(129, 5)
+        Me.KryptonLabel1.Name = "KryptonLabel1"
+        Me.KryptonLabel1.Size = New System.Drawing.Size(171, 20)
+        Me.KryptonLabel1.StateCommon.LongText.Color1 = System.Drawing.Color.Silver
+        Me.KryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.KryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.White
+        Me.KryptonLabel1.TabIndex = 6
+        Me.KryptonLabel1.Values.ExtraText = "(0 = will never close)"
+        Me.KryptonLabel1.Values.Text = "minutes "
+        '
+        'MinutesUpDown
+        '
+        Me.MinutesUpDown.Location = New System.Drawing.Point(87, 3)
+        Me.MinutesUpDown.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.MinutesUpDown.Name = "MinutesUpDown"
+        Me.MinutesUpDown.Size = New System.Drawing.Size(36, 22)
+        Me.MinutesUpDown.TabIndex = 0
+        Me.MinutesUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'DescriptionGroupBox
         '
@@ -296,48 +338,6 @@ Partial Class MoreOptionsForm
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
         '
-        'TimeOpenGroupBox
-        '
-        Me.TimeOpenGroupBox.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.TimeOpenGroupBox.Location = New System.Drawing.Point(12, 237)
-        Me.TimeOpenGroupBox.Name = "TimeOpenGroupBox"
-        '
-        'TimeOpenGroupBox.Panel
-        '
-        Me.TimeOpenGroupBox.Panel.Controls.Add(Me.KryptonLabel1)
-        Me.TimeOpenGroupBox.Panel.Controls.Add(Me.MinutesUpDown)
-        Me.TimeOpenGroupBox.Size = New System.Drawing.Size(341, 59)
-        Me.TimeOpenGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.Gray
-        Me.TimeOpenGroupBox.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.TimeOpenGroupBox.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Yellow
-        Me.TimeOpenGroupBox.TabIndex = 7
-        Me.TimeOpenGroupBox.Text = "How much time will the program remain open?"
-        Me.TimeOpenGroupBox.Values.Heading = "How much time will the program remain open?"
-        Me.TimeOpenGroupBox.Visible = False
-        '
-        'MinutesUpDown
-        '
-        Me.MinutesUpDown.Location = New System.Drawing.Point(87, 3)
-        Me.MinutesUpDown.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
-        Me.MinutesUpDown.Name = "MinutesUpDown"
-        Me.MinutesUpDown.Size = New System.Drawing.Size(36, 22)
-        Me.MinutesUpDown.TabIndex = 0
-        Me.MinutesUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'KryptonLabel1
-        '
-        Me.KryptonLabel1.Location = New System.Drawing.Point(129, 5)
-        Me.KryptonLabel1.Name = "KryptonLabel1"
-        Me.KryptonLabel1.Size = New System.Drawing.Size(171, 20)
-        Me.KryptonLabel1.StateCommon.LongText.Color1 = System.Drawing.Color.Silver
-        Me.KryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.KryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.White
-        Me.KryptonLabel1.TabIndex = 6
-        Me.KryptonLabel1.Values.ExtraText = "(0 = will never close)"
-        Me.KryptonLabel1.Values.Text = "minutes "
-        '
         'MoreOptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -352,6 +352,11 @@ Partial Class MoreOptionsForm
         Me.Text = "More Options"
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonPanel.ResumeLayout(False)
+        CType(Me.TimeOpenGroupBox.Panel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TimeOpenGroupBox.Panel.ResumeLayout(False)
+        Me.TimeOpenGroupBox.Panel.PerformLayout()
+        CType(Me.TimeOpenGroupBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TimeOpenGroupBox.ResumeLayout(False)
         CType(Me.DescriptionGroupBox.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DescriptionGroupBox.Panel.ResumeLayout(False)
         Me.DescriptionGroupBox.Panel.PerformLayout()
@@ -372,11 +377,6 @@ Partial Class MoreOptionsForm
         Me.SetEndDateGroupBox.Panel.PerformLayout()
         CType(Me.SetEndDateGroupBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SetEndDateGroupBox.ResumeLayout(False)
-        CType(Me.TimeOpenGroupBox.Panel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TimeOpenGroupBox.Panel.ResumeLayout(False)
-        Me.TimeOpenGroupBox.Panel.PerformLayout()
-        CType(Me.TimeOpenGroupBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TimeOpenGroupBox.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

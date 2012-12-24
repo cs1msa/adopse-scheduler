@@ -107,6 +107,15 @@ Public Class MainForm
 
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+        KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
+        'checks which pallette mode has been chosen
+        checkPalletteMode()
+
+        'changes the labels' and rectangleShapes' color
+        changeLabelColors(My.Settings.LabelColorsFlag)
+
         m_master_control = New ALMasterControl()
         m_master_control.Init()
 
@@ -116,10 +125,40 @@ Public Class MainForm
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
 
-        'just for debugging purposes
-        My.Settings.Reset() 'it will be removed later
-
+        'checks if no task exists in the ScheduledTasks DataGridView
         checkIfTasksAreEmpty()
+
+    End Sub
+    'checks which pallette mode has been chosen
+    Private Sub checkPalletteMode()
+        Select Case My.Settings.PalletteSetting
+            Case PaletteModeManager.Office2010Black
+                HandlePalletteModeMenuItemsCheck(True, False, False, False, False, False)
+            Case PaletteModeManager.Office2010Blue
+                HandlePalletteModeMenuItemsCheck(False, True, False, False, False, False)
+            Case PaletteModeManager.Office2010Silver
+                HandlePalletteModeMenuItemsCheck(False, False, True, False, False, False)
+            Case PaletteModeManager.Office2007Black
+                HandlePalletteModeMenuItemsCheck(False, False, False, True, False, False)
+            Case PaletteModeManager.Office2007Blue
+                HandlePalletteModeMenuItemsCheck(False, False, False, False, True, False)
+            Case PaletteModeManager.Office2007Silver
+                HandlePalletteModeMenuItemsCheck(False, False, False, False, False, True)
+        End Select
+    End Sub
+
+    'handles the check signs in the ToolStripMenuItems
+    Private Sub HandlePalletteModeMenuItemsCheck(ByVal office2010Black As Boolean, ByVal office2010Blue As Boolean, _
+                                                 ByVal office2010Silver As Boolean, ByVal office2007Black As Boolean, _
+                                                 ByVal office2007Blue As Boolean, ByVal office2007Silver As Boolean)
+
+        office2010BlackToolStripMenuItem.Checked = office2010Black
+        office2010BlueToolStripMenuItem.Checked = office2010Blue
+        office2010SilverToolStripMenuItem.Checked = office2010Silver
+        office2007BlackToolStripMenuItem.Checked = office2007Black
+        office2007BlueToolStripMenuItem.Checked = office2007Blue
+        office2007SilverToolStripMenuItem.Checked = office2007Silver
+
 
     End Sub
 
@@ -193,6 +232,162 @@ Public Class MainForm
     Private Sub exporter_ExportFailed(ByVal sender As Object, ByVal e As CompletIT.Windows.Forms.Export.ExportFailedEventArgs)
         'Show message box with the occured exception 
         MessageBox.Show(e.Exception.Message)
+    End Sub
+
+    Private Sub office2010BlackToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010BlackToolStripMenuItem.Click
+
+        changePalletteMode(1)
+        changeLabelColors(1)
+
+    End Sub
+
+    Private Sub office2010BlueToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010BlueToolStripMenuItem.Click
+
+        changePalletteMode(2)
+        changeLabelColors(2)
+
+    End Sub
+
+    Private Sub office2010SilverToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010SilverToolStripMenuItem.Click
+
+        changePalletteMode(3)
+        changeLabelColors(3)
+    End Sub
+
+    Private Sub office2007BlackToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007BlackToolStripMenuItem.Click
+
+        changePalletteMode(4)
+        changeLabelColors(4)
+
+    End Sub
+
+    Private Sub office2007BlueToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007BlueToolStripMenuItem.Click
+
+        changePalletteMode(5)
+        changeLabelColors(5)
+
+    End Sub
+
+    Private Sub office2007SilverToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007SilverToolStripMenuItem.Click
+
+        changePalletteMode(6)
+        changeLabelColors(6)
+
+    End Sub
+
+    'changes the pallette mode to the one that the user chose
+    Private Sub changePalletteMode(ByVal i As Integer)
+
+        Select Case i
+            Case 1
+                My.Settings.PalletteSetting = PaletteModeManager.Office2010Black
+                HandlePalletteModeMenuItemsCheck(True, False, False, False, False, False)
+            Case 2
+                My.Settings.PalletteSetting = PaletteModeManager.Office2010Blue
+                HandlePalletteModeMenuItemsCheck(False, True, False, False, False, False)
+            Case 3
+                My.Settings.PalletteSetting = PaletteModeManager.Office2010Silver
+                HandlePalletteModeMenuItemsCheck(False, False, True, False, False, False)
+                changeLabelColors(3)
+            Case 4
+                My.Settings.PalletteSetting = PaletteModeManager.Office2007Black
+                HandlePalletteModeMenuItemsCheck(False, False, False, True, False, False)
+            Case 5
+                My.Settings.PalletteSetting = PaletteModeManager.Office2007Blue
+                HandlePalletteModeMenuItemsCheck(False, False, False, False, True, False)
+            Case 6
+                My.Settings.PalletteSetting = PaletteModeManager.Office2007Silver
+                HandlePalletteModeMenuItemsCheck(False, False, False, False, False, True)
+        End Select
+
+        'saves the changes to My.Settings
+        'so that they remain after the program starts again
+        My.Settings.Save()
+        KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
+    End Sub
+
+    'changes the labels' and rectangleShapes' color
+    Private Sub changeLabelColors(ByVal i As Integer)
+        Select Case i
+            Case 1, 4
+                NewTaskForm.KindOfTaskLabel.StateNormal.ShortText.Color1 = Color.Yellow
+                NewTaskForm.ServiceLabel.StateCommon.ShortText.Color1 = Color.Yellow
+                NewTaskForm.KryptonLabel1.StateNormal.ShortText.Color1 = Color.Yellow
+                NewTaskForm.KryptonLabel2.StateCommon.ShortText.Color1 = Color.White
+                NewTaskForm.KryptonLabel3.StateNormal.ShortText.Color1 = Color.Yellow
+                NewTaskForm.DateLabel.StateCommon.ShortText.Color1 = Color.White
+                NewTaskForm.chooseFileLabel.StateNormal.ShortText.Color1 = Color.Yellow
+                NewTaskForm.TypeOfTaskLabel.StateNormal.ShortText.Color1 = Color.Yellow
+                NewTaskForm.Label1.StateCommon.ShortText.Color1 = Color.White
+                NewTaskForm.Label2.StateCommon.ShortText.Color1 = Color.White
+                NewTaskForm.RectangleShape1.BorderColor = Color.Yellow
+                NewTaskForm.RectangleShape2.BorderColor = Color.Yellow
+                NewTaskForm.RectangleShape3.BorderColor = Color.Yellow
+                NewTaskForm.RectangleShape4.BorderColor = Color.Yellow
+                NewTaskForm.RectangleShape5.BorderColor = Color.Yellow
+
+                MoreOptionsForm.SetEndDateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Yellow
+                MoreOptionsForm.DescriptionGroupBox.StateCommon.Content.ShortText.Color1 = Color.Yellow
+                MoreOptionsForm.TimeOpenGroupBox.StateCommon.Content.ShortText.Color1 = Color.Yellow
+                MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.ShortText.Color1 = Color.Yellow
+                MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.LongText.Color1 = Color.Yellow
+                MoreOptionsForm.StateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Yellow
+                MoreOptionsForm.NeverEndRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.EndAfterRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.EndAtRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.occurencesLabel.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.DoNothingRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.ActiveRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.InactiveRadioButton.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.KryptonLabel1.StateCommon.ShortText.Color1 = Color.White
+                MoreOptionsForm.KryptonLabel1.StateCommon.LongText.Color1 = Color.Silver
+
+                My.Settings.LabelColorsFlag = Convert.ToInt16(1)
+
+            Case 2, 3, 5, 6
+                NewTaskForm.KindOfTaskLabel.StateNormal.ShortText.Color1 = Color.Black
+                NewTaskForm.ServiceLabel.StateCommon.ShortText.Color1 = Color.Black
+                NewTaskForm.KryptonLabel1.StateNormal.ShortText.Color1 = Color.Black
+                NewTaskForm.KryptonLabel2.StateCommon.ShortText.Color1 = Color.Black
+                NewTaskForm.KryptonLabel3.StateNormal.ShortText.Color1 = Color.Black
+                NewTaskForm.DateLabel.StateCommon.ShortText.Color1 = Color.Black
+                NewTaskForm.chooseFileLabel.StateNormal.ShortText.Color1 = Color.Black
+                NewTaskForm.TypeOfTaskLabel.StateNormal.ShortText.Color1 = Color.Black
+                NewTaskForm.Label1.StateCommon.ShortText.Color1 = Color.Black
+                NewTaskForm.Label2.StateCommon.ShortText.Color1 = Color.Black
+                NewTaskForm.RectangleShape1.BorderColor = Color.Black
+                NewTaskForm.RectangleShape2.BorderColor = Color.Black
+                NewTaskForm.RectangleShape3.BorderColor = Color.Black
+                NewTaskForm.RectangleShape4.BorderColor = Color.Black
+                NewTaskForm.RectangleShape5.BorderColor = Color.Black
+
+                MoreOptionsForm.SetEndDateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Black
+                MoreOptionsForm.DescriptionGroupBox.StateCommon.Content.ShortText.Color1 = Color.Black
+                MoreOptionsForm.TimeOpenGroupBox.StateCommon.Content.ShortText.Color1 = Color.Black
+                MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.ShortText.Color1 = Color.Black
+                MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.LongText.Color1 = Color.Black
+                MoreOptionsForm.StateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Black
+                MoreOptionsForm.NeverEndRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.EndAfterRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.occurencesLabel.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.EndAtRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.DoNothingRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.ActiveRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.InactiveRadioButton.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.KryptonLabel1.StateCommon.ShortText.Color1 = Color.Black
+                MoreOptionsForm.KryptonLabel1.StateCommon.LongText.Color1 = Color.DimGray
+
+                My.Settings.LabelColorsFlag = Convert.ToInt16(3)
+        End Select
+
+        My.Settings.Save()
+        KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
     End Sub
 
 End Class

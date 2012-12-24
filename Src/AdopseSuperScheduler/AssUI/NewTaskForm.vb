@@ -11,6 +11,7 @@ Public Class NewTaskForm
 
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
         HandleArrowLabelsAndRectangles(1)
@@ -321,11 +322,15 @@ Public Class NewTaskForm
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
+            'changes the MoreOptionsForm's pallette to match the user-chosen
+            MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
             'Opens up a dialog show that the task was Successfully added
             SuccessTaskDialog.ShowDialog()
 
             ' dispose the Form object, so when we open the form again all fields will be cleared
             MoreOptionsForm.Dispose()
+
             Me.Dispose()
 
             'closes the current form
@@ -357,6 +362,14 @@ Public Class NewTaskForm
         DateTimePanel.Enabled = panel3
         TypeOfTaskPanel.Enabled = panel4
         RecurrencePanel.Enabled = panel5
+
+        If DateTimePanel.Enabled = True Then
+            DateLabel.Enabled = True
+            KryptonLabel2.Enabled = True
+        Else
+            DateLabel.Enabled = False
+            KryptonLabel2.Enabled = False
+        End If
 
     End Sub
 

@@ -143,12 +143,12 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems4 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuCheckBox43 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox51 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
-        Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -203,7 +203,7 @@ Partial Class NewTaskForm
         Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.HideOuterBorders = True
-        Me.ServicesDataGridView.Location = New System.Drawing.Point(52, 128)
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(56, 128)
         Me.ServicesDataGridView.Name = "ServicesDataGridView"
         Me.ServicesDataGridView.ReadOnly = True
         Me.ServicesDataGridView.RowHeadersVisible = False
@@ -738,19 +738,23 @@ Partial Class NewTaskForm
         '
         'KryptonLabel2
         '
+        Me.KryptonLabel2.Enabled = False
         Me.KryptonLabel2.Location = New System.Drawing.Point(268, 27)
         Me.KryptonLabel2.Name = "KryptonLabel2"
         Me.KryptonLabel2.Size = New System.Drawing.Size(40, 20)
         Me.KryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.KryptonLabel2.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.KryptonLabel2.TabIndex = 18
         Me.KryptonLabel2.Values.Text = "Time: "
         '
         'DateLabel
         '
+        Me.DateLabel.Enabled = False
         Me.DateLabel.Location = New System.Drawing.Point(7, 27)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(39, 20)
         Me.DateLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
+        Me.DateLabel.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.DateLabel.TabIndex = 17
         Me.DateLabel.Values.Text = "Date: "
         '
@@ -1057,6 +1061,29 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox51.ExtraText = ""
         Me.KryptonContextMenuCheckBox51.Text = "Last"
         '
+        'KryptonContextMenuItem3
+        '
+        Me.KryptonContextMenuItem3.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox8})
+        Me.KryptonContextMenuItem3.Text = "Menu Item"
+        '
+        'KryptonContextMenuCheckBox8
+        '
+        Me.KryptonContextMenuCheckBox8.ExtraText = ""
+        '
+        'TimeChangedTaskDialog
+        '
+        Me.TimeChangedTaskDialog.CheckboxText = Nothing
+        Me.TimeChangedTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
+        Me.TimeChangedTaskDialog.Content = Nothing
+        Me.TimeChangedTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes
+        Me.TimeChangedTaskDialog.DefaultRadioButton = Nothing
+        Me.TimeChangedTaskDialog.FooterHyperlink = Nothing
+        Me.TimeChangedTaskDialog.FooterText = Nothing
+        Me.TimeChangedTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Question
+        Me.TimeChangedTaskDialog.MainInstruction = Nothing
+        Me.TimeChangedTaskDialog.Tag = Nothing
+        Me.TimeChangedTaskDialog.WindowTitle = "Time Changed"
+        '
         'SaveButtonTaskDialog
         '
         Me.SaveButtonTaskDialog.AllowDialogClose = True
@@ -1085,28 +1112,6 @@ Partial Class NewTaskForm
         Me.SuccessTaskDialog.MainInstruction = Nothing
         Me.SuccessTaskDialog.Tag = Nothing
         Me.SuccessTaskDialog.WindowTitle = "Success!!!"
-        '
-        'KryptonContextMenuItem3
-        '
-        Me.KryptonContextMenuItem3.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox8})
-        Me.KryptonContextMenuItem3.Text = "Menu Item"
-        '
-        'KryptonContextMenuCheckBox8
-        '
-        Me.KryptonContextMenuCheckBox8.ExtraText = ""
-        '
-        'TimeChangedTaskDialog
-        '
-        Me.TimeChangedTaskDialog.CheckboxText = Nothing
-        Me.TimeChangedTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
-        Me.TimeChangedTaskDialog.Content = Nothing
-        Me.TimeChangedTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes
-        Me.TimeChangedTaskDialog.DefaultRadioButton = Nothing
-        Me.TimeChangedTaskDialog.FooterHyperlink = Nothing
-        Me.TimeChangedTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Question
-        Me.TimeChangedTaskDialog.MainInstruction = Nothing
-        Me.TimeChangedTaskDialog.Tag = Nothing
-        Me.TimeChangedTaskDialog.WindowTitle = "Time Changed"
         '
         'NewTaskForm
         '
@@ -1213,15 +1218,12 @@ Partial Class NewTaskForm
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Private WithEvents addNewTaskMainPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents KryptonManager As ComponentFactory.Krypton.Toolkit.KryptonManager
-    Private WithEvents KindOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents chooseFilePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents chooseFileTextBox As ComponentFactory.Krypton.Toolkit.KryptonTextBox
     Private WithEvents FileCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents TypeOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents YearlyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents DailyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
@@ -1230,20 +1232,14 @@ Partial Class NewTaskForm
     Private WithEvents WeeklyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Private WithEvents TypeOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
-    Private WithEvents KryptonLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
-    Private WithEvents KryptonLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents DateLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents DateTimePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents ArrowLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel4 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents Label2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
-    Private WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
@@ -1258,7 +1254,6 @@ Partial Class NewTaskForm
     Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
-    Friend WithEvents SuccessTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents chooseFileCheckLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents ServiceLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents ShapeContainer6 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
@@ -1285,4 +1280,14 @@ Partial Class NewTaskForm
     Friend WithEvents Status_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceType_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TimeChangedTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents SuccessTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents KindOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents TypeOfTaskLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents Label2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents DateLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
 End Class

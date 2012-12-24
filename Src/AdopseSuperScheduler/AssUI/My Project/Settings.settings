@@ -5,5 +5,11 @@
     <Setting Name="NoScheduledTaskDialogFlag" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="PalletteSetting" Type="ComponentFactory.Krypton.Toolkit.PaletteModeManager" Scope="User">
+      <Value Profile="(Default)">Office 2010 - Black</Value>
+    </Setting>
+    <Setting Name="LabelColorsFlag" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
