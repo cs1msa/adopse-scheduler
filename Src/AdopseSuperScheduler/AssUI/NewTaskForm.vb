@@ -9,6 +9,17 @@ Public Class NewTaskForm
 
     Dim m_master_control As ALMasterControl
 
+
+    Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(1)
+
+        'sets the minimum day the user can choose as the current day
+        DatePicker.MinDate = Today
+
+    End Sub
+
     Private Sub chooseFileBrowseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileBrowseButton.Click
 
         OpenFileDialog.ShowDialog()
@@ -35,17 +46,13 @@ Public Class NewTaskForm
         'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "Executable Files(*.exe)|*.exe"
 
-        'handles the arrow labels
-        HandleArrowLabels(False, True, False, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, True, False, False, False)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(2)
 
         'handles things that the Service Check Button opens
         HandleServiceCheckButtonFunction(True, False, False)
 
     End Sub
-
 
     Private Sub FileCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FileCheckButton.Click
 
@@ -58,11 +65,8 @@ Public Class NewTaskForm
         'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "All Files(*.*)|*.*"
 
-        'handles the arrow labels
-        HandleArrowLabels(False, True, False, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, True, False, False, False)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(2)
 
         'handles things that the Service Check Button opens
         HandleServiceCheckButtonFunction(True, False, False)
@@ -71,18 +75,24 @@ Public Class NewTaskForm
 
     Private Sub ServiceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
 
-        HandleServiceCheckButtonFunction(False, True, True)
-        HandleChooseFilePanel(False, " ")
-        ListServices()
-        HandleArrowLabels(False, True, False, False, False)
-        HandleRectangles(False, False, False, False, False)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(20)
 
+        'handles ChooseFile Panel (visibility and label text)
+        HandleChooseFilePanel(False, " ")
+
+        'handles things that the Service Check Button opens
+        HandleServiceCheckButtonFunction(False, True, True)
+
+        'Lists all the services inside a DataGridView
+        ListServices()
 
     End Sub
 
+    'Lists all the services inside a DataGridView
     Private Sub ListServices()
-        Dim svcs As ServiceController() = _
-         ServiceController.GetServices()
+
+        Dim svcs As ServiceController() = ServiceController.GetServices()
 
         For Each svc As ServiceController In svcs
 
@@ -92,29 +102,8 @@ Public Class NewTaskForm
 
     End Sub
 
-    Private Function FormatStatus( _
- ByVal st As ServiceControllerStatus) As String
-        Dim result As String = Nothing
-        Select Case st
-            Case ServiceControllerStatus.ContinuePending
-                result = "Continuing"
-            Case ServiceControllerStatus.Paused
-                result = "Paused"
-            Case ServiceControllerStatus.PausePending
-                result = "Pausing"
-            Case ServiceControllerStatus.Running
-                result = "Started"
-            Case ServiceControllerStatus.StartPending
-                result = "Starting"
-            Case ServiceControllerStatus.Stopped
-                result = String.Empty
-            Case ServiceControllerStatus.StopPending
-                result = "Stopping"
-        End Select
-        Return result
-    End Function
-
 #End Region
+
 
     Private Sub chooseFileTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileTextBox.TextChanged
         If (ExecutableCheckButton.Checked = True) Then
@@ -146,11 +135,8 @@ Public Class NewTaskForm
             'handles all panels' visibility
             HandleAllPanels(True, True, True, True, True)
 
-            'handles the arrow labels
-            HandleArrowLabels(False, False, True, False, False)
-
-            'handles all Rectangle Shapes' visibility
-            HandleRectangles(False, False, True, False, False)
+            'handles all Rectangle Shapes' and ArrowLabels' visibility
+            HandleArrowLabelsAndRectangles(3)
 
             'handles MoreOptions & SaveTask buttons' visibility
             HandleMoreAndSaveButtons(True, True)
@@ -159,26 +145,21 @@ Public Class NewTaskForm
             'handles all panels' visibility
             HandleAllPanels(True, True, False, False, False)
 
-            'handles the arrow labels
-            HandleArrowLabels(False, True, False, False, False)
-
-            'handles all Rectangle Shapes' visibility
-            HandleRectangles(False, True, False, False, False)
+            'handles all Rectangle Shapes' and ArrowLabels' visibility
+            HandleArrowLabelsAndRectangles(2)
 
             'handles MoreOptions & SaveTask buttons' visibility
             HandleMoreAndSaveButtons(False, False)
         End If
     End Sub
 
+
 #Region "type of task(once, daily, weekly, etc) checkbuttons"
 
     Private Sub OnceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnceCheckButton.Click
 
-        'handles all the arrow labels
-        HandleArrowLabels(False, False, False, False, False)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, False)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(0)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(False, True)
@@ -187,11 +168,8 @@ Public Class NewTaskForm
 
     Private Sub DailyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DailyCheckButton.Click
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -205,11 +183,8 @@ Public Class NewTaskForm
 
     Private Sub WeeklyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WeeklyCheckButton.Click
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -227,11 +202,8 @@ Public Class NewTaskForm
 
     Private Sub MonthlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MonthlyCheckButton.Click
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -242,18 +214,15 @@ Public Class NewTaskForm
         Label2.Text = "months"
 
         'Automatically checks the day of the month the user have chosen
-        'and ticks the checkbox at AllMonthkDays dropdown button
+        'and ticks the checkbox at AllMonthDays dropdown button
         AutoCheckDayOfMonth()
 
     End Sub
 
     Private Sub YearlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles YearlyCheckButton.Click
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
-
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -263,100 +232,19 @@ Public Class NewTaskForm
 
         Label2.Text = "years"
 
+        'Automatically checks the month the user have chosen
+        'and ticks the checkbox at AllMonths dropdown button
         AutoCheckMonth()
 
     End Sub
 
 #End Region
 
+
     Private Sub MoreOptionsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MoreOptionsButton.Click
 
         MoreOptionsForm.ShowDialog()
 
-    End Sub
-
-#Region "My handle-methods"
-    'handles the blue directional ArrowLabels visibility
-    Private Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
-                                    ByVal label3 As Boolean, ByVal label4 As Boolean, ByVal label5 As Boolean)
-        ArrowLabel1.Visible = label1
-        ArrowLabel2.Visible = label2
-        ArrowLabel3.Visible = label3
-        ArrowLabel4.Visible = label4
-        ArrowLabel5.Visible = label5
-    End Sub
-
-    'handles ChooseFile Panel (visibility and label text)
-    Private Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
-
-        'handles the panel's status
-        chooseFilePanel.Enabled = status
-
-        'handles the label's text
-        chooseFileLabel.Text = "Please choose your " + label + "file"
-
-    End Sub
-
-    'handles all panels' visibility
-    Private Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
-                                ByVal panel4 As Boolean, ByVal panel5 As Boolean)
-
-        KindOfTaskPanel.Enabled = panel1
-        chooseFilePanel.Enabled = panel2
-        DateTimePanel.Enabled = panel3
-        TypeOfTaskPanel.Enabled = panel4
-        RecurrencePanel.Enabled = panel5
-
-    End Sub
-
-    'handles MoreOptions & SaveTask buttons' visibility
-    Private Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
-        MoreOptionsButton.Enabled = more
-        SaveTaskButton.Enabled = save
-    End Sub
-
-    'handles all Rectangle Shapes
-    Private Sub HandleRectangles(ByVal rectangle1 As Boolean, ByVal rectangle2 As Boolean, _
-                                ByVal rectangle3 As Boolean, ByVal rectangle4 As Boolean, ByVal rectangle5 As Boolean)
-
-        RectangleShape1.Visible = rectangle1
-        RectangleShape2.Visible = rectangle2
-        RectangleShape3.Visible = rectangle3
-        RectangleShape4.Visible = rectangle4
-        RectangleShape5.Visible = rectangle5
-
-    End Sub
-
-    'handles RecurrencePanel's Visibility
-    Private Sub HandleRecPanel(ByVal RecVis As Boolean, ByVal RecEn As Boolean)
-        RecurrencePanel.Visible = RecVis
-        RecurrencePanel.Enabled = RecEn
-    End Sub
-
-    'handles RecurrencePanel's content
-    Private Sub HandleRecPanelContent(ByVal wkDrpDnBtn As Boolean, ByVal mnthDDrpDnBtn As Boolean, _
-                                      ByVal mnthDrpDnBtn As Boolean)
-
-        'WeekdaysLabel.Visible = wkLbl
-        WeekdaysDropDownButton.Visible = wkDrpDnBtn
-        'MonthDaysLabel.Visible = mnthDLbl
-        MonthDaysDropDownButton.Visible = mnthDDrpDnBtn
-        'MonthsLabel.Visible = mnthLbl
-        MonthsDropDownButton.Visible = mnthDrpDnBtn
-
-    End Sub
-
-    'handles things that the Service Check Button opens
-    Private Sub HandleServiceCheckButtonFunction(ByVal checkLabel As Boolean, ByVal srvcLabel As Boolean, ByVal srvcListView As Boolean)
-        chooseFileCheckLabel.Visible = checkLabel
-        ServiceLabel.Visible = srvcLabel
-        ServicesDataGridView.Visible = srvcListView
-    End Sub
-
-#End Region
-
-    Public Sub SetMasterControl(ByRef a_master_control As ALMasterControl)
-        m_master_control = a_master_control
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
@@ -365,7 +253,6 @@ Public Class NewTaskForm
         'and if the time is before the current time
         'if so, it changes it to the current time + 3min
         'and opens a dialog prompting the user
-
         If OnceCheckButton.Checked = True And _
                 DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString And _
                 TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
@@ -385,7 +272,6 @@ Public Class NewTaskForm
             End If
 
         End If
-
 
         'gets the result from the Dialog 
         'asking the user if he wants to save the task
@@ -447,61 +333,151 @@ Public Class NewTaskForm
             Me.SetMasterControl(m_master_control)
 
         Else
-
             Exit Sub
-
         End If
 
     End Sub
 
-#Region "Mouse Enter handle methods"
 
-    Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, True, False, False, False)
+#Region "My handle-methods"
+    'handles ChooseFile Panel (visibility and label text)
+    Private Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
 
-        'handles the arrow labels
-        HandleArrowLabels(False, True, False, False, False)
+        chooseFilePanel.Enabled = status
+        chooseFileLabel.Text = "Please choose your " + label + "file"
+
     End Sub
 
-    Private Sub DateTimePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, True, False, False)
+    'handles all panels' visibility
+    Private Sub HandleAllPanels(ByVal panel1 As Boolean, ByVal panel2 As Boolean, ByVal panel3 As Boolean, _
+                                ByVal panel4 As Boolean, ByVal panel5 As Boolean)
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, True, False, False)
+        KindOfTaskPanel.Enabled = panel1
+        chooseFilePanel.Enabled = panel2
+        DateTimePanel.Enabled = panel3
+        TypeOfTaskPanel.Enabled = panel4
+        RecurrencePanel.Enabled = panel5
+
     End Sub
 
-    Private Sub TypeOfTaskPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TypeOfTaskPanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, True, False)
-
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, True, False)
+    'handles MoreOptions & SaveTask buttons' visibility
+    Private Sub HandleMoreAndSaveButtons(ByVal more As Boolean, ByVal save As Boolean)
+        MoreOptionsButton.Enabled = more
+        SaveTaskButton.Enabled = save
     End Sub
 
-    Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(False, False, False, False, True)
+    Private Sub HandleArrowLabelsAndRectangles(ByVal i As Integer)
+        Select Case i
+            Case 0
+                HandleArrowLabels(False, False, False, False, False)
+                HandleRectangles(False, False, False, False, False)
+            Case 1
+                HandleArrowLabels(True, False, False, False, False)
+                HandleRectangles(True, False, False, False, False)
+            Case 2
+                HandleArrowLabels(False, True, False, False, False)
+                HandleRectangles(False, True, False, False, False)
+            Case 20
+                HandleArrowLabels(False, True, False, False, False)
+                HandleRectangles(False, False, False, False, False)
+            Case 3
+                HandleArrowLabels(False, False, True, False, False)
+                HandleRectangles(False, False, True, False, False)
+            Case 4
+                HandleArrowLabels(False, False, False, True, False)
+                HandleRectangles(False, False, False, True, False)
+            Case 5
+                HandleArrowLabels(False, False, False, False, True)
+                HandleRectangles(False, False, False, False, True)
+        End Select
+    End Sub
 
-        'handles the arrow labels
-        HandleArrowLabels(False, False, False, False, True)
+    'handles the blue directional ArrowLabels visibility
+    Private Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
+                                    ByVal label3 As Boolean, ByVal label4 As Boolean, ByVal label5 As Boolean)
+        ArrowLabel1.Visible = label1
+        ArrowLabel2.Visible = label2
+        ArrowLabel3.Visible = label3
+        ArrowLabel4.Visible = label4
+        ArrowLabel5.Visible = label5
+    End Sub
+
+    'handles all Rectangle Shapes
+    Private Sub HandleRectangles(ByVal rectangle1 As Boolean, ByVal rectangle2 As Boolean, _
+                                ByVal rectangle3 As Boolean, ByVal rectangle4 As Boolean, ByVal rectangle5 As Boolean)
+
+        RectangleShape1.Visible = rectangle1
+        RectangleShape2.Visible = rectangle2
+        RectangleShape3.Visible = rectangle3
+        RectangleShape4.Visible = rectangle4
+        RectangleShape5.Visible = rectangle5
+
+    End Sub
+
+    'handles RecurrencePanel's Visibility
+    Private Sub HandleRecPanel(ByVal RecVis As Boolean, ByVal RecEn As Boolean)
+        RecurrencePanel.Visible = RecVis
+        RecurrencePanel.Enabled = RecEn
+    End Sub
+
+    'handles RecurrencePanel's content
+    Private Sub HandleRecPanelContent(ByVal wkDrpDnBtn As Boolean, ByVal mnthDDrpDnBtn As Boolean, _
+                                      ByVal mnthDrpDnBtn As Boolean)
+
+        WeekdaysDropDownButton.Visible = wkDrpDnBtn
+        MonthDaysDropDownButton.Visible = mnthDDrpDnBtn
+        MonthsDropDownButton.Visible = mnthDrpDnBtn
+
+    End Sub
+
+    'handles things that the Service Check Button opens
+    Private Sub HandleServiceCheckButtonFunction(ByVal checkLabel As Boolean, ByVal srvcLabel As Boolean, ByVal srvcListView As Boolean)
+        chooseFileCheckLabel.Visible = checkLabel
+        ServiceLabel.Visible = srvcLabel
+        ServicesDataGridView.Visible = srvcListView
     End Sub
 
 #End Region
 
-    Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'handles all Rectangle Shapes' visibility
-        HandleRectangles(True, False, False, False, False)
 
-        'handles the arrow labels
-        HandleArrowLabels(True, False, False, False, False)
+    Public Sub SetMasterControl(ByRef a_master_control As ALMasterControl)
+        m_master_control = a_master_control
+    End Sub
 
-        'sets the minimum day the user can choose as the current day
-        DatePicker.MinDate = Today
+
+#Region "MouseEnter handle-methods"
+
+    Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
+
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(2)
 
     End Sub
 
+    Private Sub DateTimePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePanel.MouseEnter
+
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(3)
+
+    End Sub
+
+    Private Sub TypeOfTaskPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TypeOfTaskPanel.MouseEnter
+
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(4)
+
+    End Sub
+
+    Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
+
+        'handles all Rectangle Shapes' and ArrowLabels' visibility
+        HandleArrowLabelsAndRectangles(5)
+
+    End Sub
+
+#End Region
+
+#Region "AutoCheck methods"
 
     'Automatically checks the day of the week the user have chosen
     'and ticks the checkbox at AllWeekDays dropdown button
@@ -530,7 +506,7 @@ Public Class NewTaskForm
     End Sub
 
     'Automatically checks the day of the month the user have chosen
-    'and ticks the checkbox at AllMonthkDays dropdown button
+    'and ticks the checkbox at AllMonthDays dropdown button
     Private Sub AutoCheckDayOfMonth()
         Dim day As String
         day = DatePicker.Value.Date.Day.ToString
@@ -605,7 +581,7 @@ Public Class NewTaskForm
         checkBoxes(11) = KryptonContextMenuCheckBox54
 
         For i As Integer = 0 To 11
-            If checkBoxes(i).ToString.Contains(Month) Then
+            If checkBoxes(i).ToString.Contains(month) Then
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
@@ -654,9 +630,12 @@ Public Class NewTaskForm
             month = "Dec"
         End If
 
-
         Return month
+
     End Function
+
+#End Region
+
 
     Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
         AutoCheckMonth()
@@ -669,6 +648,7 @@ Public Class NewTaskForm
     Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
         AutoCheckDayOfMonth()
     End Sub
+
 
     Private Sub ServicesDataGridView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.VisibleChanged
         If ServicesDataGridView.Visible = True Then
