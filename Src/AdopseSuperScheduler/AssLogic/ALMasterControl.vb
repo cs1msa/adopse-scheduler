@@ -9,7 +9,8 @@ Public Class ALMasterControl
 
     Dim m_program_loop_thread_timer As Threading.Timer
 
-
+    Public m_log_has_changed As Boolean = False
+    Public m_scheduler_tasks_has_changed As Boolean = False
     Public Sub New()
         m_core = New ALCore()
 
@@ -184,6 +185,9 @@ Public Class ALMasterControl
                 m_last_log_id = m_last_log_id + 1
                 m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Run " & " " & task.type & " " & success & "'"})
                 m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & task.GetStatus.ToString(), "Next_Run ='" & task.next_run_date & "'"}, {"Task_ID =" & task.id.ToString})
+                m_log_has_changed = True
+                m_scheduler_tasks_has_changed = True
+
             Catch ex As Exception
 
             End Try
@@ -201,6 +205,7 @@ Public Class ALMasterControl
                 task.is_running = False
                 m_last_log_id = m_last_log_id + 1
                 m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Normally Closed" & " " & task.type & " " & True.ToString & "'"})
+                m_log_has_changed = True
                 Continue For
             End If
 
@@ -233,7 +238,7 @@ Public Class ALMasterControl
 
                 m_last_log_id = m_last_log_id + 1
                 m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Force Closed " & task.type & " " & success & "'"})
-
+                m_log_has_changed = True
             End If
 
 
@@ -281,6 +286,9 @@ Public Class ALMasterControl
                                                        "'" & a_if_not_run & "'", "'" & a_end_date & "'", "'" & a_type & "'"})
 
             m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task added " & a_type & "'"})
+            m_log_has_changed = True
+            m_scheduler_tasks_has_changed = True
+
         Catch ex As ALDatabaseInsertException
 
         End Try
@@ -302,6 +310,8 @@ Public Class ALMasterControl
 
             m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task deleted  " & a_full_path & "'"})
 
+            m_log_has_changed = True
+            m_scheduler_tasks_has_changed = True
         Catch ex As ALDatabaseDeleteException
 
         Catch ex2 As ALDatabaseInsertException
@@ -311,7 +321,9 @@ Public Class ALMasterControl
 
     End Sub
 
-
+    Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String()) As DataTable
+        Return m_core.GetFromATableAsDataTable(a_table, a_columns, a_restrictions)
+    End Function
 
 
 

@@ -12,6 +12,9 @@ Public Class MainForm
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
+
+
+
     Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer1.SuspendLayout()
@@ -118,9 +121,12 @@ Public Class MainForm
 
         m_master_control = New ALMasterControl()
         m_master_control.Init()
-
+        ScheduledTasksDataGridView.Columns.Clear()
+        LogDataGridView.Columns.Clear()
+        Timer.Start()
 
         m_master_control.StartProgramLoop()
+
 
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
@@ -388,6 +394,45 @@ Public Class MainForm
         My.Settings.Save()
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
+    End Sub
+
+
+    Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
+        'get the scheduler tasks table 
+        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
+        'create a new table which contains a task of each program(that way we can use internally many tasks to represent a single complex task)
+        Dim list_of_programs As New List(Of String)
+        Dim scheduler_table_to_show = scheduler_table.Copy()
+        scheduler_table_to_show.Rows.Clear()
+        For Each task As DataRow In scheduler_table.Rows
+            If Not (list_of_programs.Contains(task("Task"))) Then
+                list_of_programs.Add(task("Task"))
+                scheduler_table_to_show.ImportRow(task)
+            End If
+
+        Next
+
+        Dim test_table As DataTable = ScheduledTasksDataGridView.DataSource
+
+        'create the sceduler tasks data grid view
+        If test_table Is Nothing Then
+            ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
+            ScheduledTasksDataGridView.AutoResizeColumns()
+        ElseIf m_master_control.m_scheduler_tasks_has_changed Then
+            ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
+            ScheduledTasksDataGridView.AutoResizeColumns()
+        End If
+
+        'create the log grid view
+        Dim log_table As DataTable = m_master_control.GetFromATableAsDataTable("Log", {"Action_ID as [Event ID]", "Action_Date as [Date & Time]", "Program_Name as Task", "Details"})
+        test_table = LogDataGridView.DataSource
+        If test_table Is Nothing Then
+            LogDataGridView.DataSource = log_table.Copy()
+            LogDataGridView.AutoResizeColumns()
+        ElseIf m_master_control.m_log_has_changed Then
+            LogDataGridView.DataSource = log_table.Copy()
+            LogDataGridView.AutoResizeColumns()
+        End If
     End Sub
 
 End Class
