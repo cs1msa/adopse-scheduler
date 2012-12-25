@@ -299,8 +299,8 @@ Public Class NewTaskForm
             Dim m_type As String
             If ExecutableCheckButton.Checked Then
                 m_type = "EXE"
-                ' ElseIf .Checked Then
-                '     m_type = "DIALOG"   ''SERVICE OPTION RESERVED, TO BE DONE
+            ElseIf ServiceCheckButton.Checked Then
+                m_type = "DIALOG"
             Else
                 m_type = "FILE"
             End If
@@ -676,4 +676,8 @@ Public Class NewTaskForm
         HandleRectangles(False, False, True, False, False)
     End Sub
 
+    Private Sub NewTaskForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        MoreOptionsForm.Dispose()
+        Me.Dispose()
+    End Sub
 End Class
