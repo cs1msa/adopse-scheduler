@@ -135,13 +135,15 @@ Public Class ALMasterControl
     'this is the function that will run when the program is idle
     Public Sub ProgramLoop()
 
+        Dim running_tasks As List(Of ALATasks) = m_task_manager.GetRunningTasks()
+        CloseTasks(running_tasks)
+
         Dim tasks_to_run As List(Of ALATasks) = CheckTasks()
 
         RunTasks(tasks_to_run)
 
-        Dim running_tasks As List(Of ALATasks) = m_task_manager.GetRunningTasks()
 
-        CloseTasks(running_tasks)
+
 
     End Sub
 

@@ -421,6 +421,7 @@ Public Class MainForm
         ElseIf m_master_control.m_scheduler_tasks_has_changed Then
             ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
             ScheduledTasksDataGridView.AutoResizeColumns()
+            m_master_control.m_scheduler_tasks_has_changed = False
         End If
 
         'create the log grid view
@@ -432,6 +433,7 @@ Public Class MainForm
         ElseIf m_master_control.m_log_has_changed Then
             LogDataGridView.DataSource = log_table.Copy()
             LogDataGridView.AutoResizeColumns()
+            m_master_control.m_log_has_changed = False
         End If
     End Sub
 
