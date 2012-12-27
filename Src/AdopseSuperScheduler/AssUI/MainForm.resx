@@ -239,18 +239,6 @@
         7utZ+oSfAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="EventID_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DateTime_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TaskName_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Details_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="KryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>106, 17</value>
   </metadata>
@@ -260,7 +248,7 @@
   <data name="AddTaskButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAGYktHRAD/AP8A/6C9p5MAAAcpSURBVFhHtZdrUJNXHsYP
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAGYktHRAD/AP8A/6C9p5MAAAcpSURBVFhHtZdrUJNXHsYP
         l4BWqcrW1hULIgiiMCLtdrVYQ9SiFIu2VQStqKhQ3iIXASEGYriVq6goiOCVar1U66VuLyvWWhCTHbIf
         9kv7oTOd2Z3hlhCugRCSPPt/k+DiFgUvZeaZl4HA73me/zlnzsvUh2OY+tB4tYvp6spg+EcNDPLjMDyo
         gqGxEoaGCujvlaOUC4dQKLQlsfGKNccvYs2cH/s11mdM/Uf8NoPyKCAvAxqLgYYC4F4ucFcG1GWhTrYO
@@ -294,13 +282,10 @@
         0pSRmukkmEJn++Tx/p/hz/0X1O4LgWOkA0EAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>357, 17</value>
-  </metadata>
   <data name="RunNowButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAGYktHRAD/AP8A/6C9p5MAAAIDSURBVFhH7dTNb0xRHMbx
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAGYktHRAD/AP8A/6C9p5MAAAIDSURBVFhH7dTNb0xRHMbx
         JxEVwkg0XipaasOKRGxUdBAzHaKiCYmFaKXKQmLhMgumY0yn01L1srGwGi+VEiWIaPFHHH+Cnc1MpzN9
         +d3V45zbDtXEbu65kcwkz3a+n/tbHKD2q13gf7pArHk5GkP4GZjZiTVDDUQYGMJp2wb3cy9VNhwMwmlr
         gvspTvfjVapMi32EE90C98MVuu8v0313iSq91y7CiWyGCcvbbspYF+XNWarULnsIJ7IJMtbpheX1Gcqr
@@ -315,7 +300,7 @@
   <data name="EditTaskButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAGYktHRAD/AP8A/6C9p5MAAAY8SURBVFhH1ZV5TNNnGMdf
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAGYktHRAD/AP8A/6C9p5MAAAY8SURBVFhH1ZV5TNNnGMdf
         lKKArlTZkEmgd0EpZ7laWu6j5T5VbqgcRRDkEDkEZR7ohjFmMWYyEv+Y2V/DJUt2mCxe2zKzbIlbskOY
         zmMMVFD6q//tffa8LUXmdIAxJL7J80fTX9/v93me/j5fQl6l47yKR/TRoaulIh/+svve6M4n/eUpbp91
         5oBOp4tZVgOe6/nk3bp0n0fHMujlngxmIGHZDITIvcnZluxS7lgatQym0ktdBpqblZEZFaBwU1tLPlcR
@@ -348,7 +333,7 @@
   <data name="DeleteTaskButton.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAGYktHRAD/AP8A/6C9p5MAAAYHSURBVFhHxVdZTFRnFD7M
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAGYktHRAD/AP8A/6C9p5MAAAYHSURBVFhHxVdZTFRnFD7M
         PswMMiigFtPWNn0qL01rmz4YoxFmQFkuKOC+oHWlWltr7AOIsqmN6Vv7YJOWGLe22tYuSdPQYkUflH3Y
         RkEUQRkGxKV96MPpOf+dO/x3GKVp0vjw5fz/d853znf/e+deAESEZ4lnOpwvHP72X4K/fj4qYrSTGDxZ
         oRCw94tKiIRWH8kPna4CTTfV6YrhY7tnwWBN9qQBvg89yvhny5FxyePEXxe5QIbWPJJvzHUp45+qOlpP
@@ -6566,33 +6551,6 @@
   </metadata>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="taskID_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="taskGenre_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Task_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Type_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="NextExecution_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Status_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Description_Column.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="close_after.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="end_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>89</value>

@@ -447,4 +447,126 @@ Public Class MainForm
 
     End Sub
 
+    'EDW BIZELHS
+    Private Sub NavigationTreeView_NodeMouseClick(sender As System.Object, e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
+
+        'an xreiazetai
+        'alliws vgalto
+        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Status", "Description", "End_Date"})
+
+        Select Case e.Node.Name
+            Case "TasksNode"
+                'ALL TASKS, no filtering
+
+            Case "ActiveNode"
+                'all Active Tasks
+
+            Case "A_OnceNode"
+                'Active & Once tasks
+            Case "A_O_ExecutableNode"
+                'Active & Once & EXE tasks
+            Case "A_O_FileNode"
+                'Active & Once & FILE tasks
+            Case "A_O_ServiceNode"
+                'Active & Once & SERVICE tasks
+
+            Case "A_DailyNode"
+                'Active & Daily tasks
+            Case "A_D_ExecutableNode"
+                'Active & Daily & EXE tasks
+            Case "A_D_FileNode"
+                'Active & Daily & FILE tasks
+            Case "A_D_ServiceNode"
+                'Active & Daily & SERVICE tasks
+
+            Case "A_WeeklyNode"
+                'Active & Weekly tasks
+            Case "A_W_ExecutableNode"
+                'Active & Weekly & EXE tasks
+            Case "A_W_FileNode"
+                'Active & Weekly & FILE tasks
+            Case "A_W_ServiceNode"
+                'Active & Weekly & SERVICE tasks
+
+            Case "A_MonthlyNode"
+                'Active & Monthly tasks
+            Case "A_M_ExecutableNode"
+                'Active & Monthly & EXE tasks
+            Case "A_M_FileNode"
+                'Active & Monthly & FILE tasks
+            Case "A_M_ServiceNode"
+                'Active & Monthly & SERVICE tasks
+
+            Case "A_YearlyNode"
+                'Active & Yearly tasks
+            Case "A_Y_ExecutableNode"
+                'Active & Yearly & EXE tasks
+            Case "A_Y_FileNode"
+                'Active & Yearly & FILE tasks
+            Case "A_Y_ServiceNode"
+                'Active & Yearly & SERVICE tasks
+
+            Case "InactiveNode"
+                'all Inactive tasks
+
+            Case "I_OnceNode"
+                'Inactive & Once tasks
+            Case "I_O_ExecutableNode"
+                'Inactive & Once & EXE tasks
+            Case "I_O_FileNode"
+                'Inactive & Once & FILE tasks
+            Case "I_O_ServiceNode"
+                'Inactive & Once & SERVICE tasks
+
+            Case "I_DailyNode"
+                'Inactive & Daily tasks
+            Case "I_D_ExecutableNode"
+                'Inactive & Daily & EXE tasks
+            Case "I_D_FileNode"
+                'Inactive & Daily & FILE tasks
+            Case "I_D_ServiceNode"
+                'Inactive & Daily & SERVICE tasks
+
+            Case "I_WeeklyNode"
+                'Inactive & Weekly tasks
+            Case "I_W_ExecutableNode"
+                'Inactive & Weekly & EXE tasks
+            Case "I_W_FileNode"
+                'Inactive & Weekly & FILE tasks
+            Case "I_W_ServiceNode"
+                'Inactive & Weekly & SERVICE tasks
+
+            Case "I_MonthlyNode"
+                'Inactive & Montly tasks
+            Case "I_M_ExecutableNode"
+                'Inactive & Montly & EXE tasks
+            Case "I_M_FileNode"
+                'Inactive & Montly & FILE tasks
+            Case "I_M_ServiceNode"
+                'Inactive & Montly & SERVICE tasks
+
+            Case "I_YearlyNode"
+                'Inactive & Yearly tasks
+            Case "I_Y_ExecutableNode"
+                'Inactive & Yearly & EXE tasks
+            Case "I_Y_FileNode"
+                'Inactive & Yearly & FILE tasks
+            Case "I_Y_ServiceNode"
+                'Inactive & Yearly & SERVICE tasks
+
+
+            Case "HistoryNode"
+                'All the LOG, no filtering
+            Case "AddedNode"
+                'All the Added εγγραφές
+            Case "RemovedNode"
+                'All the Removed εγγραφές
+            Case "SuccessfulNode"
+                'All the Successful εγγραφές
+            Case "UnsuccessfulNode"
+                'All the Unsuccessful εγγραφές
+
+        End Select
+
+    End Sub
 End Class

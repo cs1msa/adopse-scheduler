@@ -151,7 +151,6 @@ Partial Class MoreOptionsForm
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.Size = New System.Drawing.Size(282, 20)
         Me.DescriptionTextBox.TabIndex = 0
-        Me.DescriptionTextBox.Text = "Your Description ..."
         '
         'MoreOptionsOKButton
         '
