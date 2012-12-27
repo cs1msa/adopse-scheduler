@@ -133,6 +133,7 @@ Public Class MainForm
 
 
         checkIfTasksAreEmpty()
+
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
@@ -206,11 +207,13 @@ Public Class MainForm
         Me.Show()
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+    Private Sub ExitContextMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitContextMenuItem.Click
+
+        TrayIcon.Dispose()
+
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
         System.Windows.Forms.Application.Exit()
-        TrayIcon.Dispose()
 
     End Sub
 
@@ -219,10 +222,13 @@ Public Class MainForm
     End Sub
 
     Private Sub ExitToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
+
+        TrayIcon.Dispose()
+
         'Me.Close() doesn't work because 
         'it is captured by the FormCLosing event
         System.Windows.Forms.Application.Exit()
-        TrayIcon.Dispose()
+
     End Sub
 
     Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
@@ -402,7 +408,7 @@ Public Class MainForm
 
     Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
         'get the scheduler tasks table 
-        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
+        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Status", "Description", "End_Date"})
         'create a new table which contains a task of each program(that way we can use internally many tasks to represent a single complex task)
         Dim list_of_programs As New List(Of String)
         Dim scheduler_table_to_show = scheduler_table.Copy()
