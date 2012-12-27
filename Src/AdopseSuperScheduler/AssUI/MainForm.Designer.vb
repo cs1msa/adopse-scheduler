@@ -76,6 +76,16 @@ Partial Class MainForm
         Me.NavigationTreeView = New ComponentFactory.Krypton.Toolkit.KryptonTreeView()
         Me.KryptonSplitContainer2 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
         Me.ScheduledTasksHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
+        Me.ScheduledTasksDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
+        Me.taskID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.taskGenre_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Task_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Type_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NextExecution_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Description_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.close_after = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.end_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
@@ -116,33 +126,31 @@ Partial Class MainForm
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.NoScheduledTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.end_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.close_after = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Description_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NextExecution_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Type_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Task_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.taskGenre_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.taskID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ScheduledTasksDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel1.SuspendLayout()
+        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel2.SuspendLayout()
         Me.KryptonSplitContainer1.SuspendLayout()
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NavigateHeaderGroup.Panel.SuspendLayout()
         Me.NavigateHeaderGroup.SuspendLayout()
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel1.SuspendLayout()
+        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel2.SuspendLayout()
         Me.KryptonSplitContainer2.SuspendLayout()
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ScheduledTasksHeaderGroup.Panel.SuspendLayout()
         Me.ScheduledTasksHeaderGroup.SuspendLayout()
+        CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogHeaderGroup.Panel.SuspendLayout()
         Me.LogHeaderGroup.SuspendLayout()
         CType(Me.LogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,14 +158,13 @@ Partial Class MainForm
         Me.UpperPanel.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
-        CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LowerPanel
         '
         Me.LowerPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LowerPanel.Controls.Add(Me.KryptonSplitContainer1)
         Me.LowerPanel.Location = New System.Drawing.Point(0, 93)
         Me.LowerPanel.Name = "LowerPanel"
@@ -346,6 +353,95 @@ Partial Class MainForm
         Me.ScheduledTasksHeaderGroup.TabIndex = 0
         Me.ScheduledTasksHeaderGroup.ValuesPrimary.Heading = "Scheduled Tasks"
         Me.ScheduledTasksHeaderGroup.ValuesPrimary.Image = CType(resources.GetObject("ScheduledTasksHeaderGroup.ValuesPrimary.Image"), System.Drawing.Image)
+        '
+        'ScheduledTasksDataGridView
+        '
+        Me.ScheduledTasksDataGridView.AllowUserToAddRows = False
+        Me.ScheduledTasksDataGridView.AllowUserToDeleteRows = False
+        Me.ScheduledTasksDataGridView.AllowUserToOrderColumns = True
+        Me.ScheduledTasksDataGridView.AllowUserToResizeRows = False
+        Me.ScheduledTasksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ScheduledTasksDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.taskID_Column, Me.taskGenre_Column, Me.Task_Column, Me.Type_Column, Me.NextExecution_Column, Me.Status_Column, Me.Description_Column, Me.close_after, Me.end_date})
+        Me.ScheduledTasksDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ScheduledTasksDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.ScheduledTasksDataGridView.Name = "ScheduledTasksDataGridView"
+        Me.ScheduledTasksDataGridView.ReadOnly = True
+        Me.ScheduledTasksDataGridView.RowHeadersVisible = False
+        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(912, 208)
+        Me.ScheduledTasksDataGridView.TabIndex = 1
+        '
+        'taskID_Column
+        '
+        Me.taskID_Column.FillWeight = 43.88676!
+        Me.taskID_Column.HeaderText = "ID"
+        Me.taskID_Column.MinimumWidth = 35
+        Me.taskID_Column.Name = "taskID_Column"
+        Me.taskID_Column.ReadOnly = True
+        Me.taskID_Column.Width = 35
+        '
+        'taskGenre_Column
+        '
+        Me.taskGenre_Column.FillWeight = 73.15503!
+        Me.taskGenre_Column.HeaderText = "Genre"
+        Me.taskGenre_Column.MinimumWidth = 100
+        Me.taskGenre_Column.Name = "taskGenre_Column"
+        Me.taskGenre_Column.ReadOnly = True
+        Me.taskGenre_Column.Width = 113
+        '
+        'Task_Column
+        '
+        Me.Task_Column.FillWeight = 70.88963!
+        Me.Task_Column.HeaderText = "Task"
+        Me.Task_Column.MinimumWidth = 100
+        Me.Task_Column.Name = "Task_Column"
+        Me.Task_Column.ReadOnly = True
+        '
+        'Type_Column
+        '
+        Me.Type_Column.FillWeight = 79.91032!
+        Me.Type_Column.HeaderText = "Type"
+        Me.Type_Column.MinimumWidth = 60
+        Me.Type_Column.Name = "Type_Column"
+        Me.Type_Column.ReadOnly = True
+        Me.Type_Column.Width = 60
+        '
+        'NextExecution_Column
+        '
+        Me.NextExecution_Column.FillWeight = 175.4121!
+        Me.NextExecution_Column.HeaderText = "Next Execution"
+        Me.NextExecution_Column.MinimumWidth = 150
+        Me.NextExecution_Column.Name = "NextExecution_Column"
+        Me.NextExecution_Column.ReadOnly = True
+        Me.NextExecution_Column.Width = 200
+        '
+        'Status_Column
+        '
+        Me.Status_Column.FillWeight = 100.7967!
+        Me.Status_Column.HeaderText = "Status"
+        Me.Status_Column.MinimumWidth = 65
+        Me.Status_Column.Name = "Status_Column"
+        Me.Status_Column.ReadOnly = True
+        Me.Status_Column.Width = 90
+        '
+        'Description_Column
+        '
+        Me.Description_Column.FillWeight = 155.9494!
+        Me.Description_Column.HeaderText = "Description"
+        Me.Description_Column.Name = "Description_Column"
+        Me.Description_Column.ReadOnly = True
+        Me.Description_Column.Width = 113
+        '
+        'close_after
+        '
+        Me.close_after.HeaderText = "Remaining Runs"
+        Me.close_after.Name = "close_after"
+        Me.close_after.ReadOnly = True
+        '
+        'end_date
+        '
+        Me.end_date.HeaderText = "End Date"
+        Me.end_date.Name = "end_date"
+        Me.end_date.ReadOnly = True
         '
         'LogHeaderGroup
         '
@@ -643,95 +739,6 @@ Partial Class MainForm
         Me.NoScheduledTaskDialog.Tag = Nothing
         Me.NoScheduledTaskDialog.WindowTitle = "Welcome"
         '
-        'end_date
-        '
-        Me.end_date.HeaderText = "End Date"
-        Me.end_date.Name = "end_date"
-        Me.end_date.ReadOnly = True
-        '
-        'close_after
-        '
-        Me.close_after.HeaderText = "Remaining Runs"
-        Me.close_after.Name = "close_after"
-        Me.close_after.ReadOnly = True
-        '
-        'Description_Column
-        '
-        Me.Description_Column.FillWeight = 155.9494!
-        Me.Description_Column.HeaderText = "Description"
-        Me.Description_Column.Name = "Description_Column"
-        Me.Description_Column.ReadOnly = True
-        Me.Description_Column.Width = 113
-        '
-        'Status_Column
-        '
-        Me.Status_Column.FillWeight = 100.7967!
-        Me.Status_Column.HeaderText = "Status"
-        Me.Status_Column.MinimumWidth = 65
-        Me.Status_Column.Name = "Status_Column"
-        Me.Status_Column.ReadOnly = True
-        Me.Status_Column.Width = 90
-        '
-        'NextExecution_Column
-        '
-        Me.NextExecution_Column.FillWeight = 175.4121!
-        Me.NextExecution_Column.HeaderText = "Next Execution"
-        Me.NextExecution_Column.MinimumWidth = 150
-        Me.NextExecution_Column.Name = "NextExecution_Column"
-        Me.NextExecution_Column.ReadOnly = True
-        Me.NextExecution_Column.Width = 200
-        '
-        'Type_Column
-        '
-        Me.Type_Column.FillWeight = 79.91032!
-        Me.Type_Column.HeaderText = "Type"
-        Me.Type_Column.MinimumWidth = 60
-        Me.Type_Column.Name = "Type_Column"
-        Me.Type_Column.ReadOnly = True
-        Me.Type_Column.Width = 60
-        '
-        'Task_Column
-        '
-        Me.Task_Column.FillWeight = 70.88963!
-        Me.Task_Column.HeaderText = "Task"
-        Me.Task_Column.MinimumWidth = 100
-        Me.Task_Column.Name = "Task_Column"
-        Me.Task_Column.ReadOnly = True
-        '
-        'taskGenre_Column
-        '
-        Me.taskGenre_Column.FillWeight = 73.15503!
-        Me.taskGenre_Column.HeaderText = "Genre"
-        Me.taskGenre_Column.MinimumWidth = 100
-        Me.taskGenre_Column.Name = "taskGenre_Column"
-        Me.taskGenre_Column.ReadOnly = True
-        Me.taskGenre_Column.Width = 113
-        '
-        'taskID_Column
-        '
-        Me.taskID_Column.FillWeight = 43.88676!
-        Me.taskID_Column.HeaderText = "ID"
-        Me.taskID_Column.MinimumWidth = 35
-        Me.taskID_Column.Name = "taskID_Column"
-        Me.taskID_Column.ReadOnly = True
-        Me.taskID_Column.Width = 35
-        '
-        'ScheduledTasksDataGridView
-        '
-        Me.ScheduledTasksDataGridView.AllowUserToAddRows = False
-        Me.ScheduledTasksDataGridView.AllowUserToDeleteRows = False
-        Me.ScheduledTasksDataGridView.AllowUserToOrderColumns = True
-        Me.ScheduledTasksDataGridView.AllowUserToResizeRows = False
-        Me.ScheduledTasksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ScheduledTasksDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.taskID_Column, Me.taskGenre_Column, Me.Task_Column, Me.Type_Column, Me.NextExecution_Column, Me.Status_Column, Me.Description_Column, Me.close_after, Me.end_date})
-        Me.ScheduledTasksDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ScheduledTasksDataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.ScheduledTasksDataGridView.Name = "ScheduledTasksDataGridView"
-        Me.ScheduledTasksDataGridView.ReadOnly = True
-        Me.ScheduledTasksDataGridView.RowHeadersVisible = False
-        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(912, 208)
-        Me.ScheduledTasksDataGridView.TabIndex = 1
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -747,20 +754,28 @@ Partial Class MainForm
         Me.Text = "Adopse Super Scheduler"
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LowerPanel.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel1.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.ResumeLayout(False)
+        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel1.ResumeLayout(False)
+        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.ResumeLayout(False)
+        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.ResumeLayout(False)
+        CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.ResumeLayout(False)
@@ -771,7 +786,6 @@ Partial Class MainForm
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.TrayContextMenu.ResumeLayout(False)
-        CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

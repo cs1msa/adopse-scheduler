@@ -131,9 +131,8 @@ Public Class MainForm
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
 
-        'checks if no task exists in the ScheduledTasks DataGridView
-        checkIfTasksAreEmpty()
 
+        checkIfTasksAreEmpty()
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
@@ -172,7 +171,11 @@ Public Class MainForm
     'if so, prompts the user accordingly
     'and asks him if he wants to add one
     Private Sub checkIfTasksAreEmpty()
-        If (ScheduledTasksDataGridView.RowCount = 0) And _
+
+        'get the scheduler tasks table 
+        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
+
+        If (scheduler_table.Rows.Count = 0) And _
         (My.Settings.NoScheduledTaskDialogFlag = True) Then
 
             NoScheduledTaskDialog.Content = "It seems that you don't have a task scheduled." & vbCrLf & "Would you like to add a task now?"
@@ -435,6 +438,7 @@ Public Class MainForm
             LogDataGridView.AutoResizeColumns()
             m_master_control.m_log_has_changed = False
         End If
+
     End Sub
 
 End Class
