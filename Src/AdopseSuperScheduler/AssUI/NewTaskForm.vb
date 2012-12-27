@@ -287,7 +287,10 @@ Public Class NewTaskForm
             Dim m_end_date As Date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
 
+
+
             Dim m_not_run As String
+
             If MoreOptionsForm.RunWhenPcOpensRadioButton.Checked Then
                 m_not_run = "RUN"
             ElseIf MoreOptionsForm.DisplayDialogAskingRadioButton.Checked Then
@@ -296,29 +299,36 @@ Public Class NewTaskForm
                 m_not_run = "NOTHING"
             End If
 
+
+            Dim program_path As String
             Dim m_type As String
+
             If ExecutableCheckButton.Checked Then
                 m_type = "EXE"
+                program_path = chooseFileTextBox.Text
             ElseIf ServiceCheckButton.Checked Then
-                m_type = "DIALOG"
+                m_type = "SERVICE"
+                program_path = ServicesDataGridView.CurrentRow.Cells("Name_Column").Value
             Else
                 m_type = "FILE"
+                program_path = chooseFileTextBox.Text
             End If
 
+
             If OnceCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run)
 
             ElseIf DailyCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             ElseIf WeeklyCheckButton.Checked Then
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             Else
-                m_master_control.AddTask(chooseFileTextBox.Text, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
