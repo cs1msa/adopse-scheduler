@@ -399,7 +399,7 @@ Public Class MainForm
 
     Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
         'get the scheduler tasks table 
-        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
+        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
         'create a new table which contains a task of each program(that way we can use internally many tasks to represent a single complex task)
         Dim list_of_programs As New List(Of String)
         Dim scheduler_table_to_show = scheduler_table.Copy()
