@@ -564,4 +564,29 @@ Public Class MainForm
             Exit Sub
         End If
     End Sub
+
+    Private Sub DeleteTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles DeleteTaskButton.Click
+        deleteTask()
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+        deleteTask()
+    End Sub
+
+    Private Sub deleteTask()
+
+        Dim result As DialogResult = DeleteTaskDialog.ShowDialog()
+
+        If result = DialogResult.Yes Then
+
+            'edw o kwdikas pou kanei delete to task
+
+        ElseIf result = DialogResult.No Then
+
+            Exit Sub
+
+        End If
+
+    End Sub
+
 End Class
