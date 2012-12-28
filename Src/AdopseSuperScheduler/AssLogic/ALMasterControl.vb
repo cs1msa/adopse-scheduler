@@ -307,7 +307,7 @@ Public Class ALMasterControl
         'remove it from database(scheduler tasks)
         'add a log row for the deletion 
         Try
-            m_core.DeleteFromTable("[Scheduler Tasks]", {"Program_Name = '" & a_full_path & "'"})
+            m_core.DeleteFromTable("[Scheduler Tasks]", {"Program_Path = '" & a_full_path & "'"})
             m_last_log_id = m_last_log_id + 1
 
             m_core.InsertToTable("Log", {m_last_log_id.ToString(), "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task deleted  " & a_full_path & "'"})
@@ -321,6 +321,27 @@ Public Class ALMasterControl
         End Try
 
 
+    End Sub
+
+
+    Public Sub ClearLog()
+        Try
+            m_core.DeleteFromTable("Log")
+
+            m_log_has_changed = True
+        Catch ex As ALDatabaseDeleteException
+        End Try
+
+    End Sub
+
+    Public Sub RemoveEntryFromLog(ByVal a_id As String)
+        Try
+
+            m_core.DeleteFromTable("Log", {"Action_ID = " & a_id})
+            m_log_has_changed = True
+        Catch ex As ALDatabaseDeleteException
+
+        End Try
     End Sub
 
     Public Function GetFromATableAsDataTable(ByVal a_table As String, ByVal a_columns As String(), ByVal ParamArray a_restrictions As String()) As DataTable
