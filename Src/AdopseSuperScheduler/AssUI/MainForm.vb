@@ -518,7 +518,29 @@ Public Class MainForm
 
         End If
 
-
-
     End Sub
+
+    Private Sub ScheduledTasksDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ScheduledTasksDataGridView.MouseDown
+
+        Dim rowClicked As Integer
+        rowClicked = ScheduledTasksDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
+
+        If e.Button = Windows.Forms.MouseButtons.Right AndAlso rowClicked >= 0 Then
+
+            ScheduledTasksDataGridView.ClearSelection()
+            ScheduledTasksDataGridView.Rows(rowClicked).Selected = True
+            ScheduledTasksDataGridView.ContextMenuStrip = ScheduledTasksContextMenu
+
+        ElseIf rowClicked < 0 Then
+            ScheduledTasksDataGridView.ContextMenuStrip = Nothing
+            Exit Sub
+        End If
+    End Sub
+
+    '   Private Sub ScheduledTasksDataGridView_ColumnHeaderMouseClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles ScheduledTasksDataGridView.ColumnHeaderMouseClick
+    '      If e.Button = Windows.Forms.MouseButtons.Right Or e.Button = Windows.Forms.MouseButtons.Left Then
+    '         ScheduledTasksDataGridView.ContextMenuStrip = Nothing
+    '    End If
+    'End Sub
+
 End Class

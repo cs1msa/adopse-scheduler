@@ -127,6 +127,12 @@ Partial Class MainForm
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.NoScheduledTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ScheduledTasksContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RunNowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ViewHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,6 +165,7 @@ Partial Class MainForm
         Me.UpperPanel.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
+        Me.ScheduledTasksContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'LowerPanel
@@ -623,30 +630,30 @@ Partial Class MainForm
         'AddTaskToolStripMenuItem
         '
         Me.AddTaskToolStripMenuItem.Name = "AddTaskToolStripMenuItem"
-        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.AddTaskToolStripMenuItem.Text = "Add Task"
         '
         'EditTaskToolStripMenuItem
         '
         Me.EditTaskToolStripMenuItem.Name = "EditTaskToolStripMenuItem"
-        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.EditTaskToolStripMenuItem.Text = "Edit Task"
         '
         'DeleteTaskToolStripMenuItem
         '
         Me.DeleteTaskToolStripMenuItem.Name = "DeleteTaskToolStripMenuItem"
-        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteTaskToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.DeleteTaskToolStripMenuItem.Text = "Delete Task"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(131, 6)
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'TaskToolStripMenuItem
@@ -760,6 +767,42 @@ Partial Class MainForm
         Me.NoScheduledTaskDialog.Tag = Nothing
         Me.NoScheduledTaskDialog.WindowTitle = "Welcome"
         '
+        'ScheduledTasksContextMenu
+        '
+        Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ScheduledTasksContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.RunNowToolStripMenuItem, Me.ToolStripSeparator3, Me.ViewHistoryToolStripMenuItem})
+        Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
+        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'RunNowToolStripMenuItem
+        '
+        Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
+        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.RunNowToolStripMenuItem.Text = "Run Now"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(137, 6)
+        '
+        'ViewHistoryToolStripMenuItem
+        '
+        Me.ViewHistoryToolStripMenuItem.Name = "ViewHistoryToolStripMenuItem"
+        Me.ViewHistoryToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ViewHistoryToolStripMenuItem.Text = "View History"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -807,6 +850,7 @@ Partial Class MainForm
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.TrayContextMenu.ResumeLayout(False)
+        Me.ScheduledTasksContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -880,4 +924,10 @@ Partial Class MainForm
     Friend WithEvents Description_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents close_after As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents end_date As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ScheduledTasksContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents EditToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RunNowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ViewHistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
