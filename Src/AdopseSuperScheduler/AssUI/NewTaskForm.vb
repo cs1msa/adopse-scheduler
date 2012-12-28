@@ -179,6 +179,7 @@ Public Class NewTaskForm
         HandleRecPanelContent(False, False, False)
 
         Label2.Text = "days"
+        KryptonNumericUpDown1.Maximum = 31
 
     End Sub
 
@@ -249,6 +250,8 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
+
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
         'checks if the task type is Once
         'and if the time is before the current time
@@ -687,7 +690,21 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub NewTaskForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
         MoreOptionsForm.Dispose()
         Me.Dispose()
     End Sub
+
+    Private Sub TypeOfTaskCheckSet_CheckedButtonChanged(sender As System.Object, e As System.EventArgs) Handles TypeOfTaskCheckSet.CheckedButtonChanged
+        'if Daily is pressed
+        If TypeOfTaskCheckSet.CheckedIndex = 1 Then
+            'sets the maximum number of days to 31
+            KryptonNumericUpDown1.Maximum = 31
+        Else
+            KryptonNumericUpDown1.Maximum = 9999
+        End If
+
+    End Sub
+
 End Class

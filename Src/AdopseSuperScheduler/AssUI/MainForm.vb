@@ -106,7 +106,12 @@ Public Class MainForm
         KryptonSplitContainer2.ResumeLayout()
     End Sub
 
-    Private Sub KryptonButton1_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
+    Private Sub AddTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
+        NewTaskForm.SetMasterControl(m_master_control)
+        NewTaskForm.ShowDialog()
+    End Sub
+
+    Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.ShowDialog()
     End Sub
@@ -282,6 +287,7 @@ Public Class MainForm
 
         changePalletteMode(3)
         changeLabelColors(3)
+
     End Sub
 
     Private Sub office2007BlackToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007BlackToolStripMenuItem.Click
@@ -422,6 +428,7 @@ Public Class MainForm
 
 
     Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
+
         'in case we need_to_update_datagrids(because we pressed something in the tree navigator) or because the database is changed
         If m_need_to_update_datagrids Or m_master_control.m_scheduler_tasks_has_changed Then
 
@@ -462,9 +469,6 @@ Public Class MainForm
         End If
 
         m_need_to_update_datagrids = False
-
-
-        
 
     End Sub
 
@@ -548,13 +552,18 @@ Public Class MainForm
         DeleteTaskButton.Enabled = True
         RunNowButton.Enabled = True
 
+        EditToolStripMenuItem.Enabled = True
+        DeleteToolStripMenuItem.Enabled = True
+        RunNowToolStripMenuItem.Enabled = True
+
     End Sub
 
-    Private Sub ExportToPDFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportToPDFToolStripMenuItem.Click
+    Private Sub ExportToPDFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportToPDFContextMenuItem.Click
         exportToPDF()
     End Sub
 
     Private Sub LogDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles LogDataGridView.MouseDown
+
         Dim rowClicked As Integer
         rowClicked = LogDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
 
@@ -567,6 +576,7 @@ Public Class MainForm
         ElseIf rowClicked < 0 Then
             LogDataGridView.ContextMenuStrip = Nothing
             Exit Sub
+
         End If
     End Sub
 
@@ -574,7 +584,11 @@ Public Class MainForm
         deleteTask()
     End Sub
 
-    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteContextMenuItem.Click
+        deleteTask()
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click_1(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
         deleteTask()
     End Sub
 
@@ -596,12 +610,12 @@ Public Class MainForm
     End Sub
 
     'BIZELIS EDW
-    Private Sub ClearLogToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClearLogToolStripMenuItem.Click
+    Private Sub ClearLogToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClearLogContextMenuItem.Click
         'clears olokliro to Log
     End Sub
 
     'BIZELIS EDW
-    Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryToolStripMenuItem.Click
+    Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryContextMenuItem.Click
         'Removes tin selected entry
         'LogDataGridView.CurrentRow logika
     End Sub
@@ -610,7 +624,7 @@ Public Class MainForm
         RunNowTask()
     End Sub
 
-    Private Sub RunNowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunNowToolStripMenuItem.Click
+    Private Sub RunNowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunNowContextMenuItem.Click
         RunNowTask()
     End Sub
 
@@ -623,7 +637,7 @@ Public Class MainForm
         editTask()
     End Sub
 
-    Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditContextMenuItem.Click
         editTask()
     End Sub
 
@@ -631,4 +645,5 @@ Public Class MainForm
     Private Sub editTask()
         'edits the task
     End Sub
+
 End Class
