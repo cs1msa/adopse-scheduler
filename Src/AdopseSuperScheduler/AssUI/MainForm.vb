@@ -543,6 +543,11 @@ Public Class MainForm
             ScheduledTasksDataGridView.ContextMenuStrip = Nothing
             Exit Sub
         End If
+
+        EditTaskButton.Enabled = True
+        DeleteTaskButton.Enabled = True
+        RunNowButton.Enabled = True
+
     End Sub
 
     Private Sub ExportToPDFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportToPDFToolStripMenuItem.Click
@@ -573,6 +578,7 @@ Public Class MainForm
         deleteTask()
     End Sub
 
+    'BIZELIS EDW
     Private Sub deleteTask()
 
         Dim result As DialogResult = DeleteTaskDialog.ShowDialog()
@@ -589,4 +595,40 @@ Public Class MainForm
 
     End Sub
 
+    'BIZELIS EDW
+    Private Sub ClearLogToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClearLogToolStripMenuItem.Click
+        'clears olokliro to Log
+    End Sub
+
+    'BIZELIS EDW
+    Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryToolStripMenuItem.Click
+        'Removes tin selected entry
+        'LogDataGridView.CurrentRow logika
+    End Sub
+
+    Private Sub RunNowButton_Click(sender As System.Object, e As System.EventArgs) Handles RunNowButton.Click
+        RunNowTask()
+    End Sub
+
+    Private Sub RunNowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunNowToolStripMenuItem.Click
+        RunNowTask()
+    End Sub
+
+    'BIZELIS EDW
+    Private Sub RunNowTask()
+        'runs the selected task now
+    End Sub
+
+    Private Sub EditTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles EditTaskButton.Click
+        editTask()
+    End Sub
+
+    Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
+        editTask()
+    End Sub
+
+    'BIZELIS EDW
+    Private Sub editTask()
+        'edits the task
+    End Sub
 End Class

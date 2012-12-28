@@ -20,56 +20,56 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode49 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode50 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode51 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode52 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode49, TreeNode50, TreeNode51})
-        Dim TreeNode53 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode54 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode55 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode56 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode53, TreeNode54, TreeNode55})
-        Dim TreeNode57 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode58 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode59 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode60 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode57, TreeNode58, TreeNode59})
-        Dim TreeNode61 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode62 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode63 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode64 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode61, TreeNode62, TreeNode63})
-        Dim TreeNode65 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode66 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode67 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode68 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode65, TreeNode66, TreeNode67})
-        Dim TreeNode69 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode52, TreeNode56, TreeNode60, TreeNode64, TreeNode68})
-        Dim TreeNode70 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode71 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode72 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode73 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode70, TreeNode71, TreeNode72})
-        Dim TreeNode74 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode75 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode76 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode77 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode74, TreeNode75, TreeNode76})
-        Dim TreeNode78 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode79 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode80 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode81 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode78, TreeNode79, TreeNode80})
-        Dim TreeNode82 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode83 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode84 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode85 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode82, TreeNode83, TreeNode84})
-        Dim TreeNode86 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode87 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode88 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode89 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode86, TreeNode87, TreeNode88})
-        Dim TreeNode90 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode73, TreeNode77, TreeNode81, TreeNode85, TreeNode89})
-        Dim TreeNode91 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode69, TreeNode90})
-        Dim TreeNode92 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
-        Dim TreeNode93 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
-        Dim TreeNode94 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
-        Dim TreeNode95 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
-        Dim TreeNode96 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("History", New System.Windows.Forms.TreeNode() {TreeNode92, TreeNode93, TreeNode94, TreeNode95})
+        Dim TreeNode289 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode290 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode291 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode292 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode289, TreeNode290, TreeNode291})
+        Dim TreeNode293 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode294 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode295 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode296 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode293, TreeNode294, TreeNode295})
+        Dim TreeNode297 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode298 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode299 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode300 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode297, TreeNode298, TreeNode299})
+        Dim TreeNode301 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode302 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode303 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode304 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode301, TreeNode302, TreeNode303})
+        Dim TreeNode305 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode306 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode307 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode308 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode305, TreeNode306, TreeNode307})
+        Dim TreeNode309 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode292, TreeNode296, TreeNode300, TreeNode304, TreeNode308})
+        Dim TreeNode310 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode311 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode312 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode313 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode310, TreeNode311, TreeNode312})
+        Dim TreeNode314 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode315 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode316 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode317 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode314, TreeNode315, TreeNode316})
+        Dim TreeNode318 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode319 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode320 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode321 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode318, TreeNode319, TreeNode320})
+        Dim TreeNode322 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode323 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode324 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode325 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode322, TreeNode323, TreeNode324})
+        Dim TreeNode326 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode327 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode328 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode329 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode326, TreeNode327, TreeNode328})
+        Dim TreeNode330 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode313, TreeNode317, TreeNode321, TreeNode325, TreeNode329})
+        Dim TreeNode331 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode309, TreeNode330})
+        Dim TreeNode332 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
+        Dim TreeNode333 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
+        Dim TreeNode334 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
+        Dim TreeNode335 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
+        Dim TreeNode336 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("History", New System.Windows.Forms.TreeNode() {TreeNode332, TreeNode333, TreeNode334, TreeNode335})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LowerPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonSplitContainer1 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
         Me.NavigateHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
@@ -238,103 +238,103 @@ Partial Class MainForm
         Me.NavigationTreeView.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.InputControl
         Me.NavigationTreeView.Location = New System.Drawing.Point(0, 0)
         Me.NavigationTreeView.Name = "NavigationTreeView"
-        TreeNode49.Name = "A_O_ExecutableNode"
-        TreeNode49.Text = "Executable"
-        TreeNode50.Name = "A_O_FileNode"
-        TreeNode50.Text = "File"
-        TreeNode51.Name = "A_O_ServiceNode"
-        TreeNode51.Text = "Service"
-        TreeNode52.Name = "A_OnceNode"
-        TreeNode52.Text = "Once"
-        TreeNode53.Name = "A_D_ExecutableNode"
-        TreeNode53.Text = "Executable"
-        TreeNode54.Name = "A_D_FileNode"
-        TreeNode54.Text = "File"
-        TreeNode55.Name = "A_D_ServiceNode"
-        TreeNode55.Text = "Service"
-        TreeNode56.Name = "A_DailyNode"
-        TreeNode56.Text = "Daily"
-        TreeNode57.Name = "A_W_ExecutableNode"
-        TreeNode57.Text = "Executable"
-        TreeNode58.Name = "A_W_FileNode"
-        TreeNode58.Text = "File"
-        TreeNode59.Name = "A_W_ServiceNode"
-        TreeNode59.Text = "Service"
-        TreeNode60.Name = "A_WeeklyNode"
-        TreeNode60.Text = "Weekly"
-        TreeNode61.Name = "A_M_ExecutableNode"
-        TreeNode61.Text = "Executable"
-        TreeNode62.Name = "A_M_FileNode"
-        TreeNode62.Text = "File"
-        TreeNode63.Name = "A_M_ServiceNode"
-        TreeNode63.Text = "Service"
-        TreeNode64.Name = "A_MonthlyNode"
-        TreeNode64.Text = "Monthly"
-        TreeNode65.Name = "A_Y_ExecutableNode"
-        TreeNode65.Text = "Executable"
-        TreeNode66.Name = "A_Y_FileNode"
-        TreeNode66.Text = "File"
-        TreeNode67.Name = "A_Y_ServiceNode"
-        TreeNode67.Text = "Service"
-        TreeNode68.Name = "A_YearlyNode"
-        TreeNode68.Text = "Yearly"
-        TreeNode69.Name = "ActiveNode"
-        TreeNode69.Text = "Active"
-        TreeNode70.Name = "I_O_ExecutableNode"
-        TreeNode70.Text = "Executable"
-        TreeNode71.Name = "I_O_FileNode"
-        TreeNode71.Text = "File"
-        TreeNode72.Name = "I_O_ServiceNode"
-        TreeNode72.Text = "Service"
-        TreeNode73.Name = "I_OnceNode"
-        TreeNode73.Text = "Once"
-        TreeNode74.Name = "I_D_ExecutableNode"
-        TreeNode74.Text = "Executable"
-        TreeNode75.Name = "I_D_FileNode"
-        TreeNode75.Text = "File"
-        TreeNode76.Name = "I_D_ServiceNode"
-        TreeNode76.Text = "Service"
-        TreeNode77.Name = "I_DailyNode"
-        TreeNode77.Text = "Daily"
-        TreeNode78.Name = "I_W_ExecutableNode"
-        TreeNode78.Text = "Executable"
-        TreeNode79.Name = "I_W_FileNode"
-        TreeNode79.Text = "File"
-        TreeNode80.Name = "I_W_ServiceNode"
-        TreeNode80.Text = "Service"
-        TreeNode81.Name = "I_WeeklyNode"
-        TreeNode81.Text = "Weekly"
-        TreeNode82.Name = "I_M_ExecutableNode"
-        TreeNode82.Text = "Executable"
-        TreeNode83.Name = "I_M_FileNode"
-        TreeNode83.Text = "File"
-        TreeNode84.Name = "I_M_ServiceNode"
-        TreeNode84.Text = "Service"
-        TreeNode85.Name = "I_MonthlyNode"
-        TreeNode85.Text = "Monthly"
-        TreeNode86.Name = "I_Y_ExecutableNode"
-        TreeNode86.Text = "Executable"
-        TreeNode87.Name = "I_Y_FileNode"
-        TreeNode87.Text = "File"
-        TreeNode88.Name = "I_Y_ServiceNode"
-        TreeNode88.Text = "Service"
-        TreeNode89.Name = "I_YearlyNode"
-        TreeNode89.Text = "Yearly"
-        TreeNode90.Name = "InactiveNode"
-        TreeNode90.Text = "Inactive"
-        TreeNode91.Name = "TasksNode"
-        TreeNode91.Text = "Tasks"
-        TreeNode92.Name = "AddedNode"
-        TreeNode92.Text = "Added"
-        TreeNode93.Name = "RemovedNode"
-        TreeNode93.Text = "Removed"
-        TreeNode94.Name = "SuccessfulNode"
-        TreeNode94.Text = "Successful"
-        TreeNode95.Name = "UnsuccessfulNode"
-        TreeNode95.Text = "Unsuccessful"
-        TreeNode96.Name = "HistoryNode"
-        TreeNode96.Text = "History"
-        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode91, TreeNode96})
+        TreeNode289.Name = "A_O_ExecutableNode"
+        TreeNode289.Text = "Executable"
+        TreeNode290.Name = "A_O_FileNode"
+        TreeNode290.Text = "File"
+        TreeNode291.Name = "A_O_ServiceNode"
+        TreeNode291.Text = "Service"
+        TreeNode292.Name = "A_OnceNode"
+        TreeNode292.Text = "Once"
+        TreeNode293.Name = "A_D_ExecutableNode"
+        TreeNode293.Text = "Executable"
+        TreeNode294.Name = "A_D_FileNode"
+        TreeNode294.Text = "File"
+        TreeNode295.Name = "A_D_ServiceNode"
+        TreeNode295.Text = "Service"
+        TreeNode296.Name = "A_DailyNode"
+        TreeNode296.Text = "Daily"
+        TreeNode297.Name = "A_W_ExecutableNode"
+        TreeNode297.Text = "Executable"
+        TreeNode298.Name = "A_W_FileNode"
+        TreeNode298.Text = "File"
+        TreeNode299.Name = "A_W_ServiceNode"
+        TreeNode299.Text = "Service"
+        TreeNode300.Name = "A_WeeklyNode"
+        TreeNode300.Text = "Weekly"
+        TreeNode301.Name = "A_M_ExecutableNode"
+        TreeNode301.Text = "Executable"
+        TreeNode302.Name = "A_M_FileNode"
+        TreeNode302.Text = "File"
+        TreeNode303.Name = "A_M_ServiceNode"
+        TreeNode303.Text = "Service"
+        TreeNode304.Name = "A_MonthlyNode"
+        TreeNode304.Text = "Monthly"
+        TreeNode305.Name = "A_Y_ExecutableNode"
+        TreeNode305.Text = "Executable"
+        TreeNode306.Name = "A_Y_FileNode"
+        TreeNode306.Text = "File"
+        TreeNode307.Name = "A_Y_ServiceNode"
+        TreeNode307.Text = "Service"
+        TreeNode308.Name = "A_YearlyNode"
+        TreeNode308.Text = "Yearly"
+        TreeNode309.Name = "ActiveNode"
+        TreeNode309.Text = "Active"
+        TreeNode310.Name = "I_O_ExecutableNode"
+        TreeNode310.Text = "Executable"
+        TreeNode311.Name = "I_O_FileNode"
+        TreeNode311.Text = "File"
+        TreeNode312.Name = "I_O_ServiceNode"
+        TreeNode312.Text = "Service"
+        TreeNode313.Name = "I_OnceNode"
+        TreeNode313.Text = "Once"
+        TreeNode314.Name = "I_D_ExecutableNode"
+        TreeNode314.Text = "Executable"
+        TreeNode315.Name = "I_D_FileNode"
+        TreeNode315.Text = "File"
+        TreeNode316.Name = "I_D_ServiceNode"
+        TreeNode316.Text = "Service"
+        TreeNode317.Name = "I_DailyNode"
+        TreeNode317.Text = "Daily"
+        TreeNode318.Name = "I_W_ExecutableNode"
+        TreeNode318.Text = "Executable"
+        TreeNode319.Name = "I_W_FileNode"
+        TreeNode319.Text = "File"
+        TreeNode320.Name = "I_W_ServiceNode"
+        TreeNode320.Text = "Service"
+        TreeNode321.Name = "I_WeeklyNode"
+        TreeNode321.Text = "Weekly"
+        TreeNode322.Name = "I_M_ExecutableNode"
+        TreeNode322.Text = "Executable"
+        TreeNode323.Name = "I_M_FileNode"
+        TreeNode323.Text = "File"
+        TreeNode324.Name = "I_M_ServiceNode"
+        TreeNode324.Text = "Service"
+        TreeNode325.Name = "I_MonthlyNode"
+        TreeNode325.Text = "Monthly"
+        TreeNode326.Name = "I_Y_ExecutableNode"
+        TreeNode326.Text = "Executable"
+        TreeNode327.Name = "I_Y_FileNode"
+        TreeNode327.Text = "File"
+        TreeNode328.Name = "I_Y_ServiceNode"
+        TreeNode328.Text = "Service"
+        TreeNode329.Name = "I_YearlyNode"
+        TreeNode329.Text = "Yearly"
+        TreeNode330.Name = "InactiveNode"
+        TreeNode330.Text = "Inactive"
+        TreeNode331.Name = "TasksNode"
+        TreeNode331.Text = "Tasks"
+        TreeNode332.Name = "AddedNode"
+        TreeNode332.Text = "Added"
+        TreeNode333.Name = "RemovedNode"
+        TreeNode333.Text = "Removed"
+        TreeNode334.Name = "SuccessfulNode"
+        TreeNode334.Text = "Successful"
+        TreeNode335.Name = "UnsuccessfulNode"
+        TreeNode335.Text = "Unsuccessful"
+        TreeNode336.Name = "HistoryNode"
+        TreeNode336.Text = "History"
+        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode331, TreeNode336})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
         Me.NavigationTreeView.Size = New System.Drawing.Size(183, 452)
         Me.NavigationTreeView.StateCheckedNormal.Node.Back.Color1 = System.Drawing.Color.LemonChiffon
@@ -401,8 +401,8 @@ Partial Class MainForm
         'taskID_Column
         '
         Me.taskID_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.taskID_Column.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.taskID_Column.DefaultCellStyle = DataGridViewCellStyle7
         Me.taskID_Column.FillWeight = 43.88676!
         Me.taskID_Column.HeaderText = "ID"
         Me.taskID_Column.MinimumWidth = 35
@@ -588,6 +588,7 @@ Partial Class MainForm
         'RunNowButton
         '
         Me.RunNowButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.RunNowButton.Enabled = False
         Me.RunNowButton.Location = New System.Drawing.Point(353, 14)
         Me.RunNowButton.Name = "RunNowButton"
         Me.RunNowButton.Size = New System.Drawing.Size(79, 58)
@@ -612,6 +613,7 @@ Partial Class MainForm
         'DeleteTaskButton
         '
         Me.DeleteTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.DeleteTaskButton.Enabled = False
         Me.DeleteTaskButton.Location = New System.Drawing.Point(232, 14)
         Me.DeleteTaskButton.Name = "DeleteTaskButton"
         Me.DeleteTaskButton.Size = New System.Drawing.Size(79, 58)
@@ -625,6 +627,7 @@ Partial Class MainForm
         '
         Me.EditTaskButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EditTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.EditTaskButton.Enabled = False
         Me.EditTaskButton.Location = New System.Drawing.Point(111, 14)
         Me.EditTaskButton.Name = "EditTaskButton"
         Me.EditTaskButton.Size = New System.Drawing.Size(79, 58)
@@ -796,24 +799,24 @@ Partial Class MainForm
         Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ScheduledTasksContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.RunNowToolStripMenuItem, Me.ToolStripSeparator3, Me.ViewHistoryToolStripMenuItem})
         Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
-        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(153, 120)
+        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'RunNowToolStripMenuItem
         '
         Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
-        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RunNowToolStripMenuItem.Text = "Run Now"
         '
         'ToolStripSeparator3
@@ -837,7 +840,7 @@ Partial Class MainForm
         'RemoveEntryToolStripMenuItem
         '
         Me.RemoveEntryToolStripMenuItem.Name = "RemoveEntryToolStripMenuItem"
-        Me.RemoveEntryToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.RemoveEntryToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RemoveEntryToolStripMenuItem.Text = "Remove Entry"
         '
         'ToolStripSeparator4
@@ -859,7 +862,7 @@ Partial Class MainForm
         'ClearLogToolStripMenuItem
         '
         Me.ClearLogToolStripMenuItem.Name = "ClearLogToolStripMenuItem"
-        Me.ClearLogToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.ClearLogToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ClearLogToolStripMenuItem.Text = "Clear Log"
         '
         'DeleteTaskDialog
