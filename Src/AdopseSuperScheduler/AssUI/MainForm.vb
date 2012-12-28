@@ -114,6 +114,8 @@ Public Class MainForm
 
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        m_scheduled_tasks__datagrid_restrictions = New List(Of String)
+        m_log_datagrid_restrictions = New List(Of String)
 
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
@@ -127,6 +129,7 @@ Public Class MainForm
         m_master_control.Init()
         ScheduledTasksDataGridView.Columns.Clear()
         LogDataGridView.Columns.Clear()
+
         Timer.Start()
 
         m_master_control.StartProgramLoop()
@@ -137,8 +140,7 @@ Public Class MainForm
 
 
         checkIfTasksAreEmpty()
-        m_scheduled_tasks__datagrid_restrictions = New List(Of String)
-        m_log_datagrid_restrictions = New List(Of String)
+
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
