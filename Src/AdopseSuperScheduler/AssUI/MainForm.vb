@@ -127,9 +127,6 @@ Public Class MainForm
         'checks which pallette mode has been chosen
         checkPalletteMode()
 
-        'changes the labels' and rectangleShapes' color
-        changeLabelColors(My.Settings.LabelColorsFlag)
-
         m_master_control = New ALMasterControl()
         m_master_control.Init()
         ScheduledTasksDataGridView.Columns.Clear()
@@ -139,10 +136,8 @@ Public Class MainForm
 
         m_master_control.StartProgramLoop()
 
-
         NavigationTreeView.Nodes(0).Expand()
         NavigationTreeView.Nodes(1).Expand()
-
 
         checkIfTasksAreEmpty()
 
@@ -344,7 +339,7 @@ Public Class MainForm
     End Sub
 
     'changes the labels' and rectangleShapes' color
-    Private Sub changeLabelColors(ByVal i As Integer)
+    Protected Friend Sub changeLabelColors(ByVal i As Integer)
         Select Case i
             Case 1, 4
                 NewTaskForm.KindOfTaskLabel.StateNormal.ShortText.Color1 = Color.Yellow
