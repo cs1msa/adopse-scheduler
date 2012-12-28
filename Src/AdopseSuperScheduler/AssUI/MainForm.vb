@@ -9,6 +9,10 @@ Public Class MainForm
 
     Dim m_master_control As ALMasterControl
 
+    Dim m_scheduled_tasks__datagrid_restrictions As List(Of String)
+    Dim m_log_datagrid_restrictions As List(Of String)
+    Dim m_need_to_update_datagrids As Boolean = True
+
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
@@ -133,7 +137,8 @@ Public Class MainForm
 
 
         checkIfTasksAreEmpty()
-
+        m_scheduled_tasks__datagrid_restrictions = New List(Of String)
+        m_log_datagrid_restrictions = New List(Of String)
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
@@ -407,166 +412,111 @@ Public Class MainForm
 
 
     Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
-        'get the scheduler tasks table 
-        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Status", "Description", "End_Date"})
-        'create a new table which contains a task of each program(that way we can use internally many tasks to represent a single complex task)
-        Dim list_of_programs As New List(Of String)
-        Dim scheduler_table_to_show = scheduler_table.Copy()
-        scheduler_table_to_show.Rows.Clear()
-        For Each task As DataRow In scheduler_table.Rows
-            If Not (list_of_programs.Contains(task("Task"))) Then
-                list_of_programs.Add(task("Task"))
-                scheduler_table_to_show.ImportRow(task)
-            End If
+        'in case we need_to_update_datagrids(because we pressed something in the tree navigator) or because the database is changed
+        If m_need_to_update_datagrids Or m_master_control.m_scheduler_tasks_has_changed Then
 
-        Next
+            'get the scheduler tasks table 
+            Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Status", "Description", "End_Date"}, m_scheduled_tasks__datagrid_restrictions.ToArray())
+            'create a new table which contains a task of each program(that way we can use internally many tasks to represent a single complex task)
+            Dim list_of_programs As New List(Of String)
+            Dim scheduler_table_to_show = scheduler_table.Copy()
+            scheduler_table_to_show.Rows.Clear()
+            For Each task As DataRow In scheduler_table.Rows
+                If Not (list_of_programs.Contains(task("Task"))) Then
+                    list_of_programs.Add(task("Task"))
+                    scheduler_table_to_show.ImportRow(task)
+                End If
 
-        Dim test_table As DataTable = ScheduledTasksDataGridView.DataSource
+            Next
 
-        'create the sceduler tasks data grid view
-        If test_table Is Nothing Then
-            ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
-            ScheduledTasksDataGridView.AutoResizeColumns()
-        ElseIf m_master_control.m_scheduler_tasks_has_changed Then
+            Dim test_table As DataTable = ScheduledTasksDataGridView.DataSource
+
+            'create the sceduler tasks data grid view
+
             ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
             ScheduledTasksDataGridView.AutoResizeColumns()
             m_master_control.m_scheduler_tasks_has_changed = False
+
         End If
 
-        'create the log grid view
-        Dim log_table As DataTable = m_master_control.GetFromATableAsDataTable("Log", {"Action_ID as [Event ID]", "Action_Date as [Date & Time]", "Program_Name as Task", "Details"})
-        test_table = LogDataGridView.DataSource
-        If test_table Is Nothing Then
-            LogDataGridView.DataSource = log_table.Copy()
-            LogDataGridView.AutoResizeColumns()
-        ElseIf m_master_control.m_log_has_changed Then
+
+
+        If m_need_to_update_datagrids Or m_master_control.m_log_has_changed Then
+            'create the log grid view
+            Dim log_table As DataTable = m_master_control.GetFromATableAsDataTable("Log", {"Action_ID as [Event ID]", "Action_Date as [Date & Time]", "Program_Name as Task", "Details"}, m_log_datagrid_restrictions.ToArray())
+            Dim test_table As DataTable = LogDataGridView.DataSource
+
             LogDataGridView.DataSource = log_table.Copy()
             LogDataGridView.AutoResizeColumns()
             m_master_control.m_log_has_changed = False
         End If
 
+        m_need_to_update_datagrids = False
+
+
+        
+
     End Sub
 
-    'EDW BIZELHS
+
     Private Sub NavigationTreeView_NodeMouseClick(sender As System.Object, e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
-
-        'an xreiazetai
-        'alliws vgalto
-        Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Status", "Description", "End_Date"})
-
-        Select Case e.Node.Name
-            Case "TasksNode"
-                'ALL TASKS, no filtering
-
-            Case "ActiveNode"
-                'all Active Tasks
-
-            Case "A_OnceNode"
-                'Active & Once tasks
-            Case "A_O_ExecutableNode"
-                'Active & Once & EXE tasks
-            Case "A_O_FileNode"
-                'Active & Once & FILE tasks
-            Case "A_O_ServiceNode"
-                'Active & Once & SERVICE tasks
-
-            Case "A_DailyNode"
-                'Active & Daily tasks
-            Case "A_D_ExecutableNode"
-                'Active & Daily & EXE tasks
-            Case "A_D_FileNode"
-                'Active & Daily & FILE tasks
-            Case "A_D_ServiceNode"
-                'Active & Daily & SERVICE tasks
-
-            Case "A_WeeklyNode"
-                'Active & Weekly tasks
-            Case "A_W_ExecutableNode"
-                'Active & Weekly & EXE tasks
-            Case "A_W_FileNode"
-                'Active & Weekly & FILE tasks
-            Case "A_W_ServiceNode"
-                'Active & Weekly & SERVICE tasks
-
-            Case "A_MonthlyNode"
-                'Active & Monthly tasks
-            Case "A_M_ExecutableNode"
-                'Active & Monthly & EXE tasks
-            Case "A_M_FileNode"
-                'Active & Monthly & FILE tasks
-            Case "A_M_ServiceNode"
-                'Active & Monthly & SERVICE tasks
-
-            Case "A_YearlyNode"
-                'Active & Yearly tasks
-            Case "A_Y_ExecutableNode"
-                'Active & Yearly & EXE tasks
-            Case "A_Y_FileNode"
-                'Active & Yearly & FILE tasks
-            Case "A_Y_ServiceNode"
-                'Active & Yearly & SERVICE tasks
-
-            Case "InactiveNode"
-                'all Inactive tasks
-
-            Case "I_OnceNode"
-                'Inactive & Once tasks
-            Case "I_O_ExecutableNode"
-                'Inactive & Once & EXE tasks
-            Case "I_O_FileNode"
-                'Inactive & Once & FILE tasks
-            Case "I_O_ServiceNode"
-                'Inactive & Once & SERVICE tasks
-
-            Case "I_DailyNode"
-                'Inactive & Daily tasks
-            Case "I_D_ExecutableNode"
-                'Inactive & Daily & EXE tasks
-            Case "I_D_FileNode"
-                'Inactive & Daily & FILE tasks
-            Case "I_D_ServiceNode"
-                'Inactive & Daily & SERVICE tasks
-
-            Case "I_WeeklyNode"
-                'Inactive & Weekly tasks
-            Case "I_W_ExecutableNode"
-                'Inactive & Weekly & EXE tasks
-            Case "I_W_FileNode"
-                'Inactive & Weekly & FILE tasks
-            Case "I_W_ServiceNode"
-                'Inactive & Weekly & SERVICE tasks
-
-            Case "I_MonthlyNode"
-                'Inactive & Montly tasks
-            Case "I_M_ExecutableNode"
-                'Inactive & Montly & EXE tasks
-            Case "I_M_FileNode"
-                'Inactive & Montly & FILE tasks
-            Case "I_M_ServiceNode"
-                'Inactive & Montly & SERVICE tasks
-
-            Case "I_YearlyNode"
-                'Inactive & Yearly tasks
-            Case "I_Y_ExecutableNode"
-                'Inactive & Yearly & EXE tasks
-            Case "I_Y_FileNode"
-                'Inactive & Yearly & FILE tasks
-            Case "I_Y_ServiceNode"
-                'Inactive & Yearly & SERVICE tasks
+        m_need_to_update_datagrids = True
+        Dim tree_full_path As String = e.Node.FullPath
 
 
-            Case "HistoryNode"
-                'All the LOG, no filtering
-            Case "AddedNode"
-                'All the Added εγγραφές
-            Case "RemovedNode"
-                'All the Removed εγγραφές
-            Case "SuccessfulNode"
-                'All the Successful εγγραφές
-            Case "UnsuccessfulNode"
-                'All the Unsuccessful εγγραφές
+        If tree_full_path.Contains("Tasks") Then
+            'it is about tasks
+            m_scheduled_tasks__datagrid_restrictions = New List(Of String)
+            'active or inactive???
+            If tree_full_path.Contains("Active") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Status = true")
+            ElseIf tree_full_path.Contains("Inactive") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Status = false")
+            End If
 
-        End Select
+
+            'what period does it have?? Daily,weekly, mothly, yearly or it is to run just once?
+            If tree_full_path.Contains("Once") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Period Like '0/0/0'")
+            ElseIf tree_full_path.Contains("Daily") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Period LIKE '[!0,!7,!14,!21,!28]/0/0'")
+            ElseIf tree_full_path.Contains("Weekly") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Period LIKE '%/0/0'")
+            ElseIf tree_full_path.Contains("Monthly") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Period LIKE '0/%/0'")
+            ElseIf tree_full_path.Contains("Yearly") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Period LIKE '0/0/%'")
+            End If
+
+
+            'what type is it? EXE,FILE or SERVICE
+            If tree_full_path.Contains("Executable") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Type = 'EXE'")
+            ElseIf tree_full_path.Contains("File") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Type = 'FILE'")
+            ElseIf tree_full_path.Contains("Service") Then
+                m_scheduled_tasks__datagrid_restrictions.Add("Type = 'SERVICE'")
+            End If
+
+
+
+        ElseIf tree_full_path.Contains("History") Then
+            'it is about log/History
+            m_log_datagrid_restrictions = New List(Of String)
+            If tree_full_path.Contains("Added") Then
+                m_log_datagrid_restrictions.Add("Details Like 'Task Added%'")
+            ElseIf tree_full_path.Contains("Removed") Then
+                m_log_datagrid_restrictions.Add("Details Like 'Task deleted%'")
+            ElseIf tree_full_path.Contains("Successful") Then
+                m_log_datagrid_restrictions.Add("Details Like '%True'")
+            ElseIf tree_full_path.Contains("Unsuccessful") Then
+                m_log_datagrid_restrictions.Add("Details Like '%False'")
+
+            End If
+
+        End If
+
+
 
     End Sub
 End Class
