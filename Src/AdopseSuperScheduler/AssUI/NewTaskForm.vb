@@ -12,6 +12,7 @@ Public Class NewTaskForm
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MainForm.changeLabelColors(My.Settings.LabelColorsFlag)
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
         HandleArrowLabelsAndRectangles(1)
