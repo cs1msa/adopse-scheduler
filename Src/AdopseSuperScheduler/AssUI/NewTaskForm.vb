@@ -15,7 +15,7 @@ Public Class NewTaskForm
         MainForm.changeLabelColors(My.Settings.LabelColorsFlag)
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(1)
+        HandleArrowLabelAndRectangles(1)
 
         'sets the minimum day the user can choose as the current day
         DatePicker.MinDate = Today
@@ -48,8 +48,8 @@ Public Class NewTaskForm
         'sets the kind of files the OpenDialog is allowed to open
         OpenFileDialog.Filter = "Executable Files(*.exe)|*.exe"
 
-        'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(2)
+        'handles all Rectangle Shapes' and ArrowLabel's visibility
+        HandleArrowLabelAndRectangles(2)
 
         'handles things that the Service Check Button opens
         HandleServiceCheckButtonFunction(True, False, False)
@@ -68,7 +68,7 @@ Public Class NewTaskForm
         OpenFileDialog.Filter = "All Files(*.*)|*.*"
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(2)
+        HandleArrowLabelAndRectangles(2)
 
         'handles things that the Service Check Button opens
         HandleServiceCheckButtonFunction(True, False, False)
@@ -78,7 +78,7 @@ Public Class NewTaskForm
     Private Sub ServiceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(20)
+        HandleArrowLabelAndRectangles(20)
 
         'handles ChooseFile Panel (visibility and label text)
         HandleChooseFilePanel(False, " ")
@@ -138,7 +138,7 @@ Public Class NewTaskForm
             HandleAllPanels(True, True, True, True, True)
 
             'handles all Rectangle Shapes' and ArrowLabels' visibility
-            HandleArrowLabelsAndRectangles(3)
+            HandleArrowLabelAndRectangles(3)
 
             'handles MoreOptions & SaveTask buttons' visibility
             HandleMoreAndSaveButtons(True, True)
@@ -148,7 +148,7 @@ Public Class NewTaskForm
             HandleAllPanels(True, True, False, False, False)
 
             'handles all Rectangle Shapes' and ArrowLabels' visibility
-            HandleArrowLabelsAndRectangles(2)
+            HandleArrowLabelAndRectangles(2)
 
             'handles MoreOptions & SaveTask buttons' visibility
             HandleMoreAndSaveButtons(False, False)
@@ -161,7 +161,7 @@ Public Class NewTaskForm
     Private Sub OnceCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnceCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(0)
+        HandleArrowLabelAndRectangles(0)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(False, True)
@@ -171,7 +171,7 @@ Public Class NewTaskForm
     Private Sub DailyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DailyCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(5)
+        HandleArrowLabelAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -187,7 +187,7 @@ Public Class NewTaskForm
     Private Sub WeeklyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WeeklyCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(5)
+        HandleArrowLabelAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -206,7 +206,7 @@ Public Class NewTaskForm
     Private Sub MonthlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MonthlyCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(5)
+        HandleArrowLabelAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -225,7 +225,7 @@ Public Class NewTaskForm
     Private Sub YearlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles YearlyCheckButton.Click
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(5)
+        HandleArrowLabelAndRectangles(5)
 
         'handles RecurrencePanel's Visibility
         HandleRecPanel(True, True)
@@ -393,40 +393,37 @@ Public Class NewTaskForm
         SaveTaskButton.Enabled = save
     End Sub
 
-    Private Sub HandleArrowLabelsAndRectangles(ByVal i As Integer)
+    Private Sub HandleArrowLabelAndRectangles(ByVal i As Integer)
         Select Case i
             Case 0
-                HandleArrowLabels(False, False, False, False, False)
+                ArrowLabel.Location = Nothing
                 HandleRectangles(False, False, False, False, False)
-            Case 1
-                HandleArrowLabels(True, False, False, False, False)
-                HandleRectangles(True, False, False, False, False)
-            Case 2
-                HandleArrowLabels(False, True, False, False, False)
-                HandleRectangles(False, True, False, False, False)
-            Case 20
-                HandleArrowLabels(False, True, False, False, False)
-                HandleRectangles(False, False, False, False, False)
-            Case 3
-                HandleArrowLabels(False, False, True, False, False)
-                HandleRectangles(False, False, True, False, False)
-            Case 4
-                HandleArrowLabels(False, False, False, True, False)
-                HandleRectangles(False, False, False, True, False)
-            Case 5
-                HandleArrowLabels(False, False, False, False, True)
-                HandleRectangles(False, False, False, False, True)
-        End Select
-    End Sub
 
-    'handles the blue directional ArrowLabels visibility
-    Private Sub HandleArrowLabels(ByVal label1 As Boolean, ByVal label2 As Boolean, _
-                                    ByVal label3 As Boolean, ByVal label4 As Boolean, ByVal label5 As Boolean)
-        ArrowLabel1.Visible = label1
-        ArrowLabel2.Visible = label2
-        ArrowLabel3.Visible = label3
-        ArrowLabel4.Visible = label4
-        ArrowLabel5.Visible = label5
+            Case 1
+                ArrowLabel.Location = New Point(1, 41)
+                HandleRectangles(True, False, False, False, False)
+
+            Case 2
+                ArrowLabel.Location = New Point(1, 180)
+                HandleRectangles(False, True, False, False, False)
+
+            Case 20
+                ArrowLabel.Location = New Point(1, 180)
+                HandleRectangles(False, False, False, False, False)
+
+            Case 3
+                ArrowLabel.Location = New Point(1, 288)
+                HandleRectangles(False, False, True, False, False)
+
+            Case 4
+                ArrowLabel.Location = New Point(1, 394)
+                HandleRectangles(False, False, False, True, False)
+
+            Case 5
+                ArrowLabel.Location = New Point(1, 481)
+                HandleRectangles(False, False, False, False, True)
+
+        End Select
     End Sub
 
     'handles all Rectangle Shapes
@@ -477,28 +474,28 @@ Public Class NewTaskForm
     Private Sub chooseFilePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFilePanel.MouseEnter
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(2)
+        HandleArrowLabelAndRectangles(2)
 
     End Sub
 
     Private Sub DateTimePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePanel.MouseEnter
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(3)
+        HandleArrowLabelAndRectangles(3)
 
     End Sub
 
     Private Sub TypeOfTaskPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TypeOfTaskPanel.MouseEnter
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(4)
+        HandleArrowLabelAndRectangles(4)
 
     End Sub
 
     Private Sub RecurrencePanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RecurrencePanel.MouseEnter
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
-        HandleArrowLabelsAndRectangles(5)
+        HandleArrowLabelAndRectangles(5)
 
     End Sub
 
@@ -686,8 +683,7 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub ServicesDataGridView_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.SelectionChanged
-        HandleArrowLabels(False, False, True, False, False)
-        HandleRectangles(False, False, True, False, False)
+        HandleArrowLabelAndRectangles(3)
     End Sub
 
     Private Sub NewTaskForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
@@ -708,4 +704,7 @@ Public Class NewTaskForm
 
     End Sub
 
+    Private Sub ServicesDataGridView_MouseHover(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.MouseHover
+        HandleArrowLabelAndRectangles(2)
+    End Sub
 End Class

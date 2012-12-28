@@ -94,11 +94,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.ShapeContainer6 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.ArrowLabel5 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ArrowLabel4 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ArrowLabel3 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ArrowLabel2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ArrowLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.ArrowLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.DateTimePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonLabel1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.TimePicker = New ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker()
@@ -114,14 +110,12 @@ Partial Class NewTaskForm
         Me.OnceCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.MonthlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.WeeklyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.ShapeContainer4 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.KindOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.ExecutableCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.FileCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.ServiceCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.KindOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.chooseFilePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.chooseFileBrowseButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -149,6 +143,8 @@ Partial Class NewTaskForm
         Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.ShapeContainer4 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,11 +170,7 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Controls.Add(Me.SaveTaskButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.MoreOptionsButton)
         Me.addNewTaskMainPanel.Controls.Add(Me.RecurrencePanel)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel5)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel4)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel3)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel2)
-        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel1)
+        Me.addNewTaskMainPanel.Controls.Add(Me.ArrowLabel)
         Me.addNewTaskMainPanel.Controls.Add(Me.DateTimePanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.TypeOfTaskPanel)
         Me.addNewTaskMainPanel.Controls.Add(Me.KindOfTaskPanel)
@@ -203,7 +195,7 @@ Partial Class NewTaskForm
         Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.HideOuterBorders = True
-        Me.ServicesDataGridView.Location = New System.Drawing.Point(56, 128)
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(52, 128)
         Me.ServicesDataGridView.Name = "ServicesDataGridView"
         Me.ServicesDataGridView.ReadOnly = True
         Me.ServicesDataGridView.RowHeadersVisible = False
@@ -652,54 +644,14 @@ Partial Class NewTaskForm
         Me.RectangleShape5.Size = New System.Drawing.Size(327, 115)
         Me.RectangleShape5.Visible = False
         '
-        'ArrowLabel5
+        'ArrowLabel
         '
-        Me.ArrowLabel5.Location = New System.Drawing.Point(1, 481)
-        Me.ArrowLabel5.Name = "ArrowLabel5"
-        Me.ArrowLabel5.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel5.TabIndex = 26
-        Me.ArrowLabel5.Values.Image = CType(resources.GetObject("ArrowLabel5.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel5.Values.Text = ""
-        Me.ArrowLabel5.Visible = False
-        '
-        'ArrowLabel4
-        '
-        Me.ArrowLabel4.Location = New System.Drawing.Point(1, 394)
-        Me.ArrowLabel4.Name = "ArrowLabel4"
-        Me.ArrowLabel4.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel4.TabIndex = 24
-        Me.ArrowLabel4.Values.Image = CType(resources.GetObject("ArrowLabel4.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel4.Values.Text = ""
-        Me.ArrowLabel4.Visible = False
-        '
-        'ArrowLabel3
-        '
-        Me.ArrowLabel3.Location = New System.Drawing.Point(1, 288)
-        Me.ArrowLabel3.Name = "ArrowLabel3"
-        Me.ArrowLabel3.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel3.TabIndex = 22
-        Me.ArrowLabel3.Values.Image = CType(resources.GetObject("ArrowLabel3.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel3.Values.Text = ""
-        Me.ArrowLabel3.Visible = False
-        '
-        'ArrowLabel2
-        '
-        Me.ArrowLabel2.Location = New System.Drawing.Point(1, 169)
-        Me.ArrowLabel2.Name = "ArrowLabel2"
-        Me.ArrowLabel2.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel2.TabIndex = 21
-        Me.ArrowLabel2.Values.Image = CType(resources.GetObject("ArrowLabel2.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel2.Values.Text = ""
-        Me.ArrowLabel2.Visible = False
-        '
-        'ArrowLabel1
-        '
-        Me.ArrowLabel1.Location = New System.Drawing.Point(3, 39)
-        Me.ArrowLabel1.Name = "ArrowLabel1"
-        Me.ArrowLabel1.Size = New System.Drawing.Size(38, 34)
-        Me.ArrowLabel1.TabIndex = 20
-        Me.ArrowLabel1.Values.Image = CType(resources.GetObject("ArrowLabel1.Values.Image"), System.Drawing.Image)
-        Me.ArrowLabel1.Values.Text = ""
+        Me.ArrowLabel.Location = New System.Drawing.Point(1, 41)
+        Me.ArrowLabel.Name = "ArrowLabel"
+        Me.ArrowLabel.Size = New System.Drawing.Size(38, 34)
+        Me.ArrowLabel.TabIndex = 20
+        Me.ArrowLabel.Values.Image = CType(resources.GetObject("ArrowLabel1.Values.Image"), System.Drawing.Image)
+        Me.ArrowLabel.Values.Text = ""
         '
         'DateTimePanel
         '
@@ -853,16 +805,6 @@ Partial Class NewTaskForm
         Me.WeeklyCheckButton.TabIndex = 2
         Me.WeeklyCheckButton.Values.Text = "Weekly"
         '
-        'ShapeContainer4
-        '
-        Me.ShapeContainer4.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer4.Name = "ShapeContainer4"
-        Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4})
-        Me.ShapeContainer4.Size = New System.Drawing.Size(437, 83)
-        Me.ShapeContainer4.TabIndex = 13
-        Me.ShapeContainer4.TabStop = False
-        '
         'RectangleShape4
         '
         Me.RectangleShape4.BorderColor = System.Drawing.Color.Gold
@@ -929,16 +871,6 @@ Partial Class NewTaskForm
         Me.KindOfTaskLabel.TabIndex = 1
         Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
         '
-        'ShapeContainer2
-        '
-        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape1})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(317, 91)
-        Me.ShapeContainer2.TabIndex = 11
-        Me.ShapeContainer2.TabStop = False
-        '
         'RectangleShape1
         '
         Me.RectangleShape1.BorderColor = System.Drawing.Color.Gold
@@ -955,14 +887,14 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.Controls.Add(Me.chooseFileLabel)
         Me.chooseFilePanel.Controls.Add(Me.ShapeContainer3)
         Me.chooseFilePanel.Enabled = False
-        Me.chooseFilePanel.Location = New System.Drawing.Point(45, 159)
+        Me.chooseFilePanel.Location = New System.Drawing.Point(52, 159)
         Me.chooseFilePanel.Name = "chooseFilePanel"
-        Me.chooseFilePanel.Size = New System.Drawing.Size(407, 72)
+        Me.chooseFilePanel.Size = New System.Drawing.Size(400, 72)
         Me.chooseFilePanel.TabIndex = 6
         '
         'chooseFileBrowseButton
         '
-        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(319, 29)
+        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(307, 29)
         Me.chooseFileBrowseButton.Name = "chooseFileBrowseButton"
         Me.chooseFileBrowseButton.Size = New System.Drawing.Size(74, 20)
         Me.chooseFileBrowseButton.StateCommon.Content.LongText.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
@@ -972,7 +904,7 @@ Partial Class NewTaskForm
         '
         'chooseFileTextBox
         '
-        Me.chooseFileTextBox.Location = New System.Drawing.Point(20, 29)
+        Me.chooseFileTextBox.Location = New System.Drawing.Point(13, 29)
         Me.chooseFileTextBox.Name = "chooseFileTextBox"
         Me.chooseFileTextBox.Size = New System.Drawing.Size(288, 20)
         Me.chooseFileTextBox.TabIndex = 1
@@ -980,7 +912,7 @@ Partial Class NewTaskForm
         'chooseFileLabel
         '
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.chooseFileLabel.Location = New System.Drawing.Point(105, 3)
+        Me.chooseFileLabel.Location = New System.Drawing.Point(97, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
         Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
         Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
@@ -993,7 +925,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer3.Name = "ShapeContainer3"
         Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape2})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(407, 72)
+        Me.ShapeContainer3.Size = New System.Drawing.Size(400, 72)
         Me.ShapeContainer3.TabIndex = 4
         Me.ShapeContainer3.TabStop = False
         '
@@ -1001,10 +933,10 @@ Partial Class NewTaskForm
         '
         Me.RectangleShape2.BorderColor = System.Drawing.Color.Gold
         Me.RectangleShape2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
-        Me.RectangleShape2.Location = New System.Drawing.Point(7, 11)
+        Me.RectangleShape2.Location = New System.Drawing.Point(3, 11)
         Me.RectangleShape2.Name = "RectangleShape2"
         Me.RectangleShape2.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape2.Size = New System.Drawing.Size(398, 53)
+        Me.RectangleShape2.Size = New System.Drawing.Size(392, 53)
         Me.RectangleShape2.Visible = False
         '
         'KryptonManager
@@ -1113,6 +1045,26 @@ Partial Class NewTaskForm
         Me.SuccessTaskDialog.Tag = Nothing
         Me.SuccessTaskDialog.WindowTitle = "Success!!!"
         '
+        'ShapeContainer2
+        '
+        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer2.Name = "ShapeContainer2"
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape1})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(317, 91)
+        Me.ShapeContainer2.TabIndex = 11
+        Me.ShapeContainer2.TabStop = False
+        '
+        'ShapeContainer4
+        '
+        Me.ShapeContainer4.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer4.Name = "ShapeContainer4"
+        Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4})
+        Me.ShapeContainer4.Size = New System.Drawing.Size(437, 83)
+        Me.ShapeContainer4.TabIndex = 13
+        Me.ShapeContainer4.TabStop = False
+        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1207,12 +1159,10 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox49 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox50 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox51 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents RectangleShape5 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents ShapeContainer4 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer3 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
@@ -1234,13 +1184,9 @@ Partial Class NewTaskForm
     Private WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Private WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Private WithEvents DateTimePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents ArrowLabel3 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents ArrowLabel2 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents ArrowLabel1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents ArrowLabel4 As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Private WithEvents ArrowLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
-    Private WithEvents ArrowLabel5 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Private WithEvents KryptonContextMenuItems2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
@@ -1290,4 +1236,6 @@ Partial Class NewTaskForm
     Friend WithEvents Label1 As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents DateLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents chooseFileLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
+    Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents ShapeContainer4 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
 End Class

@@ -537,6 +537,18 @@ Public Class MainForm
             ScheduledTasksDataGridView.ClearSelection()
             ScheduledTasksDataGridView.Rows(rowClicked).Selected = True
             ScheduledTasksDataGridView.ContextMenuStrip = ScheduledTasksContextMenu
+            ScheduledTasksDataGridView.CurrentRow.ReadOnly = False
+
+            'changes the cell contents of the current row
+            'to the cell contents of the selected row
+            Dim cellCount As Integer = ScheduledTasksDataGridView.Rows(rowClicked).Cells.Count
+            For i As Integer = 1 To cellCount
+                ScheduledTasksDataGridView.CurrentRow.Cells(i) = ScheduledTasksDataGridView.Rows(rowClicked).Cells(i)
+                'the following was forbidden
+                'ScheduledTasksDataGridView.CurrentRow = ScheduledTasksDataGridView.Rows(rowClicked)
+                'because currentrow object is ReadOnly
+            Next
+
 
         ElseIf rowClicked < 0 Then
             ScheduledTasksDataGridView.ContextMenuStrip = Nothing
