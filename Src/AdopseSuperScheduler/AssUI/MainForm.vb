@@ -239,6 +239,13 @@ Public Class MainForm
     End Sub
 
     Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
+
+        exportToPDF()
+
+    End Sub
+
+    Private Sub exportToPDF()
+
         'You can export any DataGridView control, no matter managed or not by the extension
         Dim pdfExporter As DGVEPdfExporter = New DGVEPdfExporter()
         Dim dialog As DGVEBaseExportSettingsEditorForm = DGVEExportSettingsEditorFormBuilder.CreateWrappingForm(pdfExporter)
@@ -249,6 +256,7 @@ Public Class MainForm
 
         AddHandler pdfExporter.ExportFailed, AddressOf exporter_ExportFailed
         pdfExporter.Export(LogDataGridView, dialog.Settings)
+
     End Sub
 
     Private Sub exporter_ExportFailed(ByVal sender As Object, ByVal e As CompletIT.Windows.Forms.Export.ExportFailedEventArgs)
@@ -537,10 +545,23 @@ Public Class MainForm
         End If
     End Sub
 
-    '   Private Sub ScheduledTasksDataGridView_ColumnHeaderMouseClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles ScheduledTasksDataGridView.ColumnHeaderMouseClick
-    '      If e.Button = Windows.Forms.MouseButtons.Right Or e.Button = Windows.Forms.MouseButtons.Left Then
-    '         ScheduledTasksDataGridView.ContextMenuStrip = Nothing
-    '    End If
-    'End Sub
+    Private Sub ExportToPDFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportToPDFToolStripMenuItem.Click
+        exportToPDF()
+    End Sub
 
+    Private Sub LogDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles LogDataGridView.MouseDown
+        Dim rowClicked As Integer
+        rowClicked = LogDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
+
+        If e.Button = Windows.Forms.MouseButtons.Right AndAlso rowClicked >= 0 Then
+
+            LogDataGridView.ClearSelection()
+            LogDataGridView.Rows(rowClicked).Selected = True
+            LogDataGridView.ContextMenuStrip = LogContextMenu
+
+        ElseIf rowClicked < 0 Then
+            LogDataGridView.ContextMenuStrip = Nothing
+            Exit Sub
+        End If
+    End Sub
 End Class
