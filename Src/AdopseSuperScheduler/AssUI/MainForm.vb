@@ -599,7 +599,7 @@ Public Class MainForm
         deleteTask()
     End Sub
 
-    'BIZELIS EDW
+
     Private Sub deleteTask()
 
         Dim result As DialogResult = DeleteTaskDialog.ShowDialog()
@@ -608,6 +608,7 @@ Public Class MainForm
 
             'edw o kwdikas pou kanei delete to task
 
+            m_master_control.DeleteTask(ScheduledTasksDataGridView.CurrentRow.Cells(2).Value.ToString())
         ElseIf result = DialogResult.No Then
 
             Exit Sub
@@ -616,15 +617,17 @@ Public Class MainForm
 
     End Sub
 
-    'BIZELIS EDW
+
     Private Sub ClearLogToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClearLogContextMenuItem.Click
         'clears olokliro to Log
+        m_master_control.ClearLog()
     End Sub
 
     'BIZELIS EDW
     Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryContextMenuItem.Click
         'Removes tin selected entry
-        'LogDataGridView.CurrentRow logika
+        m_master_control.RemoveEntryFromLog(LogDataGridView.CurrentRow.Cells(0).Value.ToString())
+
     End Sub
 
     Private Sub RunNowButton_Click(sender As System.Object, e As System.EventArgs) Handles RunNowButton.Click
