@@ -16,7 +16,7 @@ Public Class MainForm
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
-
+    Dim rowClicked As Integer
 
 
     Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
@@ -529,7 +529,7 @@ Public Class MainForm
 
     Private Sub ScheduledTasksDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ScheduledTasksDataGridView.MouseDown
 
-        Dim rowClicked As Integer
+
         rowClicked = ScheduledTasksDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
 
         If e.Button = Windows.Forms.MouseButtons.Right AndAlso rowClicked >= 0 Then
@@ -537,18 +537,6 @@ Public Class MainForm
             ScheduledTasksDataGridView.ClearSelection()
             ScheduledTasksDataGridView.Rows(rowClicked).Selected = True
             ScheduledTasksDataGridView.ContextMenuStrip = ScheduledTasksContextMenu
-            ScheduledTasksDataGridView.CurrentRow.ReadOnly = False
-
-            'changes the cell contents of the current row
-            'to the cell contents of the selected row
-            Dim cellCount As Integer = ScheduledTasksDataGridView.Rows(rowClicked).Cells.Count
-            For i As Integer = 1 To cellCount
-                ScheduledTasksDataGridView.CurrentRow.Cells(i) = ScheduledTasksDataGridView.Rows(rowClicked).Cells(i)
-                'the following was forbidden
-                'ScheduledTasksDataGridView.CurrentRow = ScheduledTasksDataGridView.Rows(rowClicked)
-                'because currentrow object is ReadOnly
-            Next
-
 
         ElseIf rowClicked < 0 Then
             ScheduledTasksDataGridView.ContextMenuStrip = Nothing
@@ -608,7 +596,7 @@ Public Class MainForm
 
             'edw o kwdikas pou kanei delete to task
 
-            m_master_control.DeleteTask(ScheduledTasksDataGridView.CurrentRow.Cells(2).Value.ToString())
+            m_master_control.DeleteTask(ScheduledTasksDataGridView.Rows(rowClicked).Cells(2).Value.ToString())
         ElseIf result = DialogResult.No Then
 
             Exit Sub
@@ -654,6 +642,10 @@ Public Class MainForm
     'BIZELIS EDW
     Private Sub editTask()
         'edits the task
+    End Sub
+
+    Private Sub ScheduledTasksDataGridView_DataError(sender As System.Object, e As System.Windows.Forms.DataGridViewDataErrorEventArgs) Handles ScheduledTasksDataGridView.DataError
+        Exit Sub
     End Sub
 
 End Class
