@@ -16,10 +16,10 @@ Public Class MainForm
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
 
-    Dim rowClicked As Integer
 
+    Dim m__row_clicked As Integer
 
-    Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
+    Private Sub ButtonSpecHeaderGroup1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer1.SuspendLayout()
 
@@ -68,7 +68,7 @@ Public Class MainForm
         KryptonSplitContainer1.ResumeLayout()
     End Sub
 
-    Private Sub ButtonSpecHeaderGroup2_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup2.Click
+    Private Sub ButtonSpecHeaderGroup2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSpecHeaderGroup2.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer2.SuspendLayout()
 
@@ -106,19 +106,20 @@ Public Class MainForm
         KryptonSplitContainer2.ResumeLayout()
     End Sub
 
-    Private Sub AddTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles AddTaskButton.Click
+    Private Sub AddTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddTaskButton.Click
         NewTaskForm.SetMasterControl(m_master_control)
+        NewTaskForm.m_can_overwrite_task = False
         NewTaskForm.ShowDialog()
     End Sub
 
-    Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
+    Private Sub AddToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToolStripMenuItem.Click
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.ShowDialog()
     End Sub
 
 
     'expands the tree view nodes Task and History on startup
-    Private Sub MainForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         m_scheduled_tasks__datagrid_restrictions = New List(Of String)
         m_log_datagrid_restrictions = New List(Of String)
 
@@ -203,18 +204,18 @@ Public Class MainForm
 
     'changes the default action of the X button
     'instead of closing the programm it hides it in the tray
-    Private Sub MainForm_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub MainForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then
             e.Cancel = True
             Me.Hide()
         End If
     End Sub
 
-    Private Sub ShowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ShowToolStripMenuItem.Click
+    Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click
         Me.Show()
     End Sub
 
-    Private Sub ExitContextMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitContextMenuItem.Click
+    Private Sub ExitContextMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitContextMenuItem.Click
 
         TrayIcon.Dispose()
 
@@ -224,11 +225,11 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub TrayIcon_MouseDoubleClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
+    Private Sub TrayIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
         Me.Show()
     End Sub
 
-    Private Sub ExitToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
+    Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
 
         TrayIcon.Dispose()
 
@@ -238,7 +239,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
+    Private Sub LogButtonSpecExportToPDF_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
 
         exportToPDF()
 
@@ -264,42 +265,42 @@ Public Class MainForm
         MessageBox.Show(e.Exception.Message)
     End Sub
 
-    Private Sub office2010BlackToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010BlackToolStripMenuItem.Click
+    Private Sub office2010BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2010BlackToolStripMenuItem.Click
 
         changePalletteMode(1)
         changeLabelColors(1)
 
     End Sub
 
-    Private Sub office2010BlueToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010BlueToolStripMenuItem.Click
+    Private Sub office2010BlueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2010BlueToolStripMenuItem.Click
 
         changePalletteMode(2)
         changeLabelColors(2)
 
     End Sub
 
-    Private Sub office2010SilverToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2010SilverToolStripMenuItem.Click
+    Private Sub office2010SilverToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2010SilverToolStripMenuItem.Click
 
         changePalletteMode(3)
         changeLabelColors(3)
 
     End Sub
 
-    Private Sub office2007BlackToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007BlackToolStripMenuItem.Click
+    Private Sub office2007BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2007BlackToolStripMenuItem.Click
 
         changePalletteMode(4)
         changeLabelColors(4)
 
     End Sub
 
-    Private Sub office2007BlueToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007BlueToolStripMenuItem.Click
+    Private Sub office2007BlueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2007BlueToolStripMenuItem.Click
 
         changePalletteMode(5)
         changeLabelColors(5)
 
     End Sub
 
-    Private Sub office2007SilverToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles office2007SilverToolStripMenuItem.Click
+    Private Sub office2007SilverToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2007SilverToolStripMenuItem.Click
 
         changePalletteMode(6)
         changeLabelColors(6)
@@ -468,7 +469,7 @@ Public Class MainForm
     End Sub
 
 
-    Private Sub NavigationTreeView_NodeMouseClick(sender As System.Object, e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
+    Private Sub NavigationTreeView_NodeMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
         m_need_to_update_datagrids = True
         Dim tree_full_path As String = e.Node.FullPath
 
@@ -527,18 +528,18 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub ScheduledTasksDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ScheduledTasksDataGridView.MouseDown
+    Private Sub ScheduledTasksDataGridView_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ScheduledTasksDataGridView.MouseDown
 
 
-        rowClicked = ScheduledTasksDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
+        m__row_clicked = ScheduledTasksDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
 
-        If e.Button = Windows.Forms.MouseButtons.Right AndAlso rowClicked >= 0 Then
+        If e.Button = Windows.Forms.MouseButtons.Right AndAlso m__row_clicked >= 0 Then
 
             ScheduledTasksDataGridView.ClearSelection()
-            ScheduledTasksDataGridView.Rows(rowClicked).Selected = True
+            ScheduledTasksDataGridView.Rows(m__row_clicked).Selected = True
             ScheduledTasksDataGridView.ContextMenuStrip = ScheduledTasksContextMenu
 
-        ElseIf rowClicked < 0 Then
+        ElseIf m__row_clicked < 0 Then
             ScheduledTasksDataGridView.ContextMenuStrip = Nothing
             Exit Sub
         End If
@@ -553,37 +554,37 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub ExportToPDFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportToPDFContextMenuItem.Click
+    Private Sub ExportToPDFToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExportToPDFContextMenuItem.Click
         exportToPDF()
     End Sub
 
-    Private Sub LogDataGridView_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles LogDataGridView.MouseDown
+    Private Sub LogDataGridView_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles LogDataGridView.MouseDown
 
-        Dim rowClicked As Integer
-        rowClicked = LogDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
 
-        If e.Button = Windows.Forms.MouseButtons.Right AndAlso rowClicked >= 0 Then
+        m__row_clicked = LogDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
+
+        If e.Button = Windows.Forms.MouseButtons.Right AndAlso m__row_clicked >= 0 Then
 
             LogDataGridView.ClearSelection()
-            LogDataGridView.Rows(rowClicked).Selected = True
+            LogDataGridView.Rows(m__row_clicked).Selected = True
             LogDataGridView.ContextMenuStrip = LogContextMenu
 
-        ElseIf rowClicked < 0 Then
+        ElseIf m__row_clicked < 0 Then
             LogDataGridView.ContextMenuStrip = Nothing
             Exit Sub
 
         End If
     End Sub
 
-    Private Sub DeleteTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles DeleteTaskButton.Click
+    Private Sub DeleteTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteTaskButton.Click
         deleteTask()
     End Sub
 
-    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteContextMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteContextMenuItem.Click
         deleteTask()
     End Sub
 
-    Private Sub DeleteToolStripMenuItem_Click_1(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
         deleteTask()
     End Sub
 
@@ -596,7 +597,7 @@ Public Class MainForm
 
             'edw o kwdikas pou kanei delete to task
 
-            m_master_control.DeleteTask(ScheduledTasksDataGridView.Rows(rowClicked).Cells(2).Value.ToString())
+            m_master_control.DeleteTask(ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString())
         ElseIf result = DialogResult.No Then
 
             Exit Sub
@@ -611,10 +612,10 @@ Public Class MainForm
         m_master_control.ClearLog()
     End Sub
 
-    'BIZELIS EDW
+
     Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryContextMenuItem.Click
         'Removes tin selected entry
-        m_master_control.RemoveEntryFromLog(LogDataGridView.CurrentRow.Cells(0).Value.ToString())
+        m_master_control.RemoveEntryFromLog(LogDataGridView.SelectedRows(0).Cells(0).Value.ToString())
 
     End Sub
 
@@ -626,9 +627,12 @@ Public Class MainForm
         RunNowTask()
     End Sub
 
-    'BIZELIS EDW
+
     Private Sub RunNowTask()
         'runs the selected task now
+        m_master_control.RunTask(ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString(), _
+                                 ScheduledTasksDataGridView.SelectedRows(0).Cells(1).Value.ToString())
+
     End Sub
 
     Private Sub EditTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles EditTaskButton.Click
@@ -642,6 +646,81 @@ Public Class MainForm
     'BIZELIS EDW
     Private Sub editTask()
         'edits the task
+        Dim program_path As String = ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString()
+        Dim list_of_tasks As List(Of ALATasks) = m_master_control.GetTasksWithFullPath(program_path)
+
+        'set the type and the path in the new task form
+        Dim type As String = list_of_tasks(0).type
+        Dim full_path As String = list_of_tasks(0).program_full_path
+        If type.Equals("EXE") Then
+            NewTaskForm.ExecutableCheckButton.Checked = True
+            NewTaskForm.chooseFileTextBox.Text = full_path
+
+        ElseIf type.Equals("FILE") Then
+            NewTaskForm.FileCheckButton.Checked = True
+            NewTaskForm.chooseFileTextBox.Text = full_path
+
+        ElseIf type.Equals("SERVICE") Then
+            NewTaskForm.ServiceCheckButton.Checked = True
+            NewTaskForm.ListServices()
+            NewTaskForm.ServicesDataGridView.Visible = True
+            'here select the APPROPRIATE row 
+        End If
+
+        'set the start date of the task
+        NewTaskForm.DatePicker.Value = list_of_tasks(0).next_run_date
+        NewTaskForm.TimePicker.Value = list_of_tasks(0).next_run_date
+
+        'fixed or periodic tasks
+        Dim object_type As String = list_of_tasks(0).GetType().ToString()
+        Dim final_object_type As New String("")
+        If object_type.Contains("ALFixedDateTasks") Then
+            NewTaskForm.OnceCheckButton.Checked = True
+            final_object_type = "Fixed"
+        Else
+            Dim task As ALPeriodicTasks = list_of_tasks(0)
+            If task.m_period_in_days <> 0 Then
+                'weekly tasks
+                If task.m_period_in_days Mod 7 = 0 Then
+                    NewTaskForm.WeeklyCheckButton.Checked = True
+                    final_object_type = "Weekly"
+                Else
+                    NewTaskForm.DailyCheckButton.Checked = True
+                    final_object_type = "Daily"
+                End If
+
+            ElseIf task.m_period_in_months <> 0 Then
+                NewTaskForm.MonthlyCheckButton.Checked = True
+                final_object_type = "Monthly"
+            ElseIf task.m_period_in_years <> 0 Then
+                NewTaskForm.YearlyCheckButton.Checked = True
+                final_object_type = "Yearly"
+            End If
+        End If
+
+        'set the date specifications for the task
+        Select Case final_object_type
+            Case "Fixed"
+                'do something here
+            Case "Daily"
+                'do something here
+            Case "Weekly"
+                'do something here
+            Case "Monthly"
+                'do something here
+            Case "Yearly"
+                'do something here
+
+        End Select
+
+
+
+
+        'make the form visible
+        NewTaskForm.SetMasterControl(m_master_control)
+        NewTaskForm.m_can_overwrite_task = True
+        NewTaskForm.ShowDialog()
+
     End Sub
 
     Private Sub ScheduledTasksDataGridView_DataError(sender As System.Object, e As System.Windows.Forms.DataGridViewDataErrorEventArgs) Handles ScheduledTasksDataGridView.DataError

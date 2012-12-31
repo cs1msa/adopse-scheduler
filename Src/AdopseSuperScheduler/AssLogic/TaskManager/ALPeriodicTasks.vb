@@ -1,8 +1,8 @@
 ﻿Public Class ALPeriodicTasks
     Inherits ALATasks
-    Dim m_period_in_days As UInteger
-    Dim m_period_in_months As Integer
-    Dim m_period_in_years As Integer
+    Public m_period_in_days As UInteger
+    Public m_period_in_months As Integer
+    Public m_period_in_years As Integer
 
     Sub New(ByVal a_id As Integer, ByVal a_full_path As String, ByVal a_date As Date, ByVal a_status As Boolean, ByVal a_type As String, _
                         ByVal a_end_date As Date, _

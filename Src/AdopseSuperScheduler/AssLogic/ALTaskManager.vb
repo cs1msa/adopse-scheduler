@@ -28,6 +28,16 @@
 
     End Function
 
+    Public Function GetTasksWithFullPath(ByVal a_program_path As String) As List(Of ALATasks)
+        Dim list_to_return As New List(Of ALATasks)
+        For Each task In m_task_list
+            If task.program_full_path.Equals(a_program_path) Then
+                list_to_return.Add(task)
+            End If
+        Next
+        Return list_to_return
+    End Function
+
     Public Function GetTask(ByVal a_index As Integer) As ALATasks
         If a_index > m_task_list.Count - 1 Then
             Throw New IndexOutOfRangeException()

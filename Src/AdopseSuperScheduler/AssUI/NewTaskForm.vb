@@ -8,6 +8,7 @@ Imports ComponentFactory.Krypton.Toolkit
 Public Class NewTaskForm
 
     Dim m_master_control As ALMasterControl
+    Public m_can_overwrite_task As Boolean = False
 
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -92,7 +93,7 @@ Public Class NewTaskForm
     End Sub
 
     'Lists all the services inside a DataGridView
-    Private Sub ListServices()
+    Public Sub ListServices()
 
         Dim svcs As ServiceController() = ServiceController.GetServices()
 
@@ -251,6 +252,15 @@ Public Class NewTaskForm
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
+
+        Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
+        If m_can_overwrite_task Then
+            m_master_control.DeleteTask(chooseFileTextBox.Text)
+        Else
+            MsgBox("Task already exists")
+            Exit Sub
+        End If
+
 
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 

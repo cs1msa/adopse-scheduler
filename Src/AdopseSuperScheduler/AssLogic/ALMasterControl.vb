@@ -197,6 +197,37 @@ Public Class ALMasterControl
 
     End Sub
 
+
+    Public Sub RunTask(ByVal a_full_path As String, ByVal a_type As String)
+        Try
+
+            Dim success As Boolean = True
+            Try
+
+                If a_type.Equals("EXE") Then
+                    m_core.RunFullPathProgram(a_full_path)
+                ElseIf a_type.Equals("FILE") Then
+                    m_core.RunFile(a_full_path)
+                ElseIf a_type.Equals("SERVICE") Then
+                    m_core.StartService(a_full_path)
+                End If
+
+            Catch ex1 As Exception
+                success = False
+
+            End Try
+            
+            m_last_log_id = m_last_log_id + 1
+            m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & a_full_path & "'", "'Task Run (user)" & " " & a_type & " " & success & "'"})
+            m_log_has_changed = True
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+
+
     Public Sub CloseTasks(ByRef a_tasks As List(Of ALATasks))
 
         For Each task As ALATasks In a_tasks
@@ -348,6 +379,10 @@ Public Class ALMasterControl
         Return m_core.GetFromATableAsDataTable(a_table, a_columns, a_restrictions)
     End Function
 
+    Public Function GetTasksWithFullPath(ByVal a_program_path As String) As List(Of ALATasks)
 
+        Return m_task_manager.GetTasksWithFullPath(a_program_path)
+
+    End Function
 
 End Class
