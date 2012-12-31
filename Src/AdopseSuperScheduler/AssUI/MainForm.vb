@@ -462,6 +462,11 @@ Public Class MainForm
             LogDataGridView.DataSource = log_table.Copy()
             LogDataGridView.AutoResizeColumns()
             m_master_control.m_log_has_changed = False
+
+            'sorts the Log by EventID descending order
+            'so that the newest events show up on top
+            LogDataGridView.Sort(LogDataGridView.Columns("Event ID"), System.ComponentModel.ListSortDirection.Descending)
+
         End If
 
         m_need_to_update_datagrids = False

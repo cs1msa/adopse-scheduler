@@ -409,7 +409,7 @@ Public Class NewTaskForm
     Private Sub HandleArrowLabelAndRectangles(ByVal i As Integer)
         Select Case i
             Case 0
-                ArrowLabel.Location = Nothing
+                ArrowLabel.Location = New Point(800, 800) 'which is nowhere inside the form
                 HandleRectangles(False, False, False, False, False)
 
             Case 1

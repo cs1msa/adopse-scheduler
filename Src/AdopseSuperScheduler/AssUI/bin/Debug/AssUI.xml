@@ -15,7 +15,11 @@ AssUI
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:AssUI.My.Resources.Resources.AlarmClockIcon">
+</member><member name="P:AssUI.My.Resources.Resources.addTaskIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.arrowLabelIcon">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -23,11 +27,59 @@ AssUI
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:AssUI.My.Resources.Resources.plus_circle">
+</member><member name="P:AssUI.My.Resources.Resources.deleteTaskIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.editTaskIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.ExecutableIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.exportToPDFicon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.fileIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.logIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.moreoptionsIcon">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:AssUI.My.Resources.Resources.question">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.questionIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.quit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.runTaskIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.saveIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.scheduledTasksIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.serviceIcon">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

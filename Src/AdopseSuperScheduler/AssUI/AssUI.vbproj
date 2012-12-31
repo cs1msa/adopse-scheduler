@@ -233,6 +233,51 @@
   <ItemGroup>
     <None Include="Resources\plus-circle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_3-20110809173948-00022~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356656143_Plus__Orange~2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356656148_refresh red~2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356656152_delete_64~2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow right~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExecutableIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home-Server-icon~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356984461_file_extension_pdf~4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file-extension-log-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1355142334_preferences-calendar-and-tasks~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system_help~1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

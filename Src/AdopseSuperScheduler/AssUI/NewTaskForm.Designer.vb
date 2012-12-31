@@ -254,7 +254,7 @@ Partial Class NewTaskForm
         Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
         Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.SaveTaskButton.TabIndex = 29
-        Me.SaveTaskButton.Values.Image = CType(resources.GetObject("SaveTaskButton.Values.Image"), System.Drawing.Image)
+        Me.SaveTaskButton.Values.Image = Global.AssUI.My.Resources.Resources.saveIcon
         Me.SaveTaskButton.Values.Text = "Save"
         '
         'MoreOptionsButton
@@ -267,7 +267,7 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsButton.TabIndex = 28
         Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
-        Me.MoreOptionsButton.Values.Image = CType(resources.GetObject("MoreOptionsButton.Values.Image"), System.Drawing.Image)
+        Me.MoreOptionsButton.Values.Image = Global.AssUI.My.Resources.Resources.moreoptionsIcon
         Me.MoreOptionsButton.Values.Text = "More Options"
         '
         'RecurrencePanel
@@ -646,11 +646,11 @@ Partial Class NewTaskForm
         '
         'ArrowLabel
         '
-        Me.ArrowLabel.Location = New System.Drawing.Point(1, 41)
+        Me.ArrowLabel.Location = New System.Drawing.Point(3, 52)
         Me.ArrowLabel.Name = "ArrowLabel"
         Me.ArrowLabel.Size = New System.Drawing.Size(38, 34)
         Me.ArrowLabel.TabIndex = 20
-        Me.ArrowLabel.Values.Image = CType(resources.GetObject("ArrowLabel.Values.Image"), System.Drawing.Image)
+        Me.ArrowLabel.Values.Image = Global.AssUI.My.Resources.Resources.arrowLabelIcon
         Me.ArrowLabel.Values.Text = ""
         '
         'DateTimePanel
@@ -846,7 +846,7 @@ Partial Class NewTaskForm
         Me.ExecutableCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ExecutableCheckButton.TabIndex = 7
         Me.ToolTip1.SetToolTip(Me.ExecutableCheckButton, "Executable")
-        Me.ExecutableCheckButton.Values.Image = CType(resources.GetObject("ExecutableCheckButton.Values.Image"), System.Drawing.Image)
+        Me.ExecutableCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.ExecutableIcon
         Me.ExecutableCheckButton.Values.Text = ""
         '
         'FileCheckButton
@@ -857,7 +857,7 @@ Partial Class NewTaskForm
         Me.FileCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.FileCheckButton.TabIndex = 10
         Me.ToolTip1.SetToolTip(Me.FileCheckButton, "File")
-        Me.FileCheckButton.Values.Image = CType(resources.GetObject("FileCheckButton.Values.Image"), System.Drawing.Image)
+        Me.FileCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.fileIcon
         Me.FileCheckButton.Values.Text = ""
         '
         'ServiceCheckButton
@@ -868,7 +868,7 @@ Partial Class NewTaskForm
         Me.ServiceCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ServiceCheckButton.TabIndex = 9
         Me.ToolTip1.SetToolTip(Me.ServiceCheckButton, "Service")
-        Me.ServiceCheckButton.Values.Image = CType(resources.GetObject("ServiceCheckButton.Values.Image"), System.Drawing.Image)
+        Me.ServiceCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.serviceIcon
         Me.ServiceCheckButton.Values.Text = ""
         '
         'KindOfTaskLabel
@@ -1027,6 +1027,7 @@ Partial Class NewTaskForm
         Me.TimeChangedTaskDialog.CheckboxText = Nothing
         Me.TimeChangedTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
         Me.TimeChangedTaskDialog.Content = Nothing
+        Me.TimeChangedTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.questionIcon
         Me.TimeChangedTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes
         Me.TimeChangedTaskDialog.DefaultRadioButton = Nothing
         Me.TimeChangedTaskDialog.FooterHyperlink = Nothing
@@ -1042,7 +1043,7 @@ Partial Class NewTaskForm
         Me.SaveButtonTaskDialog.CheckboxText = Nothing
         Me.SaveButtonTaskDialog.CommonButtons = CType((ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Yes Or ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No), ComponentFactory.Krypton.Toolkit.TaskDialogButtons)
         Me.SaveButtonTaskDialog.Content = "Are you sure you want to save this task ?"
-        Me.SaveButtonTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.question
+        Me.SaveButtonTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.questionIcon
         Me.SaveButtonTaskDialog.DefaultButton = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.No
         Me.SaveButtonTaskDialog.DefaultRadioButton = Nothing
         Me.SaveButtonTaskDialog.FooterHyperlink = Nothing
