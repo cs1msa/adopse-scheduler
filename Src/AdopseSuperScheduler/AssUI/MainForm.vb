@@ -2,6 +2,7 @@ Imports ComponentFactory.Krypton.Toolkit
 Imports AssLogic
 Imports CompletIT.Windows.Forms.Export.Pdf
 Imports CompletIT.Windows.Forms.Export
+Imports System.ServiceProcess
 
 
 
@@ -240,9 +241,7 @@ Public Class MainForm
     End Sub
 
     Private Sub LogButtonSpecExportToPDF_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
-
         exportToPDF()
-
     End Sub
 
     Private Sub exportToPDF()
@@ -434,7 +433,9 @@ Public Class MainForm
             Dim list_of_programs As New List(Of String)
             Dim scheduler_table_to_show = scheduler_table.Copy()
             scheduler_table_to_show.Rows.Clear()
+
             For Each task As DataRow In scheduler_table.Rows
+
                 If Not (list_of_programs.Contains(task("Task"))) Then
                     list_of_programs.Add(task("Task"))
                     scheduler_table_to_show.ImportRow(task)
@@ -450,8 +451,9 @@ Public Class MainForm
             ScheduledTasksDataGridView.AutoResizeColumns()
             m_master_control.m_scheduler_tasks_has_changed = False
 
+            'makes sure no row is selected
+            ScheduledTasksDataGridView.ClearSelection()
         End If
-
 
 
         If m_need_to_update_datagrids Or m_master_control.m_log_has_changed Then
@@ -467,6 +469,8 @@ Public Class MainForm
             'so that the newest events show up on top
             LogDataGridView.Sort(LogDataGridView.Columns("Event ID"), System.ComponentModel.ListSortDirection.Descending)
 
+            'makes sure no row is selected
+            LogDataGridView.ClearSelection()
         End If
 
         m_need_to_update_datagrids = False
@@ -475,6 +479,7 @@ Public Class MainForm
 
 
     Private Sub NavigationTreeView_NodeMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
+
         m_need_to_update_datagrids = True
         Dim tree_full_path As String = e.Node.FullPath
 
@@ -514,7 +519,6 @@ Public Class MainForm
             End If
 
 
-
         ElseIf tree_full_path.Contains("History") Then
             'it is about log/History
             m_log_datagrid_restrictions = New List(Of String)
@@ -535,7 +539,6 @@ Public Class MainForm
 
     Private Sub ScheduledTasksDataGridView_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ScheduledTasksDataGridView.MouseDown
 
-
         m__row_clicked = ScheduledTasksDataGridView.HitTest(e.Location.X, e.Location.Y).RowIndex
 
         If e.Button = Windows.Forms.MouseButtons.Right AndAlso m__row_clicked >= 0 Then
@@ -549,14 +552,22 @@ Public Class MainForm
             Exit Sub
         End If
 
-        EditTaskButton.Enabled = True
-        DeleteTaskButton.Enabled = True
-        RunNowButton.Enabled = True
+        'makes the Edit,Delete and Run Now buttons enabled
+        'and their respective context menu items
+        handleEditDeleteRunButtons(True)
 
-        EditToolStripMenuItem.Enabled = True
-        DeleteToolStripMenuItem.Enabled = True
-        RunNowToolStripMenuItem.Enabled = True
+    End Sub
 
+    'handles the state of the Edit, Delete and Run Now buttons
+    'and their respective context menu items
+    Private Sub handleEditDeleteRunButtons(ByVal state As Boolean)
+        EditTaskButton.Enabled = state
+        DeleteTaskButton.Enabled = state
+        RunNowButton.Enabled = state
+
+        EditToolStripMenuItem.Enabled = state
+        DeleteToolStripMenuItem.Enabled = state
+        RunNowToolStripMenuItem.Enabled = state
     End Sub
 
     Private Sub ExportToPDFToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExportToPDFContextMenuItem.Click
@@ -593,7 +604,6 @@ Public Class MainForm
         deleteTask()
     End Sub
 
-
     Private Sub deleteTask()
 
         Dim result As DialogResult = DeleteTaskDialog.ShowDialog()
@@ -617,12 +627,12 @@ Public Class MainForm
         m_master_control.ClearLog()
     End Sub
 
-
     Private Sub RemoveEntryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RemoveEntryContextMenuItem.Click
         'Removes tin selected entry
         m_master_control.RemoveEntryFromLog(LogDataGridView.SelectedRows(0).Cells(0).Value.ToString())
 
     End Sub
+
 
     Private Sub RunNowButton_Click(sender As System.Object, e As System.EventArgs) Handles RunNowButton.Click
         RunNowTask()
@@ -632,13 +642,13 @@ Public Class MainForm
         RunNowTask()
     End Sub
 
-
     Private Sub RunNowTask()
         'runs the selected task now
         m_master_control.RunTask(ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString(), _
                                  ScheduledTasksDataGridView.SelectedRows(0).Cells(1).Value.ToString())
 
     End Sub
+
 
     Private Sub EditTaskButton_Click(sender As System.Object, e As System.EventArgs) Handles EditTaskButton.Click
         editTask()
@@ -669,7 +679,10 @@ Public Class MainForm
             NewTaskForm.ServiceCheckButton.Checked = True
             NewTaskForm.ListServices()
             NewTaskForm.ServicesDataGridView.Visible = True
+
             'here select the APPROPRIATE row 
+            NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(program_path)).Cells(0)
+
         End If
 
         'set the start date of the task
@@ -718,9 +731,6 @@ Public Class MainForm
 
         End Select
 
-
-
-
         'make the form visible
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.m_can_overwrite_task = True
@@ -728,8 +738,37 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub ScheduledTasksDataGridView_DataError(sender As System.Object, e As System.Windows.Forms.DataGridViewDataErrorEventArgs) Handles ScheduledTasksDataGridView.DataError
-        Exit Sub
+    Private Function getServiceRow(ByVal path As String)
+        Dim svcs As ServiceController() = ServiceController.GetServices()
+        Dim row As Integer = 0
+
+        For Each svc As ServiceController In svcs
+            row = row + 1
+
+            If svc.DisplayName.ToString.Equals(path) Then
+                Exit For
+            End If
+
+        Next (svc)
+
+        Return row - 1
+    End Function
+
+    'if Navigator is clicked, scheduled tasks selected row gets unselected
+    'and so Edit, Delete and Run functions get disabled
+    Private Sub NavigationTreeView_Enter(sender As System.Object, e As System.EventArgs) Handles NavigationTreeView.Enter
+        ScheduledTasksDataGridView.ClearSelection()
+        handleEditDeleteRunButtons(False)
     End Sub
 
+    'if Log is clicked, scheduled tasks selected row gets unselected
+    'and so Edit, Delete and Run functions get disabled
+    Private Sub LogDataGridView_Enter(sender As System.Object, e As System.EventArgs) Handles LogDataGridView.Enter
+        ScheduledTasksDataGridView.ClearSelection()
+        handleEditDeleteRunButtons(False)
+    End Sub
+
+    Private Sub ScheduledTasksDataGridView_Enter(sender As System.Object, e As System.EventArgs) Handles ScheduledTasksDataGridView.Enter
+        LogDataGridView.ClearSelection()
+    End Sub
 End Class

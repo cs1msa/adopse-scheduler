@@ -1213,7 +1213,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuCheckBox54 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents ServiceCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Friend WithEvents ExecutableCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
-    Friend WithEvents ServicesDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
     Friend WithEvents Name_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Status_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceType_Column As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1239,4 +1238,5 @@ Partial Class NewTaskForm
     Friend WithEvents WeeklyCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
     Friend WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Friend WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
+    Public WithEvents ServicesDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
 End Class

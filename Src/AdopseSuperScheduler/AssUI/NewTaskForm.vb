@@ -729,4 +729,5 @@ Public Class NewTaskForm
     Private Sub ServicesDataGridView_MouseHover(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.MouseHover
         HandleArrowLabelAndRectangles(2)
     End Sub
+
 End Class

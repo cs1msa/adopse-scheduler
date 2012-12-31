@@ -203,9 +203,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AlarmClockIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +274,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\system_help~1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356741300_edit-clear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
