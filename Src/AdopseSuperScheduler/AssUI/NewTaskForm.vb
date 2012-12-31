@@ -263,36 +263,21 @@ Public Class NewTaskForm
             End If
         End If
 
-
-
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
         'checks if the task type is Once
         'and if the time is before the current time
         'if so, it changes it to the current time + 3min
         'and opens a dialog prompting the user
-        If OnceCheckButton.Checked = True And _
-                DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString And _
-                TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
+        checkOnceTime()
 
-            TimePicker.Value = DateTime.Now.ToLongTimeString
-            TimePicker.Value = TimePicker.Value.AddMinutes(3.0)
+        'saves the task to the database
+        saveTask()
 
-            TimeChangedTaskDialog.Content = "Scheduled time changed to *" & TimePicker.Value & "*" _
-                                    & vbCrLf & "so that the task won't be missed!" & vbCrLf _
-                                    & vbCrLf & "Do you want to continue ?"
+    End Sub
 
-            Dim resultTime As DialogResult
-            resultTime = TimeChangedTaskDialog.ShowDialog()
-
-            If (resultTime = DialogResult.No) Then
-                Exit Sub
-            End If
-
-        End If
-
-        'gets the result from the Dialog 
-        'asking the user if he wants to save the task
+    'saves the task to the database
+    Private Sub saveTask()
         Dim resultSave As DialogResult
         resultSave = SaveButtonTaskDialog.ShowDialog()
 
@@ -303,7 +288,6 @@ Public Class NewTaskForm
 
             Dim m_end_date As Date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
-
 
 
             Dim m_not_run As String
@@ -367,9 +351,34 @@ Public Class NewTaskForm
         Else
             Exit Sub
         End If
-
     End Sub
 
+    'checks if the task type is Once
+    'and if the time is before the current time
+    'if so, it changes it to the current time + 3min
+    'and opens a dialog prompting the user
+    Private Sub checkOnceTime()
+        If OnceCheckButton.Checked = True _
+                And DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString _
+                And TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
+
+            TimeChangedTaskDialog.Content = "Scheduled time will be changed to *" & TimePicker.Value.AddMinutes(3.0) & "*" _
+                                    & vbCrLf & "so that the task won't be missed!" & vbCrLf _
+                                    & vbCrLf & "Do you want to continue ?"
+
+            Dim resultTime As DialogResult
+            resultTime = TimeChangedTaskDialog.ShowDialog()
+
+            If resultTime = DialogResult.Yes Then
+
+                TimePicker.Value = DateTime.Now.ToLongTimeString
+                TimePicker.Value = TimePicker.Value.AddMinutes(3.0)
+
+            Else
+                Exit Sub
+            End If
+        End If
+    End Sub
 
 #Region "My handle-methods"
     'handles ChooseFile Panel (visibility and label text)
