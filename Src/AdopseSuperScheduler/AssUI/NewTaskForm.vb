@@ -254,12 +254,15 @@ Public Class NewTaskForm
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
 
         Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
-        If m_can_overwrite_task Then
-            m_master_control.DeleteTask(chooseFileTextBox.Text)
-        Else
-            MsgBox("Task already exists")
-            Exit Sub
+        If task_exists Then
+            If m_can_overwrite_task Then
+                m_master_control.DeleteTask(chooseFileTextBox.Text)
+            Else
+                MsgBox("Task already exists")
+                Exit Sub
+            End If
         End If
+
 
 
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
