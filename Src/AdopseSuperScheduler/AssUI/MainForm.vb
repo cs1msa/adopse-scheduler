@@ -8,7 +8,7 @@ Imports System.ServiceProcess
 
 Public Class MainForm
 
-    Dim m_master_control As ALMasterControl
+    Friend m_master_control As ALMasterControl
 
     Dim m_scheduled_tasks__datagrid_restrictions As List(Of String)
     Dim m_log_datagrid_restrictions As List(Of String)
@@ -16,7 +16,6 @@ Public Class MainForm
 
     Private _widthLeftRight As Integer
     Private _heightUpDown As Integer
-
 
     Dim m__row_clicked As Integer
 
@@ -241,10 +240,10 @@ Public Class MainForm
     End Sub
 
     Private Sub LogButtonSpecExportToPDF_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
-        exportToPDF()
+        exportToPDF(LogDataGridView)
     End Sub
 
-    Private Sub exportToPDF()
+    Friend Sub exportToPDF(ByRef datagridview As ComponentFactory.Krypton.Toolkit.KryptonDataGridView)
 
         'You can export any DataGridView control, no matter managed or not by the extension
         Dim pdfExporter As DGVEPdfExporter = New DGVEPdfExporter()
@@ -255,7 +254,7 @@ Public Class MainForm
         End If
 
         AddHandler pdfExporter.ExportFailed, AddressOf exporter_ExportFailed
-        pdfExporter.Export(LogDataGridView, dialog.Settings)
+        pdfExporter.Export(datagridview, dialog.Settings)
 
     End Sub
 
@@ -264,6 +263,7 @@ Public Class MainForm
         MessageBox.Show(e.Exception.Message)
     End Sub
 
+#Region "View ToolStrip MenuItems click-events"
     Private Sub office2010BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2010BlackToolStripMenuItem.Click
 
         changePalletteMode(1)
@@ -305,6 +305,7 @@ Public Class MainForm
         changeLabelColors(6)
 
     End Sub
+#End Region
 
     'changes the pallette mode to the one that the user chose
     Private Sub changePalletteMode(ByVal i As Integer)
@@ -571,7 +572,7 @@ Public Class MainForm
     End Sub
 
     Private Sub ExportToPDFToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExportToPDFContextMenuItem.Click
-        exportToPDF()
+        exportToPDF(LogDataGridView)
     End Sub
 
     Private Sub LogDataGridView_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles LogDataGridView.MouseDown
@@ -770,5 +771,12 @@ Public Class MainForm
 
     Private Sub ScheduledTasksDataGridView_Enter(sender As System.Object, e As System.EventArgs) Handles ScheduledTasksDataGridView.Enter
         LogDataGridView.ClearSelection()
+    End Sub
+
+    Private Sub ViewHistoryContextMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ViewHistoryContextMenuItem.Click
+
+        Dim form As ViewHistoryForm = New ViewHistoryForm
+        form.Show()
+
     End Sub
 End Class

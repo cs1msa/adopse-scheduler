@@ -68,7 +68,6 @@ Partial Class MainForm
         Dim TreeNode46 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
         Dim TreeNode47 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
         Dim TreeNode48 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("History", New System.Windows.Forms.TreeNode() {TreeNode44, TreeNode45, TreeNode46, TreeNode47})
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LowerPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonSplitContainer1 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
@@ -78,22 +77,9 @@ Partial Class MainForm
         Me.KryptonSplitContainer2 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
         Me.ScheduledTasksHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.ScheduledTasksDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
-        Me.taskID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.taskGenre_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Task_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Type_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NextExecution_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Description_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.close_after = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.end_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
-        Me.EventID_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateTime_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TaskName_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Details_Column = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.UpperPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonPanel1 = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
@@ -103,7 +89,6 @@ Partial Class MainForm
         Me.EditTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.office2010BlackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -337,7 +322,7 @@ Partial Class MainForm
         TreeNode48.Text = "History"
         Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode43, TreeNode48})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
-        Me.NavigationTreeView.Size = New System.Drawing.Size(169, 452)
+        Me.NavigationTreeView.Size = New System.Drawing.Size(169, 454)
         Me.NavigationTreeView.StateCheckedNormal.Node.Back.Color1 = System.Drawing.Color.LemonChiffon
         Me.NavigationTreeView.TabIndex = 1
         '
@@ -385,97 +370,19 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ScheduledTasksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ScheduledTasksDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.taskID_Column, Me.taskGenre_Column, Me.Task_Column, Me.Type_Column, Me.NextExecution_Column, Me.Status_Column, Me.Description_Column, Me.close_after, Me.end_date})
         Me.ScheduledTasksDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ScheduledTasksDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.ScheduledTasksDataGridView.MultiSelect = False
         Me.ScheduledTasksDataGridView.Name = "ScheduledTasksDataGridView"
         Me.ScheduledTasksDataGridView.ReadOnly = True
         Me.ScheduledTasksDataGridView.RowHeadersVisible = False
         Me.ScheduledTasksDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(858, 208)
+        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(858, 206)
         Me.ScheduledTasksDataGridView.TabIndex = 1
-        '
-        'taskID_Column
-        '
-        Me.taskID_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.taskID_Column.DefaultCellStyle = DataGridViewCellStyle1
-        Me.taskID_Column.FillWeight = 43.88676!
-        Me.taskID_Column.HeaderText = "ID"
-        Me.taskID_Column.MinimumWidth = 35
-        Me.taskID_Column.Name = "taskID_Column"
-        Me.taskID_Column.ReadOnly = True
-        Me.taskID_Column.Width = 47
-        '
-        'taskGenre_Column
-        '
-        Me.taskGenre_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.taskGenre_Column.FillWeight = 73.15503!
-        Me.taskGenre_Column.HeaderText = "Genre"
-        Me.taskGenre_Column.MinimumWidth = 100
-        Me.taskGenre_Column.Name = "taskGenre_Column"
-        Me.taskGenre_Column.ReadOnly = True
-        Me.taskGenre_Column.Width = 113
-        '
-        'Task_Column
-        '
-        Me.Task_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Task_Column.FillWeight = 70.88963!
-        Me.Task_Column.HeaderText = "Task"
-        Me.Task_Column.MinimumWidth = 100
-        Me.Task_Column.Name = "Task_Column"
-        Me.Task_Column.ReadOnly = True
-        '
-        'Type_Column
-        '
-        Me.Type_Column.FillWeight = 79.91032!
-        Me.Type_Column.HeaderText = "Type"
-        Me.Type_Column.MinimumWidth = 60
-        Me.Type_Column.Name = "Type_Column"
-        Me.Type_Column.ReadOnly = True
-        Me.Type_Column.Width = 60
-        '
-        'NextExecution_Column
-        '
-        Me.NextExecution_Column.FillWeight = 175.4121!
-        Me.NextExecution_Column.HeaderText = "Next Execution"
-        Me.NextExecution_Column.MinimumWidth = 150
-        Me.NextExecution_Column.Name = "NextExecution_Column"
-        Me.NextExecution_Column.ReadOnly = True
-        Me.NextExecution_Column.Width = 220
-        '
-        'Status_Column
-        '
-        Me.Status_Column.FillWeight = 100.7967!
-        Me.Status_Column.HeaderText = "Status"
-        Me.Status_Column.MinimumWidth = 65
-        Me.Status_Column.Name = "Status_Column"
-        Me.Status_Column.ReadOnly = True
-        Me.Status_Column.Width = 90
-        '
-        'Description_Column
-        '
-        Me.Description_Column.FillWeight = 155.9494!
-        Me.Description_Column.HeaderText = "Description"
-        Me.Description_Column.Name = "Description_Column"
-        Me.Description_Column.ReadOnly = True
-        Me.Description_Column.Width = 113
-        '
-        'close_after
-        '
-        Me.close_after.HeaderText = "Remaining Runs"
-        Me.close_after.Name = "close_after"
-        Me.close_after.ReadOnly = True
-        '
-        'end_date
-        '
-        Me.end_date.HeaderText = "End Date"
-        Me.end_date.Name = "end_date"
-        Me.end_date.ReadOnly = True
         '
         'LogHeaderGroup
         '
@@ -505,7 +412,6 @@ Partial Class MainForm
         Me.LogDataGridView.AllowUserToOrderColumns = True
         Me.LogDataGridView.AllowUserToResizeRows = False
         Me.LogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LogDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EventID_Column, Me.DateTime_Column, Me.TaskName_Column, Me.Details_Column})
         Me.LogDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
         Me.LogDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
@@ -517,43 +423,12 @@ Partial Class MainForm
         Me.LogDataGridView.ReadOnly = True
         Me.LogDataGridView.RowHeadersVisible = False
         Me.LogDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LogDataGridView.Size = New System.Drawing.Size(858, 201)
+        Me.LogDataGridView.Size = New System.Drawing.Size(858, 199)
         Me.LogDataGridView.TabIndex = 0
-        '
-        'EventID_Column
-        '
-        Me.EventID_Column.HeaderText = "Event ID"
-        Me.EventID_Column.MinimumWidth = 60
-        Me.EventID_Column.Name = "EventID_Column"
-        Me.EventID_Column.ReadOnly = True
-        Me.EventID_Column.Width = 80
-        '
-        'DateTime_Column
-        '
-        Me.DateTime_Column.HeaderText = "Date & Time"
-        Me.DateTime_Column.MinimumWidth = 150
-        Me.DateTime_Column.Name = "DateTime_Column"
-        Me.DateTime_Column.ReadOnly = True
-        Me.DateTime_Column.Width = 160
-        '
-        'TaskName_Column
-        '
-        Me.TaskName_Column.HeaderText = "Task"
-        Me.TaskName_Column.MinimumWidth = 100
-        Me.TaskName_Column.Name = "TaskName_Column"
-        Me.TaskName_Column.ReadOnly = True
-        '
-        'Details_Column
-        '
-        Me.Details_Column.HeaderText = "Details"
-        Me.Details_Column.MinimumWidth = 200
-        Me.Details_Column.Name = "Details_Column"
-        Me.Details_Column.ReadOnly = True
-        Me.Details_Column.Width = 311
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
         '
         'UpperPanel
         '
@@ -631,7 +506,7 @@ Partial Class MainForm
         '
         'MenuStrip
         '
-        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.TaskToolStripMenuItem, Me.ViewToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
@@ -641,15 +516,10 @@ Partial Class MainForm
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.ExitToolStripMenuItem1})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem1})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(89, 6)
         '
         'TaskToolStripMenuItem
         '
@@ -739,19 +609,19 @@ Partial Class MainForm
         '
         'ScheduledTasksContextMenu
         '
-        Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.ScheduledTasksContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditContextMenuItem, Me.DeleteContextMenuItem, Me.RunNowContextMenuItem, Me.ToolStripSeparator3, Me.ViewHistoryContextMenuItem})
         Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
-        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
+        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(153, 120)
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(137, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(149, 6)
         '
         'LogContextMenu
         '
-        Me.LogContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.LogContextMenu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.LogContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveEntryContextMenuItem, Me.ToolStripSeparator4, Me.ExportToPDFContextMenuItem, Me.ToolStripSeparator5, Me.ClearLogContextMenuItem})
         Me.LogContextMenu.Name = "LogContextMenu"
         Me.LogContextMenu.Size = New System.Drawing.Size(148, 82)
@@ -829,28 +699,28 @@ Partial Class MainForm
         '
         Me.EditContextMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
         Me.EditContextMenuItem.Name = "EditContextMenuItem"
-        Me.EditContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.EditContextMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditContextMenuItem.Text = "Edit"
         '
         'DeleteContextMenuItem
         '
         Me.DeleteContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
         Me.DeleteContextMenuItem.Name = "DeleteContextMenuItem"
-        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DeleteContextMenuItem.Text = "Delete"
         '
         'RunNowContextMenuItem
         '
         Me.RunNowContextMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
         Me.RunNowContextMenuItem.Name = "RunNowContextMenuItem"
-        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RunNowContextMenuItem.Text = "Run Now"
         '
         'ViewHistoryContextMenuItem
         '
         Me.ViewHistoryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.logIcon
         Me.ViewHistoryContextMenuItem.Name = "ViewHistoryContextMenuItem"
-        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ViewHistoryContextMenuItem.Text = "View History"
         '
         'RemoveEntryContextMenuItem
@@ -996,14 +866,9 @@ Partial Class MainForm
     Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EventID_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DateTime_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TaskName_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Details_Column As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
     Friend WithEvents AdopseSuperSchedulerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Timer As System.Windows.Forms.Timer
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents NoScheduledTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents office2010BlackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1014,15 +879,6 @@ Partial Class MainForm
     Friend WithEvents office2007SilverToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ScheduledTasksDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
-    Friend WithEvents taskID_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents taskGenre_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Task_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Type_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NextExecution_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Status_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Description_Column As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents close_after As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents end_date As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ScheduledTasksContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents EditContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RunNowContextMenuItem As System.Windows.Forms.ToolStripMenuItem
