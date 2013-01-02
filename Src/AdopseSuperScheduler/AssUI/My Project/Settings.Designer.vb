@@ -89,6 +89,18 @@ Namespace My
                 Me("LabelColorsFlag") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property RunOnStartupFlag() As Boolean
+            Get
+                Return CType(Me("RunOnStartupFlag"),Boolean)
+            End Get
+            Set
+                Me("RunOnStartupFlag") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

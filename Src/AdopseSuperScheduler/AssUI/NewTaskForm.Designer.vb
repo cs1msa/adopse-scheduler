@@ -229,7 +229,7 @@ Partial Class NewTaskForm
         Me.ServiceLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.ServiceLabel.Location = New System.Drawing.Point(171, 106)
         Me.ServiceLabel.Name = "ServiceLabel"
-        Me.ServiceLabel.Size = New System.Drawing.Size(133, 20)
+        Me.ServiceLabel.Size = New System.Drawing.Size(133, 22)
         Me.ServiceLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.ServiceLabel.TabIndex = 32
         Me.ServiceLabel.Values.Text = "Please choose a service"
@@ -239,7 +239,7 @@ Partial Class NewTaskForm
         '
         Me.chooseFileCheckLabel.Location = New System.Drawing.Point(458, 169)
         Me.chooseFileCheckLabel.Name = "chooseFileCheckLabel"
-        Me.chooseFileCheckLabel.Size = New System.Drawing.Size(38, 34)
+        Me.chooseFileCheckLabel.Size = New System.Drawing.Size(38, 36)
         Me.chooseFileCheckLabel.TabIndex = 30
         Me.chooseFileCheckLabel.Values.Image = Global.AssUI.My.Resources.Resources.cross
         Me.chooseFileCheckLabel.Values.Text = ""
@@ -589,7 +589,7 @@ Partial Class NewTaskForm
         '
         Me.Label2.Location = New System.Drawing.Point(204, 39)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(35, 20)
+        Me.Label2.Size = New System.Drawing.Size(35, 22)
         Me.Label2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.Label2.TabIndex = 3
         Me.Label2.Values.Text = "days"
@@ -609,7 +609,7 @@ Partial Class NewTaskForm
         '
         Me.Label1.Location = New System.Drawing.Point(109, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 20)
+        Me.Label1.Size = New System.Drawing.Size(39, 22)
         Me.Label1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.Label1.TabIndex = 1
         Me.Label1.Values.Text = "Every"
@@ -619,7 +619,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KryptonLabel3.Location = New System.Drawing.Point(75, 13)
         Me.KryptonLabel3.Name = "KryptonLabel3"
-        Me.KryptonLabel3.Size = New System.Drawing.Size(223, 20)
+        Me.KryptonLabel3.Size = New System.Drawing.Size(223, 22)
         Me.KryptonLabel3.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel3.TabIndex = 0
         Me.KryptonLabel3.Values.Text = "Please choose the recurrence of the task"
@@ -648,7 +648,7 @@ Partial Class NewTaskForm
         '
         Me.ArrowLabel.Location = New System.Drawing.Point(3, 52)
         Me.ArrowLabel.Name = "ArrowLabel"
-        Me.ArrowLabel.Size = New System.Drawing.Size(38, 34)
+        Me.ArrowLabel.Size = New System.Drawing.Size(38, 36)
         Me.ArrowLabel.TabIndex = 20
         Me.ArrowLabel.Values.Image = Global.AssUI.My.Resources.Resources.arrowLabelIcon
         Me.ArrowLabel.Values.Text = ""
@@ -672,7 +672,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KryptonLabel1.Location = New System.Drawing.Point(82, 0)
         Me.KryptonLabel1.Name = "KryptonLabel1"
-        Me.KryptonLabel1.Size = New System.Drawing.Size(257, 20)
+        Me.KryptonLabel1.Size = New System.Drawing.Size(257, 22)
         Me.KryptonLabel1.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel1.TabIndex = 15
         Me.KryptonLabel1.Values.Text = "Please choose start date and time for the task!"
@@ -693,7 +693,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel2.Enabled = False
         Me.KryptonLabel2.Location = New System.Drawing.Point(268, 27)
         Me.KryptonLabel2.Name = "KryptonLabel2"
-        Me.KryptonLabel2.Size = New System.Drawing.Size(40, 20)
+        Me.KryptonLabel2.Size = New System.Drawing.Size(40, 22)
         Me.KryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.KryptonLabel2.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.KryptonLabel2.TabIndex = 18
@@ -704,7 +704,7 @@ Partial Class NewTaskForm
         Me.DateLabel.Enabled = False
         Me.DateLabel.Location = New System.Drawing.Point(7, 27)
         Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(39, 20)
+        Me.DateLabel.Size = New System.Drawing.Size(39, 22)
         Me.DateLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.DateLabel.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.DateLabel.TabIndex = 17
@@ -775,7 +775,7 @@ Partial Class NewTaskForm
         Me.TypeOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.TypeOfTaskLabel.Location = New System.Drawing.Point(85, 3)
         Me.TypeOfTaskLabel.Name = "TypeOfTaskLabel"
-        Me.TypeOfTaskLabel.Size = New System.Drawing.Size(223, 20)
+        Me.TypeOfTaskLabel.Size = New System.Drawing.Size(223, 22)
         Me.TypeOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.TypeOfTaskLabel.TabIndex = 12
         Me.TypeOfTaskLabel.Values.Text = "What type of task do you want it to be ?"
@@ -876,7 +876,7 @@ Partial Class NewTaskForm
         Me.KindOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KindOfTaskLabel.Location = New System.Drawing.Point(41, 3)
         Me.KindOfTaskLabel.Name = "KindOfTaskLabel"
-        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 20)
+        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 22)
         Me.KindOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KindOfTaskLabel.TabIndex = 1
         Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
@@ -961,7 +961,7 @@ Partial Class NewTaskForm
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
         '
         'OpenFileDialog
         '

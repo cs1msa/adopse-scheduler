@@ -106,7 +106,7 @@ Partial Class MoreOptionsForm
         '
         Me.KryptonLabel1.Location = New System.Drawing.Point(129, 5)
         Me.KryptonLabel1.Name = "KryptonLabel1"
-        Me.KryptonLabel1.Size = New System.Drawing.Size(171, 20)
+        Me.KryptonLabel1.Size = New System.Drawing.Size(171, 22)
         Me.KryptonLabel1.StateCommon.LongText.Color1 = System.Drawing.Color.Silver
         Me.KryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.KryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.White
@@ -190,7 +190,7 @@ Partial Class MoreOptionsForm
         '
         Me.RunWhenPcOpensRadioButton.Location = New System.Drawing.Point(9, 5)
         Me.RunWhenPcOpensRadioButton.Name = "RunWhenPcOpensRadioButton"
-        Me.RunWhenPcOpensRadioButton.Size = New System.Drawing.Size(131, 20)
+        Me.RunWhenPcOpensRadioButton.Size = New System.Drawing.Size(132, 22)
         Me.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.RunWhenPcOpensRadioButton.TabIndex = 6
         Me.RunWhenPcOpensRadioButton.Values.Text = "Run when PC opens"
@@ -200,7 +200,7 @@ Partial Class MoreOptionsForm
         Me.DisplayDialogAskingRadioButton.Checked = True
         Me.DisplayDialogAskingRadioButton.Location = New System.Drawing.Point(9, 31)
         Me.DisplayDialogAskingRadioButton.Name = "DisplayDialogAskingRadioButton"
-        Me.DisplayDialogAskingRadioButton.Size = New System.Drawing.Size(138, 20)
+        Me.DisplayDialogAskingRadioButton.Size = New System.Drawing.Size(139, 22)
         Me.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.DisplayDialogAskingRadioButton.TabIndex = 7
         Me.DisplayDialogAskingRadioButton.Values.Text = "Display dialog asking"
@@ -209,7 +209,7 @@ Partial Class MoreOptionsForm
         '
         Me.DoNothingRadioButton.Location = New System.Drawing.Point(9, 57)
         Me.DoNothingRadioButton.Name = "DoNothingRadioButton"
-        Me.DoNothingRadioButton.Size = New System.Drawing.Size(87, 20)
+        Me.DoNothingRadioButton.Size = New System.Drawing.Size(88, 22)
         Me.DoNothingRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.DoNothingRadioButton.TabIndex = 8
         Me.DoNothingRadioButton.Values.Text = "Do Nothing"
@@ -238,7 +238,7 @@ Partial Class MoreOptionsForm
         '
         Me.InactiveRadioButton.Location = New System.Drawing.Point(83, 3)
         Me.InactiveRadioButton.Name = "InactiveRadioButton"
-        Me.InactiveRadioButton.Size = New System.Drawing.Size(64, 20)
+        Me.InactiveRadioButton.Size = New System.Drawing.Size(65, 22)
         Me.InactiveRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.InactiveRadioButton.TabIndex = 1
         Me.InactiveRadioButton.Values.Text = "Inactive"
@@ -248,7 +248,7 @@ Partial Class MoreOptionsForm
         Me.ActiveRadioButton.Checked = True
         Me.ActiveRadioButton.Location = New System.Drawing.Point(9, 3)
         Me.ActiveRadioButton.Name = "ActiveRadioButton"
-        Me.ActiveRadioButton.Size = New System.Drawing.Size(56, 20)
+        Me.ActiveRadioButton.Size = New System.Drawing.Size(57, 22)
         Me.ActiveRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.ActiveRadioButton.TabIndex = 0
         Me.ActiveRadioButton.Values.Text = "Active"
@@ -289,7 +289,7 @@ Partial Class MoreOptionsForm
         '
         Me.occurencesLabel.Location = New System.Drawing.Point(129, 31)
         Me.occurencesLabel.Name = "occurencesLabel"
-        Me.occurencesLabel.Size = New System.Drawing.Size(71, 20)
+        Me.occurencesLabel.Size = New System.Drawing.Size(71, 22)
         Me.occurencesLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.occurencesLabel.TabIndex = 4
         Me.occurencesLabel.Values.Text = "occurences"
@@ -309,7 +309,7 @@ Partial Class MoreOptionsForm
         '
         Me.EndAtRadioButton.Location = New System.Drawing.Point(9, 57)
         Me.EndAtRadioButton.Name = "EndAtRadioButton"
-        Me.EndAtRadioButton.Size = New System.Drawing.Size(57, 20)
+        Me.EndAtRadioButton.Size = New System.Drawing.Size(58, 22)
         Me.EndAtRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.EndAtRadioButton.TabIndex = 2
         Me.EndAtRadioButton.Values.Text = "End at "
@@ -319,7 +319,7 @@ Partial Class MoreOptionsForm
         Me.NeverEndRadioButton.Checked = True
         Me.NeverEndRadioButton.Location = New System.Drawing.Point(9, 5)
         Me.NeverEndRadioButton.Name = "NeverEndRadioButton"
-        Me.NeverEndRadioButton.Size = New System.Drawing.Size(79, 20)
+        Me.NeverEndRadioButton.Size = New System.Drawing.Size(80, 22)
         Me.NeverEndRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.NeverEndRadioButton.TabIndex = 1
         Me.NeverEndRadioButton.Values.Text = "Never End"
@@ -328,14 +328,14 @@ Partial Class MoreOptionsForm
         '
         Me.EndAfterRadioButton.Location = New System.Drawing.Point(9, 31)
         Me.EndAfterRadioButton.Name = "EndAfterRadioButton"
-        Me.EndAfterRadioButton.Size = New System.Drawing.Size(72, 20)
+        Me.EndAfterRadioButton.Size = New System.Drawing.Size(73, 22)
         Me.EndAfterRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.EndAfterRadioButton.TabIndex = 0
         Me.EndAfterRadioButton.Values.Text = "End after"
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
         '
         'MoreOptionsForm
         '

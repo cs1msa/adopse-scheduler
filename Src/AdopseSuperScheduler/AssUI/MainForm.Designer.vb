@@ -78,6 +78,7 @@ Partial Class MainForm
         Me.ScheduledTasksHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.ScheduledTasksDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
+        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
@@ -89,7 +90,14 @@ Partial Class MainForm
         Me.EditTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RunOnStartupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RunNowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.office2010BlackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.office2010BlueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -102,28 +110,22 @@ Partial Class MainForm
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ScheduledTasksContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.LogContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RunNowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
-        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RunNowContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ViewHistoryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RemoveEntryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExportToPDFContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClearLogContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NoScheduledTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.DeleteTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
@@ -366,10 +368,8 @@ Partial Class MainForm
         Me.ScheduledTasksDataGridView.AllowUserToDeleteRows = False
         Me.ScheduledTasksDataGridView.AllowUserToOrderColumns = True
         Me.ScheduledTasksDataGridView.AllowUserToResizeRows = False
-        Me.ScheduledTasksDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ScheduledTasksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ScheduledTasksDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ScheduledTasksDataGridView.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet
         Me.ScheduledTasksDataGridView.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
@@ -399,6 +399,13 @@ Partial Class MainForm
         Me.LogHeaderGroup.TabIndex = 0
         Me.LogHeaderGroup.ValuesPrimary.Heading = "Log"
         Me.LogHeaderGroup.ValuesPrimary.Image = Global.AssUI.My.Resources.Resources.logIcon
+        '
+        'LogButtonSpecExportToPDF
+        '
+        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
+        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
         '
         'ButtonSpecHeaderGroup2
         '
@@ -516,10 +523,29 @@ Partial Class MainForm
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem1})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunOnStartupToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem1})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
+        '
+        'RunOnStartupToolStripMenuItem
+        '
+        Me.RunOnStartupToolStripMenuItem.CheckOnClick = True
+        Me.RunOnStartupToolStripMenuItem.Name = "RunOnStartupToolStripMenuItem"
+        Me.RunOnStartupToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.RunOnStartupToolStripMenuItem.Text = "Run On Startup"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(152, 6)
+        '
+        'ExitToolStripMenuItem1
+        '
+        Me.ExitToolStripMenuItem1.Image = Global.AssUI.My.Resources.Resources.quit
+        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
+        Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'TaskToolStripMenuItem
         '
@@ -527,6 +553,37 @@ Partial Class MainForm
         Me.TaskToolStripMenuItem.Name = "TaskToolStripMenuItem"
         Me.TaskToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
         Me.TaskToolStripMenuItem.Text = "Task"
+        '
+        'AddToolStripMenuItem
+        '
+        Me.AddToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.addTaskIcon
+        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.AddToolStripMenuItem.Text = "Add"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Enabled = False
+        Me.EditToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Enabled = False
+        Me.DeleteToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'RunNowToolStripMenuItem
+        '
+        Me.RunNowToolStripMenuItem.Enabled = False
+        Me.RunNowToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
+        Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
+        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.RunNowToolStripMenuItem.Text = "Run Now"
         '
         'ViewToolStripMenuItem
         '
@@ -598,10 +655,24 @@ Partial Class MainForm
         Me.TrayContextMenu.Name = "TrayContextMenu"
         Me.TrayContextMenu.Size = New System.Drawing.Size(104, 54)
         '
+        'ShowToolStripMenuItem
+        '
+        Me.ShowToolStripMenuItem.Image = CType(resources.GetObject("ShowToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
+        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ShowToolStripMenuItem.Text = "Show"
+        '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
+        '
+        'ExitContextMenuItem
+        '
+        Me.ExitContextMenuItem.Image = CType(resources.GetObject("ExitContextMenuItem.Image"), System.Drawing.Image)
+        Me.ExitContextMenuItem.Name = "ExitContextMenuItem"
+        Me.ExitContextMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitContextMenuItem.Text = "Exit"
         '
         'Timer
         '
@@ -612,12 +683,40 @@ Partial Class MainForm
         Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.ScheduledTasksContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditContextMenuItem, Me.DeleteContextMenuItem, Me.RunNowContextMenuItem, Me.ToolStripSeparator3, Me.ViewHistoryContextMenuItem})
         Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
-        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(153, 120)
+        Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
+        '
+        'EditContextMenuItem
+        '
+        Me.EditContextMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
+        Me.EditContextMenuItem.Name = "EditContextMenuItem"
+        Me.EditContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.EditContextMenuItem.Text = "Edit"
+        '
+        'DeleteContextMenuItem
+        '
+        Me.DeleteContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
+        Me.DeleteContextMenuItem.Name = "DeleteContextMenuItem"
+        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.DeleteContextMenuItem.Text = "Delete"
+        '
+        'RunNowContextMenuItem
+        '
+        Me.RunNowContextMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
+        Me.RunNowContextMenuItem.Name = "RunNowContextMenuItem"
+        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.RunNowContextMenuItem.Text = "Run Now"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(137, 6)
+        '
+        'ViewHistoryContextMenuItem
+        '
+        Me.ViewHistoryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.logIcon
+        Me.ViewHistoryContextMenuItem.Name = "ViewHistoryContextMenuItem"
+        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ViewHistoryContextMenuItem.Text = "View History"
         '
         'LogContextMenu
         '
@@ -626,103 +725,6 @@ Partial Class MainForm
         Me.LogContextMenu.Name = "LogContextMenu"
         Me.LogContextMenu.Size = New System.Drawing.Size(148, 82)
         '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(144, 6)
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(144, 6)
-        '
-        'ExitToolStripMenuItem1
-        '
-        Me.ExitToolStripMenuItem1.Image = Global.AssUI.My.Resources.Resources.quit
-        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
-        Me.ExitToolStripMenuItem1.Text = "Exit"
-        '
-        'AddToolStripMenuItem
-        '
-        Me.AddToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.addTaskIcon
-        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.AddToolStripMenuItem.Text = "Add"
-        '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.Enabled = False
-        Me.EditToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Enabled = False
-        Me.DeleteToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        '
-        'RunNowToolStripMenuItem
-        '
-        Me.RunNowToolStripMenuItem.Enabled = False
-        Me.RunNowToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
-        Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
-        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.RunNowToolStripMenuItem.Text = "Run Now"
-        '
-        'LogButtonSpecExportToPDF
-        '
-        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
-        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
-        '
-        'ShowToolStripMenuItem
-        '
-        Me.ShowToolStripMenuItem.Image = CType(resources.GetObject("ShowToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ShowToolStripMenuItem.Text = "Show"
-        '
-        'ExitContextMenuItem
-        '
-        Me.ExitContextMenuItem.Image = CType(resources.GetObject("ExitContextMenuItem.Image"), System.Drawing.Image)
-        Me.ExitContextMenuItem.Name = "ExitContextMenuItem"
-        Me.ExitContextMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ExitContextMenuItem.Text = "Exit"
-        '
-        'EditContextMenuItem
-        '
-        Me.EditContextMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
-        Me.EditContextMenuItem.Name = "EditContextMenuItem"
-        Me.EditContextMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EditContextMenuItem.Text = "Edit"
-        '
-        'DeleteContextMenuItem
-        '
-        Me.DeleteContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
-        Me.DeleteContextMenuItem.Name = "DeleteContextMenuItem"
-        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DeleteContextMenuItem.Text = "Delete"
-        '
-        'RunNowContextMenuItem
-        '
-        Me.RunNowContextMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
-        Me.RunNowContextMenuItem.Name = "RunNowContextMenuItem"
-        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RunNowContextMenuItem.Text = "Run Now"
-        '
-        'ViewHistoryContextMenuItem
-        '
-        Me.ViewHistoryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.logIcon
-        Me.ViewHistoryContextMenuItem.Name = "ViewHistoryContextMenuItem"
-        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ViewHistoryContextMenuItem.Text = "View History"
-        '
         'RemoveEntryContextMenuItem
         '
         Me.RemoveEntryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
@@ -730,12 +732,22 @@ Partial Class MainForm
         Me.RemoveEntryContextMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.RemoveEntryContextMenuItem.Text = "Remove Entry"
         '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(144, 6)
+        '
         'ExportToPDFContextMenuItem
         '
         Me.ExportToPDFContextMenuItem.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
         Me.ExportToPDFContextMenuItem.Name = "ExportToPDFContextMenuItem"
         Me.ExportToPDFContextMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ExportToPDFContextMenuItem.Text = "Export to PDF"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(144, 6)
         '
         'ClearLogContextMenuItem
         '
@@ -783,8 +795,10 @@ Partial Class MainForm
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MainForm"
         Me.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Adopse Super Scheduler"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LowerPanel.ResumeLayout(False)
         CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -897,4 +911,6 @@ Partial Class MainForm
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RunNowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteContextMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RunOnStartupToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
 End Class

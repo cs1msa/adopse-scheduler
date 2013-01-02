@@ -117,9 +117,19 @@ Public Class MainForm
         NewTaskForm.ShowDialog()
     End Sub
 
+    Private Sub checkRunOnStartup()
+        If My.Settings.RunOnStartupFlag = True Then
+            RunOnStartupToolStripMenuItem.Checked = True
+        ElseIf My.Settings.RunOnStartupFlag = False Then
+            RunOnStartupToolStripMenuItem.Checked = False
+        End If
+    End Sub
 
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        checkRunOnStartup()
+
         m_scheduled_tasks__datagrid_restrictions = New List(Of String)
         m_log_datagrid_restrictions = New List(Of String)
 
@@ -212,6 +222,8 @@ Public Class MainForm
     End Sub
 
     Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click
+        Me.ShowInTaskbar = True
+        Me.WindowState = FormWindowState.Normal
         Me.Show()
     End Sub
 
@@ -226,6 +238,8 @@ Public Class MainForm
     End Sub
 
     Private Sub TrayIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
+        Me.ShowInTaskbar = True
+        Me.WindowState = FormWindowState.Normal
         Me.Show()
     End Sub
 
@@ -681,7 +695,7 @@ Public Class MainForm
             NewTaskForm.ListServices()
             NewTaskForm.ServicesDataGridView.Visible = True
 
-            'here select the APPROPRIATE row 
+            'selects the appropriate row 
             NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(program_path)).Cells(0)
 
         End If
@@ -779,4 +793,27 @@ Public Class MainForm
         form.Show()
 
     End Sub
+
+    Private Sub createRegistryKey()
+        Dim wsh
+        wsh = CreateObject("WScript.Shell")
+        wsh.RegWrite("HKLM\Software\Microsoft\Windows\CurrentVersion\Run\AssUI", Application.ExecutablePath.ToString())
+    End Sub
+
+    Private Sub deleteRegistryKey()
+        Dim wsh
+        wsh = CreateObject("WScript.Shell")
+        wsh.RegDelete("HKLM\Software\Microsoft\Windows\CurrentVersion\Run\AssUI")
+    End Sub
+
+    Private Sub RunOnStartupToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunOnStartupToolStripMenuItem.Click
+        If RunOnStartupToolStripMenuItem.Checked = False Then
+            My.Settings.RunOnStartupFlag = False
+            deleteRegistryKey()
+        Else
+            My.Settings.RunOnStartupFlag = True
+            createRegistryKey()
+        End If
+    End Sub
+
 End Class
