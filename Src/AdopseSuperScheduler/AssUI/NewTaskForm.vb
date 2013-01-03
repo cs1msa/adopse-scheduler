@@ -255,9 +255,6 @@ Public Class NewTaskForm
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
 
 
-
-        
-
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
         'checks if the task type is Once
@@ -332,25 +329,82 @@ Public Class NewTaskForm
             End If
 
 
+            Dim write_to_log As Boolean = True
             If OnceCheckButton.Checked Then
                 m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run, write_to_log)
 
             ElseIf DailyCheckButton.Checked Then
                 m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run, write_to_log)
 
             ElseIf WeeklyCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value * 7, 0, 0, m_not_run)
+
+                For Each weekday As KryptonContextMenuCheckBox In WeekdaysContextMenu.Items
+                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+
+                    If weekday.Checked Then
+
+                        While Not final_date.DayOfWeek.ToString.Contains(weekday.Text)
+                            final_date = final_date.AddDays(1)
+                        End While
+                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value * 7, 0, 0, m_not_run, write_to_log)
+                        write_to_log = False
+                    End If
+                Next
+
+
+                
 
             ElseIf MonthlyCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, KryptonNumericUpDown1.Value, 0, m_not_run)
-            Else
-                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run)
+
+                For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
+                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+                    If monthday.Checked Then
+                        
+
+                        While Not final_date.Day.ToString.Equals(monthday.Text)
+                            final_date = final_date.AddDays(1)
+                        End While
+                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, KryptonNumericUpDown1.Value, 0, m_not_run, write_to_log)
+                        write_to_log = False
+                    End If
+                Next
+
+            Else    'yearly task
+                'check the month
+                For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
+                    Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+
+                    If month.Checked Then
+                        While Not semi_final_date.Month.ToString.Equals(month.ExtraText)
+                            semi_final_date = semi_final_date.AddMonths(1)
+                        End While
+                    End If
+                    
+
+                    'for this month check the monthdays
+                    For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
+                        Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+                        If monthday.Checked Then
+
+                            While Not final_date.Day.ToString.Equals(monthday.Text)
+                                final_date = final_date.AddDays(1)
+                            End While
+                            m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
+                            write_to_log = False
+                        End If
+                    Next
+
+
+                Next
+
+
             End If
+
 
             'changes the MoreOptionsForm's pallette to match the user-chosen
             MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting

@@ -304,62 +304,62 @@ Partial Class NewTaskForm
         '
         'KryptonContextMenuCheckBox9
         '
-        Me.KryptonContextMenuCheckBox9.ExtraText = ""
+        Me.KryptonContextMenuCheckBox9.ExtraText = "1"
         Me.KryptonContextMenuCheckBox9.Text = "January"
         '
         'KryptonContextMenuCheckBox10
         '
-        Me.KryptonContextMenuCheckBox10.ExtraText = ""
+        Me.KryptonContextMenuCheckBox10.ExtraText = "2"
         Me.KryptonContextMenuCheckBox10.Text = "February"
         '
         'KryptonContextMenuCheckBox11
         '
-        Me.KryptonContextMenuCheckBox11.ExtraText = ""
+        Me.KryptonContextMenuCheckBox11.ExtraText = "3"
         Me.KryptonContextMenuCheckBox11.Text = "March"
         '
         'KryptonContextMenuCheckBox12
         '
-        Me.KryptonContextMenuCheckBox12.ExtraText = ""
+        Me.KryptonContextMenuCheckBox12.ExtraText = "4"
         Me.KryptonContextMenuCheckBox12.Text = "April"
         '
         'KryptonContextMenuCheckBox13
         '
-        Me.KryptonContextMenuCheckBox13.ExtraText = ""
+        Me.KryptonContextMenuCheckBox13.ExtraText = "5"
         Me.KryptonContextMenuCheckBox13.Text = "May"
         '
         'KryptonContextMenuCheckBox14
         '
-        Me.KryptonContextMenuCheckBox14.ExtraText = ""
+        Me.KryptonContextMenuCheckBox14.ExtraText = "6"
         Me.KryptonContextMenuCheckBox14.Text = "June"
         '
         'KryptonContextMenuCheckBox15
         '
-        Me.KryptonContextMenuCheckBox15.ExtraText = ""
+        Me.KryptonContextMenuCheckBox15.ExtraText = "7"
         Me.KryptonContextMenuCheckBox15.Text = "July"
         '
         'KryptonContextMenuCheckBox55
         '
-        Me.KryptonContextMenuCheckBox55.ExtraText = ""
+        Me.KryptonContextMenuCheckBox55.ExtraText = "8"
         Me.KryptonContextMenuCheckBox55.Text = "August"
         '
         'KryptonContextMenuCheckBox16
         '
-        Me.KryptonContextMenuCheckBox16.ExtraText = ""
+        Me.KryptonContextMenuCheckBox16.ExtraText = "9"
         Me.KryptonContextMenuCheckBox16.Text = "September"
         '
         'KryptonContextMenuCheckBox52
         '
-        Me.KryptonContextMenuCheckBox52.ExtraText = ""
+        Me.KryptonContextMenuCheckBox52.ExtraText = "10"
         Me.KryptonContextMenuCheckBox52.Text = "November"
         '
         'KryptonContextMenuCheckBox53
         '
-        Me.KryptonContextMenuCheckBox53.ExtraText = ""
+        Me.KryptonContextMenuCheckBox53.ExtraText = "11"
         Me.KryptonContextMenuCheckBox53.Text = "October"
         '
         'KryptonContextMenuCheckBox54
         '
-        Me.KryptonContextMenuCheckBox54.ExtraText = ""
+        Me.KryptonContextMenuCheckBox54.ExtraText = "12"
         Me.KryptonContextMenuCheckBox54.Text = "December"
         '
         'MonthDaysDropDownButton
@@ -379,163 +379,163 @@ Partial Class NewTaskForm
         '
         'KryptonContextMenuCheckBox17
         '
-        Me.KryptonContextMenuCheckBox17.ExtraText = ""
-        Me.KryptonContextMenuCheckBox17.Text = "1st"
+        Me.KryptonContextMenuCheckBox17.ExtraText = "st"
+        Me.KryptonContextMenuCheckBox17.Text = "1"
         '
         'KryptonContextMenuCheckBox18
         '
-        Me.KryptonContextMenuCheckBox18.ExtraText = ""
-        Me.KryptonContextMenuCheckBox18.Text = "2nd"
+        Me.KryptonContextMenuCheckBox18.ExtraText = "nd"
+        Me.KryptonContextMenuCheckBox18.Text = "2"
         '
         'KryptonContextMenuCheckBox19
         '
-        Me.KryptonContextMenuCheckBox19.ExtraText = ""
-        Me.KryptonContextMenuCheckBox19.Text = "3rd"
+        Me.KryptonContextMenuCheckBox19.ExtraText = "rd"
+        Me.KryptonContextMenuCheckBox19.Text = "3"
         '
         'KryptonContextMenuCheckBox20
         '
-        Me.KryptonContextMenuCheckBox20.ExtraText = ""
-        Me.KryptonContextMenuCheckBox20.Text = "4th"
+        Me.KryptonContextMenuCheckBox20.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox20.Text = "4"
         '
         'KryptonContextMenuCheckBox21
         '
-        Me.KryptonContextMenuCheckBox21.ExtraText = ""
-        Me.KryptonContextMenuCheckBox21.Text = "5th"
+        Me.KryptonContextMenuCheckBox21.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox21.Text = "5"
         '
         'KryptonContextMenuCheckBox22
         '
-        Me.KryptonContextMenuCheckBox22.ExtraText = ""
-        Me.KryptonContextMenuCheckBox22.Text = "6th"
+        Me.KryptonContextMenuCheckBox22.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox22.Text = "6"
         '
         'KryptonContextMenuCheckBox23
         '
-        Me.KryptonContextMenuCheckBox23.ExtraText = ""
-        Me.KryptonContextMenuCheckBox23.Text = "7th"
+        Me.KryptonContextMenuCheckBox23.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox23.Text = "7"
         '
         'KryptonContextMenuCheckBox24
         '
-        Me.KryptonContextMenuCheckBox24.ExtraText = ""
-        Me.KryptonContextMenuCheckBox24.Text = "8th"
+        Me.KryptonContextMenuCheckBox24.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox24.Text = "8"
         '
         'KryptonContextMenuCheckBox25
         '
-        Me.KryptonContextMenuCheckBox25.ExtraText = ""
-        Me.KryptonContextMenuCheckBox25.Text = "9th"
+        Me.KryptonContextMenuCheckBox25.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox25.Text = "9"
         '
         'KryptonContextMenuCheckBox26
         '
-        Me.KryptonContextMenuCheckBox26.ExtraText = ""
-        Me.KryptonContextMenuCheckBox26.Text = "10th"
+        Me.KryptonContextMenuCheckBox26.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox26.Text = "10"
         '
         'KryptonContextMenuCheckBox27
         '
-        Me.KryptonContextMenuCheckBox27.ExtraText = ""
-        Me.KryptonContextMenuCheckBox27.Text = "11th"
+        Me.KryptonContextMenuCheckBox27.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox27.Text = "11"
         '
         'KryptonContextMenuCheckBox28
         '
-        Me.KryptonContextMenuCheckBox28.ExtraText = ""
-        Me.KryptonContextMenuCheckBox28.Text = "12th"
+        Me.KryptonContextMenuCheckBox28.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox28.Text = "12"
         '
         'KryptonContextMenuCheckBox29
         '
-        Me.KryptonContextMenuCheckBox29.ExtraText = ""
-        Me.KryptonContextMenuCheckBox29.Text = "13th"
+        Me.KryptonContextMenuCheckBox29.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox29.Text = "13"
         '
         'KryptonContextMenuCheckBox30
         '
-        Me.KryptonContextMenuCheckBox30.ExtraText = ""
-        Me.KryptonContextMenuCheckBox30.Text = "14th"
+        Me.KryptonContextMenuCheckBox30.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox30.Text = "14"
         '
         'KryptonContextMenuCheckBox31
         '
-        Me.KryptonContextMenuCheckBox31.ExtraText = ""
-        Me.KryptonContextMenuCheckBox31.Text = "15th"
+        Me.KryptonContextMenuCheckBox31.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox31.Text = "15"
         '
         'KryptonContextMenuCheckBox32
         '
-        Me.KryptonContextMenuCheckBox32.ExtraText = ""
-        Me.KryptonContextMenuCheckBox32.Text = "16th"
+        Me.KryptonContextMenuCheckBox32.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox32.Text = "16"
         '
         'KryptonContextMenuCheckBox33
         '
-        Me.KryptonContextMenuCheckBox33.ExtraText = ""
-        Me.KryptonContextMenuCheckBox33.Text = "17th"
+        Me.KryptonContextMenuCheckBox33.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox33.Text = "17"
         '
         'KryptonContextMenuCheckBox34
         '
-        Me.KryptonContextMenuCheckBox34.ExtraText = ""
-        Me.KryptonContextMenuCheckBox34.Text = "18th"
+        Me.KryptonContextMenuCheckBox34.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox34.Text = "18"
         '
         'KryptonContextMenuCheckBox35
         '
-        Me.KryptonContextMenuCheckBox35.ExtraText = ""
-        Me.KryptonContextMenuCheckBox35.Text = "19th"
+        Me.KryptonContextMenuCheckBox35.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox35.Text = "19"
         '
         'KryptonContextMenuCheckBox36
         '
-        Me.KryptonContextMenuCheckBox36.ExtraText = ""
-        Me.KryptonContextMenuCheckBox36.Text = "20th"
+        Me.KryptonContextMenuCheckBox36.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox36.Text = "20"
         '
         'KryptonContextMenuCheckBox37
         '
-        Me.KryptonContextMenuCheckBox37.ExtraText = ""
-        Me.KryptonContextMenuCheckBox37.Text = "21th"
+        Me.KryptonContextMenuCheckBox37.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox37.Text = "21"
         '
         'KryptonContextMenuCheckBox38
         '
-        Me.KryptonContextMenuCheckBox38.ExtraText = ""
-        Me.KryptonContextMenuCheckBox38.Text = "22th"
+        Me.KryptonContextMenuCheckBox38.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox38.Text = "22"
         '
         'KryptonContextMenuCheckBox39
         '
-        Me.KryptonContextMenuCheckBox39.ExtraText = ""
-        Me.KryptonContextMenuCheckBox39.Text = "23th"
+        Me.KryptonContextMenuCheckBox39.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox39.Text = "23"
         '
         'KryptonContextMenuCheckBox40
         '
-        Me.KryptonContextMenuCheckBox40.ExtraText = ""
-        Me.KryptonContextMenuCheckBox40.Text = "24th"
+        Me.KryptonContextMenuCheckBox40.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox40.Text = "24"
         '
         'KryptonContextMenuCheckBox41
         '
-        Me.KryptonContextMenuCheckBox41.ExtraText = ""
-        Me.KryptonContextMenuCheckBox41.Text = "25th"
+        Me.KryptonContextMenuCheckBox41.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox41.Text = "25"
         '
         'KryptonContextMenuCheckBox44
         '
-        Me.KryptonContextMenuCheckBox44.ExtraText = ""
-        Me.KryptonContextMenuCheckBox44.Text = "26th"
+        Me.KryptonContextMenuCheckBox44.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox44.Text = "26"
         '
         'KryptonContextMenuCheckBox45
         '
-        Me.KryptonContextMenuCheckBox45.ExtraText = ""
-        Me.KryptonContextMenuCheckBox45.Text = "27th"
+        Me.KryptonContextMenuCheckBox45.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox45.Text = "27"
         '
         'KryptonContextMenuCheckBox46
         '
-        Me.KryptonContextMenuCheckBox46.ExtraText = ""
-        Me.KryptonContextMenuCheckBox46.Text = "28th"
+        Me.KryptonContextMenuCheckBox46.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox46.Text = "28"
         '
         'KryptonContextMenuCheckBox47
         '
-        Me.KryptonContextMenuCheckBox47.ExtraText = ""
-        Me.KryptonContextMenuCheckBox47.Text = "29th"
+        Me.KryptonContextMenuCheckBox47.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox47.Text = "29"
         '
         'KryptonContextMenuCheckBox48
         '
-        Me.KryptonContextMenuCheckBox48.ExtraText = ""
-        Me.KryptonContextMenuCheckBox48.Text = "29th"
+        Me.KryptonContextMenuCheckBox48.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox48.Text = "29"
         '
         'KryptonContextMenuCheckBox49
         '
-        Me.KryptonContextMenuCheckBox49.ExtraText = ""
-        Me.KryptonContextMenuCheckBox49.Text = "30th"
+        Me.KryptonContextMenuCheckBox49.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox49.Text = "30"
         '
         'KryptonContextMenuCheckBox50
         '
-        Me.KryptonContextMenuCheckBox50.ExtraText = ""
-        Me.KryptonContextMenuCheckBox50.Text = "31th"
+        Me.KryptonContextMenuCheckBox50.ExtraText = "th"
+        Me.KryptonContextMenuCheckBox50.Text = "31"
         '
         'WeekdaysDropDownButton
         '
