@@ -814,6 +814,8 @@ Public Class MainForm
             My.Settings.RunOnStartupFlag = True
             createRegistryKey()
         End If
+        My.Settings.Save()
+
     End Sub
 
 End Class
