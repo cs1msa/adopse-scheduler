@@ -692,7 +692,7 @@ Public Class MainForm
             NewTaskForm.ServicesDataGridView.Visible = True
 
             'selects the appropriate row 
-            NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(program_path)).Cells(0)
+            NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(full_path)).Cells(0)
 
         End If
         'set the start date of the task

@@ -276,7 +276,10 @@ Public Class NewTaskForm
             Else
                 MsgBox("Task already exists")
                 Exit Sub
+
             End If
+        Else
+            saveTask()
         End If
 
     End Sub

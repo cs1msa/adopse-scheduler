@@ -81,13 +81,13 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox50 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.WeekdaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.WeekdaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
+        Me.KryptonContextMenuCheckBox7 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox1 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox2 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox4 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox5 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox6 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox7 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.Label2 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.KryptonNumericUpDown1 = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.Label1 = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
@@ -551,6 +551,11 @@ Partial Class NewTaskForm
         '
         Me.WeekdaysContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox7, Me.KryptonContextMenuCheckBox1, Me.KryptonContextMenuCheckBox2, Me.KryptonContextMenuCheckBox3, Me.KryptonContextMenuCheckBox4, Me.KryptonContextMenuCheckBox5, Me.KryptonContextMenuCheckBox6})
         '
+        'KryptonContextMenuCheckBox7
+        '
+        Me.KryptonContextMenuCheckBox7.ExtraText = ""
+        Me.KryptonContextMenuCheckBox7.Text = "Sunday"
+        '
         'KryptonContextMenuCheckBox1
         '
         Me.KryptonContextMenuCheckBox1.ExtraText = ""
@@ -580,11 +585,6 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox6.ExtraText = ""
         Me.KryptonContextMenuCheckBox6.Text = "Saturday"
-        '
-        'KryptonContextMenuCheckBox7
-        '
-        Me.KryptonContextMenuCheckBox7.ExtraText = ""
-        Me.KryptonContextMenuCheckBox7.Text = "Sunday"
         '
         'Label2
         '
