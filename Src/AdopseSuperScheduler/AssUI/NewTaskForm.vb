@@ -21,6 +21,7 @@ Public Class NewTaskForm
         'sets the minimum day the user can choose as the current day
         DatePicker.MinDate = Today
 
+
     End Sub
 
     Private Sub chooseFileBrowseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileBrowseButton.Click
@@ -253,15 +254,9 @@ Public Class NewTaskForm
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
 
-        Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
-        If task_exists Then
-            If m_can_overwrite_task Then
-                m_master_control.DeleteTask(chooseFileTextBox.Text)
-            Else
-                MsgBox("Task already exists")
-                Exit Sub
-            End If
-        End If
+
+
+        
 
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
@@ -271,8 +266,18 @@ Public Class NewTaskForm
         'and opens a dialog prompting the user
         checkOnceTime()
 
-        'saves the task to the database
-        saveTask()
+        'checks if there is this task with the same program path and...
+        '...saves the task to the database and the task manager
+        Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
+        If task_exists Then
+            If m_can_overwrite_task Then
+                m_master_control.DeleteTask(chooseFileTextBox.Text)
+                saveTask()
+            Else
+                MsgBox("Task already exists")
+                Exit Sub
+            End If
+        End If
 
     End Sub
 
@@ -286,8 +291,16 @@ Public Class NewTaskForm
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                                   TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
 
-            Dim m_end_date As Date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
+
+            Dim end_date As Date
+            If MoreOptionsForm.EndAtRadioButton.Checked() Then
+                end_date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
                               TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
+            Else
+                end_date = New Date(2099, 12, 31) 'default never ending date
+            End If
+            
+
 
 
             Dim m_not_run As String
@@ -317,19 +330,22 @@ Public Class NewTaskForm
 
 
             If OnceCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run)
 
             ElseIf DailyCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
 
             ElseIf WeeklyCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run)
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value * 7, 0, 0, m_not_run)
 
+            ElseIf MonthlyCheckButton.Checked Then
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, KryptonNumericUpDown1.Value, 0, m_not_run)
             Else
-                m_master_control.AddTask(program_path, m_date, m_end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run)
             End If
 
@@ -545,7 +561,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -598,7 +614,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -631,7 +647,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next

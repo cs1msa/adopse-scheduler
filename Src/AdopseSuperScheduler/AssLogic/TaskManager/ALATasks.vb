@@ -45,6 +45,34 @@
         Return m_status
     End Function
 
+
+    Public Property end_date As Date
+        Get
+            Return m_end_date
+        End Get
+        Set(ByVal value As Date)
+            m_end_date = value
+        End Set
+    End Property
+
+    Public Property description As String
+        Get
+            Return m_description
+        End Get
+        Set(ByVal value As String)
+            m_description = value
+        End Set
+    End Property
+
+    Public Property if_not_run As String
+        Get
+            Return m_if_not_run
+        End Get
+        Set(ByVal value As String)
+            m_if_not_run = value
+        End Set
+    End Property
+
     Public Property is_running As Boolean
         Get
             Return m_running
@@ -72,6 +100,9 @@
             Return m_next_run
         End Get
     End Property
+
+
+
 
     Public ReadOnly Property id As Integer
         Get

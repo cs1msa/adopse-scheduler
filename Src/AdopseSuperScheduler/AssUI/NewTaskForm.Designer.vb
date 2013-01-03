@@ -145,6 +145,7 @@ Partial Class NewTaskForm
         Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.KryptonContextMenuCheckBox56 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -548,7 +549,7 @@ Partial Class NewTaskForm
         '
         'WeekdaysContextMenu
         '
-        Me.WeekdaysContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox1, Me.KryptonContextMenuCheckBox2, Me.KryptonContextMenuCheckBox3, Me.KryptonContextMenuCheckBox4, Me.KryptonContextMenuCheckBox5, Me.KryptonContextMenuCheckBox6, Me.KryptonContextMenuCheckBox7})
+        Me.WeekdaysContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox7, Me.KryptonContextMenuCheckBox1, Me.KryptonContextMenuCheckBox2, Me.KryptonContextMenuCheckBox3, Me.KryptonContextMenuCheckBox4, Me.KryptonContextMenuCheckBox5, Me.KryptonContextMenuCheckBox6})
         '
         'KryptonContextMenuCheckBox1
         '
@@ -934,7 +935,7 @@ Partial Class NewTaskForm
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.chooseFileLabel.Location = New System.Drawing.Point(97, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
-        Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
+        Me.chooseFileLabel.Size = New System.Drawing.Size(134, 22)
         Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.chooseFileLabel.TabIndex = 0
         Me.chooseFileLabel.Values.Text = "Please choose your  file"
@@ -1066,6 +1067,10 @@ Partial Class NewTaskForm
         Me.SuccessTaskDialog.Tag = Nothing
         Me.SuccessTaskDialog.WindowTitle = "Success!!!"
         '
+        'KryptonContextMenuCheckBox56
+        '
+        Me.KryptonContextMenuCheckBox56.ExtraText = ""
+        '
         'NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1177,18 +1182,13 @@ Partial Class NewTaskForm
     Private WithEvents TypeOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents DateTimePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents ArrowLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Private WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
-    Private WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Private WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
+    Friend WithEvents WeekdaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Private WithEvents KryptonContextMenuItems2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents KryptonContextMenuItem1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
-    Private WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
-    Private WithEvents MonthDaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
+    Friend WithEvents MonthDaysContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Private WithEvents KryptonContextMenuItems1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents KryptonContextMenuItem2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Private WithEvents KryptonContextMenuItems4 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
-    Private WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
@@ -1198,7 +1198,6 @@ Partial Class NewTaskForm
     Friend WithEvents KryptonContextMenuItems3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Friend WithEvents KryptonContextMenuItem3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Friend WithEvents KryptonContextMenuCheckBox8 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
-    Friend WithEvents MonthsContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Friend WithEvents KryptonContextMenuCheckBox9 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox10 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox11 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
@@ -1239,4 +1238,11 @@ Partial Class NewTaskForm
     Friend WithEvents DatePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Friend WithEvents TimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
     Public WithEvents ServicesDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
+    Friend WithEvents KryptonNumericUpDown1 As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
+    Friend WithEvents RecurrencePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
+    Friend WithEvents MonthsDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Friend WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Friend WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
+    Friend WithEvents KryptonContextMenuCheckBox56 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
+    Friend WithEvents MonthsContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
 End Class

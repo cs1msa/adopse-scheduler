@@ -673,15 +673,11 @@ Public Class MainForm
         editTask()
     End Sub
 
-    'BIZELIS EDW
-    Private Sub editTask()
-        'edits the task
-        Dim program_path As String = ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString()
-        Dim list_of_tasks As List(Of ALATasks) = m_master_control.GetTasksWithFullPath(program_path)
-
-        'set the type and the path in the new task form
-        Dim type As String = list_of_tasks(0).type
-        Dim full_path As String = list_of_tasks(0).program_full_path
+#Region "edit task methods"
+    'set the type and the path in the new task form
+    Private Sub SetTypeAndPathAndDateForEdit(ByRef a_task As ALATasks)
+        Dim type As String = a_task.type
+        Dim full_path As String = a_task.program_full_path
         If type.Equals("EXE") Then
             NewTaskForm.ExecutableCheckButton.Checked = True
             NewTaskForm.chooseFileTextBox.Text = full_path
@@ -699,52 +695,140 @@ Public Class MainForm
             NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(program_path)).Cells(0)
 
         End If
-
         'set the start date of the task
-        NewTaskForm.DatePicker.Value = list_of_tasks(0).next_run_date
-        NewTaskForm.TimePicker.Value = list_of_tasks(0).next_run_date
+        NewTaskForm.DatePicker.Value = a_task.next_run_date
+        NewTaskForm.TimePicker.Value = a_task.next_run_date
+    End Sub
 
+    'sets period and period related thing in new tasks form
+    Private Sub SetPeriodForEdit(ByRef a_task As ALATasks, ByRef a_object_type_return As String)
         'fixed or periodic tasks
-        Dim object_type As String = list_of_tasks(0).GetType().ToString()
-        Dim final_object_type As New String("")
+        NewTaskForm.RecurrencePanel.Show()
+        Dim object_type As String = a_task.GetType().ToString()
+
         If object_type.Contains("ALFixedDateTasks") Then
             NewTaskForm.OnceCheckButton.Checked = True
-            final_object_type = "Fixed"
+            a_object_type_return = "Fixed"
         Else
-            Dim task As ALPeriodicTasks = list_of_tasks(0)
+            NewTaskForm.WeekdaysDropDownButton.Visible = False
+            NewTaskForm.MonthDaysDropDownButton.Visible = False
+            NewTaskForm.MonthsDropDownButton.Visible = False
+            Dim task As ALPeriodicTasks = a_task
             If task.m_period_in_days <> 0 Then
                 'weekly tasks
                 If task.m_period_in_days Mod 7 = 0 Then
                     NewTaskForm.WeeklyCheckButton.Checked = True
-                    final_object_type = "Weekly"
+                    a_object_type_return = "Weekly"
+                    NewTaskForm.Label2.Text = "weeks"
+                    NewTaskForm.KryptonNumericUpDown1.Value = Integer.Parse(task.m_period_in_days / 7)
+                    NewTaskForm.WeekdaysDropDownButton.Visible = True
                 Else
                     NewTaskForm.DailyCheckButton.Checked = True
-                    final_object_type = "Daily"
+                    a_object_type_return = "Daily"
+                    NewTaskForm.Label2.Text = "days"
+                    NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_days
+
                 End If
 
             ElseIf task.m_period_in_months <> 0 Then
                 NewTaskForm.MonthlyCheckButton.Checked = True
-                final_object_type = "Monthly"
+                a_object_type_return = "Monthly"
+                NewTaskForm.Label2.Text = "months"
+                NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_months
+                NewTaskForm.MonthDaysDropDownButton.Visible = True
             ElseIf task.m_period_in_years <> 0 Then
                 NewTaskForm.YearlyCheckButton.Checked = True
-                final_object_type = "Yearly"
+                a_object_type_return = "Yearly"
+                NewTaskForm.Label2.Text = "years"
+                NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_years
+                NewTaskForm.MonthDaysDropDownButton.Visible = True
+                NewTaskForm.MonthsDropDownButton.Visible = True
             End If
         End If
 
-        'set the date specifications for the task
-        Select Case final_object_type
-            Case "Fixed"
-                'do something here
-            Case "Daily"
-                'do something here
-            Case "Weekly"
-                'do something here
-            Case "Monthly"
-                'do something here
-            Case "Yearly"
-                'do something here
+    End Sub
+    'sets the weekly specifications on new task form
+    Private Sub SetWeeklyDateSpecificationsForEdit(ByRef a_list_of_tasks As List(Of ALATasks))
+        For Each task As ALATasks In a_list_of_tasks
+            NewTaskForm.RecurrencePanel.Show()
+            Dim the_task As ALPeriodicTasks = task
+            Dim day_of_week = the_task.next_run_date.DayOfWeek
+            DirectCast(NewTaskForm.WeekdaysContextMenu.Items(day_of_week), KryptonContextMenuCheckBox).Checked = True
+        Next
+    End Sub
+    'sets the monthly specifications on new task form
+    Private Sub SetMontlhyDateSpecificationsForEdit(ByRef a_list_of_tasks As List(Of ALATasks))
+        For Each task As ALATasks In a_list_of_tasks
+            Dim the_task As ALPeriodicTasks = task
+            Dim day_of_month = the_task.next_run_date.Day - 1
+            DirectCast(NewTaskForm.MonthDaysContextMenu.Items(day_of_month), KryptonContextMenuCheckBox).Checked = True
+        Next
+    End Sub
+    'sets the yearly specifications on new task form
+    Private Sub SetYearlyDateSpecificationsForEdit(ByRef a_list_of_tasks As List(Of ALATasks))
+        For Each task As ALATasks In a_list_of_tasks
+            Dim the_task As ALPeriodicTasks = task
+            'month days
+            Dim day_of_month = the_task.next_run_date.Day - 1
+            DirectCast(NewTaskForm.MonthDaysContextMenu.Items(day_of_month), KryptonContextMenuCheckBox).Checked = True
 
+            'months
+            Dim month = the_task.next_run_date.Month - 1
+            DirectCast(NewTaskForm.MonthsContextMenu.Items(month), KryptonContextMenuCheckBox).Checked = True
+        Next
+    End Sub
+
+    'set variables in more options form
+    Private Sub SetMoreOptionsForEdit(ByRef a_task As ALATasks)
+        MoreOptionsForm.DescriptionTextBox.Text = a_task.description
+        MoreOptionsForm.MinutesUpDown.Value = a_task.closes_after_x_minutes
+        MoreOptionsForm.InactiveRadioButton.Checked = Not (a_task.GetStatus())
+        MoreOptionsForm.ActiveRadioButton.Checked = a_task.GetStatus()
+        If a_task.if_not_run.Equals("RUN") Then
+            MoreOptionsForm.RunWhenPcOpensRadioButton.Checked = True
+        ElseIf a_task.if_not_run.Equals("DIALOG") Then
+            MoreOptionsForm.DisplayDialogAskingRadioButton.Checked = True
+        ElseIf a_task.if_not_run.Equals("NOTHING") Then
+            MoreOptionsForm.DoNothingRadioButton.Checked = True
+        End If
+        If a_task.end_date.Equals(New Date(2099, 12, 31)) Then
+            MoreOptionsForm.NeverEndRadioButton.Checked = True
+        Else
+            MoreOptionsForm.EndAtRadioButton.Checked = True
+            MoreOptionsForm.EndAtDateTimePicker.Value = a_task.end_date
+        End If
+    End Sub
+    'edits the task
+    Private Sub editTask()
+
+
+
+        Dim program_path As String = ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString()
+        Dim list_of_tasks As List(Of ALATasks) = m_master_control.GetTasksWithFullPath(program_path)
+
+        SetTypeAndPathAndDateForEdit(list_of_tasks(0))
+
+
+
+        Dim object_type As New String("")
+        SetPeriodForEdit(list_of_tasks(0), object_type)
+
+
+        'set the date specifications for the task
+        Select Case object_type
+            Case "Weekly"
+
+                SetWeeklyDateSpecificationsForEdit(list_of_tasks)
+            Case "Monthly"
+
+                SetMontlhyDateSpecificationsForEdit(list_of_tasks)
+
+            Case "Yearly"
+
+                SetYearlyDateSpecificationsForEdit(list_of_tasks)
         End Select
+
+        SetMoreOptionsForEdit(list_of_tasks(0))
 
         'make the form visible
         NewTaskForm.SetMasterControl(m_master_control)
@@ -752,6 +836,7 @@ Public Class MainForm
         NewTaskForm.ShowDialog()
 
     End Sub
+#End Region
 
     Private Function getServiceRow(ByVal path As String)
         Dim svcs As ServiceController() = ServiceController.GetServices()
@@ -771,23 +856,23 @@ Public Class MainForm
 
     'if Navigator is clicked, scheduled tasks selected row gets unselected
     'and so Edit, Delete and Run functions get disabled
-    Private Sub NavigationTreeView_Enter(sender As System.Object, e As System.EventArgs) Handles NavigationTreeView.Enter
+    Private Sub NavigationTreeView_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NavigationTreeView.Enter
         ScheduledTasksDataGridView.ClearSelection()
         handleEditDeleteRunButtons(False)
     End Sub
 
     'if Log is clicked, scheduled tasks selected row gets unselected
     'and so Edit, Delete and Run functions get disabled
-    Private Sub LogDataGridView_Enter(sender As System.Object, e As System.EventArgs) Handles LogDataGridView.Enter
+    Private Sub LogDataGridView_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogDataGridView.Enter
         ScheduledTasksDataGridView.ClearSelection()
         handleEditDeleteRunButtons(False)
     End Sub
 
-    Private Sub ScheduledTasksDataGridView_Enter(sender As System.Object, e As System.EventArgs) Handles ScheduledTasksDataGridView.Enter
+    Private Sub ScheduledTasksDataGridView_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ScheduledTasksDataGridView.Enter
         LogDataGridView.ClearSelection()
     End Sub
 
-    Private Sub ViewHistoryContextMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ViewHistoryContextMenuItem.Click
+    Private Sub ViewHistoryContextMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewHistoryContextMenuItem.Click
 
         Dim form As ViewHistoryForm = New ViewHistoryForm
         form.Show()
@@ -806,7 +891,7 @@ Public Class MainForm
         wsh.RegDelete("HKLM\Software\Microsoft\Windows\CurrentVersion\Run\AssUI")
     End Sub
 
-    Private Sub RunOnStartupToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunOnStartupToolStripMenuItem.Click
+    Private Sub RunOnStartupToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RunOnStartupToolStripMenuItem.Click
         If RunOnStartupToolStripMenuItem.Checked = False Then
             My.Settings.RunOnStartupFlag = False
             deleteRegistryKey()
