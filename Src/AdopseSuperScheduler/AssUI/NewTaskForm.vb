@@ -374,35 +374,52 @@ Public Class NewTaskForm
                 Next
 
             Else    'yearly task
-                Dim dates_list As New List(Of Date) 'baloma for the bug that added many identical dates 
+
                 'check the month
+               
                 For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
                     Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
 
                     If month.Checked Then
                         While Not semi_final_date.Month.ToString.Equals(month.ExtraText)
                             semi_final_date = semi_final_date.AddMonths(1)
+                            If Not semi_final_date.Year.Equals(m_date.Year) Then
+                                semi_final_date = New Date(m_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+                            End If
                         End While
-                    End If
 
 
-                    'for this month check the monthdays
-                    For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
-                        Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
-                        If monthday.Checked Then
 
-                            While Not final_date.Day.ToString.Equals(monthday.Text)
-                                final_date = final_date.AddDays(1)
-                            End While
-                            If Not dates_list.Contains(final_date) Then
+                        'for this month check the monthdays
+                        For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
+                            Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+                            If monthday.Checked Then
+
+                                While Not final_date.Day.ToString.Equals(monthday.Text)
+                                    final_date = final_date.AddDays(1)
+                                    If Not final_date.Month.Equals(semi_final_date.Month) Then  'if it went to the next month
+                                        final_date = New Date(final_date.Year, semi_final_date.Month, final_date.Day, final_date.Hour, final_date.Minute, 0)
+                                    End If
+                                End While
+
+                                'if the final date is before today
+                                'add the period
+                                While final_date.CompareTo(Date.Now) <= 0
+                                    final_date = final_date.AddYears(Integer.Parse(KryptonNumericUpDown1.Value))
+                                End While
+
+
                                 m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
                                 write_to_log = False
-                                dates_list.Add(final_date)
+
+
+
+
                             End If
-                            
-                        End If
-                    Next
+                Next
+                        
+                    End If 'end month check
 
 
                 Next

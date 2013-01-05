@@ -469,8 +469,8 @@ Public Class MainForm
             Dim scheduler_table_to_show = scheduler_table.Copy()
             scheduler_table_to_show.Rows.Clear()
 
-            For Each task As DataRow In scheduler_table.Rows
-
+            Dim scheduler_table_rows As DataRow() = scheduler_table.Select("", "[Next Execution] ASC")
+            For Each task As DataRow In scheduler_table_rows
                 If Not (list_of_programs.Contains(task("Task"))) Then
                     list_of_programs.Add(task("Task"))
                     scheduler_table_to_show.ImportRow(task)
