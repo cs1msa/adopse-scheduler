@@ -54,7 +54,13 @@ Public Class ALCore
                 'if there is no instance of this program running
             Else
                 m_command_line_handler.RunProgram(a_path:=path, a_program:=program)
+                Dim counter = 0
                 While Not m_command_line_handler.CheckIfRuns(program)
+                    If counter < 1000000 Then
+                        counter = counter + 1
+                    Else
+                        Exit While
+                    End If
 
                 End While
                 Dim new_pids As List(Of Integer) = m_command_line_handler.GetPids(program)
@@ -70,8 +76,13 @@ Public Class ALCore
     End Sub
 
     Public Function IsRunning(ByVal a_program_or_service As String) As Boolean
-
-        Return m_command_line_handler.CheckIfRuns(a_program_or_service)
+        If a_program_or_service.Contains("\") And a_program_or_service.Contains("exe") Then 'if it is a full path exe check
+            a_program_or_service = a_program_or_service.Substring(a_program_or_service.LastIndexOf("\") + 1)
+            m_command_line_handler.CheckIfRuns(a_program_or_service)
+        Else 'else if it is service or file return true - we cannot know if it runs
+            Return True
+        End If
+        Return True
 
     End Function
 
@@ -96,7 +107,11 @@ Public Class ALCore
 
     'kill a program using the pid or the same of the program
     Public Sub KillProgram(ByVal a_progam As String)
-        m_command_line_handler.KillProgram(a_program:=a_progam)
+        If a_progam.Contains("\") And a_progam.Contains("exe") Then 'if it is a full path exe check
+            a_progam = a_progam.Substring(a_progam.LastIndexOf("\") + 1)
+            m_command_line_handler.KillProgram(a_program:=a_progam)
+        End If
+
     End Sub
 
     'check if a program runs using pid or program_name

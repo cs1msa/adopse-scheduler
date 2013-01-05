@@ -74,10 +74,24 @@ Public Class ALCommandLineHandler
         m_program = a_program
 
 
-            Dim output As String = " "
-            Dim input As String = "taskkill /IM " & m_program
+        Dim output As String = " "
+        Dim input As String = "taskkill /IM " & m_program
 
-            If Not ExecuteCMDCommand(input) Then
+        Dim kill_proccess As New Process()
+        Dim StartInfo As New System.Diagnostics.ProcessStartInfo
+        StartInfo.FileName = "taskkill"  'starts cmd window
+
+        StartInfo.CreateNoWindow = True
+        StartInfo.UseShellExecute = True 'required to redirect
+
+
+        StartInfo.Verb = "runas"
+        StartInfo.Arguments = "/IM " & a_program
+        kill_proccess.StartInfo = StartInfo
+
+
+        'If Not ExecuteCMDCommand(input) Then
+        If Not kill_proccess.Start() Then
             Throw New ALProccessNotFoundException(a_program)
         End If
 
@@ -129,11 +143,13 @@ Public Class ALCommandLineHandler
     'checks if a program runs and optionaly returns memory usage
     Public Function CheckIfRuns(ByVal a_program As String, Optional ByRef a_memory_use_return As Integer = vbNull)
 
+
+        
+
         Dim task_list_output As String = " "
         Dim input As String = "tasklist"
-
         ExecuteCMDCommand(input, task_list_output)
-
+        
         If task_list_output.Contains(a_program) Then
 
             'if it is called in a way that needs to know how much memory the program uses
