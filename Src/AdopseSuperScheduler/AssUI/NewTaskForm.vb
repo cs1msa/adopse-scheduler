@@ -10,6 +10,80 @@ Public Class NewTaskForm
     Dim m_master_control As ALMasterControl
     Public m_can_overwrite_task As Boolean = False
 
+    Private Sub changeLanguageNewTaskForm(ByVal lang As String)
+        Dim dictionary As New List(Of String)
+        Select Case My.Settings.LanguageFlag
+            Case "Greek"
+                dictionary = MainForm.getGreekDictionary()
+            Case "English"
+                dictionary = MainForm.getEnglishDictionary()
+        End Select
+
+
+        '========================== NEW TASK FORM ========================================
+        With Me
+            .Text = dictionary(1)
+
+            'labels-------------------------------------
+            .KindOfTaskLabel.Text = dictionary(79)
+            .ServiceLabel.Text = dictionary(80)
+            .chooseFileLabel.Text = dictionary(81)
+            .KryptonLabel1.Text = dictionary(82)
+            .DateLabel.Text = dictionary(83)
+            .KryptonLabel2.Text = dictionary(84)
+            .TypeOfTaskLabel.Text = dictionary(85)
+            .KryptonLabel3.Text = dictionary(86)
+            .Label1.Text = dictionary(87)
+            .Label2.Text = dictionary(88)
+            'end labels---------------------------------
+
+            'Buttons-----------------------------------------------------------
+            .chooseFileBrowseButton.Text = dictionary(40)
+            .OnceCheckButton.Text = dictionary(41)
+            .DailyCheckButton.Text = dictionary(42)
+            .WeeklyCheckButton.Text = dictionary(43)
+            .MonthlyCheckButton.Text = dictionary(44)
+            .YearlyCheckButton.Text = dictionary(45)
+            .WeekdaysDropDownButton.Text = dictionary(46)
+            .MonthDaysDropDownButton.Text = dictionary(47)
+            .MonthsDropDownButton.Text = dictionary(48)
+            .SaveTaskButton.Text = dictionary(49)
+            .MoreOptionsButton.Text = dictionary(50)
+
+            With .ToolTip2
+                .SetToolTip(Me.ExecutableCheckButton, dictionary(27))
+                .SetToolTip(Me.FileCheckButton, dictionary(8))
+                .SetToolTip(Me.ServiceCheckButton, dictionary(28))
+                .SetToolTip(Me.MoreOptionsButton, dictionary(51))
+            End With
+
+            With .ServicesDataGridView
+                .Columns(0).HeaderText = dictionary(52)
+                .Columns(1).HeaderText = dictionary(17)
+                .Columns(2).HeaderText = dictionary(15)
+            End With
+            'End Buttons--------------------------------------------------------
+
+            'Success task dialog----------------
+            With .SuccessTaskDialog
+                .WindowTitle = dictionary(74)
+                .Content = dictionary(75)
+            End With
+            'End Success task dialog------------
+
+            'Savebutton task dialog-------------
+            With .SaveButtonTaskDialog
+                .WindowTitle = dictionary(76)
+                .Content = dictionary(77)
+            End With
+            'End Savebutton task dialog---------
+
+            'timechanged task dialog
+            .TimeChangedTaskDialog.WindowTitle = dictionary(78)
+        End With
+        'END ========================== NEW TASK FORM ======================================
+
+    End Sub
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
@@ -21,6 +95,7 @@ Public Class NewTaskForm
         'sets the minimum day the user can choose as the current day
         DatePicker.MinDate = Today
 
+        changeLanguageNewTaskForm(My.Settings.LanguageFlag)
 
     End Sub
 
@@ -181,7 +256,12 @@ Public Class NewTaskForm
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, False, False)
 
-        Label2.Text = "days"
+        If My.Settings.LanguageFlag.Equals("Greek") Then
+            Label2.Text = "μέρες"
+        Else
+            Label2.Text = "days"
+        End If
+
         KryptonNumericUpDown1.Maximum = 31
 
     End Sub
@@ -197,7 +277,12 @@ Public Class NewTaskForm
         'handles RecurrencePanel's content
         HandleRecPanelContent(True, False, False)
 
-        Label2.Text = "weeks"
+        If My.Settings.LanguageFlag.Equals("Greek") Then
+            Label2.Text = "εβδομάδες"
+        Else
+            Label2.Text = "weeks"
+        End If
+
 
         'Automatically checks the day of the week you chose
         'at the next dropdown button
@@ -216,7 +301,11 @@ Public Class NewTaskForm
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, True, False)
 
-        Label2.Text = "months"
+        If My.Settings.LanguageFlag.Equals("Greek") Then
+            Label2.Text = "μήνες"
+        Else
+            Label2.Text = "months"
+        End If
 
         'Automatically checks the day of the month the user have chosen
         'and ticks the checkbox at AllMonthDays dropdown button
@@ -271,7 +360,7 @@ Public Class NewTaskForm
                 m_master_control.DeleteTask(chooseFileTextBox.Text)
                 saveTask()
             Else
-                MsgBox("Task already exists")
+                TaskExistsTaskDialog.ShowDialog()
                 Exit Sub
 
             End If
@@ -457,9 +546,15 @@ Public Class NewTaskForm
                 And DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString _
                 And TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
 
-            TimeChangedTaskDialog.Content = "Scheduled time will be changed to *" & TimePicker.Value.AddMinutes(3.0) & "*" _
-                                    & vbCrLf & "so that the task won't be missed!" & vbCrLf _
-                                    & vbCrLf & "Do you want to continue ?"
+            If My.Settings.LanguageFlag.Equals("Greek") Then
+                TimeChangedTaskDialog.Content = "Η ώρα άλλαξε και έγινε *" & TimePicker.Value.AddMinutes(3.0) & "*" _
+                        & vbCrLf & "ώστε να μη χαθεί η εργασία!" & vbCrLf _
+                        & vbCrLf & "Θέλεις να συνεχίσεις;"
+            Else
+                TimeChangedTaskDialog.Content = "Scheduled time will be changed to *" & TimePicker.Value.AddMinutes(3.0) & "*" _
+                        & vbCrLf & "so that the task won't be missed!" & vbCrLf _
+                        & vbCrLf & "Do you want to continue ?"
+            End If
 
             Dim resultTime As DialogResult
             resultTime = TimeChangedTaskDialog.ShowDialog()
@@ -480,7 +575,12 @@ Public Class NewTaskForm
     Private Sub HandleChooseFilePanel(ByVal status As Boolean, ByVal label As String)
 
         chooseFilePanel.Enabled = status
-        chooseFileLabel.Text = "Please choose your " + label + "file"
+
+        If My.Settings.LanguageFlag.Equals("Greek") Then
+            chooseFileLabel.Text = "Παρακαλώ επιλέξτε ένα " + label + "αρχείο"
+        Else
+            chooseFileLabel.Text = "Please choose your " + label + "file"
+        End If
 
     End Sub
 
