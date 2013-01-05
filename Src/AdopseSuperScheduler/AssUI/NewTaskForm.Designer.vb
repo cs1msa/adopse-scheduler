@@ -142,10 +142,11 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItems3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox56 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
-        Me.KryptonContextMenuCheckBox56 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.TaskExistsTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -196,7 +197,7 @@ Partial Class NewTaskForm
         Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.HideOuterBorders = True
-        Me.ServicesDataGridView.Location = New System.Drawing.Point(68, 132)
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(76, 132)
         Me.ServicesDataGridView.Name = "ServicesDataGridView"
         Me.ServicesDataGridView.ReadOnly = True
         Me.ServicesDataGridView.RowHeadersVisible = False
@@ -267,7 +268,7 @@ Partial Class NewTaskForm
         Me.MoreOptionsButton.Size = New System.Drawing.Size(88, 56)
         Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsButton.TabIndex = 28
-        Me.ToolTip2.SetToolTip(Me.MoreOptionsButton, "More Options")
+        Me.ToolTip2.SetToolTip(Me.MoreOptionsButton, "Customize your task even more")
         Me.MoreOptionsButton.Values.Image = Global.AssUI.My.Resources.Resources.moreoptionsIcon
         Me.MoreOptionsButton.Values.Text = "More Options"
         '
@@ -933,7 +934,7 @@ Partial Class NewTaskForm
         'chooseFileLabel
         '
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.chooseFileLabel.Location = New System.Drawing.Point(139, 3)
+        Me.chooseFileLabel.Location = New System.Drawing.Point(116, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
         Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
         Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
@@ -1023,6 +1024,10 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox8.ExtraText = ""
         '
+        'KryptonContextMenuCheckBox56
+        '
+        Me.KryptonContextMenuCheckBox56.ExtraText = ""
+        '
         'TimeChangedTaskDialog
         '
         Me.TimeChangedTaskDialog.CheckboxText = Nothing
@@ -1067,9 +1072,19 @@ Partial Class NewTaskForm
         Me.SuccessTaskDialog.Tag = Nothing
         Me.SuccessTaskDialog.WindowTitle = "Success!!!"
         '
-        'KryptonContextMenuCheckBox56
+        'TaskExistsTaskDialog
         '
-        Me.KryptonContextMenuCheckBox56.ExtraText = ""
+        Me.TaskExistsTaskDialog.AllowDialogClose = True
+        Me.TaskExistsTaskDialog.CheckboxText = Nothing
+        Me.TaskExistsTaskDialog.CommonButtons = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Close
+        Me.TaskExistsTaskDialog.Content = "Choose a different task or edit the existing one."
+        Me.TaskExistsTaskDialog.DefaultRadioButton = Nothing
+        Me.TaskExistsTaskDialog.FooterHyperlink = Nothing
+        Me.TaskExistsTaskDialog.FooterText = Nothing
+        Me.TaskExistsTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Warning
+        Me.TaskExistsTaskDialog.MainInstruction = "Task Already Exists!"
+        Me.TaskExistsTaskDialog.Tag = Nothing
+        Me.TaskExistsTaskDialog.WindowTitle = "Warning!"
         '
         'NewTaskForm
         '
@@ -1245,4 +1260,5 @@ Partial Class NewTaskForm
     Friend WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents MonthsContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
+    Friend WithEvents TaskExistsTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
 End Class
