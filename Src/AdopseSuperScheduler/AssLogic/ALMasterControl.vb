@@ -11,6 +11,7 @@ Public Class ALMasterControl
 
     Public m_log_has_changed As Boolean = False
     Public m_scheduler_tasks_has_changed As Boolean = False
+
     Public Sub New()
         m_core = New ALCore()
 

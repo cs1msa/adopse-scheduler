@@ -104,12 +104,12 @@ Partial Class NewTaskForm
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.TypeOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.YearlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.DailyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.TypeOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
         Me.OnceCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
-        Me.MonthlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.DailyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.WeeklyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.YearlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.TypeOfTaskLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
+        Me.MonthlyCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.ShapeContainer4 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.KindOfTaskPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
@@ -128,7 +128,7 @@ Partial Class NewTaskForm
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.KindOfTaskCheckSet = New ComponentFactory.Krypton.Toolkit.KryptonCheckSet(Me.components)
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TypeOfTaskCheckSet = New ComponentFactory.Krypton.Toolkit.KryptonCheckSet(Me.components)
         Me.KryptonContextMenuItems2 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems()
         Me.KryptonContextMenuItem1 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
@@ -179,7 +179,7 @@ Partial Class NewTaskForm
         Me.addNewTaskMainPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.addNewTaskMainPanel.Location = New System.Drawing.Point(0, 0)
         Me.addNewTaskMainPanel.Name = "addNewTaskMainPanel"
-        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(511, 640)
+        Me.addNewTaskMainPanel.Size = New System.Drawing.Size(546, 640)
         Me.addNewTaskMainPanel.TabIndex = 0
         '
         'ServicesDataGridView
@@ -196,7 +196,7 @@ Partial Class NewTaskForm
         Me.ServicesDataGridView.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.HideOuterBorders = True
-        Me.ServicesDataGridView.Location = New System.Drawing.Point(45, 132)
+        Me.ServicesDataGridView.Location = New System.Drawing.Point(68, 132)
         Me.ServicesDataGridView.Name = "ServicesDataGridView"
         Me.ServicesDataGridView.ReadOnly = True
         Me.ServicesDataGridView.RowHeadersVisible = False
@@ -228,9 +228,9 @@ Partial Class NewTaskForm
         'ServiceLabel
         '
         Me.ServiceLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.ServiceLabel.Location = New System.Drawing.Point(171, 106)
+        Me.ServiceLabel.Location = New System.Drawing.Point(191, 106)
         Me.ServiceLabel.Name = "ServiceLabel"
-        Me.ServiceLabel.Size = New System.Drawing.Size(133, 22)
+        Me.ServiceLabel.Size = New System.Drawing.Size(133, 20)
         Me.ServiceLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.ServiceLabel.TabIndex = 32
         Me.ServiceLabel.Values.Text = "Please choose a service"
@@ -238,9 +238,9 @@ Partial Class NewTaskForm
         '
         'chooseFileCheckLabel
         '
-        Me.chooseFileCheckLabel.Location = New System.Drawing.Point(458, 169)
+        Me.chooseFileCheckLabel.Location = New System.Drawing.Point(496, 170)
         Me.chooseFileCheckLabel.Name = "chooseFileCheckLabel"
-        Me.chooseFileCheckLabel.Size = New System.Drawing.Size(38, 36)
+        Me.chooseFileCheckLabel.Size = New System.Drawing.Size(38, 34)
         Me.chooseFileCheckLabel.TabIndex = 30
         Me.chooseFileCheckLabel.Values.Image = Global.AssUI.My.Resources.Resources.cross
         Me.chooseFileCheckLabel.Values.Text = ""
@@ -250,9 +250,9 @@ Partial Class NewTaskForm
         '
         Me.SaveTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.SaveTaskButton.Enabled = False
-        Me.SaveTaskButton.Location = New System.Drawing.Point(442, 580)
+        Me.SaveTaskButton.Location = New System.Drawing.Point(461, 581)
         Me.SaveTaskButton.Name = "SaveTaskButton"
-        Me.SaveTaskButton.Size = New System.Drawing.Size(66, 59)
+        Me.SaveTaskButton.Size = New System.Drawing.Size(85, 59)
         Me.SaveTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.SaveTaskButton.TabIndex = 29
         Me.SaveTaskButton.Values.Image = Global.AssUI.My.Resources.Resources.saveIcon
@@ -262,12 +262,12 @@ Partial Class NewTaskForm
         '
         Me.MoreOptionsButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.MoreOptionsButton.Enabled = False
-        Me.MoreOptionsButton.Location = New System.Drawing.Point(3, 580)
+        Me.MoreOptionsButton.Location = New System.Drawing.Point(0, 581)
         Me.MoreOptionsButton.Name = "MoreOptionsButton"
-        Me.MoreOptionsButton.Size = New System.Drawing.Size(86, 56)
+        Me.MoreOptionsButton.Size = New System.Drawing.Size(88, 56)
         Me.MoreOptionsButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.MoreOptionsButton.TabIndex = 28
-        Me.ToolTip1.SetToolTip(Me.MoreOptionsButton, "More Options")
+        Me.ToolTip2.SetToolTip(Me.MoreOptionsButton, "More Options")
         Me.MoreOptionsButton.Values.Image = Global.AssUI.My.Resources.Resources.moreoptionsIcon
         Me.MoreOptionsButton.Values.Text = "More Options"
         '
@@ -281,9 +281,9 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.Controls.Add(Me.Label1)
         Me.RecurrencePanel.Controls.Add(Me.KryptonLabel3)
         Me.RecurrencePanel.Controls.Add(Me.ShapeContainer6)
-        Me.RecurrencePanel.Location = New System.Drawing.Point(65, 450)
+        Me.RecurrencePanel.Location = New System.Drawing.Point(79, 450)
         Me.RecurrencePanel.Name = "RecurrencePanel"
-        Me.RecurrencePanel.Size = New System.Drawing.Size(386, 139)
+        Me.RecurrencePanel.Size = New System.Drawing.Size(372, 139)
         Me.RecurrencePanel.TabIndex = 25
         Me.RecurrencePanel.Visible = False
         '
@@ -590,7 +590,7 @@ Partial Class NewTaskForm
         '
         Me.Label2.Location = New System.Drawing.Point(204, 39)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(35, 22)
+        Me.Label2.Size = New System.Drawing.Size(35, 20)
         Me.Label2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.Label2.TabIndex = 3
         Me.Label2.Values.Text = "days"
@@ -610,7 +610,7 @@ Partial Class NewTaskForm
         '
         Me.Label1.Location = New System.Drawing.Point(109, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 22)
+        Me.Label1.Size = New System.Drawing.Size(39, 20)
         Me.Label1.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.Label1.TabIndex = 1
         Me.Label1.Values.Text = "Every"
@@ -620,7 +620,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KryptonLabel3.Location = New System.Drawing.Point(75, 13)
         Me.KryptonLabel3.Name = "KryptonLabel3"
-        Me.KryptonLabel3.Size = New System.Drawing.Size(223, 22)
+        Me.KryptonLabel3.Size = New System.Drawing.Size(223, 20)
         Me.KryptonLabel3.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel3.TabIndex = 0
         Me.KryptonLabel3.Values.Text = "Please choose the recurrence of the task"
@@ -631,7 +631,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer6.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer6.Name = "ShapeContainer6"
         Me.ShapeContainer6.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape5})
-        Me.ShapeContainer6.Size = New System.Drawing.Size(386, 139)
+        Me.ShapeContainer6.Size = New System.Drawing.Size(372, 139)
         Me.ShapeContainer6.TabIndex = 31
         Me.ShapeContainer6.TabStop = False
         '
@@ -649,7 +649,7 @@ Partial Class NewTaskForm
         '
         Me.ArrowLabel.Location = New System.Drawing.Point(3, 52)
         Me.ArrowLabel.Name = "ArrowLabel"
-        Me.ArrowLabel.Size = New System.Drawing.Size(38, 36)
+        Me.ArrowLabel.Size = New System.Drawing.Size(38, 34)
         Me.ArrowLabel.TabIndex = 20
         Me.ArrowLabel.Values.Image = Global.AssUI.My.Resources.Resources.arrowLabelIcon
         Me.ArrowLabel.Values.Text = ""
@@ -665,7 +665,7 @@ Partial Class NewTaskForm
         Me.DateTimePanel.Enabled = False
         Me.DateTimePanel.Location = New System.Drawing.Point(45, 266)
         Me.DateTimePanel.Name = "DateTimePanel"
-        Me.DateTimePanel.Size = New System.Drawing.Size(433, 73)
+        Me.DateTimePanel.Size = New System.Drawing.Size(469, 73)
         Me.DateTimePanel.TabIndex = 19
         '
         'KryptonLabel1
@@ -673,7 +673,7 @@ Partial Class NewTaskForm
         Me.KryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KryptonLabel1.Location = New System.Drawing.Point(82, 0)
         Me.KryptonLabel1.Name = "KryptonLabel1"
-        Me.KryptonLabel1.Size = New System.Drawing.Size(257, 22)
+        Me.KryptonLabel1.Size = New System.Drawing.Size(257, 20)
         Me.KryptonLabel1.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KryptonLabel1.TabIndex = 15
         Me.KryptonLabel1.Values.Text = "Please choose start date and time for the task!"
@@ -682,7 +682,7 @@ Partial Class NewTaskForm
         '
         Me.TimePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
         Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.TimePicker.Location = New System.Drawing.Point(310, 27)
+        Me.TimePicker.Location = New System.Drawing.Point(347, 27)
         Me.TimePicker.MinDate = New Date(2012, 12, 24, 0, 0, 0, 0)
         Me.TimePicker.Name = "TimePicker"
         Me.TimePicker.ShowUpDown = True
@@ -692,9 +692,9 @@ Partial Class NewTaskForm
         'KryptonLabel2
         '
         Me.KryptonLabel2.Enabled = False
-        Me.KryptonLabel2.Location = New System.Drawing.Point(268, 27)
+        Me.KryptonLabel2.Location = New System.Drawing.Point(292, 28)
         Me.KryptonLabel2.Name = "KryptonLabel2"
-        Me.KryptonLabel2.Size = New System.Drawing.Size(40, 22)
+        Me.KryptonLabel2.Size = New System.Drawing.Size(40, 20)
         Me.KryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.KryptonLabel2.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.KryptonLabel2.TabIndex = 18
@@ -703,9 +703,9 @@ Partial Class NewTaskForm
         'DateLabel
         '
         Me.DateLabel.Enabled = False
-        Me.DateLabel.Location = New System.Drawing.Point(7, 27)
+        Me.DateLabel.Location = New System.Drawing.Point(23, 29)
         Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(39, 22)
+        Me.DateLabel.Size = New System.Drawing.Size(39, 20)
         Me.DateLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.DateLabel.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.DateLabel.TabIndex = 17
@@ -714,7 +714,7 @@ Partial Class NewTaskForm
         'DatePicker
         '
         Me.DatePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
-        Me.DatePicker.Location = New System.Drawing.Point(48, 26)
+        Me.DatePicker.Location = New System.Drawing.Point(72, 28)
         Me.DatePicker.MinDate = New Date(2012, 12, 24, 0, 0, 0, 0)
         Me.DatePicker.Name = "DatePicker"
         Me.DatePicker.Size = New System.Drawing.Size(208, 21)
@@ -726,7 +726,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape3})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(433, 73)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(469, 73)
         Me.ShapeContainer1.TabIndex = 24
         Me.ShapeContainer1.TabStop = False
         '
@@ -737,74 +737,74 @@ Partial Class NewTaskForm
         Me.RectangleShape3.Location = New System.Drawing.Point(5, 9)
         Me.RectangleShape3.Name = "RectangleShape3"
         Me.RectangleShape3.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape3.Size = New System.Drawing.Size(421, 54)
+        Me.RectangleShape3.Size = New System.Drawing.Size(453, 54)
         Me.RectangleShape3.Visible = False
         '
         'TypeOfTaskPanel
         '
-        Me.TypeOfTaskPanel.Controls.Add(Me.YearlyCheckButton)
-        Me.TypeOfTaskPanel.Controls.Add(Me.DailyCheckButton)
-        Me.TypeOfTaskPanel.Controls.Add(Me.TypeOfTaskLabel)
         Me.TypeOfTaskPanel.Controls.Add(Me.OnceCheckButton)
-        Me.TypeOfTaskPanel.Controls.Add(Me.MonthlyCheckButton)
+        Me.TypeOfTaskPanel.Controls.Add(Me.DailyCheckButton)
         Me.TypeOfTaskPanel.Controls.Add(Me.WeeklyCheckButton)
+        Me.TypeOfTaskPanel.Controls.Add(Me.YearlyCheckButton)
+        Me.TypeOfTaskPanel.Controls.Add(Me.TypeOfTaskLabel)
+        Me.TypeOfTaskPanel.Controls.Add(Me.MonthlyCheckButton)
         Me.TypeOfTaskPanel.Controls.Add(Me.ShapeContainer4)
         Me.TypeOfTaskPanel.Enabled = False
         Me.TypeOfTaskPanel.Location = New System.Drawing.Point(41, 361)
         Me.TypeOfTaskPanel.Name = "TypeOfTaskPanel"
-        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(437, 83)
+        Me.TypeOfTaskPanel.Size = New System.Drawing.Size(480, 83)
         Me.TypeOfTaskPanel.TabIndex = 13
-        '
-        'YearlyCheckButton
-        '
-        Me.YearlyCheckButton.Location = New System.Drawing.Point(346, 29)
-        Me.YearlyCheckButton.Name = "YearlyCheckButton"
-        Me.YearlyCheckButton.Size = New System.Drawing.Size(64, 38)
-        Me.YearlyCheckButton.TabIndex = 4
-        Me.YearlyCheckButton.Values.Text = "Yearly"
-        '
-        'DailyCheckButton
-        '
-        Me.DailyCheckButton.Location = New System.Drawing.Point(99, 29)
-        Me.DailyCheckButton.Name = "DailyCheckButton"
-        Me.DailyCheckButton.Size = New System.Drawing.Size(64, 38)
-        Me.DailyCheckButton.TabIndex = 1
-        Me.DailyCheckButton.Values.Text = "Daily"
-        '
-        'TypeOfTaskLabel
-        '
-        Me.TypeOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.TypeOfTaskLabel.Location = New System.Drawing.Point(85, 3)
-        Me.TypeOfTaskLabel.Name = "TypeOfTaskLabel"
-        Me.TypeOfTaskLabel.Size = New System.Drawing.Size(223, 22)
-        Me.TypeOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
-        Me.TypeOfTaskLabel.TabIndex = 12
-        Me.TypeOfTaskLabel.Values.Text = "What type of task do you want it to be ?"
         '
         'OnceCheckButton
         '
         Me.OnceCheckButton.Checked = True
-        Me.OnceCheckButton.Location = New System.Drawing.Point(19, 29)
+        Me.OnceCheckButton.Location = New System.Drawing.Point(8, 29)
         Me.OnceCheckButton.Name = "OnceCheckButton"
-        Me.OnceCheckButton.Size = New System.Drawing.Size(64, 38)
+        Me.OnceCheckButton.Size = New System.Drawing.Size(74, 38)
         Me.OnceCheckButton.TabIndex = 0
         Me.OnceCheckButton.Values.Text = "Once"
         '
-        'MonthlyCheckButton
+        'DailyCheckButton
         '
-        Me.MonthlyCheckButton.Location = New System.Drawing.Point(258, 29)
-        Me.MonthlyCheckButton.Name = "MonthlyCheckButton"
-        Me.MonthlyCheckButton.Size = New System.Drawing.Size(64, 38)
-        Me.MonthlyCheckButton.TabIndex = 3
-        Me.MonthlyCheckButton.Values.Text = "Monthly"
+        Me.DailyCheckButton.Location = New System.Drawing.Point(97, 29)
+        Me.DailyCheckButton.Name = "DailyCheckButton"
+        Me.DailyCheckButton.Size = New System.Drawing.Size(75, 38)
+        Me.DailyCheckButton.TabIndex = 1
+        Me.DailyCheckButton.Values.Text = "Daily"
         '
         'WeeklyCheckButton
         '
-        Me.WeeklyCheckButton.Location = New System.Drawing.Point(178, 29)
+        Me.WeeklyCheckButton.Location = New System.Drawing.Point(190, 29)
         Me.WeeklyCheckButton.Name = "WeeklyCheckButton"
-        Me.WeeklyCheckButton.Size = New System.Drawing.Size(64, 38)
+        Me.WeeklyCheckButton.Size = New System.Drawing.Size(87, 38)
         Me.WeeklyCheckButton.TabIndex = 2
         Me.WeeklyCheckButton.Values.Text = "Weekly"
+        '
+        'YearlyCheckButton
+        '
+        Me.YearlyCheckButton.Location = New System.Drawing.Point(389, 29)
+        Me.YearlyCheckButton.Name = "YearlyCheckButton"
+        Me.YearlyCheckButton.Size = New System.Drawing.Size(75, 38)
+        Me.YearlyCheckButton.TabIndex = 4
+        Me.YearlyCheckButton.Values.Text = "Yearly"
+        '
+        'TypeOfTaskLabel
+        '
+        Me.TypeOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
+        Me.TypeOfTaskLabel.Location = New System.Drawing.Point(120, 3)
+        Me.TypeOfTaskLabel.Name = "TypeOfTaskLabel"
+        Me.TypeOfTaskLabel.Size = New System.Drawing.Size(223, 20)
+        Me.TypeOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
+        Me.TypeOfTaskLabel.TabIndex = 12
+        Me.TypeOfTaskLabel.Values.Text = "What type of task do you want it to be ?"
+        '
+        'MonthlyCheckButton
+        '
+        Me.MonthlyCheckButton.Location = New System.Drawing.Point(290, 29)
+        Me.MonthlyCheckButton.Name = "MonthlyCheckButton"
+        Me.MonthlyCheckButton.Size = New System.Drawing.Size(75, 38)
+        Me.MonthlyCheckButton.TabIndex = 3
+        Me.MonthlyCheckButton.Values.Text = "Monthly"
         '
         'ShapeContainer4
         '
@@ -812,7 +812,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer4.Name = "ShapeContainer4"
         Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4})
-        Me.ShapeContainer4.Size = New System.Drawing.Size(437, 83)
+        Me.ShapeContainer4.Size = New System.Drawing.Size(480, 83)
         Me.ShapeContainer4.TabIndex = 13
         Me.ShapeContainer4.TabStop = False
         '
@@ -820,10 +820,10 @@ Partial Class NewTaskForm
         '
         Me.RectangleShape4.BorderColor = System.Drawing.Color.Gold
         Me.RectangleShape4.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
-        Me.RectangleShape4.Location = New System.Drawing.Point(8, 13)
+        Me.RectangleShape4.Location = New System.Drawing.Point(4, 13)
         Me.RectangleShape4.Name = "RectangleShape4"
         Me.RectangleShape4.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape4.Size = New System.Drawing.Size(420, 61)
+        Me.RectangleShape4.Size = New System.Drawing.Size(468, 61)
         Me.RectangleShape4.Visible = False
         '
         'KindOfTaskPanel
@@ -833,7 +833,7 @@ Partial Class NewTaskForm
         Me.KindOfTaskPanel.Controls.Add(Me.ServiceCheckButton)
         Me.KindOfTaskPanel.Controls.Add(Me.KindOfTaskLabel)
         Me.KindOfTaskPanel.Controls.Add(Me.ShapeContainer2)
-        Me.KindOfTaskPanel.Location = New System.Drawing.Point(89, 12)
+        Me.KindOfTaskPanel.Location = New System.Drawing.Point(117, 12)
         Me.KindOfTaskPanel.Name = "KindOfTaskPanel"
         Me.KindOfTaskPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile
         Me.KindOfTaskPanel.Size = New System.Drawing.Size(317, 91)
@@ -846,7 +846,7 @@ Partial Class NewTaskForm
         Me.ExecutableCheckButton.Name = "ExecutableCheckButton"
         Me.ExecutableCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ExecutableCheckButton.TabIndex = 7
-        Me.ToolTip1.SetToolTip(Me.ExecutableCheckButton, "Executable")
+        Me.ToolTip2.SetToolTip(Me.ExecutableCheckButton, "Executable")
         Me.ExecutableCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.ExecutableIcon
         Me.ExecutableCheckButton.Values.Text = ""
         '
@@ -857,7 +857,7 @@ Partial Class NewTaskForm
         Me.FileCheckButton.Name = "FileCheckButton"
         Me.FileCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.FileCheckButton.TabIndex = 10
-        Me.ToolTip1.SetToolTip(Me.FileCheckButton, "File")
+        Me.ToolTip2.SetToolTip(Me.FileCheckButton, "File")
         Me.FileCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.fileIcon
         Me.FileCheckButton.Values.Text = ""
         '
@@ -868,7 +868,7 @@ Partial Class NewTaskForm
         Me.ServiceCheckButton.Name = "ServiceCheckButton"
         Me.ServiceCheckButton.Size = New System.Drawing.Size(55, 47)
         Me.ServiceCheckButton.TabIndex = 9
-        Me.ToolTip1.SetToolTip(Me.ServiceCheckButton, "Service")
+        Me.ToolTip2.SetToolTip(Me.ServiceCheckButton, "Service")
         Me.ServiceCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.serviceIcon
         Me.ServiceCheckButton.Values.Text = ""
         '
@@ -877,7 +877,7 @@ Partial Class NewTaskForm
         Me.KindOfTaskLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
         Me.KindOfTaskLabel.Location = New System.Drawing.Point(41, 3)
         Me.KindOfTaskLabel.Name = "KindOfTaskLabel"
-        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 22)
+        Me.KindOfTaskLabel.Size = New System.Drawing.Size(231, 20)
         Me.KindOfTaskLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.KindOfTaskLabel.TabIndex = 1
         Me.KindOfTaskLabel.Values.Text = "What kind of task would you like to add ?"
@@ -910,12 +910,12 @@ Partial Class NewTaskForm
         Me.chooseFilePanel.Enabled = False
         Me.chooseFilePanel.Location = New System.Drawing.Point(52, 159)
         Me.chooseFilePanel.Name = "chooseFilePanel"
-        Me.chooseFilePanel.Size = New System.Drawing.Size(400, 72)
+        Me.chooseFilePanel.Size = New System.Drawing.Size(438, 72)
         Me.chooseFilePanel.TabIndex = 6
         '
         'chooseFileBrowseButton
         '
-        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(307, 29)
+        Me.chooseFileBrowseButton.Location = New System.Drawing.Point(340, 29)
         Me.chooseFileBrowseButton.Name = "chooseFileBrowseButton"
         Me.chooseFileBrowseButton.Size = New System.Drawing.Size(74, 20)
         Me.chooseFileBrowseButton.StateCommon.Content.LongText.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(161, Byte))
@@ -925,7 +925,7 @@ Partial Class NewTaskForm
         '
         'chooseFileTextBox
         '
-        Me.chooseFileTextBox.Location = New System.Drawing.Point(13, 29)
+        Me.chooseFileTextBox.Location = New System.Drawing.Point(39, 29)
         Me.chooseFileTextBox.Name = "chooseFileTextBox"
         Me.chooseFileTextBox.Size = New System.Drawing.Size(288, 20)
         Me.chooseFileTextBox.TabIndex = 1
@@ -933,9 +933,9 @@ Partial Class NewTaskForm
         'chooseFileLabel
         '
         Me.chooseFileLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.chooseFileLabel.Location = New System.Drawing.Point(97, 3)
+        Me.chooseFileLabel.Location = New System.Drawing.Point(139, 3)
         Me.chooseFileLabel.Name = "chooseFileLabel"
-        Me.chooseFileLabel.Size = New System.Drawing.Size(134, 22)
+        Me.chooseFileLabel.Size = New System.Drawing.Size(134, 20)
         Me.chooseFileLabel.StateNormal.ShortText.Color1 = System.Drawing.Color.Yellow
         Me.chooseFileLabel.TabIndex = 0
         Me.chooseFileLabel.Values.Text = "Please choose your  file"
@@ -946,7 +946,7 @@ Partial Class NewTaskForm
         Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer3.Name = "ShapeContainer3"
         Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape2})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(400, 72)
+        Me.ShapeContainer3.Size = New System.Drawing.Size(438, 72)
         Me.ShapeContainer3.TabIndex = 4
         Me.ShapeContainer3.TabStop = False
         '
@@ -954,15 +954,15 @@ Partial Class NewTaskForm
         '
         Me.RectangleShape2.BorderColor = System.Drawing.Color.Gold
         Me.RectangleShape2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot
-        Me.RectangleShape2.Location = New System.Drawing.Point(3, 11)
+        Me.RectangleShape2.Location = New System.Drawing.Point(27, 11)
         Me.RectangleShape2.Name = "RectangleShape2"
         Me.RectangleShape2.SelectionColor = System.Drawing.Color.Transparent
-        Me.RectangleShape2.Size = New System.Drawing.Size(392, 53)
+        Me.RectangleShape2.Size = New System.Drawing.Size(402, 53)
         Me.RectangleShape2.Visible = False
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
         '
         'OpenFileDialog
         '
@@ -1075,7 +1075,7 @@ Partial Class NewTaskForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(511, 640)
+        Me.ClientSize = New System.Drawing.Size(546, 640)
         Me.Controls.Add(Me.addNewTaskMainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1121,7 +1121,7 @@ Partial Class NewTaskForm
         MyBase.Finalize()
     End Sub
     Friend WithEvents OpenFileDialog As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents ToolTip2 As System.Windows.Forms.ToolTip
     Friend WithEvents KryptonContextMenuCheckBox1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
     Friend WithEvents KryptonContextMenuCheckBox3 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
@@ -1175,7 +1175,6 @@ Partial Class NewTaskForm
     Private WithEvents addNewTaskMainPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents KryptonManager As ComponentFactory.Krypton.Toolkit.KryptonManager
     Private WithEvents chooseFilePanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
-    Private WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Private WithEvents KindOfTaskCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
     Private WithEvents KindOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
     Private WithEvents TypeOfTaskPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
@@ -1189,8 +1188,6 @@ Partial Class NewTaskForm
     Private WithEvents KryptonContextMenuItems1 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
     Private WithEvents KryptonContextMenuItem2 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem
     Private WithEvents KryptonContextMenuItems4 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems
-    Private WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Private WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents SaveButtonTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents chooseFileCheckLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
     Friend WithEvents ServiceLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
@@ -1244,5 +1241,8 @@ Partial Class NewTaskForm
     Friend WithEvents WeekdaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Friend WithEvents MonthDaysDropDownButton As ComponentFactory.Krypton.Toolkit.KryptonDropButton
     Friend WithEvents KryptonContextMenuCheckBox56 As ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox
+    Friend WithEvents SaveTaskButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents MoreOptionsButton As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents MonthsContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
 End Class

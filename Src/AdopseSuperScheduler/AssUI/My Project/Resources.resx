@@ -121,14 +121,14 @@
   <data name="fileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="questionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\system_help~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="exportToPDFicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1356984461_file_extension_pdf~4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ExecutableIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExecutableIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="greekFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1357277661_Greece-Flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="questionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\system_help~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,8 +142,8 @@
   <data name="cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +154,11 @@
   <data name="scheduledTasksIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1355142334_preferences-calendar-and-tasks~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addTaskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1356656143_Plus__Orange~2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="moreoptionsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,16 +166,19 @@
   <data name="logIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file-extension-log-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="deleteTaskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1356656152_delete_64~2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ExecutableIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExecutableIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clearLogIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1356741300_edit-clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="serviceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home-Server-icon~1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addTaskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1356656143_Plus__Orange~2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deleteTaskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1356656152_delete_64~2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clearLogIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1356741300_edit-clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="USFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1357277667_United-States-Flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -374,6 +374,7 @@ Public Class NewTaskForm
                 Next
 
             Else    'yearly task
+                Dim dates_list As New List(Of Date) 'baloma for the bug that added many identical dates 
                 'check the month
                 For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
                     Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
@@ -383,7 +384,7 @@ Public Class NewTaskForm
                             semi_final_date = semi_final_date.AddMonths(1)
                         End While
                     End If
-                    
+
 
                     'for this month check the monthdays
                     For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
@@ -393,9 +394,13 @@ Public Class NewTaskForm
                             While Not final_date.Day.ToString.Equals(monthday.Text)
                                 final_date = final_date.AddDays(1)
                             End While
-                            m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                            If Not dates_list.Contains(final_date) Then
+                                m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
                                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
-                            write_to_log = False
+                                write_to_log = False
+                                dates_list.Add(final_date)
+                            End If
+                            
                         End If
                     Next
 
@@ -665,8 +670,7 @@ Public Class NewTaskForm
 
 
         For i As Integer = 0 To 30
-            If checkBoxes(i).ToString.Equals(day + "th") Or checkBoxes(i).ToString.Equals(day + "st") _
-                    Or checkBoxes(i).ToString.Equals(day + "nd") Or checkBoxes(i).ToString.Equals(day + "rd") Then
+            If checkBoxes(i).ToString.Equals(day) Then
 
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False

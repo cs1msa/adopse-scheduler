@@ -83,6 +83,8 @@ Partial Class MainForm
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         Me.UpperPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
+        Me.USFlagCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
+        Me.greekFlagCheckButton = New ComponentFactory.Krypton.Toolkit.KryptonCheckButton()
         Me.KryptonPanel1 = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.RunNowButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.AddTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -129,31 +131,26 @@ Partial Class MainForm
         Me.ClearLogContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NoScheduledTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.DeleteTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.flagCheckSet = New ComponentFactory.Krypton.Toolkit.KryptonCheckSet(Me.components)
+        Me.flagsPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel1.SuspendLayout()
-        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer1.Panel2.SuspendLayout()
         Me.KryptonSplitContainer1.SuspendLayout()
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NavigateHeaderGroup.Panel.SuspendLayout()
         Me.NavigateHeaderGroup.SuspendLayout()
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel1.SuspendLayout()
-        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonSplitContainer2.Panel2.SuspendLayout()
         Me.KryptonSplitContainer2.SuspendLayout()
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ScheduledTasksHeaderGroup.Panel.SuspendLayout()
         Me.ScheduledTasksHeaderGroup.SuspendLayout()
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogHeaderGroup.Panel.SuspendLayout()
         Me.LogHeaderGroup.SuspendLayout()
         CType(Me.LogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,13 +162,16 @@ Partial Class MainForm
         Me.TrayContextMenu.SuspendLayout()
         Me.ScheduledTasksContextMenu.SuspendLayout()
         Me.LogContextMenu.SuspendLayout()
+        CType(Me.flagCheckSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.flagsPanel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.flagsPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'LowerPanel
         '
         Me.LowerPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LowerPanel.Controls.Add(Me.KryptonSplitContainer1)
         Me.LowerPanel.Location = New System.Drawing.Point(0, 93)
         Me.LowerPanel.Name = "LowerPanel"
@@ -227,104 +227,152 @@ Partial Class MainForm
         Me.NavigationTreeView.Location = New System.Drawing.Point(0, 0)
         Me.NavigationTreeView.Name = "NavigationTreeView"
         TreeNode1.Name = "A_O_ExecutableNode"
+        TreeNode1.Tag = "Tasks Active Once Executable"
         TreeNode1.Text = "Executable"
         TreeNode2.Name = "A_O_FileNode"
+        TreeNode2.Tag = "Tasks Active Once File"
         TreeNode2.Text = "File"
         TreeNode3.Name = "A_O_ServiceNode"
+        TreeNode3.Tag = "Tasks Active Once Service"
         TreeNode3.Text = "Service"
         TreeNode4.Name = "A_OnceNode"
+        TreeNode4.Tag = "Tasks Active Once"
         TreeNode4.Text = "Once"
         TreeNode5.Name = "A_D_ExecutableNode"
+        TreeNode5.Tag = "Tasks Active Daily Executable"
         TreeNode5.Text = "Executable"
         TreeNode6.Name = "A_D_FileNode"
+        TreeNode6.Tag = "Tasks Active Daily File"
         TreeNode6.Text = "File"
         TreeNode7.Name = "A_D_ServiceNode"
+        TreeNode7.Tag = "Tasks Active Daily Service"
         TreeNode7.Text = "Service"
         TreeNode8.Name = "A_DailyNode"
+        TreeNode8.Tag = "Tasks Active Daily"
         TreeNode8.Text = "Daily"
         TreeNode9.Name = "A_W_ExecutableNode"
+        TreeNode9.Tag = "Tasks Active Weekly Executable"
         TreeNode9.Text = "Executable"
         TreeNode10.Name = "A_W_FileNode"
+        TreeNode10.Tag = "Tasks Active Weekly File"
         TreeNode10.Text = "File"
         TreeNode11.Name = "A_W_ServiceNode"
+        TreeNode11.Tag = "Tasks Active Weekly Service"
         TreeNode11.Text = "Service"
         TreeNode12.Name = "A_WeeklyNode"
+        TreeNode12.Tag = "Tasks Active Weekly"
         TreeNode12.Text = "Weekly"
         TreeNode13.Name = "A_M_ExecutableNode"
+        TreeNode13.Tag = "Tasks Active Monthly Executable"
         TreeNode13.Text = "Executable"
         TreeNode14.Name = "A_M_FileNode"
+        TreeNode14.Tag = "Tasks Active Monthly File"
         TreeNode14.Text = "File"
         TreeNode15.Name = "A_M_ServiceNode"
+        TreeNode15.Tag = "Tasks Active Monthly Service"
         TreeNode15.Text = "Service"
         TreeNode16.Name = "A_MonthlyNode"
+        TreeNode16.Tag = "Tasks Active Monthly "
         TreeNode16.Text = "Monthly"
         TreeNode17.Name = "A_Y_ExecutableNode"
+        TreeNode17.Tag = "Tasks Active Yearly Executable"
         TreeNode17.Text = "Executable"
         TreeNode18.Name = "A_Y_FileNode"
+        TreeNode18.Tag = "Tasks Active Yearly File"
         TreeNode18.Text = "File"
         TreeNode19.Name = "A_Y_ServiceNode"
+        TreeNode19.Tag = "Tasks Active Yearly Service"
         TreeNode19.Text = "Service"
         TreeNode20.Name = "A_YearlyNode"
+        TreeNode20.Tag = "Tasks Active Yearly "
         TreeNode20.Text = "Yearly"
         TreeNode21.Name = "ActiveNode"
+        TreeNode21.Tag = "Tasks Active"
         TreeNode21.Text = "Active"
         TreeNode22.Name = "I_O_ExecutableNode"
+        TreeNode22.Tag = "Tasks Inactive Once Executable"
         TreeNode22.Text = "Executable"
         TreeNode23.Name = "I_O_FileNode"
+        TreeNode23.Tag = "Tasks Inactive Once File"
         TreeNode23.Text = "File"
         TreeNode24.Name = "I_O_ServiceNode"
+        TreeNode24.Tag = "Tasks Inactive Once Service"
         TreeNode24.Text = "Service"
         TreeNode25.Name = "I_OnceNode"
+        TreeNode25.Tag = "Tasks Inactive Once "
         TreeNode25.Text = "Once"
         TreeNode26.Name = "I_D_ExecutableNode"
+        TreeNode26.Tag = "Tasks Inactive Daily Executable"
         TreeNode26.Text = "Executable"
         TreeNode27.Name = "I_D_FileNode"
+        TreeNode27.Tag = "Tasks Inactive Daily File"
         TreeNode27.Text = "File"
         TreeNode28.Name = "I_D_ServiceNode"
+        TreeNode28.Tag = "Tasks Inactive Daily Service"
         TreeNode28.Text = "Service"
         TreeNode29.Name = "I_DailyNode"
+        TreeNode29.Tag = "Tasks Inactive Daily "
         TreeNode29.Text = "Daily"
         TreeNode30.Name = "I_W_ExecutableNode"
+        TreeNode30.Tag = "Tasks Inactive Weekly Executable"
         TreeNode30.Text = "Executable"
         TreeNode31.Name = "I_W_FileNode"
+        TreeNode31.Tag = "Tasks Inactive Weekly File"
         TreeNode31.Text = "File"
         TreeNode32.Name = "I_W_ServiceNode"
+        TreeNode32.Tag = "Tasks Inactive Weekly Service"
         TreeNode32.Text = "Service"
         TreeNode33.Name = "I_WeeklyNode"
+        TreeNode33.Tag = "Tasks Inactive Weekly "
         TreeNode33.Text = "Weekly"
         TreeNode34.Name = "I_M_ExecutableNode"
+        TreeNode34.Tag = "Tasks Inactive Monthly Executable"
         TreeNode34.Text = "Executable"
         TreeNode35.Name = "I_M_FileNode"
+        TreeNode35.Tag = "Tasks Inactive Monthly File"
         TreeNode35.Text = "File"
         TreeNode36.Name = "I_M_ServiceNode"
+        TreeNode36.Tag = "Tasks Inactive Monthly Service"
         TreeNode36.Text = "Service"
         TreeNode37.Name = "I_MonthlyNode"
+        TreeNode37.Tag = "Tasks Inactive Monthly "
         TreeNode37.Text = "Monthly"
         TreeNode38.Name = "I_Y_ExecutableNode"
+        TreeNode38.Tag = "Tasks Inactive Yearly Executable"
         TreeNode38.Text = "Executable"
         TreeNode39.Name = "I_Y_FileNode"
+        TreeNode39.Tag = "Tasks Inactive Yearly File"
         TreeNode39.Text = "File"
         TreeNode40.Name = "I_Y_ServiceNode"
+        TreeNode40.Tag = "Tasks Inactive Yearly Service"
         TreeNode40.Text = "Service"
         TreeNode41.Name = "I_YearlyNode"
+        TreeNode41.Tag = "Tasks Inactive Yearly "
         TreeNode41.Text = "Yearly"
         TreeNode42.Name = "InactiveNode"
+        TreeNode42.Tag = "Tasks Inactive"
         TreeNode42.Text = "Inactive"
         TreeNode43.Name = "TasksNode"
+        TreeNode43.Tag = "Tasks"
         TreeNode43.Text = "Tasks"
         TreeNode44.Name = "AddedNode"
+        TreeNode44.Tag = "History Added"
         TreeNode44.Text = "Added"
         TreeNode45.Name = "RemovedNode"
+        TreeNode45.Tag = "History Removed"
         TreeNode45.Text = "Removed"
         TreeNode46.Name = "SuccessfulNode"
+        TreeNode46.Tag = "History Successful"
         TreeNode46.Text = "Successful"
         TreeNode47.Name = "UnsuccessfulNode"
+        TreeNode47.Tag = "History Unsuccessful"
         TreeNode47.Text = "Unsuccessful"
         TreeNode48.Name = "HistoryNode"
+        TreeNode48.Tag = "History"
         TreeNode48.Text = "History"
         Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode43, TreeNode48})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
-        Me.NavigationTreeView.Size = New System.Drawing.Size(169, 454)
+        Me.NavigationTreeView.Size = New System.Drawing.Size(169, 452)
         Me.NavigationTreeView.StateCheckedNormal.Node.Back.Color1 = System.Drawing.Color.LemonChiffon
         Me.NavigationTreeView.TabIndex = 1
         '
@@ -381,7 +429,7 @@ Partial Class MainForm
         Me.ScheduledTasksDataGridView.ReadOnly = True
         Me.ScheduledTasksDataGridView.RowHeadersVisible = False
         Me.ScheduledTasksDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(858, 206)
+        Me.ScheduledTasksDataGridView.Size = New System.Drawing.Size(858, 208)
         Me.ScheduledTasksDataGridView.TabIndex = 1
         '
         'LogHeaderGroup
@@ -430,17 +478,18 @@ Partial Class MainForm
         Me.LogDataGridView.ReadOnly = True
         Me.LogDataGridView.RowHeadersVisible = False
         Me.LogDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LogDataGridView.Size = New System.Drawing.Size(858, 199)
+        Me.LogDataGridView.Size = New System.Drawing.Size(858, 201)
         Me.LogDataGridView.TabIndex = 0
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
         '
         'UpperPanel
         '
         Me.UpperPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.UpperPanel.Controls.Add(Me.flagsPanel)
         Me.UpperPanel.Controls.Add(Me.KryptonPanel1)
         Me.UpperPanel.Controls.Add(Me.MenuStrip)
         Me.UpperPanel.Location = New System.Drawing.Point(0, 0)
@@ -448,13 +497,33 @@ Partial Class MainForm
         Me.UpperPanel.Size = New System.Drawing.Size(1036, 93)
         Me.UpperPanel.TabIndex = 1
         '
+        'USFlagCheckButton
+        '
+        Me.USFlagCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.USFlagCheckButton.Location = New System.Drawing.Point(59, 0)
+        Me.USFlagCheckButton.Name = "USFlagCheckButton"
+        Me.USFlagCheckButton.Size = New System.Drawing.Size(45, 38)
+        Me.USFlagCheckButton.TabIndex = 8
+        Me.USFlagCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.USFlag
+        Me.USFlagCheckButton.Values.Text = ""
+        '
+        'greekFlagCheckButton
+        '
+        Me.greekFlagCheckButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
+        Me.greekFlagCheckButton.Location = New System.Drawing.Point(8, 0)
+        Me.greekFlagCheckButton.Name = "greekFlagCheckButton"
+        Me.greekFlagCheckButton.Size = New System.Drawing.Size(45, 38)
+        Me.greekFlagCheckButton.TabIndex = 7
+        Me.greekFlagCheckButton.Values.Image = Global.AssUI.My.Resources.Resources.greekFlag
+        Me.greekFlagCheckButton.Values.Text = ""
+        '
         'KryptonPanel1
         '
         Me.KryptonPanel1.Controls.Add(Me.RunNowButton)
         Me.KryptonPanel1.Controls.Add(Me.AddTaskButton)
         Me.KryptonPanel1.Controls.Add(Me.DeleteTaskButton)
         Me.KryptonPanel1.Controls.Add(Me.EditTaskButton)
-        Me.KryptonPanel1.Location = New System.Drawing.Point(212, 3)
+        Me.KryptonPanel1.Location = New System.Drawing.Point(236, 18)
         Me.KryptonPanel1.Name = "KryptonPanel1"
         Me.KryptonPanel1.Size = New System.Drawing.Size(504, 75)
         Me.KryptonPanel1.TabIndex = 5
@@ -463,9 +532,9 @@ Partial Class MainForm
         '
         Me.RunNowButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.RunNowButton.Enabled = False
-        Me.RunNowButton.Location = New System.Drawing.Point(353, 14)
+        Me.RunNowButton.Location = New System.Drawing.Point(319, 2)
         Me.RunNowButton.Name = "RunNowButton"
-        Me.RunNowButton.Size = New System.Drawing.Size(79, 58)
+        Me.RunNowButton.Size = New System.Drawing.Size(93, 67)
         Me.RunNowButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.RunNowButton.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.RunNowButton, "Run Selected Task Now")
@@ -475,9 +544,9 @@ Partial Class MainForm
         'AddTaskButton
         '
         Me.AddTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
-        Me.AddTaskButton.Location = New System.Drawing.Point(3, 14)
+        Me.AddTaskButton.Location = New System.Drawing.Point(3, 3)
         Me.AddTaskButton.Name = "AddTaskButton"
-        Me.AddTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.AddTaskButton.Size = New System.Drawing.Size(93, 67)
         Me.AddTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.AddTaskButton.TabIndex = 1
         Me.ToolTip1.SetToolTip(Me.AddTaskButton, "Add New Task")
@@ -488,9 +557,9 @@ Partial Class MainForm
         '
         Me.DeleteTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.DeleteTaskButton.Enabled = False
-        Me.DeleteTaskButton.Location = New System.Drawing.Point(232, 14)
+        Me.DeleteTaskButton.Location = New System.Drawing.Point(207, 3)
         Me.DeleteTaskButton.Name = "DeleteTaskButton"
-        Me.DeleteTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.DeleteTaskButton.Size = New System.Drawing.Size(93, 67)
         Me.DeleteTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.DeleteTaskButton.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.DeleteTaskButton, "Delete Selected Task")
@@ -502,9 +571,9 @@ Partial Class MainForm
         Me.EditTaskButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EditTaskButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile
         Me.EditTaskButton.Enabled = False
-        Me.EditTaskButton.Location = New System.Drawing.Point(111, 14)
+        Me.EditTaskButton.Location = New System.Drawing.Point(102, 3)
         Me.EditTaskButton.Name = "EditTaskButton"
-        Me.EditTaskButton.Size = New System.Drawing.Size(79, 58)
+        Me.EditTaskButton.Size = New System.Drawing.Size(93, 67)
         Me.EditTaskButton.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far
         Me.EditTaskButton.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.EditTaskButton, "Edit Selected Task")
@@ -513,7 +582,7 @@ Partial Class MainForm
         '
         'MenuStrip
         '
-        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.TaskToolStripMenuItem, Me.ViewToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
@@ -784,6 +853,21 @@ Partial Class MainForm
         Me.DeleteTaskDialog.Tag = Nothing
         Me.DeleteTaskDialog.WindowTitle = "Delete"
         '
+        'flagCheckSet
+        '
+        Me.flagCheckSet.CheckButtons.Add(Me.USFlagCheckButton)
+        Me.flagCheckSet.CheckButtons.Add(Me.greekFlagCheckButton)
+        '
+        'flagsPanel
+        '
+        Me.flagsPanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.flagsPanel.Controls.Add(Me.greekFlagCheckButton)
+        Me.flagsPanel.Controls.Add(Me.USFlagCheckButton)
+        Me.flagsPanel.Location = New System.Drawing.Point(926, 3)
+        Me.flagsPanel.Name = "flagsPanel"
+        Me.flagsPanel.Size = New System.Drawing.Size(107, 47)
+        Me.flagsPanel.TabIndex = 9
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -801,28 +885,21 @@ Partial Class MainForm
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LowerPanel.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer1.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel1.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer1.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer1.ResumeLayout(False)
-        CType(Me.NavigateHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.NavigateHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NavigateHeaderGroup.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer2.Panel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel1.ResumeLayout(False)
-        CType(Me.KryptonSplitContainer2.Panel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.KryptonSplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonSplitContainer2.ResumeLayout(False)
-        CType(Me.ScheduledTasksHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.ScheduledTasksHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ScheduledTasksHeaderGroup.ResumeLayout(False)
         CType(Me.ScheduledTasksDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.Panel.ResumeLayout(False)
         CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogHeaderGroup.ResumeLayout(False)
@@ -837,6 +914,9 @@ Partial Class MainForm
         Me.TrayContextMenu.ResumeLayout(False)
         Me.ScheduledTasksContextMenu.ResumeLayout(False)
         Me.LogContextMenu.ResumeLayout(False)
+        CType(Me.flagCheckSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.flagsPanel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.flagsPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -913,4 +993,8 @@ Partial Class MainForm
     Friend WithEvents DeleteContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RunOnStartupToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents USFlagCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Friend WithEvents greekFlagCheckButton As ComponentFactory.Krypton.Toolkit.KryptonCheckButton
+    Friend WithEvents flagCheckSet As ComponentFactory.Krypton.Toolkit.KryptonCheckSet
+    Friend WithEvents flagsPanel As ComponentFactory.Krypton.Toolkit.KryptonPanel
 End Class

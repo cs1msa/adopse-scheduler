@@ -38,7 +38,6 @@ Public Class ALDatabaseHandler
 
         Dim row_list As New List(Of String)
 
-        Dim counter = 0
 
         For Each i As DataRow In m_select_return_table.Rows
             Dim row_string As New String("")

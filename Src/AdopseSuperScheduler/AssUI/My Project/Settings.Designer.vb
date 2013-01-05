@@ -101,6 +101,18 @@ Namespace My
                 Me("RunOnStartupFlag") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("""English""")>  _
+        Public Property LanguageFlag() As String
+            Get
+                Return CType(Me("LanguageFlag"),String)
+            End Get
+            Set
+                Me("LanguageFlag") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -19,6 +19,9 @@ Public Class MainForm
 
     Dim m__row_clicked As Integer
 
+    Dim grWords As New List(Of String)
+    Dim engWords As New List(Of String)
+
     Private Sub ButtonSpecHeaderGroup1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
         ''Suspend layout changes until all splitter properties have been updated
         KryptonSplitContainer1.SuspendLayout()
@@ -120,15 +123,27 @@ Public Class MainForm
     Private Sub checkRunOnStartup()
         If My.Settings.RunOnStartupFlag = True Then
             RunOnStartupToolStripMenuItem.Checked = True
+            createRegistryKey()
         ElseIf My.Settings.RunOnStartupFlag = False Then
             RunOnStartupToolStripMenuItem.Checked = False
         End If
     End Sub
 
+    Private Sub checkLanguage()
+
+        Select Case My.Settings.LanguageFlag
+            Case "Greek"
+                flagCheckSet.CheckedIndex = 1
+            Case "English"
+                flagCheckSet.CheckedIndex = 0
+        End Select
+
+        'changeLanguage(My.Settings.LanguageFlag)
+
+    End Sub
+
     'expands the tree view nodes Task and History on startup
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-        checkRunOnStartup()
 
         m_scheduled_tasks__datagrid_restrictions = New List(Of String)
         m_log_datagrid_restrictions = New List(Of String)
@@ -151,7 +166,12 @@ Public Class MainForm
         NavigationTreeView.Nodes(1).Expand()
 
         checkIfTasksAreEmpty()
+        checkRunOnStartup()
 
+
+        fillEnglishWords()
+        fillGreekWords()
+        checkLanguage()
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
@@ -467,7 +487,8 @@ Public Class MainForm
             m_master_control.m_scheduler_tasks_has_changed = False
 
             'makes sure no row is selected
-            ScheduledTasksDataGridView.ClearSelection()
+            'ScheduledTasksDataGridView.ClearSelection()
+
         End If
 
 
@@ -486,6 +507,7 @@ Public Class MainForm
 
             'makes sure no row is selected
             LogDataGridView.ClearSelection()
+
         End If
 
         m_need_to_update_datagrids = False
@@ -496,8 +518,7 @@ Public Class MainForm
     Private Sub NavigationTreeView_NodeMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles NavigationTreeView.NodeMouseClick
 
         m_need_to_update_datagrids = True
-        Dim tree_full_path As String = e.Node.FullPath
-
+        Dim tree_full_path As String = e.Node.Tag.ToString()
 
         If tree_full_path.Contains("Tasks") Then
             'it is about tasks
@@ -609,6 +630,7 @@ Public Class MainForm
 
     Private Sub DeleteTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteTaskButton.Click
         deleteTask()
+        ScheduledTasksDataGridView.Rows(0).Selected = True
     End Sub
 
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteContextMenuItem.Click
@@ -624,10 +646,8 @@ Public Class MainForm
         Dim result As DialogResult = DeleteTaskDialog.ShowDialog()
 
         If result = DialogResult.Yes Then
-
-            'edw o kwdikas pou kanei delete to task
-
             m_master_control.DeleteTask(ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString())
+
         ElseIf result = DialogResult.No Then
 
             Exit Sub
@@ -901,6 +921,459 @@ Public Class MainForm
         End If
         My.Settings.Save()
 
+    End Sub
+    Private Sub changeLanguage(ByVal lang As String)
+        Dim dictionary As New List(Of String)
+        Select Case My.Settings.LanguageFlag
+            Case "Greek"
+                dictionary = getGreekDictionary()
+            Case "English"
+                dictionary = getEnglishDictionary()
+        End Select
+
+        '========================= MAIN FORM ========================================
+
+        'Main Buttons-------------------------------------------------------
+        AddTaskButton.Text = dictionary(0)
+        EditTaskButton.Text = dictionary(2)
+        DeleteTaskButton.Text = dictionary(4)
+        RunNowButton.Text = dictionary(6)
+
+        With ToolTip1
+            .SetToolTip(AddTaskButton, dictionary(1))
+            .SetToolTip(EditTaskButton, dictionary(3))
+            .SetToolTip(DeleteTaskButton, dictionary(5))
+            .SetToolTip(RunNowButton, dictionary(7))
+        End With
+        'End Main Butonns---------------------------------------------------
+
+        'ToolStrip MenuItems------------------------------------------------
+        FileToolStripMenuItem.Text = dictionary(8)
+        RunOnStartupToolStripMenuItem.Text = dictionary(9)
+        ExitToolStripMenuItem1.Text = dictionary(10)
+
+        TaskToolStripMenuItem.Text = dictionary(11)
+        AddToolStripMenuItem.Text = dictionary(0)
+        EditToolStripMenuItem.Text = dictionary(2)
+        DeleteToolStripMenuItem.Text = dictionary(4)
+        RunNowToolStripMenuItem.Text = dictionary(6)
+
+        ViewToolStripMenuItem.Text = dictionary(12)
+        AboutToolStripMenuItem.Text = dictionary(13)
+        'End ToolStrip MenuItems--------------------------------------------
+
+        'ScheduledTasks DataGridView----------------------------------------
+        ScheduledTasksHeaderGroup.ValuesPrimary.Heading = dictionary(14)
+        With ScheduledTasksDataGridView
+            .Columns(1).HeaderText = dictionary(15)
+            .Columns(2).HeaderText = dictionary(11)
+            .Columns(3).HeaderText = dictionary(16)
+            .Columns(4).HeaderText = dictionary(17)
+            .Columns(5).HeaderText = dictionary(18)
+            .Columns(6).HeaderText = dictionary(19)
+            .AutoResizeColumns()
+        End With
+
+        EditContextMenuItem.Text = dictionary(2)
+        DeleteContextMenuItem.Text = dictionary(4)
+        RunNowContextMenuItem.Text = dictionary(6)
+        ViewHistoryContextMenuItem.Text = dictionary(20)
+        'End ScheduledTasks DataGridView------------------------------------
+
+        'ScheduledTasks DataGridView----------------------------------------
+        LogHeaderGroup.ValuesPrimary.Heading = dictionary(20)
+        With LogDataGridView
+            .Columns(0).HeaderText = dictionary(21)
+            .Columns(1).HeaderText = dictionary(22)
+            .Columns(2).HeaderText = dictionary(11)
+            .Columns(3).HeaderText = dictionary(18)
+            .AutoResizeColumns()
+        End With
+
+        RemoveEntryContextMenuItem.Text = dictionary(23)
+        ExportToPDFContextMenuItem.Text = dictionary(24)
+        RunNowContextMenuItem.Text = dictionary(6)
+        ClearLogContextMenuItem.Text = dictionary(25)
+        'End ScheduledTasks DataGridView------------------------------------
+
+        'TreeView-----------------------------------------------------------
+        NavigationTreeView.Nodes(0).Text = dictionary(26)
+
+        For Each node In NavigationTreeView.Nodes(0).Nodes
+
+            For Each subnode In node.Nodes
+
+                For Each subsubnode In subnode.Nodes
+
+                    If subsubnode.tag.ToString.Contains("Executable") Then
+                        subsubnode.text = dictionary(27)
+                    ElseIf subsubnode.tag.ToString.Contains("File") Then
+                        subsubnode.text = dictionary(8)
+                    ElseIf subsubnode.tag.ToString.Contains("Service") Then
+                        subsubnode.text = dictionary(28)
+                    End If
+
+                Next
+
+                If subnode.tag.ToString.Contains("Once") Then
+                    subnode.text = dictionary(29)
+                ElseIf subnode.tag.ToString.Contains("Daily") Then
+                    subnode.text = dictionary(30)
+                ElseIf subnode.tag.ToString.Contains("Weekly") Then
+                    subnode.text = dictionary(31)
+                ElseIf subnode.tag.ToString.Contains("Monthly") Then
+                    subnode.text = dictionary(32)
+                ElseIf subnode.tag.ToString.Contains("Yearly") Then
+                    subnode.text = dictionary(33)
+                End If
+
+            Next
+
+            If node.tag.ToString.Contains("Active") Then
+                node.text = dictionary(34)
+            ElseIf node.tag.ToString.Contains("Inactive") Then
+                node.text = dictionary(35)
+            End If
+
+        Next
+
+        NavigationTreeView.Nodes(1).Text = dictionary(20)
+
+        For Each node In NavigationTreeView.Nodes(1).Nodes
+            If node.tag.ToString.Contains("Added") Then
+                node.text = dictionary(36)
+            ElseIf node.tag.ToString.Contains("Removed") Then
+                node.text = dictionary(37)
+            ElseIf node.tag.ToString.Contains("Successful") Then
+                node.text = dictionary(38)
+            ElseIf node.tag.ToString.Contains("Unsuccessful") Then
+                node.text = dictionary(39)
+
+            End If
+        Next
+        'End TreeView-----------------------------------------------
+
+        'No Scheduled Tasks task dialog---------
+        With NoScheduledTaskDialog
+            .WindowTitle = dictionary(71)
+            .MainInstruction = dictionary(72)
+            .CheckboxText = dictionary(73)
+        End With
+        'end No Scheduled Tasks task dialog----
+
+        'END ========================= MAIN FORM =====================================
+
+
+
+        '========================== NEW TASK FORM ========================================
+        With NewTaskForm
+
+            'labels-------------------------------------
+            .KindOfTaskLabel.Text = dictionary(79)
+            .ServiceLabel.Text = dictionary(80)
+            .chooseFileLabel.Text = dictionary(81)
+            .KryptonLabel1.Text = dictionary(82)
+            .DateLabel.Text = dictionary(83)
+            .KryptonLabel2.Text = dictionary(84)
+            .TypeOfTaskLabel.Text = dictionary(85)
+            .KryptonLabel3.Text = dictionary(86)
+            .Label1.Text = dictionary(87)
+            .Label2.Text = dictionary(88)
+            'end labels---------------------------------
+
+            'Buttons-----------------------------------------------------------
+            .chooseFileBrowseButton.Text = dictionary(40)
+            .OnceCheckButton.Text = dictionary(41)
+            .DailyCheckButton.Text = dictionary(42)
+            .WeeklyCheckButton.Text = dictionary(43)
+            .MonthlyCheckButton.Text = dictionary(44)
+            .YearlyCheckButton.Text = dictionary(45)
+            .WeekdaysDropDownButton.Text = dictionary(46)
+            .MonthDaysDropDownButton.Text = dictionary(47)
+            .MonthsDropDownButton.Text = dictionary(48)
+            .SaveTaskButton.Text = dictionary(49)
+            .MoreOptionsButton.Text = dictionary(50)
+
+            With .ToolTip2
+                .SetToolTip(NewTaskForm.ExecutableCheckButton, dictionary(27))
+                .SetToolTip(NewTaskForm.FileCheckButton, dictionary(8))
+                .SetToolTip(NewTaskForm.ServiceCheckButton, dictionary(28))
+                .SetToolTip(NewTaskForm.MoreOptionsButton, dictionary(51))
+            End With
+
+            With .ServicesDataGridView
+                .Columns(0).HeaderText = dictionary(52)
+                .Columns(1).HeaderText = dictionary(17)
+                .Columns(2).HeaderText = dictionary(15)
+            End With
+            'End Buttons--------------------------------------------------------
+
+            'Success task dialog----------------
+            With .SuccessTaskDialog
+                .WindowTitle = dictionary(74)
+                .Content = dictionary(75)
+            End With
+            'End Success task dialog------------
+
+            'Savebutton task dialog-------------
+            With .SaveButtonTaskDialog
+                .WindowTitle = dictionary(76)
+                .Content = dictionary(77)
+            End With
+            'End Savebutton task dialog---------
+
+            'timechanged task dialog
+            .TimeChangedTaskDialog.WindowTitle = dictionary(78)
+        End With
+
+
+        'Delete task dialog
+        DeleteTaskDialog.WindowTitle = dictionary(4)
+        DeleteTaskDialog.MainInstruction = dictionary(69)
+        DeleteTaskDialog.Content = dictionary(70)
+        'end delete task dialog
+
+        'END ========================== NEW TASK FORM ======================================
+
+
+        '========================== MORE OPTIONS FORM ========================================
+        With MoreOptionsForm
+            .SetEndDateGroupBox.Values.Heading = dictionary(53)
+            .NeverEndRadioButton.Text = dictionary(54)
+            .EndAfterRadioButton.Text = dictionary(55)
+            .occurencesLabel.Text = dictionary(56)
+            .EndAtRadioButton.Text = dictionary(57)
+
+            With .TaskMissedGroupBox.Values
+                .Heading = dictionary(58)
+                .Description = dictionary(59)
+            End With
+            
+            .RunWhenPcOpensRadioButton.Text = dictionary(60)
+            .DisplayDialogAskingRadioButton.Text = dictionary(61)
+            .DoNothingRadioButton.Text = dictionary(62)
+
+            .DescriptionGroupBox.Values.Heading = dictionary(63)
+
+            .StateGroupBox.Values.Heading = dictionary(17)
+            .ActiveRadioButton.Text = dictionary(64)
+            .InactiveRadioButton.Text = dictionary(65)
+
+            .TimeOpenGroupBox.Values.Heading = dictionary(66)
+            With .KryptonLabel1
+                .Text = dictionary(67)
+                .Values.ExtraText = dictionary(68)
+            End With
+        End With
+        'END========================== MORE OPTIONS FORM =====================================
+
+        My.Settings.Save()
+
+    End Sub
+    Private Sub fillGreekWords()
+        With grWords
+            .Add("Προσθήκη")
+            .Add("Πρόσθεσε Εργασία")
+            .Add("Επεξεργασία")
+            .Add("Επεξεργάσου την Εργασία")
+            .Add("Διαγραφή")
+            .Add("Διάγραψε την Εργασία")
+            .Add("Εκτέλεση")
+            .Add("Εκτέλεσε τώρα την Εργασία")
+            .Add("Αρχείο")
+            .Add("Τρέχει στην Εκκίνηση")
+            .Add("Έξοδος")
+            .Add("Εργασία")
+            .Add("Εμφάνιση")
+            .Add("Περί")
+            .Add("Προγραμματισμένες Εργασίες")
+            .Add("Τύπος")
+            .Add("Επόμενη Εκτέλεση")
+            .Add("Κατάσταση")
+            .Add("Περιγραφή")
+            .Add("Τελευταία Εκτέλεση")
+            .Add("Ιστορικό")
+            .Add("ID Γεγονότος")
+            .Add("Ημερομηνία & Ώρα")
+            .Add("Αφαίρεση Καταχώρησης")
+            .Add("Εξαγωγή σε αρχείο PDF")
+            .Add("Εκκαθάριση Ιστορικού")
+            .Add("Εργασίες")
+            .Add("Εκτελέσιμο")
+            .Add("Υπηρεσία")
+            .Add("Μια Φορά")
+            .Add("Ημερήσιες")
+            .Add("Εβδομαδιαίες")
+            .Add("Μηνιαίες")
+            .Add("Ετήσιες")
+            .Add("Ενεργές")
+            .Add("Ανενεργές")
+            .Add("Προστέθηκε")
+            .Add("Αφαιρέθηκε")
+            .Add("Επιτυχής")
+            .Add("Ανεπιτυχής")
+            .Add("Αναζήτηση")
+            .Add("Μια Φορά")
+            .Add("Ημερήσια")
+            .Add("Εβδομαδιαία")
+            .Add("Μηνιαία")
+            .Add("Ετήσια")
+            .Add("Μερες της Εβδομάδας")
+            .Add("Μέρες του Μήνα")
+            .Add("Μήνες")
+            .Add("Αποθήκευση")
+            .Add("Περισσότερα")
+            .Add("Περισσότερες Επιλογές")
+            .Add("Όνομα")
+            .Add("Όρισε ημερομηνία λήξης")
+            .Add("Ποτέ")
+            .Add("Μετά από")
+            .Add("επαναλήψεις")
+            .Add("Την")
+            .Add("Αν χαθεί η εργασία")
+            .Add("(Η/Υ ήταν κλειστός)")
+            .Add("Να εκτελεστεί όταν ανοίξει ο Η/Υ")
+            .Add("Να εμφανίζεται παράθυρο που να με ρωτάει")
+            .Add("Να μη συμβαίνει τίποτα")
+            .Add("Εισαγωγή Περιγραφής για την εργασία")
+            .Add("Ενεργή")
+            .Add("Ανενεργή")
+            .Add("Πόση ώρα θα παραμείνει το πρόγραμμα ανοιχτό;")
+            .Add("λεπτά")
+            .Add("(0 = δε θα κλείσει ποτέ)")
+            .Add("Διαγραφή Εργασίας")
+            .Add("Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την εργασία;")
+            .Add("Καλως ήρθες")
+            .Add("Πρόσθεσε Εργασία")
+            .Add("Να μην εμφανιστεί ξανά αυτό το παράθυρο")
+            .Add("Επιτυχία!!!")
+            .Add("Η εργασία αποθηκεύτηκε επιτυχώς!")
+            .Add("Αποθήκευση Νέας Εργασίας")
+            .Add("Είσαι σίγουρος ότι θέλεις να αποθηκεύσεις αυτή την εργασία;")
+            .Add("Η ώρα άλλαξε αυτόματα")
+            .Add("Τι είδους εργασία θέλεις να προσθέσεις;")
+            .Add("Παρακαλώ επιλέξτε μια Υπηρεσία")
+            .Add("Παρακαλώ επιλέξτε ένα αρχείο")
+            .Add("Παρακαλώ επιλέξτε την αρχική ημερομηνία και ώρα")
+            .Add("Ημ/νία:")
+            .Add("Ώρα:")
+            .Add("Τι τύπος εργασίας θέλετε να είναι; ")
+            .Add("Παρακαλώ επιλέξτε τη συχνότητα της εργασίας")
+            .Add("Κάθε ")
+            .Add("μέρες")
+        End With
+    End Sub
+    Private Function getGreekDictionary() As List(Of String)
+        Return grWords
+    End Function
+
+    Private Sub fillEnglishWords()
+        With engWords
+            .Add("Add Task")
+            .Add("Add New Task")
+            .Add("Edit Task")
+            .Add("Edit Selected Task")
+            .Add("Delete Task")
+            .Add("Delete selected Task")
+            .Add("Run Now")
+            .Add("Run selected Task Now")
+            .Add("File")
+            .Add("Run on Startup")
+            .Add("Exit")
+            .Add("Task")
+            .Add("View")
+            .Add("About")
+            .Add("Scheduled Tasks")
+            .Add("Type")
+            .Add("Next Execution")
+            .Add("Status")
+            .Add("Description")
+            .Add("End_Date")
+            .Add("Log")
+            .Add("Event ID")
+            .Add("Date & Time")
+            .Add("Remove Entry")
+            .Add("Export to PDF")
+            .Add("Clear Log")
+            .Add("Tasks")
+            .Add("Executable")
+            .Add("Service")
+            .Add("Once")
+            .Add("Daily")
+            .Add("Weekly")
+            .Add("Monthly")
+            .Add("Yearly")
+            .Add("Active")
+            .Add("Inactive")
+            .Add("Added")
+            .Add("Removed")
+            .Add("Successful")
+            .Add("Unsuccessful")
+            .Add("Browse")
+            .Add("Once")
+            .Add("Daily")
+            .Add("Weekly")
+            .Add("Monthly")
+            .Add("Yearly")
+            .Add("Weekdays")
+            .Add("Month Days")
+            .Add("Months")
+            .Add("Save")
+            .Add("More Options")
+            .Add("Customize your task even more")
+            .Add("Name")
+            .Add("Set End Date")
+            .Add("Never End")
+            .Add("End after")
+            .Add("occurences")
+            .Add("End at")
+            .Add("If task is missed")
+            .Add("(PC was closed)")
+            .Add("Run when PC opens")
+            .Add("Display dialog asking")
+            .Add("Do Nothing")
+            .Add("Enter a description for your task")
+            .Add("Active")
+            .Add("Inactive")
+            .Add("How much time will the program remain open?")
+            .Add("minutes")
+            .Add("(0 = will never close)")
+            .Add("Delete Task")
+            .Add("Are you sure you want to completely remove this task?")
+            .Add("Welcome")
+            .Add("Add Task")
+            .Add("Do not show this window again")
+            .Add("Success!!!")
+            .Add("Task saved successfully!")
+            .Add("Save New Task")
+            .Add("Are you sure you want to save this task?")
+            .Add("Time Changed")
+            .Add("What kind of task would like to add?")
+            .Add("Please choose a Service")
+            .Add("Please choose a file")
+            .Add("Please choose start date and time for the task!")
+            .Add("Date:")
+            .Add("Time:")
+            .Add("What type of task do you want it to be? ")
+            .Add("Please choose the recurrence of the task")
+            .Add("Every ")
+            .Add("days")
+        End With
+
+    End Sub
+
+    Private Function getEnglishDictionary() As List(Of String)
+        Return engWords
+    End Function
+
+    Private Sub greekFlagCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles greekFlagCheckButton.Click
+        My.Settings.LanguageFlag = "Greek"
+        changeLanguage(My.Settings.LanguageFlag)
+    End Sub
+
+    Private Sub USFlagCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles USFlagCheckButton.Click
+        My.Settings.LanguageFlag = "English"
+        changeLanguage(My.Settings.LanguageFlag)
     End Sub
 
 End Class
