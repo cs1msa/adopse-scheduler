@@ -5,7 +5,6 @@ Imports CompletIT.Windows.Forms.Export
 Imports System.ServiceProcess
 
 
-
 Public Class MainForm
 
     Friend m_master_control As ALMasterControl
@@ -129,6 +128,7 @@ Public Class MainForm
         End If
     End Sub
 
+    'can't get it to work perfectly yet
     Private Sub checkLanguage()
 
         Select Case My.Settings.LanguageFlag
@@ -138,8 +138,8 @@ Public Class MainForm
                 flagCheckSet.CheckedIndex = 0
         End Select
 
+        'can't get it to work perfectly yet
         'changeLanguage(My.Settings.LanguageFlag)
-
     End Sub
 
     'expands the tree view nodes Task and History on startup
@@ -171,6 +171,11 @@ Public Class MainForm
 
         fillEnglishWords()
         fillGreekWords()
+        Control.CheckForIllegalCrossThreadCalls = False
+
+        My.Settings.LanguageFlag = "English"
+
+        'can't get it to work perfectly yet
         checkLanguage()
     End Sub
     'checks which pallette mode has been chosen
@@ -922,254 +927,7 @@ Public Class MainForm
         My.Settings.Save()
 
     End Sub
-    Private Sub changeLanguage(ByVal lang As String)
-        Dim dictionary As New List(Of String)
-        Select Case My.Settings.LanguageFlag
-            Case "Greek"
-                dictionary = getGreekDictionary()
-            Case "English"
-                dictionary = getEnglishDictionary()
-        End Select
 
-        '========================= MAIN FORM ========================================
-
-        'Main Buttons-------------------------------------------------------
-        AddTaskButton.Text = dictionary(0)
-        EditTaskButton.Text = dictionary(2)
-        DeleteTaskButton.Text = dictionary(4)
-        RunNowButton.Text = dictionary(6)
-
-        With ToolTip1
-            .SetToolTip(AddTaskButton, dictionary(1))
-            .SetToolTip(EditTaskButton, dictionary(3))
-            .SetToolTip(DeleteTaskButton, dictionary(5))
-            .SetToolTip(RunNowButton, dictionary(7))
-        End With
-        'End Main Butonns---------------------------------------------------
-
-        'ToolStrip MenuItems------------------------------------------------
-        FileToolStripMenuItem.Text = dictionary(8)
-        RunOnStartupToolStripMenuItem.Text = dictionary(9)
-        ExitToolStripMenuItem1.Text = dictionary(10)
-
-        TaskToolStripMenuItem.Text = dictionary(11)
-        AddToolStripMenuItem.Text = dictionary(0)
-        EditToolStripMenuItem.Text = dictionary(2)
-        DeleteToolStripMenuItem.Text = dictionary(4)
-        RunNowToolStripMenuItem.Text = dictionary(6)
-
-        ViewToolStripMenuItem.Text = dictionary(12)
-        AboutToolStripMenuItem.Text = dictionary(13)
-        'End ToolStrip MenuItems--------------------------------------------
-
-        'ScheduledTasks DataGridView----------------------------------------
-        ScheduledTasksHeaderGroup.ValuesPrimary.Heading = dictionary(14)
-        With ScheduledTasksDataGridView
-            .Columns(1).HeaderText = dictionary(15)
-            .Columns(2).HeaderText = dictionary(11)
-            .Columns(3).HeaderText = dictionary(16)
-            .Columns(4).HeaderText = dictionary(17)
-            .Columns(5).HeaderText = dictionary(18)
-            .Columns(6).HeaderText = dictionary(19)
-            .AutoResizeColumns()
-        End With
-
-        EditContextMenuItem.Text = dictionary(2)
-        DeleteContextMenuItem.Text = dictionary(4)
-        RunNowContextMenuItem.Text = dictionary(6)
-        ViewHistoryContextMenuItem.Text = dictionary(20)
-        'End ScheduledTasks DataGridView------------------------------------
-
-        'ScheduledTasks DataGridView----------------------------------------
-        LogHeaderGroup.ValuesPrimary.Heading = dictionary(20)
-        With LogDataGridView
-            .Columns(0).HeaderText = dictionary(21)
-            .Columns(1).HeaderText = dictionary(22)
-            .Columns(2).HeaderText = dictionary(11)
-            .Columns(3).HeaderText = dictionary(18)
-            .AutoResizeColumns()
-        End With
-
-        RemoveEntryContextMenuItem.Text = dictionary(23)
-        ExportToPDFContextMenuItem.Text = dictionary(24)
-        RunNowContextMenuItem.Text = dictionary(6)
-        ClearLogContextMenuItem.Text = dictionary(25)
-        'End ScheduledTasks DataGridView------------------------------------
-
-        'TreeView-----------------------------------------------------------
-        NavigationTreeView.Nodes(0).Text = dictionary(26)
-
-        For Each node In NavigationTreeView.Nodes(0).Nodes
-
-            For Each subnode In node.Nodes
-
-                For Each subsubnode In subnode.Nodes
-
-                    If subsubnode.tag.ToString.Contains("Executable") Then
-                        subsubnode.text = dictionary(27)
-                    ElseIf subsubnode.tag.ToString.Contains("File") Then
-                        subsubnode.text = dictionary(8)
-                    ElseIf subsubnode.tag.ToString.Contains("Service") Then
-                        subsubnode.text = dictionary(28)
-                    End If
-
-                Next
-
-                If subnode.tag.ToString.Contains("Once") Then
-                    subnode.text = dictionary(29)
-                ElseIf subnode.tag.ToString.Contains("Daily") Then
-                    subnode.text = dictionary(30)
-                ElseIf subnode.tag.ToString.Contains("Weekly") Then
-                    subnode.text = dictionary(31)
-                ElseIf subnode.tag.ToString.Contains("Monthly") Then
-                    subnode.text = dictionary(32)
-                ElseIf subnode.tag.ToString.Contains("Yearly") Then
-                    subnode.text = dictionary(33)
-                End If
-
-            Next
-
-            If node.tag.ToString.Contains("Active") Then
-                node.text = dictionary(34)
-            ElseIf node.tag.ToString.Contains("Inactive") Then
-                node.text = dictionary(35)
-            End If
-
-        Next
-
-        NavigationTreeView.Nodes(1).Text = dictionary(20)
-
-        For Each node In NavigationTreeView.Nodes(1).Nodes
-            If node.tag.ToString.Contains("Added") Then
-                node.text = dictionary(36)
-            ElseIf node.tag.ToString.Contains("Removed") Then
-                node.text = dictionary(37)
-            ElseIf node.tag.ToString.Contains("Successful") Then
-                node.text = dictionary(38)
-            ElseIf node.tag.ToString.Contains("Unsuccessful") Then
-                node.text = dictionary(39)
-
-            End If
-        Next
-        'End TreeView-----------------------------------------------
-
-        'No Scheduled Tasks task dialog---------
-        With NoScheduledTaskDialog
-            .WindowTitle = dictionary(71)
-            .MainInstruction = dictionary(72)
-            .CheckboxText = dictionary(73)
-        End With
-        'end No Scheduled Tasks task dialog----
-
-        'END ========================= MAIN FORM =====================================
-
-
-
-        '========================== NEW TASK FORM ========================================
-        With NewTaskForm
-
-            'labels-------------------------------------
-            .KindOfTaskLabel.Text = dictionary(79)
-            .ServiceLabel.Text = dictionary(80)
-            .chooseFileLabel.Text = dictionary(81)
-            .KryptonLabel1.Text = dictionary(82)
-            .DateLabel.Text = dictionary(83)
-            .KryptonLabel2.Text = dictionary(84)
-            .TypeOfTaskLabel.Text = dictionary(85)
-            .KryptonLabel3.Text = dictionary(86)
-            .Label1.Text = dictionary(87)
-            .Label2.Text = dictionary(88)
-            'end labels---------------------------------
-
-            'Buttons-----------------------------------------------------------
-            .chooseFileBrowseButton.Text = dictionary(40)
-            .OnceCheckButton.Text = dictionary(41)
-            .DailyCheckButton.Text = dictionary(42)
-            .WeeklyCheckButton.Text = dictionary(43)
-            .MonthlyCheckButton.Text = dictionary(44)
-            .YearlyCheckButton.Text = dictionary(45)
-            .WeekdaysDropDownButton.Text = dictionary(46)
-            .MonthDaysDropDownButton.Text = dictionary(47)
-            .MonthsDropDownButton.Text = dictionary(48)
-            .SaveTaskButton.Text = dictionary(49)
-            .MoreOptionsButton.Text = dictionary(50)
-
-            With .ToolTip2
-                .SetToolTip(NewTaskForm.ExecutableCheckButton, dictionary(27))
-                .SetToolTip(NewTaskForm.FileCheckButton, dictionary(8))
-                .SetToolTip(NewTaskForm.ServiceCheckButton, dictionary(28))
-                .SetToolTip(NewTaskForm.MoreOptionsButton, dictionary(51))
-            End With
-
-            With .ServicesDataGridView
-                .Columns(0).HeaderText = dictionary(52)
-                .Columns(1).HeaderText = dictionary(17)
-                .Columns(2).HeaderText = dictionary(15)
-            End With
-            'End Buttons--------------------------------------------------------
-
-            'Success task dialog----------------
-            With .SuccessTaskDialog
-                .WindowTitle = dictionary(74)
-                .Content = dictionary(75)
-            End With
-            'End Success task dialog------------
-
-            'Savebutton task dialog-------------
-            With .SaveButtonTaskDialog
-                .WindowTitle = dictionary(76)
-                .Content = dictionary(77)
-            End With
-            'End Savebutton task dialog---------
-
-            'timechanged task dialog
-            .TimeChangedTaskDialog.WindowTitle = dictionary(78)
-        End With
-
-
-        'Delete task dialog
-        DeleteTaskDialog.WindowTitle = dictionary(4)
-        DeleteTaskDialog.MainInstruction = dictionary(69)
-        DeleteTaskDialog.Content = dictionary(70)
-        'end delete task dialog
-
-        'END ========================== NEW TASK FORM ======================================
-
-
-        '========================== MORE OPTIONS FORM ========================================
-        With MoreOptionsForm
-            .SetEndDateGroupBox.Values.Heading = dictionary(53)
-            .NeverEndRadioButton.Text = dictionary(54)
-            .EndAfterRadioButton.Text = dictionary(55)
-            .occurencesLabel.Text = dictionary(56)
-            .EndAtRadioButton.Text = dictionary(57)
-
-            With .TaskMissedGroupBox.Values
-                .Heading = dictionary(58)
-                .Description = dictionary(59)
-            End With
-            
-            .RunWhenPcOpensRadioButton.Text = dictionary(60)
-            .DisplayDialogAskingRadioButton.Text = dictionary(61)
-            .DoNothingRadioButton.Text = dictionary(62)
-
-            .DescriptionGroupBox.Values.Heading = dictionary(63)
-
-            .StateGroupBox.Values.Heading = dictionary(17)
-            .ActiveRadioButton.Text = dictionary(64)
-            .InactiveRadioButton.Text = dictionary(65)
-
-            .TimeOpenGroupBox.Values.Heading = dictionary(66)
-            With .KryptonLabel1
-                .Text = dictionary(67)
-                .Values.ExtraText = dictionary(68)
-            End With
-        End With
-        'END========================== MORE OPTIONS FORM =====================================
-
-        My.Settings.Save()
-
-    End Sub
     Private Sub fillGreekWords()
         With grWords
             .Add("Προσθήκη")
@@ -1263,7 +1021,8 @@ Public Class MainForm
             .Add("μέρες")
         End With
     End Sub
-    Private Function getGreekDictionary() As List(Of String)
+
+    Friend Function getGreekDictionary() As List(Of String)
         Return grWords
     End Function
 
@@ -1362,18 +1121,188 @@ Public Class MainForm
 
     End Sub
 
-    Private Function getEnglishDictionary() As List(Of String)
+    Friend Function getEnglishDictionary() As List(Of String)
         Return engWords
     End Function
 
-    Private Sub greekFlagCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles greekFlagCheckButton.Click
-        My.Settings.LanguageFlag = "Greek"
-        changeLanguage(My.Settings.LanguageFlag)
+    Private Sub greekFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles greekFlagCheckButton.Click
+        If Not langBackgroundWorker.IsBusy Then
+            My.Settings.LanguageFlag = "Greek"
+            langBackgroundWorker.RunWorkerAsync()
+        End If
     End Sub
 
-    Private Sub USFlagCheckButton_Click(sender As System.Object, e As System.EventArgs) Handles USFlagCheckButton.Click
-        My.Settings.LanguageFlag = "English"
-        changeLanguage(My.Settings.LanguageFlag)
+    Private Sub USFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles USFlagCheckButton.Click
+        If Not langBackgroundWorker.IsBusy Then
+            My.Settings.LanguageFlag = "English"
+            langBackgroundWorker.RunWorkerAsync()
+        End If
     End Sub
 
+    Private Sub langBackgroundWorker_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles langBackgroundWorker.DoWork
+        Dim dictionary As New List(Of String)
+        Select Case My.Settings.LanguageFlag
+            Case "Greek"
+                dictionary = getGreekDictionary()
+                USFlagCheckButton.Enabled = False
+            Case "English"
+                dictionary = getEnglishDictionary()
+                greekFlagCheckButton.Enabled = False
+        End Select
+
+        '========================= MAIN FORM ========================================
+
+        'Main Buttons-------------------------------------------------------
+        AddTaskButton.Text = dictionary(0)
+        EditTaskButton.Text = dictionary(2)
+        DeleteTaskButton.Text = dictionary(4)
+        RunNowButton.Text = dictionary(6)
+
+        With ToolTip1
+            .SetToolTip(AddTaskButton, dictionary(1))
+            .SetToolTip(EditTaskButton, dictionary(3))
+            .SetToolTip(DeleteTaskButton, dictionary(5))
+            .SetToolTip(RunNowButton, dictionary(7))
+        End With
+        'End Main Butonns---------------------------------------------------
+
+        'ToolStrip MenuItems------------------------------------------------
+        FileToolStripMenuItem.Text = dictionary(8)
+        RunOnStartupToolStripMenuItem.Text = dictionary(9)
+        ExitToolStripMenuItem1.Text = dictionary(10)
+
+        TaskToolStripMenuItem.Text = dictionary(11)
+        AddToolStripMenuItem.Text = dictionary(0)
+        EditToolStripMenuItem.Text = dictionary(2)
+        DeleteToolStripMenuItem.Text = dictionary(4)
+        RunNowToolStripMenuItem.Text = dictionary(6)
+
+        ViewToolStripMenuItem.Text = dictionary(12)
+        AboutToolStripMenuItem.Text = dictionary(13)
+        'End ToolStrip MenuItems--------------------------------------------
+
+        'ScheduledTasks DataGridView----------------------------------------
+        ScheduledTasksHeaderGroup.ValuesPrimary.Heading = dictionary(14)
+        With ScheduledTasksDataGridView
+            .Columns(1).HeaderText = dictionary(15)
+            .Columns(2).HeaderText = dictionary(11)
+            .Columns(3).HeaderText = dictionary(16)
+            .Columns(4).HeaderText = dictionary(17)
+            .Columns(5).HeaderText = dictionary(18)
+            .Columns(6).HeaderText = dictionary(19)
+            .AutoResizeColumns()
+        End With
+
+        EditContextMenuItem.Text = dictionary(2)
+        DeleteContextMenuItem.Text = dictionary(4)
+        RunNowContextMenuItem.Text = dictionary(6)
+        ViewHistoryContextMenuItem.Text = dictionary(20)
+        'End ScheduledTasks DataGridView------------------------------------
+
+        'ScheduledTasks DataGridView----------------------------------------
+        LogHeaderGroup.ValuesPrimary.Heading = dictionary(20)
+        With LogDataGridView
+            .Columns(0).HeaderText = dictionary(21)
+            .Columns(1).HeaderText = dictionary(22)
+            .Columns(2).HeaderText = dictionary(11)
+            .Columns(3).HeaderText = dictionary(18)
+            .AutoResizeColumns()
+        End With
+
+        RemoveEntryContextMenuItem.Text = dictionary(23)
+        ExportToPDFContextMenuItem.Text = dictionary(24)
+        RunNowContextMenuItem.Text = dictionary(6)
+        ClearLogContextMenuItem.Text = dictionary(25)
+        'End ScheduledTasks DataGridView------------------------------------
+
+        'TreeView-----------------------------------------------------------
+        NavigationTreeView.Nodes(0).Text = dictionary(26)
+        NavigationTreeView.Nodes(1).Text = dictionary(20)
+
+        For Each node In NavigationTreeView.Nodes(1).Nodes
+            If node.tag.ToString.Contains("Added") Then
+                node.text = dictionary(36)
+                Continue For
+            ElseIf node.tag.ToString.Contains("Removed") Then
+                node.text = dictionary(37)
+                Continue For
+            ElseIf node.tag.ToString.Contains("Successful") Then
+                node.text = dictionary(38)
+                Continue For
+            ElseIf node.tag.ToString.Contains("Unsuccessful") Then
+                node.text = dictionary(39)
+                Continue For
+            End If
+        Next
+
+        For Each node In NavigationTreeView.Nodes(0).Nodes
+
+            For Each subnode In node.Nodes
+
+                For Each subsubnode In subnode.Nodes
+
+                    If subsubnode.tag.ToString.Contains("Executable") Then
+                        subsubnode.text = dictionary(27)
+                        Continue For
+                    ElseIf subsubnode.tag.ToString.Contains("File") Then
+                        subsubnode.text = dictionary(8)
+                        Continue For
+                    ElseIf subsubnode.tag.ToString.Contains("Service") Then
+                        subsubnode.text = dictionary(28)
+                        Continue For
+                    End If
+
+                Next
+
+                If subnode.tag.ToString.Contains("Once") Then
+                    subnode.text = dictionary(29)
+                    Continue For
+                ElseIf subnode.tag.ToString.Contains("Daily") Then
+                    subnode.text = dictionary(30)
+                    Continue For
+                ElseIf subnode.tag.ToString.Contains("Weekly") Then
+                    subnode.text = dictionary(31)
+                    Continue For
+                ElseIf subnode.tag.ToString.Contains("Monthly") Then
+                    subnode.text = dictionary(32)
+                    Continue For
+                ElseIf subnode.tag.ToString.Contains("Yearly") Then
+                    subnode.text = dictionary(33)
+                    Continue For
+                End If
+
+            Next
+
+            If node.tag.ToString.Contains("Active") Then
+                node.text = dictionary(34)
+                Continue For
+            ElseIf node.tag.ToString.Contains("Inactive") Then
+                node.text = dictionary(35)
+            End If
+
+        Next
+
+        'End TreeView-----------------------------------------------
+
+        'No Scheduled Tasks task dialog---------
+        With NoScheduledTaskDialog
+            .WindowTitle = dictionary(71)
+            .MainInstruction = dictionary(72)
+            .CheckboxText = dictionary(73)
+        End With
+        'end No Scheduled Tasks task dialog----
+
+        'Delete task dialog------------------------------
+        DeleteTaskDialog.WindowTitle = dictionary(4)
+        DeleteTaskDialog.MainInstruction = dictionary(69)
+        DeleteTaskDialog.Content = dictionary(70)
+        'end delete task --------------------------------
+        'END ========================= MAIN FORM =====================================
+
+    End Sub
+
+    Private Sub langBackgroundWorker_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles langBackgroundWorker.RunWorkerCompleted
+        USFlagCheckButton.Enabled = True
+        greekFlagCheckButton.Enabled = True
+    End Sub
 End Class
