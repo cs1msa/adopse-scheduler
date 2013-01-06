@@ -274,8 +274,8 @@ Partial Class NewTaskForm
         '
         'RecurrencePanel
         '
-        Me.RecurrencePanel.Controls.Add(Me.MonthsDropDownButton)
         Me.RecurrencePanel.Controls.Add(Me.MonthDaysDropDownButton)
+        Me.RecurrencePanel.Controls.Add(Me.MonthsDropDownButton)
         Me.RecurrencePanel.Controls.Add(Me.WeekdaysDropDownButton)
         Me.RecurrencePanel.Controls.Add(Me.Label2)
         Me.RecurrencePanel.Controls.Add(Me.KryptonNumericUpDown1)
@@ -367,7 +367,7 @@ Partial Class NewTaskForm
         '
         Me.MonthDaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
         Me.MonthDaysDropDownButton.KryptonContextMenu = Me.MonthDaysContextMenu
-        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(113, 72)
+        Me.MonthDaysDropDownButton.Location = New System.Drawing.Point(113, 104)
         Me.MonthDaysDropDownButton.Name = "MonthDaysDropDownButton"
         Me.MonthDaysDropDownButton.Size = New System.Drawing.Size(148, 26)
         Me.MonthDaysDropDownButton.TabIndex = 28

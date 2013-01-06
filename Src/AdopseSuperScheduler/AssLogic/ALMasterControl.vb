@@ -199,6 +199,7 @@ Public Class ALMasterControl
     End Sub
 
 
+
     Public Sub RunTask(ByVal a_full_path As String, ByVal a_type As String)
         Try
 
@@ -279,6 +280,23 @@ Public Class ALMasterControl
         Next
 
     End Sub
+
+    Public Sub UpdateNextRuns()
+        For i = 0 To m_task_manager.Count - 1
+            While m_task_manager.GetTask(i).next_run_date.CompareTo(Date.Now) <= 0 And m_task_manager.GetTask(i).GetStatus
+                m_task_manager.GetTask(i).UpdateNextRun()
+                Try
+                    m_core.UpdateInTable("[Scheduler Tasks]", {"Status = " & m_task_manager.GetTask(i).GetStatus.ToString(), "Next_Run ='" & m_task_manager.GetTask(i).next_run_date & "'"}, {"Task_ID =" & m_task_manager.GetTask(i).id.ToString})
+                    m_scheduler_tasks_has_changed = True
+                Catch ex As Exception
+
+                End Try
+
+            End While
+        Next
+
+    End Sub
+
 
     'add task
 
@@ -391,5 +409,6 @@ Public Class ALMasterControl
         Return m_task_manager.GetTasksWithFullPath(a_program_path)
 
     End Function
+
 
 End Class

@@ -160,6 +160,8 @@ Public Class MainForm
         m_master_control = New ALMasterControl()
         m_master_control.Init()
 
+        CheckMissedTasks()
+
         ScheduledTasksDataGridView.Columns.Clear()
         LogDataGridView.Columns.Clear()
 
@@ -181,6 +183,8 @@ Public Class MainForm
         languageOnStartTimer.Start()
 
     End Sub
+
+
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
         Select Case My.Settings.PalletteSetting
@@ -698,7 +702,7 @@ Public Class MainForm
 
 #Region "edit task methods"
     'set the type and the path in the new task form
-    Private Sub SetTypeAndPathAndDateForEdit(ByRef a_task As ALATasks)
+    Private Sub SetTypeAndPathForEdit(ByRef a_task As ALATasks)
         Dim type As String = a_task.type
         Dim full_path As String = a_task.program_full_path
         If type.Equals("EXE") Then
@@ -718,37 +722,51 @@ Public Class MainForm
             NewTaskForm.ServicesDataGridView.CurrentCell = NewTaskForm.ServicesDataGridView.Rows(getServiceRow(full_path)).Cells(0)
 
         End If
-        'set the start date of the task
-        NewTaskForm.DatePicker.Value = a_task.next_run_date
-        NewTaskForm.TimePicker.Value = a_task.next_run_date
-    End Sub
 
+    End Sub
+    Private Sub SetStartDateForEdit(ByRef a_list_of_tasks As List(Of ALATasks))
+        a_list_of_tasks.Sort()
+        NewTaskForm.DatePicker.Value = a_list_of_tasks(0).next_run_date
+        NewTaskForm.TimePicker.Value = a_list_of_tasks(0).next_run_date
+
+    End Sub
     'sets period and period related thing in new tasks form
     Private Sub SetPeriodForEdit(ByRef a_task As ALATasks, ByRef a_object_type_return As String)
         'fixed or periodic tasks
         NewTaskForm.RecurrencePanel.Show()
         Dim object_type As String = a_task.GetType().ToString()
 
+        NewTaskForm.WeekdaysDropDownButton.Visible = False
+        NewTaskForm.MonthDaysDropDownButton.Visible = False
+        NewTaskForm.MonthsDropDownButton.Visible = False
+
         If object_type.Contains("ALFixedDateTasks") Then
             NewTaskForm.OnceCheckButton.Checked = True
             a_object_type_return = "Fixed"
+            NewTaskForm.RecurrencePanel.Visible = False
         Else
-            NewTaskForm.WeekdaysDropDownButton.Visible = False
-            NewTaskForm.MonthDaysDropDownButton.Visible = False
-            NewTaskForm.MonthsDropDownButton.Visible = False
+
             Dim task As ALPeriodicTasks = a_task
             If task.m_period_in_days <> 0 Then
                 'weekly tasks
                 If task.m_period_in_days Mod 7 = 0 Then
                     NewTaskForm.WeeklyCheckButton.Checked = True
                     a_object_type_return = "Weekly"
-                    NewTaskForm.Label2.Text = "weeks"
+                    If My.Settings.LanguageFlag.Equals("Greek") Then
+                        NewTaskForm.Label2.Text = "εβδομάδες"
+                    Else
+                        NewTaskForm.Label2.Text = "weeks"
+                    End If
                     NewTaskForm.KryptonNumericUpDown1.Value = Integer.Parse(task.m_period_in_days / 7)
                     NewTaskForm.WeekdaysDropDownButton.Visible = True
                 Else
                     NewTaskForm.DailyCheckButton.Checked = True
                     a_object_type_return = "Daily"
-                    NewTaskForm.Label2.Text = "days"
+                    If My.Settings.LanguageFlag.Equals("Greek") Then
+                        NewTaskForm.Label2.Text = "μέρες"
+                    Else
+                        NewTaskForm.Label2.Text = "days"
+                    End If
                     NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_days
 
                 End If
@@ -756,16 +774,25 @@ Public Class MainForm
             ElseIf task.m_period_in_months <> 0 Then
                 NewTaskForm.MonthlyCheckButton.Checked = True
                 a_object_type_return = "Monthly"
-                NewTaskForm.Label2.Text = "months"
+                If My.Settings.LanguageFlag.Equals("Greek") Then
+                    NewTaskForm.Label2.Text = "μήνες"
+                Else
+                    NewTaskForm.Label2.Text = "months"
+                End If
                 NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_months
                 NewTaskForm.MonthDaysDropDownButton.Visible = True
             ElseIf task.m_period_in_years <> 0 Then
                 NewTaskForm.YearlyCheckButton.Checked = True
                 a_object_type_return = "Yearly"
-                NewTaskForm.Label2.Text = "years"
+                If My.Settings.LanguageFlag.Equals("Greek") Then
+                    NewTaskForm.Label2.Text = "χρόνια"
+                Else
+                    NewTaskForm.Label2.Text = "years"
+                End If
                 NewTaskForm.KryptonNumericUpDown1.Value = task.m_period_in_years
-                NewTaskForm.MonthDaysDropDownButton.Visible = True
                 NewTaskForm.MonthsDropDownButton.Visible = True
+                NewTaskForm.MonthDaysDropDownButton.Visible = True
+
             End If
         End If
 
@@ -805,7 +832,7 @@ Public Class MainForm
     Private Sub SetMoreOptionsForEdit(ByRef a_task As ALATasks)
         MoreOptionsForm.DescriptionTextBox.Text = a_task.description
         MoreOptionsForm.MinutesUpDown.Value = a_task.closes_after_x_minutes
-        MoreOptionsForm.InactiveRadioButton.Checked = Not (a_task.GetStatus())
+        MoreOptionsForm.InactiveRadioButton.Checked = Not a_task.GetStatus()
         MoreOptionsForm.ActiveRadioButton.Checked = a_task.GetStatus()
         If a_task.if_not_run.Equals("RUN") Then
             MoreOptionsForm.RunWhenPcOpensRadioButton.Checked = True
@@ -829,8 +856,9 @@ Public Class MainForm
         Dim program_path As String = ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString()
         Dim list_of_tasks As List(Of ALATasks) = m_master_control.GetTasksWithFullPath(program_path)
 
-        SetTypeAndPathAndDateForEdit(list_of_tasks(0))
+        SetTypeAndPathForEdit(list_of_tasks(0))
 
+        SetStartDateForEdit(list_of_tasks)
 
 
         Dim object_type As New String("")
@@ -1328,4 +1356,26 @@ Public Class MainForm
 
     End Sub
 
+
+    Private Sub CheckMissedTasks()
+
+        Dim tasks_that_are_missed As List(Of ALATasks) = m_master_control.CheckTasks()
+
+        For Each task As ALATasks In tasks_that_are_missed
+            If task.if_not_run = "RUN" Then
+                m_master_control.RunTask(task.program_full_path, task.type)
+
+            ElseIf task.if_not_run = "DIALOG" Then
+                'LLOYD EDW
+                MsgBox("Lloyd DO IT DO it... do it... ju ju just do it...")
+            End If
+
+            m_master_control.UpdateNextRuns()
+
+        Next
+
+    End Sub
+
 End Class
+
+

@@ -9,7 +9,7 @@
 
 
 
-        MyBase.New(a_id, a_full_path, a_date, a_status, a_description, a_close_after, a_if_not_run, a_date, a_type)
+        MyBase.New(a_id, a_full_path, a_date, a_status, a_description, a_close_after, a_if_not_run, New Date(2099, 12, 31), a_type)
     End Sub
 
 

@@ -22,7 +22,10 @@ Public Class NewTaskForm
         DatePicker.MinDate = Today
 
         'changes the language according to the user's choice
-        changeLanguageNewTaskForm(My.Settings.LanguageFlag)
+        If Not m_can_overwrite_task Then
+            changeLanguageNewTaskForm(My.Settings.LanguageFlag)
+        End If
+
 
     End Sub
 
@@ -253,8 +256,12 @@ Public Class NewTaskForm
         'handles RecurrencePanel's content
         HandleRecPanelContent(False, True, True)
 
-        Label2.Text = "years"
 
+        If My.Settings.LanguageFlag.Equals("Greek") Then
+            Label2.Text = "χρόνια"
+        Else
+            Label2.Text = "years"
+        End If
         'Automatically checks the month the user have chosen
         'and ticks the checkbox at AllMonths dropdown button
         AutoCheckMonth()
@@ -280,21 +287,8 @@ Public Class NewTaskForm
         'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
 
-        'checks if there is this task with the same program path and...
-        '...saves the task to the database and the task manager
-        Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
-        If task_exists Then
-            If m_can_overwrite_task Then
-                m_master_control.DeleteTask(chooseFileTextBox.Text)
-                saveTask()
-            Else
-                TaskExistsTaskDialog.ShowDialog()
-                Exit Sub
-
-            End If
-        Else
-            saveTask()
-        End If
+        saveTask()
+        
 
     End Sub
 
@@ -351,9 +345,27 @@ Public Class NewTaskForm
     End Sub
 
     'saves the task to the database
-    Private Sub saveTask()
+    Private Sub saveTask(Optional ByVal a_replace_bool As Boolean = False)
 
         If (SaveButtonTaskDialog.ShowDialog() = DialogResult.Yes) Then
+
+
+            'checks if there is this task with the same program path and...
+            '...saves the task to the database and the task manager
+            Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
+            If task_exists Then
+                If m_can_overwrite_task Then
+                    m_master_control.DeleteTask(chooseFileTextBox.Text)
+                Else
+                    TaskExistsTaskDialog.ShowDialog()
+                    Exit Sub
+
+                End If
+            End If
+
+
+
+
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                                   TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
