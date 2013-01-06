@@ -554,7 +554,7 @@ Public Class NewTaskForm
     End Sub
 
     'changes the language according to the user's choice
-    Private Sub changeLanguageNewTaskForm(ByVal lang As String)
+    Friend Sub changeLanguageNewTaskForm(ByVal lang As String)
         Dim dictionary As New List(Of String)
         Select Case My.Settings.LanguageFlag
             Case "Greek"

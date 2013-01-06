@@ -160,6 +160,9 @@ Public Class MainForm
         m_master_control = New ALMasterControl()
         m_master_control.Init()
 
+        fillEnglishWords()
+        fillGreekWords()
+
         CheckMissedTasks()
 
         ScheduledTasksDataGridView.Columns.Clear()
@@ -175,8 +178,7 @@ Public Class MainForm
         'handles the errors regarding multithreading and variables
         Control.CheckForIllegalCrossThreadCalls = False
 
-        fillEnglishWords()
-        fillGreekWords()
+
 
         'is responsible for the change of Language
         'according to the user's choice, even after the applications was closed
@@ -222,17 +224,34 @@ Public Class MainForm
     'if so, prompts the user accordingly
     'and asks him if he wants to add one
     Private Sub checkIfTasksAreEmpty()
-
         'get the scheduler tasks table 
         Dim scheduler_table As DataTable = m_master_control.GetFromATableAsDataTable("[Scheduler Tasks]", {"Task_ID as ID", "Type", "Program_Path as Task", "Next_Run as [Next Execution]", "Period", "Status", "Description", "End_Date"})
 
         If (scheduler_table.Rows.Count = 0) And _
         (My.Settings.NoScheduledTaskDialogFlag = True) Then
 
-            NoScheduledTaskDialog.Content = "It seems that you don't have a task scheduled." & vbCrLf & "Would you like to add a task now?"
-            Dim result As DialogResult = NoScheduledTaskDialog.ShowDialog()
+            If My.Settings.LanguageFlag.Equals("Greek") Then
 
-            If result = DialogResult.Yes Then
+                With NoScheduledTaskDialog
+                    .CheckboxText = grWords(92)
+                    .MainInstruction = grWords(93)
+                    .WindowTitle = grWords(94)
+                    .Content = "Απ' ό,τι φαίνεται δεν έχεις κάποια προγραμματισμένη εργασία." & vbCrLf & "Θα ήθελες να προσθέσεις μια τώρα;"
+                End With
+
+            ElseIf My.Settings.LanguageFlag.Equals("English") Then
+
+                With NoScheduledTaskDialog
+                    .CheckboxText = engWords(92)
+                    .MainInstruction = engWords(93)
+                    .WindowTitle = engWords(94)
+                    .Content = "It seems that you don't have a task scheduled." & vbCrLf & "Would you like to add a task now?"
+                End With
+
+            End If
+
+
+            If NoScheduledTaskDialog.ShowDialog() = DialogResult.Yes Then
                 NewTaskForm.SetMasterControl(m_master_control)
                 NewTaskForm.ShowDialog()
             End If
@@ -242,6 +261,7 @@ Public Class MainForm
             End If
 
         End If
+        My.Settings.Save()
     End Sub
 
     'changes the default action of the X button
@@ -884,6 +904,7 @@ Public Class MainForm
         'make the form visible
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.m_can_overwrite_task = True
+        NewTaskForm.changeLanguageNewTaskForm(My.Settings.LanguageFlag)
         NewTaskForm.ShowDialog()
 
     End Sub
@@ -1049,6 +1070,9 @@ Public Class MainForm
             .Add("Δες το ιστορικό της")
             .Add("Ιστορικό της εργασίας: ")
             .Add("Περιηγητής")
+            .Add("Να μην εμφανιστεί ξανά αυτό το παράθυρο")
+            .Add("Πρόσθεσε εργασία")
+            .Add("Καλως ήλθες")
         End With
     End Sub
 
@@ -1152,6 +1176,9 @@ Public Class MainForm
             .Add("View History")
             .Add("History of task: ")
             .Add("Navigator")
+            .Add("Do not show this window again")
+            .Add("Add Task")
+            .Add("Welcome")
         End With
 
     End Sub
@@ -1334,6 +1361,7 @@ Public Class MainForm
             .Content = dictionary(70)
         End With
         'end delete task --------------------------------
+
         'END ========================= MAIN FORM =====================================
 
         My.Settings.Save()
@@ -1366,8 +1394,25 @@ Public Class MainForm
                 m_master_control.RunTask(task.program_full_path, task.type)
 
             ElseIf task.if_not_run = "DIALOG" Then
-                'LLOYD EDW
-                MsgBox("Lloyd DO IT DO it... do it... ju ju just do it...")
+
+                If My.Settings.LanguageFlag.Equals("Greek") Then
+
+                    With MissedTasksTaskDialog
+                        .MainInstruction = "Πως να χειριστώ τη χαμένη εργασία;"
+                        .WindowTitle = "Χάθηκε η Εργασία!"
+                        .Content = "Η εργασία: " + task.program_full_path + " χάθηκε!" + vbCrLf + "Θέλεις να την τρέξω τώρα;"
+                    End With
+
+                ElseIf My.Settings.LanguageFlag.Equals("English") Then
+
+                    MissedTasksTaskDialog.Content = "Task: " + task.program_full_path + " got missed!" + vbCrLf + "Do you want me to run it now?"
+
+                End If
+
+                If MissedTasksTaskDialog.ShowDialog = DialogResult.Yes Then
+                    m_master_control.RunTask(task.program_full_path, task.type)
+                End If
+
             End If
 
             m_master_control.UpdateNextRuns()
