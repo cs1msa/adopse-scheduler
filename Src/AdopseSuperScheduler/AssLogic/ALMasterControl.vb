@@ -264,19 +264,26 @@ Public Class ALMasterControl
                         ElseIf task.type.Equals("SERVICE") Then
                             m_core.EndService(task.program_full_path)
                         End If
+                        m_last_log_id = m_last_log_id + 1
+                        m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Force Closed " & task.type & " " & success & "'"})
+                        m_log_has_changed = True
+
+                        task.is_running = False
+
                     End If
 
 
-                Catch ex As Exception
-                    success = False
-                End Try
-                If success Then
-                    task.is_running = False
-                End If
 
+                Catch ex As Exception
+                success = False
                 m_last_log_id = m_last_log_id + 1
                 m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Force Closed " & task.type & " " & success & "'"})
                 m_log_has_changed = True
+            End Try
+
+                
+
+                
             End If
 
 

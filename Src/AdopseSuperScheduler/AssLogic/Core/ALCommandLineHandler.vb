@@ -79,10 +79,10 @@ Public Class ALCommandLineHandler
 
         Dim kill_proccess As New Process()
         Dim StartInfo As New System.Diagnostics.ProcessStartInfo
-        StartInfo.FileName = "taskkill"  'starts cmd window
+        StartInfo.FileName = "taskkill"  'starts taskkill program
 
         StartInfo.CreateNoWindow = True
-        StartInfo.UseShellExecute = True 'required to redirect
+        StartInfo.UseShellExecute = True 'required to have admin rights
 
 
         StartInfo.Verb = "runas"
