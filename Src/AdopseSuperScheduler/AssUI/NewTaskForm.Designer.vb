@@ -31,20 +31,6 @@ Partial Class NewTaskForm
         Me.SaveTaskButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.MoreOptionsButton = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.RecurrencePanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
-        Me.MonthsContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
-        Me.KryptonContextMenuCheckBox9 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox10 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox11 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox12 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox13 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox14 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox15 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox55 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox16 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox52 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox53 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
-        Me.KryptonContextMenuCheckBox54 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.MonthDaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.MonthDaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
         Me.KryptonContextMenuCheckBox17 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
@@ -79,6 +65,20 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox48 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox49 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox50 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.MonthsDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
+        Me.MonthsContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
+        Me.KryptonContextMenuCheckBox9 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox10 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox11 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox12 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox13 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox14 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox15 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox55 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox16 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox52 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox53 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.KryptonContextMenuCheckBox54 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.WeekdaysDropDownButton = New ComponentFactory.Krypton.Toolkit.KryptonDropButton()
         Me.WeekdaysContextMenu = New ComponentFactory.Krypton.Toolkit.KryptonContextMenu()
         Me.KryptonContextMenuCheckBox7 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
@@ -288,81 +288,6 @@ Partial Class NewTaskForm
         Me.RecurrencePanel.TabIndex = 25
         Me.RecurrencePanel.Visible = False
         '
-        'MonthsDropDownButton
-        '
-        Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
-        Me.MonthsDropDownButton.KryptonContextMenu = Me.MonthsContextMenu
-        Me.MonthsDropDownButton.Location = New System.Drawing.Point(113, 72)
-        Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
-        Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
-        Me.MonthsDropDownButton.TabIndex = 30
-        Me.MonthsDropDownButton.Values.Text = "Months"
-        Me.MonthsDropDownButton.Visible = False
-        '
-        'MonthsContextMenu
-        '
-        Me.MonthsContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox9, Me.KryptonContextMenuCheckBox10, Me.KryptonContextMenuCheckBox11, Me.KryptonContextMenuCheckBox12, Me.KryptonContextMenuCheckBox13, Me.KryptonContextMenuCheckBox14, Me.KryptonContextMenuCheckBox15, Me.KryptonContextMenuCheckBox55, Me.KryptonContextMenuCheckBox16, Me.KryptonContextMenuCheckBox52, Me.KryptonContextMenuCheckBox53, Me.KryptonContextMenuCheckBox54})
-        '
-        'KryptonContextMenuCheckBox9
-        '
-        Me.KryptonContextMenuCheckBox9.ExtraText = "1"
-        Me.KryptonContextMenuCheckBox9.Text = "January"
-        '
-        'KryptonContextMenuCheckBox10
-        '
-        Me.KryptonContextMenuCheckBox10.ExtraText = "2"
-        Me.KryptonContextMenuCheckBox10.Text = "February"
-        '
-        'KryptonContextMenuCheckBox11
-        '
-        Me.KryptonContextMenuCheckBox11.ExtraText = "3"
-        Me.KryptonContextMenuCheckBox11.Text = "March"
-        '
-        'KryptonContextMenuCheckBox12
-        '
-        Me.KryptonContextMenuCheckBox12.ExtraText = "4"
-        Me.KryptonContextMenuCheckBox12.Text = "April"
-        '
-        'KryptonContextMenuCheckBox13
-        '
-        Me.KryptonContextMenuCheckBox13.ExtraText = "5"
-        Me.KryptonContextMenuCheckBox13.Text = "May"
-        '
-        'KryptonContextMenuCheckBox14
-        '
-        Me.KryptonContextMenuCheckBox14.ExtraText = "6"
-        Me.KryptonContextMenuCheckBox14.Text = "June"
-        '
-        'KryptonContextMenuCheckBox15
-        '
-        Me.KryptonContextMenuCheckBox15.ExtraText = "7"
-        Me.KryptonContextMenuCheckBox15.Text = "July"
-        '
-        'KryptonContextMenuCheckBox55
-        '
-        Me.KryptonContextMenuCheckBox55.ExtraText = "8"
-        Me.KryptonContextMenuCheckBox55.Text = "August"
-        '
-        'KryptonContextMenuCheckBox16
-        '
-        Me.KryptonContextMenuCheckBox16.ExtraText = "9"
-        Me.KryptonContextMenuCheckBox16.Text = "September"
-        '
-        'KryptonContextMenuCheckBox52
-        '
-        Me.KryptonContextMenuCheckBox52.ExtraText = "10"
-        Me.KryptonContextMenuCheckBox52.Text = "November"
-        '
-        'KryptonContextMenuCheckBox53
-        '
-        Me.KryptonContextMenuCheckBox53.ExtraText = "11"
-        Me.KryptonContextMenuCheckBox53.Text = "October"
-        '
-        'KryptonContextMenuCheckBox54
-        '
-        Me.KryptonContextMenuCheckBox54.ExtraText = "12"
-        Me.KryptonContextMenuCheckBox54.Text = "December"
-        '
         'MonthDaysDropDownButton
         '
         Me.MonthDaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
@@ -538,6 +463,81 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuCheckBox50.ExtraText = "th"
         Me.KryptonContextMenuCheckBox50.Text = "31"
         '
+        'MonthsDropDownButton
+        '
+        Me.MonthsDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
+        Me.MonthsDropDownButton.KryptonContextMenu = Me.MonthsContextMenu
+        Me.MonthsDropDownButton.Location = New System.Drawing.Point(113, 72)
+        Me.MonthsDropDownButton.Name = "MonthsDropDownButton"
+        Me.MonthsDropDownButton.Size = New System.Drawing.Size(148, 26)
+        Me.MonthsDropDownButton.TabIndex = 30
+        Me.MonthsDropDownButton.Values.Text = "Months"
+        Me.MonthsDropDownButton.Visible = False
+        '
+        'MonthsContextMenu
+        '
+        Me.MonthsContextMenu.Items.AddRange(New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase() {Me.KryptonContextMenuCheckBox9, Me.KryptonContextMenuCheckBox10, Me.KryptonContextMenuCheckBox11, Me.KryptonContextMenuCheckBox12, Me.KryptonContextMenuCheckBox13, Me.KryptonContextMenuCheckBox14, Me.KryptonContextMenuCheckBox15, Me.KryptonContextMenuCheckBox55, Me.KryptonContextMenuCheckBox16, Me.KryptonContextMenuCheckBox52, Me.KryptonContextMenuCheckBox53, Me.KryptonContextMenuCheckBox54})
+        '
+        'KryptonContextMenuCheckBox9
+        '
+        Me.KryptonContextMenuCheckBox9.ExtraText = "1"
+        Me.KryptonContextMenuCheckBox9.Text = "January"
+        '
+        'KryptonContextMenuCheckBox10
+        '
+        Me.KryptonContextMenuCheckBox10.ExtraText = "2"
+        Me.KryptonContextMenuCheckBox10.Text = "February"
+        '
+        'KryptonContextMenuCheckBox11
+        '
+        Me.KryptonContextMenuCheckBox11.ExtraText = "3"
+        Me.KryptonContextMenuCheckBox11.Text = "March"
+        '
+        'KryptonContextMenuCheckBox12
+        '
+        Me.KryptonContextMenuCheckBox12.ExtraText = "4"
+        Me.KryptonContextMenuCheckBox12.Text = "April"
+        '
+        'KryptonContextMenuCheckBox13
+        '
+        Me.KryptonContextMenuCheckBox13.ExtraText = "5"
+        Me.KryptonContextMenuCheckBox13.Text = "May"
+        '
+        'KryptonContextMenuCheckBox14
+        '
+        Me.KryptonContextMenuCheckBox14.ExtraText = "6"
+        Me.KryptonContextMenuCheckBox14.Text = "June"
+        '
+        'KryptonContextMenuCheckBox15
+        '
+        Me.KryptonContextMenuCheckBox15.ExtraText = "7"
+        Me.KryptonContextMenuCheckBox15.Text = "July"
+        '
+        'KryptonContextMenuCheckBox55
+        '
+        Me.KryptonContextMenuCheckBox55.ExtraText = "8"
+        Me.KryptonContextMenuCheckBox55.Text = "August"
+        '
+        'KryptonContextMenuCheckBox16
+        '
+        Me.KryptonContextMenuCheckBox16.ExtraText = "9"
+        Me.KryptonContextMenuCheckBox16.Text = "September"
+        '
+        'KryptonContextMenuCheckBox52
+        '
+        Me.KryptonContextMenuCheckBox52.ExtraText = "10"
+        Me.KryptonContextMenuCheckBox52.Text = "November"
+        '
+        'KryptonContextMenuCheckBox53
+        '
+        Me.KryptonContextMenuCheckBox53.ExtraText = "11"
+        Me.KryptonContextMenuCheckBox53.Text = "October"
+        '
+        'KryptonContextMenuCheckBox54
+        '
+        Me.KryptonContextMenuCheckBox54.ExtraText = "12"
+        Me.KryptonContextMenuCheckBox54.Text = "December"
+        '
         'WeekdaysDropDownButton
         '
         Me.WeekdaysDropDownButton.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right
@@ -682,7 +682,8 @@ Partial Class NewTaskForm
         'TimePicker
         '
         Me.TimePicker.CalendarTodayDate = New Date(2012, 12, 18, 0, 0, 0, 0)
-        Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.TimePicker.CustomFormat = "HH:mm:ss"
+        Me.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.TimePicker.Location = New System.Drawing.Point(347, 27)
         Me.TimePicker.MinDate = New Date(2012, 12, 24, 0, 0, 0, 0)
         Me.TimePicker.Name = "TimePicker"
