@@ -2,20 +2,21 @@ Public Class MoreOptionsForm
 
     Private Sub MoreOptionsForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
-        'checks if Exe or Service has been chosen from NewTask form
-        'if so, it shows a choice of how many minutes will the program remain open
-        If (NewTaskForm.ExecutableCheckButton.Checked = True Or _
-                        NewTaskForm.ServiceCheckButton.Checked = True) Then
 
+        'checks if Exe has been chosen from NewTask form
+        'if so, it shows a choice of how many minutes will the program remain open
+        If (NewTaskForm.ExecutableCheckButton.Checked = True) Then
             TimeOpenGroupBox.Visible = True
         Else
             TimeOpenGroupBox.Visible = False
         End If
 
+        'changes the language according to the user's choice
         changeLanguageMoreOptionsForm(My.Settings.LanguageFlag)
 
     End Sub
 
+    'changes the language according to the user's choice
     Private Sub changeLanguageMoreOptionsForm(ByVal lang As String)
 
         Dim dictionary As New List(Of String)
@@ -33,8 +34,6 @@ Public Class MoreOptionsForm
 
             .SetEndDateGroupBox.Values.Heading = dictionary(53)
             .NeverEndRadioButton.Text = dictionary(54)
-            .EndAfterRadioButton.Text = dictionary(55)
-            .occurencesLabel.Text = dictionary(56)
             .EndAtRadioButton.Text = dictionary(57)
 
             With .TaskMissedGroupBox.Values
@@ -53,15 +52,13 @@ Public Class MoreOptionsForm
             .InactiveRadioButton.Text = dictionary(65)
 
             .TimeOpenGroupBox.Values.Heading = dictionary(66)
+
             With .KryptonLabel1
                 .Text = dictionary(67)
                 .Values.ExtraText = dictionary(68)
             End With
         End With
-
-
         'END========================== MORE OPTIONS FORM =====================================
-
 
     End Sub
 

@@ -3,6 +3,7 @@ Imports AssLogic
 Imports CompletIT.Windows.Forms.Export.Pdf
 Imports CompletIT.Windows.Forms.Export
 Imports System.ServiceProcess
+Imports Microsoft.Win32
 
 
 Public Class MainForm
@@ -120,15 +121,17 @@ Public Class MainForm
     End Sub
 
     Private Sub checkRunOnStartup()
+
         If My.Settings.RunOnStartupFlag = True Then
             RunOnStartupToolStripMenuItem.Checked = True
             createRegistryKey()
         ElseIf My.Settings.RunOnStartupFlag = False Then
             RunOnStartupToolStripMenuItem.Checked = False
         End If
+
     End Sub
 
-    'can't get it to work perfectly yet
+
     Private Sub checkLanguage()
 
         Select Case My.Settings.LanguageFlag
@@ -138,8 +141,8 @@ Public Class MainForm
                 flagCheckSet.CheckedIndex = 0
         End Select
 
-        'can't get it to work perfectly yet
-        'changeLanguage(My.Settings.LanguageFlag)
+        langBackgroundWorker.RunWorkerAsync()
+
     End Sub
 
     'expands the tree view nodes Task and History on startup
@@ -153,8 +156,10 @@ Public Class MainForm
         'checks which pallette mode has been chosen
         checkPalletteMode()
 
+
         m_master_control = New ALMasterControl()
         m_master_control.Init()
+
         ScheduledTasksDataGridView.Columns.Clear()
         LogDataGridView.Columns.Clear()
 
@@ -162,21 +167,19 @@ Public Class MainForm
 
         m_master_control.StartProgramLoop()
 
-        NavigationTreeView.Nodes(0).Expand()
-        NavigationTreeView.Nodes(1).Expand()
-
         checkIfTasksAreEmpty()
         checkRunOnStartup()
 
+        'handles the errors regarding multithreading and variables
+        Control.CheckForIllegalCrossThreadCalls = False
 
         fillEnglishWords()
         fillGreekWords()
-        Control.CheckForIllegalCrossThreadCalls = False
 
-        My.Settings.LanguageFlag = "English"
+        'is responsible for the change of Language
+        'according to the user's choice, even after the applications was closed
+        languageOnStartTimer.Start()
 
-        'can't get it to work perfectly yet
-        checkLanguage()
     End Sub
     'checks which pallette mode has been chosen
     Private Sub checkPalletteMode()
@@ -405,9 +408,7 @@ Public Class MainForm
                 MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.LongText.Color1 = Color.Yellow
                 MoreOptionsForm.StateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Yellow
                 MoreOptionsForm.NeverEndRadioButton.StateCommon.ShortText.Color1 = Color.White
-                MoreOptionsForm.EndAfterRadioButton.StateCommon.ShortText.Color1 = Color.White
                 MoreOptionsForm.EndAtRadioButton.StateCommon.ShortText.Color1 = Color.White
-                MoreOptionsForm.occurencesLabel.StateCommon.ShortText.Color1 = Color.White
                 MoreOptionsForm.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = Color.White
                 MoreOptionsForm.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = Color.White
                 MoreOptionsForm.DoNothingRadioButton.StateCommon.ShortText.Color1 = Color.White
@@ -442,8 +443,6 @@ Public Class MainForm
                 MoreOptionsForm.TaskMissedGroupBox.StateNormal.Content.LongText.Color1 = Color.Black
                 MoreOptionsForm.StateGroupBox.StateNormal.Content.ShortText.Color1 = Color.Black
                 MoreOptionsForm.NeverEndRadioButton.StateCommon.ShortText.Color1 = Color.Black
-                MoreOptionsForm.EndAfterRadioButton.StateCommon.ShortText.Color1 = Color.Black
-                MoreOptionsForm.occurencesLabel.StateCommon.ShortText.Color1 = Color.Black
                 MoreOptionsForm.EndAtRadioButton.StateCommon.ShortText.Color1 = Color.Black
                 MoreOptionsForm.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = Color.Black
                 MoreOptionsForm.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = Color.Black
@@ -622,9 +621,11 @@ Public Class MainForm
 
         If e.Button = Windows.Forms.MouseButtons.Right AndAlso m__row_clicked >= 0 Then
 
-            LogDataGridView.ClearSelection()
-            LogDataGridView.Rows(m__row_clicked).Selected = True
-            LogDataGridView.ContextMenuStrip = LogContextMenu
+            With LogDataGridView
+                .ClearSelection()
+                .Rows(m__row_clicked).Selected = True
+                .ContextMenuStrip = LogContextMenu
+            End With
 
         ElseIf m__row_clicked < 0 Then
             LogDataGridView.ContextMenuStrip = Nothing
@@ -652,11 +653,8 @@ Public Class MainForm
 
         If result = DialogResult.Yes Then
             m_master_control.DeleteTask(ScheduledTasksDataGridView.SelectedRows(0).Cells(2).Value.ToString())
-
         ElseIf result = DialogResult.No Then
-
             Exit Sub
-
         End If
 
     End Sub
@@ -928,6 +926,7 @@ Public Class MainForm
 
     End Sub
 
+    'fills the greek dictionary
     Private Sub fillGreekWords()
         With grWords
             .Add("Προσθήκη")
@@ -1019,13 +1018,18 @@ Public Class MainForm
             .Add("Παρακαλώ επιλέξτε τη συχνότητα της εργασίας")
             .Add("Κάθε ")
             .Add("μέρες")
+            .Add("Δες το ιστορικό της")
+            .Add("Ιστορικό της εργασίας: ")
+            .Add("Περιηγητής")
         End With
     End Sub
 
+    'returns the greek dictionary
     Friend Function getGreekDictionary() As List(Of String)
         Return grWords
     End Function
 
+    'fills the english dictionary
     Private Sub fillEnglishWords()
         With engWords
             .Add("Add Task")
@@ -1117,37 +1121,39 @@ Public Class MainForm
             .Add("Please choose the recurrence of the task")
             .Add("Every ")
             .Add("days")
+            .Add("View History")
+            .Add("History of task: ")
+            .Add("Navigator")
         End With
 
     End Sub
 
+    'returns the english dictionary
     Friend Function getEnglishDictionary() As List(Of String)
         Return engWords
     End Function
 
     Private Sub greekFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles greekFlagCheckButton.Click
-        If Not langBackgroundWorker.IsBusy Then
-            My.Settings.LanguageFlag = "Greek"
-            langBackgroundWorker.RunWorkerAsync()
-        End If
+        My.Settings.LanguageFlag = "Greek"
+        langBackgroundWorker.RunWorkerAsync()
     End Sub
 
     Private Sub USFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles USFlagCheckButton.Click
-        If Not langBackgroundWorker.IsBusy Then
-            My.Settings.LanguageFlag = "English"
-            langBackgroundWorker.RunWorkerAsync()
-        End If
+        My.Settings.LanguageFlag = "English"
+        langBackgroundWorker.RunWorkerAsync()
     End Sub
 
+    'does the actual change of language
+    'in a different thread, so our window doesn't get stuck
     Private Sub langBackgroundWorker_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles langBackgroundWorker.DoWork
         Dim dictionary As New List(Of String)
         Select Case My.Settings.LanguageFlag
             Case "Greek"
                 dictionary = getGreekDictionary()
-                USFlagCheckButton.Enabled = False
+                USFlagCheckButton.Enabled = False    'so the user can't press it, because exceptions arise
             Case "English"
                 dictionary = getEnglishDictionary()
-                greekFlagCheckButton.Enabled = False
+                greekFlagCheckButton.Enabled = False 'so the user can't press it, because exceptions arise
         End Select
 
         '========================= MAIN FORM ========================================
@@ -1196,10 +1202,10 @@ Public Class MainForm
         EditContextMenuItem.Text = dictionary(2)
         DeleteContextMenuItem.Text = dictionary(4)
         RunNowContextMenuItem.Text = dictionary(6)
-        ViewHistoryContextMenuItem.Text = dictionary(20)
+        ViewHistoryContextMenuItem.Text = dictionary(89)
         'End ScheduledTasks DataGridView------------------------------------
 
-        'ScheduledTasks DataGridView----------------------------------------
+        'LogDataGridView DataGridView----------------------------------------
         LogHeaderGroup.ValuesPrimary.Heading = dictionary(20)
         With LogDataGridView
             .Columns(0).HeaderText = dictionary(21)
@@ -1213,9 +1219,10 @@ Public Class MainForm
         ExportToPDFContextMenuItem.Text = dictionary(24)
         RunNowContextMenuItem.Text = dictionary(6)
         ClearLogContextMenuItem.Text = dictionary(25)
-        'End ScheduledTasks DataGridView------------------------------------
+        'End LogDataGridView DataGridView------------------------------------
 
         'TreeView-----------------------------------------------------------
+        NavigateHeaderGroup.ValuesPrimary.Heading = dictionary(91)
         NavigationTreeView.Nodes(0).Text = dictionary(26)
         NavigationTreeView.Nodes(1).Text = dictionary(20)
 
@@ -1293,16 +1300,32 @@ Public Class MainForm
         'end No Scheduled Tasks task dialog----
 
         'Delete task dialog------------------------------
-        DeleteTaskDialog.WindowTitle = dictionary(4)
-        DeleteTaskDialog.MainInstruction = dictionary(69)
-        DeleteTaskDialog.Content = dictionary(70)
+        With DeleteTaskDialog
+            .WindowTitle = dictionary(4)
+            .MainInstruction = dictionary(69)
+            .Content = dictionary(70)
+        End With
         'end delete task --------------------------------
         'END ========================= MAIN FORM =====================================
 
+        My.Settings.Save()
     End Sub
 
     Private Sub langBackgroundWorker_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles langBackgroundWorker.RunWorkerCompleted
         USFlagCheckButton.Enabled = True
         greekFlagCheckButton.Enabled = True
     End Sub
+
+    'it executes once
+    'the time that ScheduledTasks DataGridView is completely filled
+    'then it changes the language according to the user's choice
+    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles languageOnStartTimer.Tick
+
+        If ScheduledTasksDataGridView.RowCount > 0 Then
+            checkLanguage()
+            languageOnStartTimer.Stop()
+        End If
+
+    End Sub
+
 End Class

@@ -10,80 +10,6 @@ Public Class NewTaskForm
     Dim m_master_control As ALMasterControl
     Public m_can_overwrite_task As Boolean = False
 
-    Private Sub changeLanguageNewTaskForm(ByVal lang As String)
-        Dim dictionary As New List(Of String)
-        Select Case My.Settings.LanguageFlag
-            Case "Greek"
-                dictionary = MainForm.getGreekDictionary()
-            Case "English"
-                dictionary = MainForm.getEnglishDictionary()
-        End Select
-
-
-        '========================== NEW TASK FORM ========================================
-        With Me
-            .Text = dictionary(1)
-
-            'labels-------------------------------------
-            .KindOfTaskLabel.Text = dictionary(79)
-            .ServiceLabel.Text = dictionary(80)
-            .chooseFileLabel.Text = dictionary(81)
-            .KryptonLabel1.Text = dictionary(82)
-            .DateLabel.Text = dictionary(83)
-            .KryptonLabel2.Text = dictionary(84)
-            .TypeOfTaskLabel.Text = dictionary(85)
-            .KryptonLabel3.Text = dictionary(86)
-            .Label1.Text = dictionary(87)
-            .Label2.Text = dictionary(88)
-            'end labels---------------------------------
-
-            'Buttons-----------------------------------------------------------
-            .chooseFileBrowseButton.Text = dictionary(40)
-            .OnceCheckButton.Text = dictionary(41)
-            .DailyCheckButton.Text = dictionary(42)
-            .WeeklyCheckButton.Text = dictionary(43)
-            .MonthlyCheckButton.Text = dictionary(44)
-            .YearlyCheckButton.Text = dictionary(45)
-            .WeekdaysDropDownButton.Text = dictionary(46)
-            .MonthDaysDropDownButton.Text = dictionary(47)
-            .MonthsDropDownButton.Text = dictionary(48)
-            .SaveTaskButton.Text = dictionary(49)
-            .MoreOptionsButton.Text = dictionary(50)
-
-            With .ToolTip2
-                .SetToolTip(Me.ExecutableCheckButton, dictionary(27))
-                .SetToolTip(Me.FileCheckButton, dictionary(8))
-                .SetToolTip(Me.ServiceCheckButton, dictionary(28))
-                .SetToolTip(Me.MoreOptionsButton, dictionary(51))
-            End With
-
-            With .ServicesDataGridView
-                .Columns(0).HeaderText = dictionary(52)
-                .Columns(1).HeaderText = dictionary(17)
-                .Columns(2).HeaderText = dictionary(15)
-            End With
-            'End Buttons--------------------------------------------------------
-
-            'Success task dialog----------------
-            With .SuccessTaskDialog
-                .WindowTitle = dictionary(74)
-                .Content = dictionary(75)
-            End With
-            'End Success task dialog------------
-
-            'Savebutton task dialog-------------
-            With .SaveButtonTaskDialog
-                .WindowTitle = dictionary(76)
-                .Content = dictionary(77)
-            End With
-            'End Savebutton task dialog---------
-
-            'timechanged task dialog
-            .TimeChangedTaskDialog.WindowTitle = dictionary(78)
-        End With
-        'END ========================== NEW TASK FORM ======================================
-
-    End Sub
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
@@ -95,24 +21,21 @@ Public Class NewTaskForm
         'sets the minimum day the user can choose as the current day
         DatePicker.MinDate = Today
 
+        'changes the language according to the user's choice
         changeLanguageNewTaskForm(My.Settings.LanguageFlag)
 
     End Sub
 
     Private Sub chooseFileBrowseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileBrowseButton.Click
-
         OpenFileDialog.ShowDialog()
-
     End Sub
 
     Private Sub OpenFileDialog_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog.FileOk
-
         chooseFileTextBox.Text = OpenFileDialog.FileName
-
     End Sub
 
 
-#Region "kind of task(exe, multimedia, etc) checkbuttons"
+#Region "kind of task(exe, file, service) checkbuttons"
 
     Private Sub ExecutableCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExecutableCheckButton.Click
 
@@ -163,10 +86,14 @@ Public Class NewTaskForm
         'handles things that the Service Check Button opens
         HandleServiceCheckButtonFunction(False, True, True)
 
+        MoreOptionsForm.TimeOpenGroupBox.Visible = False
+
         'Lists all the services inside a DataGridView
         ListServices()
 
     End Sub
+
+#End Region
 
     'Lists all the services inside a DataGridView
     Public Sub ListServices()
@@ -181,23 +108,21 @@ Public Class NewTaskForm
 
     End Sub
 
-#End Region
-
-
     Private Sub chooseFileTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileTextBox.TextChanged
+
+        'checks for the validity of the TextBox every time it's content changes
+
         If (ExecutableCheckButton.Checked = True) Then
             checkIfFileExists(".exe")
-
         ElseIf (FileCheckButton.Checked = True) Then
             checkIfFileExists("")
         End If
-
-
     End Sub
 
+    'checks if the file (the path) the user has chosen exists or not
     Private Sub checkIfFileExists(ByVal type As String)
 
-        If (File.Exists(chooseFileTextBox.Text) And chooseFileTextBox.Text.EndsWith(type)) Then
+        If (File.Exists(chooseFileTextBox.Text) And (chooseFileTextBox.Text.EndsWith(type) Or chooseFileTextBox.Text.EndsWith(type.ToUpper))) Then
 
             enableRestOfPanels(True)
             chooseFileCheckLabel.Values.Image = AssUI.My.Resources.tick
@@ -209,6 +134,7 @@ Public Class NewTaskForm
 
     End Sub
 
+    'enables the rest of the Form's panels
     Private Sub enableRestOfPanels(ByVal state As Boolean)
         If state Then
             'handles all panels' visibility
@@ -311,6 +237,9 @@ Public Class NewTaskForm
         'and ticks the checkbox at AllMonthDays dropdown button
         AutoCheckDayOfMonth()
 
+        'moves the button to it's original place
+        MonthDaysDropDownButton.Location = New Point(113, 72)
+
     End Sub
 
     Private Sub YearlyCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles YearlyCheckButton.Click
@@ -330,15 +259,16 @@ Public Class NewTaskForm
         'and ticks the checkbox at AllMonths dropdown button
         AutoCheckMonth()
 
+        'moves the button down so that it doesn't hide the other one
+        MonthDaysDropDownButton.Location = New Point(113, 104)
+
     End Sub
 
 #End Region
 
 
     Private Sub MoreOptionsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MoreOptionsButton.Click
-
         MoreOptionsForm.ShowDialog()
-
     End Sub
 
     Public Sub SaveTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTaskButton.Click
@@ -346,10 +276,8 @@ Public Class NewTaskForm
 
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
 
-        'checks if the task type is Once
-        'and if the time is before the current time
-        'if so, it changes it to the current time + 3min
-        'and opens a dialog prompting the user
+        'checks if the task type is Once & time is before the current time
+        'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
 
         'checks if there is this task with the same program path and...
@@ -370,12 +298,62 @@ Public Class NewTaskForm
 
     End Sub
 
+    Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
+        'Automatically checks the month the user have chosen
+        'and ticks the checkbox at AllMonths dropdown button
+        AutoCheckMonth()
+    End Sub
+
+    Private Sub WeekdaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles WeekdaysDropDownButton.MouseEnter
+        'Automatically checks the day of the week the user have chosen
+        'and ticks the checkbox at AllWeekDays dropdown button
+        AutoCheckDayOfWeek()
+    End Sub
+
+    Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
+        'Automatically checks the day of the month the user have chosen
+        'and ticks the checkbox at AllMonthDays dropdown button
+        AutoCheckDayOfMonth()
+    End Sub
+
+
+    Private Sub ServicesDataGridView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.VisibleChanged
+        If ServicesDataGridView.Visible = True Then
+            enableRestOfPanels(True)
+        Else
+            enableRestOfPanels(False)
+        End If
+    End Sub
+
+    'if a service is selected, the arrow gows to the next panel (date & time)
+    Private Sub ServicesDataGridView_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.SelectionChanged
+        HandleArrowLabelAndRectangles(3)
+    End Sub
+
+    Private Sub NewTaskForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.Dispose()
+        Me.Dispose()
+    End Sub
+
+    'sets the max value of the Daily numericUpDown to 31
+    'all the others are set to 9999
+    Private Sub TypeOfTaskCheckSet_CheckedButtonChanged(sender As System.Object, e As System.EventArgs) Handles TypeOfTaskCheckSet.CheckedButtonChanged
+        'if Daily is pressed
+        If TypeOfTaskCheckSet.CheckedIndex = 1 Then
+            'sets the maximum number of days to 31
+            KryptonNumericUpDown1.Maximum = 31
+        Else
+            KryptonNumericUpDown1.Maximum = 9999
+        End If
+
+    End Sub
+
     'saves the task to the database
     Private Sub saveTask()
-        Dim resultSave As DialogResult
-        resultSave = SaveButtonTaskDialog.ShowDialog()
 
-        If (resultSave = DialogResult.Yes) Then
+        If (SaveButtonTaskDialog.ShowDialog() = DialogResult.Yes) Then
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                                   TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
@@ -388,8 +366,6 @@ Public Class NewTaskForm
             Else
                 end_date = New Date(2099, 12, 31) 'default never ending date
             End If
-            
-
 
 
             Dim m_not_run As String
@@ -444,14 +420,14 @@ Public Class NewTaskForm
                 Next
 
 
-                
+
 
             ElseIf MonthlyCheckButton.Checked Then
 
                 For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
                     Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
                     If monthday.Checked Then
-                        
+
 
                         While Not final_date.Day.ToString.Equals(monthday.Text)
                             final_date = final_date.AddDays(1)
@@ -465,7 +441,7 @@ Public Class NewTaskForm
             Else    'yearly task
 
                 'check the month
-               
+
                 For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
                     Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
 
@@ -482,6 +458,7 @@ Public Class NewTaskForm
                         'for this month check the monthdays
                         For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
                             Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+
                             If monthday.Checked Then
 
                                 While Not final_date.Day.ToString.Equals(monthday.Text)
@@ -502,17 +479,12 @@ Public Class NewTaskForm
                                 MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
                                 write_to_log = False
 
-
-
-
                             End If
-                Next
-                        
+                        Next
+
                     End If 'end month check
 
-
                 Next
-
 
             End If
 
@@ -542,6 +514,7 @@ Public Class NewTaskForm
     'if so, it changes it to the current time + 3min
     'and opens a dialog prompting the user
     Private Sub checkOnceTime()
+
         If OnceCheckButton.Checked = True _
                 And DatePicker.Value.ToLongDateString = Date.Now.ToLongDateString _
                 And TimePicker.Value.ToLongTimeString < DateTime.Now.ToLongTimeString Then
@@ -556,10 +529,7 @@ Public Class NewTaskForm
                         & vbCrLf & "Do you want to continue ?"
             End If
 
-            Dim resultTime As DialogResult
-            resultTime = TimeChangedTaskDialog.ShowDialog()
-
-            If resultTime = DialogResult.Yes Then
+            If TimeChangedTaskDialog.ShowDialog() = DialogResult.Yes Then
 
                 TimePicker.Value = DateTime.Now.ToLongTimeString
                 TimePicker.Value = TimePicker.Value.AddMinutes(3.0)
@@ -568,6 +538,83 @@ Public Class NewTaskForm
                 Exit Sub
             End If
         End If
+
+    End Sub
+
+    'changes the language according to the user's choice
+    Private Sub changeLanguageNewTaskForm(ByVal lang As String)
+        Dim dictionary As New List(Of String)
+        Select Case My.Settings.LanguageFlag
+            Case "Greek"
+                dictionary = MainForm.getGreekDictionary()
+            Case "English"
+                dictionary = MainForm.getEnglishDictionary()
+        End Select
+
+
+        '========================== NEW TASK FORM ========================================
+        With Me
+            .Text = dictionary(1)
+
+            'labels-------------------------------------
+            .KindOfTaskLabel.Text = dictionary(79)
+            .ServiceLabel.Text = dictionary(80)
+            .chooseFileLabel.Text = dictionary(81)
+            .KryptonLabel1.Text = dictionary(82)
+            .DateLabel.Text = dictionary(83)
+            .KryptonLabel2.Text = dictionary(84)
+            .TypeOfTaskLabel.Text = dictionary(85)
+            .KryptonLabel3.Text = dictionary(86)
+            .Label1.Text = dictionary(87)
+            .Label2.Text = dictionary(88)
+            'end labels---------------------------------
+
+            'Buttons-----------------------------------------------------------
+            .chooseFileBrowseButton.Text = dictionary(40)
+            .OnceCheckButton.Text = dictionary(41)
+            .DailyCheckButton.Text = dictionary(42)
+            .WeeklyCheckButton.Text = dictionary(43)
+            .MonthlyCheckButton.Text = dictionary(44)
+            .YearlyCheckButton.Text = dictionary(45)
+            .WeekdaysDropDownButton.Text = dictionary(46)
+            .MonthDaysDropDownButton.Text = dictionary(47)
+            .MonthsDropDownButton.Text = dictionary(48)
+            .SaveTaskButton.Text = dictionary(49)
+            .MoreOptionsButton.Text = dictionary(50)
+
+            With .ToolTip2
+                .SetToolTip(Me.ExecutableCheckButton, dictionary(27))
+                .SetToolTip(Me.FileCheckButton, dictionary(8))
+                .SetToolTip(Me.ServiceCheckButton, dictionary(28))
+                .SetToolTip(Me.MoreOptionsButton, dictionary(51))
+            End With
+
+            With .ServicesDataGridView
+                .Columns(0).HeaderText = dictionary(52)
+                .Columns(1).HeaderText = dictionary(17)
+                .Columns(2).HeaderText = dictionary(15)
+            End With
+            'End Buttons--------------------------------------------------------
+
+            'Success task dialog----------------
+            With .SuccessTaskDialog
+                .WindowTitle = dictionary(74)
+                .Content = dictionary(75)
+            End With
+            'End Success task dialog------------
+
+            'Savebutton task dialog-------------
+            With .SaveButtonTaskDialog
+                .WindowTitle = dictionary(76)
+                .Content = dictionary(77)
+            End With
+            'End Savebutton task dialog---------
+
+            'timechanged task dialog
+            .TimeChangedTaskDialog.WindowTitle = dictionary(78)
+        End With
+        'END ========================== NEW TASK FORM ======================================
+
     End Sub
 
 #Region "My handle-methods"
@@ -610,6 +657,7 @@ Public Class NewTaskForm
         SaveTaskButton.Enabled = save
     End Sub
 
+    'handles the position of the ArrowLabel & the visibility of the Rectangles
     Private Sub HandleArrowLabelAndRectangles(ByVal i As Integer)
         Select Case i
             Case 0
@@ -716,6 +764,10 @@ Public Class NewTaskForm
 
     End Sub
 
+    Private Sub ServicesDataGridView_MouseHover(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.MouseHover
+        HandleArrowLabelAndRectangles(2)
+    End Sub
+
 #End Region
 
 #Region "AutoCheck methods"
@@ -740,7 +792,6 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -792,7 +843,6 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -825,7 +875,6 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -877,51 +926,5 @@ Public Class NewTaskForm
 #End Region
 
 
-    Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
-        AutoCheckMonth()
-    End Sub
-
-    Private Sub WeekdaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles WeekdaysDropDownButton.MouseEnter
-        AutoCheckDayOfWeek()
-    End Sub
-
-    Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
-        AutoCheckDayOfMonth()
-    End Sub
-
-
-    Private Sub ServicesDataGridView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.VisibleChanged
-        If ServicesDataGridView.Visible = True Then
-            enableRestOfPanels(True)
-        Else
-            enableRestOfPanels(False)
-        End If
-    End Sub
-
-    Private Sub ServicesDataGridView_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.SelectionChanged
-        HandleArrowLabelAndRectangles(3)
-    End Sub
-
-    Private Sub NewTaskForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
-        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
-        MoreOptionsForm.Dispose()
-        Me.Dispose()
-    End Sub
-
-    Private Sub TypeOfTaskCheckSet_CheckedButtonChanged(sender As System.Object, e As System.EventArgs) Handles TypeOfTaskCheckSet.CheckedButtonChanged
-        'if Daily is pressed
-        If TypeOfTaskCheckSet.CheckedIndex = 1 Then
-            'sets the maximum number of days to 31
-            KryptonNumericUpDown1.Maximum = 31
-        Else
-            KryptonNumericUpDown1.Maximum = 9999
-        End If
-
-    End Sub
-
-    Private Sub ServicesDataGridView_MouseHover(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.MouseHover
-        HandleArrowLabelAndRectangles(2)
-    End Sub
 
 End Class

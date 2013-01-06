@@ -22,43 +22,43 @@ Partial Class ViewHistoryForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewHistoryForm))
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
-        Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
+        Me.ViewHistoryHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ViewHistoryLogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
-        CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.LogHeaderGroup.Panel.SuspendLayout()
-        Me.LogHeaderGroup.SuspendLayout()
+        CType(Me.ViewHistoryHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ViewHistoryHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ViewHistoryHeaderGroup.Panel.SuspendLayout()
+        Me.ViewHistoryHeaderGroup.SuspendLayout()
         CType(Me.ViewHistoryLogDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'KryptonPanel
         '
-        Me.KryptonPanel.Controls.Add(Me.LogHeaderGroup)
+        Me.KryptonPanel.Controls.Add(Me.ViewHistoryHeaderGroup)
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Name = "KryptonPanel"
         Me.KryptonPanel.Size = New System.Drawing.Size(612, 354)
         Me.KryptonPanel.TabIndex = 0
         '
-        'LogHeaderGroup
+        'ViewHistoryHeaderGroup
         '
-        Me.LogHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.LogButtonSpecExportToPDF})
-        Me.LogHeaderGroup.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogHeaderGroup.HeaderVisibleSecondary = False
-        Me.LogHeaderGroup.Location = New System.Drawing.Point(0, 0)
-        Me.LogHeaderGroup.Name = "LogHeaderGroup"
+        Me.ViewHistoryHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.LogButtonSpecExportToPDF})
+        Me.ViewHistoryHeaderGroup.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ViewHistoryHeaderGroup.HeaderVisibleSecondary = False
+        Me.ViewHistoryHeaderGroup.Location = New System.Drawing.Point(0, 0)
+        Me.ViewHistoryHeaderGroup.Name = "ViewHistoryHeaderGroup"
         '
-        'LogHeaderGroup.Panel
+        'ViewHistoryHeaderGroup.Panel
         '
-        Me.LogHeaderGroup.Panel.Controls.Add(Me.ViewHistoryLogDataGridView)
-        Me.LogHeaderGroup.Size = New System.Drawing.Size(612, 354)
-        Me.LogHeaderGroup.TabIndex = 1
-        Me.LogHeaderGroup.ValuesPrimary.Heading = "Log"
-        Me.LogHeaderGroup.ValuesPrimary.Image = Global.AssUI.My.Resources.Resources.logIcon
+        Me.ViewHistoryHeaderGroup.Panel.Controls.Add(Me.ViewHistoryLogDataGridView)
+        Me.ViewHistoryHeaderGroup.Size = New System.Drawing.Size(612, 354)
+        Me.ViewHistoryHeaderGroup.TabIndex = 1
+        Me.ViewHistoryHeaderGroup.ValuesPrimary.Heading = "Log"
+        Me.ViewHistoryHeaderGroup.ValuesPrimary.Image = Global.AssUI.My.Resources.Resources.logIcon
         '
         'LogButtonSpecExportToPDF
         '
@@ -85,12 +85,12 @@ Partial Class ViewHistoryForm
         Me.ViewHistoryLogDataGridView.ReadOnly = True
         Me.ViewHistoryLogDataGridView.RowHeadersVisible = False
         Me.ViewHistoryLogDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ViewHistoryLogDataGridView.Size = New System.Drawing.Size(610, 315)
+        Me.ViewHistoryLogDataGridView.Size = New System.Drawing.Size(610, 317)
         Me.ViewHistoryLogDataGridView.TabIndex = 0
         '
         'KryptonManager
         '
-        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.ProfessionalOffice2003
+        Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
         '
         'ViewHistoryForm
         '
@@ -104,10 +104,10 @@ Partial Class ViewHistoryForm
         Me.Text = "History of "
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonPanel.ResumeLayout(False)
-        CType(Me.LogHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.LogHeaderGroup.Panel.ResumeLayout(False)
-        CType(Me.LogHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.LogHeaderGroup.ResumeLayout(False)
+        CType(Me.ViewHistoryHeaderGroup.Panel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ViewHistoryHeaderGroup.Panel.ResumeLayout(False)
+        CType(Me.ViewHistoryHeaderGroup, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ViewHistoryHeaderGroup.ResumeLayout(False)
         CType(Me.ViewHistoryLogDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -127,7 +127,7 @@ Partial Class ViewHistoryForm
     Protected Overrides Sub Finalize()
         MyBase.Finalize()
     End Sub
-    Friend WithEvents LogHeaderGroup As ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup
+    Friend WithEvents ViewHistoryHeaderGroup As ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup
     Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
     Friend WithEvents ViewHistoryLogDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
 End Class

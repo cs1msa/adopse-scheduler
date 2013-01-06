@@ -37,11 +37,8 @@ Partial Class MoreOptionsForm
         Me.ActiveRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.SetEndDateGroupBox = New ComponentFactory.Krypton.Toolkit.KryptonGroupBox()
         Me.EndAtDateTimePicker = New ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker()
-        Me.occurencesLabel = New ComponentFactory.Krypton.Toolkit.KryptonLabel()
-        Me.EndAfterNumericUpDown = New ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown()
         Me.EndAtRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.NeverEndRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
-        Me.EndAfterRadioButton = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
@@ -262,11 +259,8 @@ Partial Class MoreOptionsForm
         'SetEndDateGroupBox.Panel
         '
         Me.SetEndDateGroupBox.Panel.Controls.Add(Me.EndAtDateTimePicker)
-        Me.SetEndDateGroupBox.Panel.Controls.Add(Me.occurencesLabel)
-        Me.SetEndDateGroupBox.Panel.Controls.Add(Me.EndAfterNumericUpDown)
         Me.SetEndDateGroupBox.Panel.Controls.Add(Me.EndAtRadioButton)
         Me.SetEndDateGroupBox.Panel.Controls.Add(Me.NeverEndRadioButton)
-        Me.SetEndDateGroupBox.Panel.Controls.Add(Me.EndAfterRadioButton)
         Me.SetEndDateGroupBox.Size = New System.Drawing.Size(288, 109)
         Me.SetEndDateGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.SetEndDateGroupBox.StateCommon.Border.Color2 = System.Drawing.Color.White
@@ -280,34 +274,14 @@ Partial Class MoreOptionsForm
         '
         'EndAtDateTimePicker
         '
-        Me.EndAtDateTimePicker.Location = New System.Drawing.Point(72, 56)
+        Me.EndAtDateTimePicker.Location = New System.Drawing.Point(72, 43)
         Me.EndAtDateTimePicker.Name = "EndAtDateTimePicker"
         Me.EndAtDateTimePicker.Size = New System.Drawing.Size(203, 21)
         Me.EndAtDateTimePicker.TabIndex = 5
         '
-        'occurencesLabel
-        '
-        Me.occurencesLabel.Location = New System.Drawing.Point(129, 31)
-        Me.occurencesLabel.Name = "occurencesLabel"
-        Me.occurencesLabel.Size = New System.Drawing.Size(71, 20)
-        Me.occurencesLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.occurencesLabel.TabIndex = 4
-        Me.occurencesLabel.Values.Text = "occurences"
-        '
-        'EndAfterNumericUpDown
-        '
-        Me.EndAfterNumericUpDown.Location = New System.Drawing.Point(87, 31)
-        Me.EndAfterNumericUpDown.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
-        Me.EndAfterNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.EndAfterNumericUpDown.Name = "EndAfterNumericUpDown"
-        Me.EndAfterNumericUpDown.Size = New System.Drawing.Size(36, 22)
-        Me.EndAfterNumericUpDown.TabIndex = 3
-        Me.EndAfterNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.EndAfterNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
         'EndAtRadioButton
         '
-        Me.EndAtRadioButton.Location = New System.Drawing.Point(9, 57)
+        Me.EndAtRadioButton.Location = New System.Drawing.Point(9, 43)
         Me.EndAtRadioButton.Name = "EndAtRadioButton"
         Me.EndAtRadioButton.Size = New System.Drawing.Size(57, 20)
         Me.EndAtRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -323,15 +297,6 @@ Partial Class MoreOptionsForm
         Me.NeverEndRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
         Me.NeverEndRadioButton.TabIndex = 1
         Me.NeverEndRadioButton.Values.Text = "Never End"
-        '
-        'EndAfterRadioButton
-        '
-        Me.EndAfterRadioButton.Location = New System.Drawing.Point(9, 31)
-        Me.EndAfterRadioButton.Name = "EndAfterRadioButton"
-        Me.EndAfterRadioButton.Size = New System.Drawing.Size(72, 20)
-        Me.EndAfterRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
-        Me.EndAfterRadioButton.TabIndex = 0
-        Me.EndAfterRadioButton.Values.Text = "End after"
         '
         'KryptonManager
         '
@@ -397,13 +362,10 @@ Partial Class MoreOptionsForm
     Friend WithEvents SetEndDateGroupBox As ComponentFactory.Krypton.Toolkit.KryptonGroupBox
     Friend WithEvents EndAtRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents NeverEndRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
-    Friend WithEvents EndAfterRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents StateGroupBox As ComponentFactory.Krypton.Toolkit.KryptonGroupBox
     Friend WithEvents InactiveRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents ActiveRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents EndAtDateTimePicker As ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker
-    Friend WithEvents occurencesLabel As ComponentFactory.Krypton.Toolkit.KryptonLabel
-    Friend WithEvents EndAfterNumericUpDown As ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown
     Friend WithEvents TaskMissedGroupBox As ComponentFactory.Krypton.Toolkit.KryptonGroupBox
     Friend WithEvents RunWhenPcOpensRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents DisplayDialogAskingRadioButton As ComponentFactory.Krypton.Toolkit.KryptonRadioButton

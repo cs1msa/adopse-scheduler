@@ -107,6 +107,9 @@ Public Class ALCore
 
     'kill a program using the pid or the same of the program
     Public Sub KillProgram(ByVal a_progam As String)
+
+        a_progam = a_progam.ToLower()
+
         If a_progam.Contains("\") And a_progam.Contains("exe") Then 'if it is a full path exe check
             a_progam = a_progam.Substring(a_progam.LastIndexOf("\") + 1)
             m_command_line_handler.KillProgram(a_program:=a_progam)
