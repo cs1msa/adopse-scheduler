@@ -184,6 +184,7 @@ Public Class ALMasterControl
                 End If
 
                 task.UpdateNextRun()
+
                 'write every thing in the log and update the [scheduler tasks] table
                 m_last_log_id = m_last_log_id + 1
                 m_core.InsertToTable("Log", {m_last_log_id, "'" & Date.Now & "'", "'" & task.program_full_path & "'", "'Task Run " & " " & task.type & " " & success & "'"})
@@ -245,12 +246,14 @@ Public Class ALMasterControl
             End If
 
             'if the program did not close by itself and is supposed to close after some time...
+
             If closes_after_minutes <> 0 Then
 
                 Dim date_that_should_stop_running As Date = task.last_run.AddMinutes(closes_after_minutes)
-
+                date_that_should_stop_running = date_that_should_stop_running.AddSeconds(-10)
                 Dim success As Boolean = True
                 Try
+                    
 
                     If date_that_should_stop_running.CompareTo(Date.Now) <= 0 Then
                         'prorgam killing here
@@ -314,7 +317,7 @@ Public Class ALMasterControl
                        Optional ByVal a_write_to_log_about_it As Boolean = True)
         Try
 
-
+            m_last_scheduler_tasks_id = m_last_scheduler_tasks_id + 1
             'add the task to the task manager 
             If a_period_in_days = 0 And a_period_in_months = 0 And a_period_in_years = 0 Then
                 'if it a fixed date task
@@ -332,7 +335,7 @@ Public Class ALMasterControl
             'add the task to the database(scheduler tasks)
             'add a log row for the addition
 
-            m_last_scheduler_tasks_id = m_last_scheduler_tasks_id + 1
+
             m_core.InsertToTable("[Scheduler Tasks]", {m_last_scheduler_tasks_id.ToString(), "'" & a_full_path & "'", "'" & a_date & "'", _
                                                       "'" & a_period_in_days.ToString() & "/" & a_period_in_months.ToString() & "/" & a_period_in_years.ToString() & "'", _
                                                       a_status.ToString(), "'" & a_description & "'", a_close_after.ToString(), _

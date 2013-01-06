@@ -38,6 +38,15 @@
         Return list_to_return
     End Function
 
+    Public Function GetTaskById(ByVal a_id As Integer) As ALATasks
+        For Each task In m_task_list
+            If task.id.Equals(a_id) Then
+                Return task
+            End If
+        Next
+        Return New ALFixedDateTasks(-1, "", New Date(1000), False, "")
+
+    End Function
     Public Function GetTask(ByVal a_index As Integer) As ALATasks
         If a_index > m_task_list.Count - 1 Then
             Throw New IndexOutOfRangeException()
