@@ -75,7 +75,7 @@ Partial Class MoreOptionsForm
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Name = "KryptonPanel"
-        Me.KryptonPanel.Size = New System.Drawing.Size(589, 308)
+        Me.KryptonPanel.Size = New System.Drawing.Size(623, 308)
         Me.KryptonPanel.TabIndex = 0
         '
         'TimeOpenGroupBox
@@ -163,7 +163,7 @@ Partial Class MoreOptionsForm
         'TaskMissedGroupBox
         '
         Me.TaskMissedGroupBox.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel
-        Me.TaskMissedGroupBox.Location = New System.Drawing.Point(326, 23)
+        Me.TaskMissedGroupBox.Location = New System.Drawing.Point(320, 23)
         Me.TaskMissedGroupBox.Name = "TaskMissedGroupBox"
         '
         'TaskMissedGroupBox.Panel
@@ -171,7 +171,7 @@ Partial Class MoreOptionsForm
         Me.TaskMissedGroupBox.Panel.Controls.Add(Me.RunWhenPcOpensRadioButton)
         Me.TaskMissedGroupBox.Panel.Controls.Add(Me.DisplayDialogAskingRadioButton)
         Me.TaskMissedGroupBox.Panel.Controls.Add(Me.DoNothingRadioButton)
-        Me.TaskMissedGroupBox.Size = New System.Drawing.Size(237, 109)
+        Me.TaskMissedGroupBox.Size = New System.Drawing.Size(291, 109)
         Me.TaskMissedGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.Gray
         Me.TaskMissedGroupBox.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
@@ -185,7 +185,7 @@ Partial Class MoreOptionsForm
         '
         'RunWhenPcOpensRadioButton
         '
-        Me.RunWhenPcOpensRadioButton.Location = New System.Drawing.Point(9, 5)
+        Me.RunWhenPcOpensRadioButton.Location = New System.Drawing.Point(16, 5)
         Me.RunWhenPcOpensRadioButton.Name = "RunWhenPcOpensRadioButton"
         Me.RunWhenPcOpensRadioButton.Size = New System.Drawing.Size(131, 20)
         Me.RunWhenPcOpensRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -195,7 +195,7 @@ Partial Class MoreOptionsForm
         'DisplayDialogAskingRadioButton
         '
         Me.DisplayDialogAskingRadioButton.Checked = True
-        Me.DisplayDialogAskingRadioButton.Location = New System.Drawing.Point(9, 31)
+        Me.DisplayDialogAskingRadioButton.Location = New System.Drawing.Point(16, 31)
         Me.DisplayDialogAskingRadioButton.Name = "DisplayDialogAskingRadioButton"
         Me.DisplayDialogAskingRadioButton.Size = New System.Drawing.Size(138, 20)
         Me.DisplayDialogAskingRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -204,7 +204,7 @@ Partial Class MoreOptionsForm
         '
         'DoNothingRadioButton
         '
-        Me.DoNothingRadioButton.Location = New System.Drawing.Point(9, 57)
+        Me.DoNothingRadioButton.Location = New System.Drawing.Point(16, 57)
         Me.DoNothingRadioButton.Name = "DoNothingRadioButton"
         Me.DoNothingRadioButton.Size = New System.Drawing.Size(87, 20)
         Me.DoNothingRadioButton.StateCommon.ShortText.Color1 = System.Drawing.Color.White
@@ -306,7 +306,7 @@ Partial Class MoreOptionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(589, 308)
+        Me.ClientSize = New System.Drawing.Size(623, 308)
         Me.Controls.Add(Me.KryptonPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
