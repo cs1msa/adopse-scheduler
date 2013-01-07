@@ -937,9 +937,10 @@ Public Class NewTaskForm
 
             'changes the MoreOptionsForm's pallette to match the user-chosen
             MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
-
+            SavingPleaseWaitTaskDialog.Dispose()
 
         Else
+
             Exit Sub
         End If
 
@@ -953,16 +954,24 @@ Public Class NewTaskForm
         SavingPleaseWaitTaskDialog.Dispose()
 
         If taskExists Then
+
             Exit Sub
         End If
+
+
+        
+
 
         'Opens up a dialog show that the task was Successfully added
         SuccessTaskDialog.ShowDialog()
         ' dispose the Form object, so when we open the form again all fields will be cleared
         MoreOptionsForm.Dispose()
+
         SavingPleaseWaitTaskDialog.Dispose()
 
+
         Me.Dispose()
+
 
         'closes the current form
         Me.Close()

@@ -23,6 +23,14 @@ AssUI
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:AssUI.My.Resources.Resources.AssLogo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.clearLogIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:AssUI.My.Resources.Resources.cross">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -44,6 +52,10 @@ AssUI
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:AssUI.My.Resources.Resources.fileIcon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.greekFlag">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -75,6 +87,10 @@ AssUI
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:AssUI.My.Resources.Resources.saving">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:AssUI.My.Resources.Resources.scheduledTasksIcon">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -84,6 +100,14 @@ AssUI
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:AssUI.My.Resources.Resources.tick">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.USFlag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:AssUI.My.Resources.Resources.xmlIcon">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

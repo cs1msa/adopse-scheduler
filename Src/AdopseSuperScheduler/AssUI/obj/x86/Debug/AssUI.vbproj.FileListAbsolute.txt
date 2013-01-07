@@ -115,3 +115,6 @@ F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\As
 F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.exe
 F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.xml
 F:\Neskio\Desktop\FIXED MAIN BRANCH\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.pdb
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.ViewHistoryForm.resources
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\bin\Debug\AssUI.exe.config
+C:\Users\Doublecross Black\Desktop\ass team\adopse-scheduler\Src\AdopseSuperScheduler\AssUI\obj\x86\Debug\AssUI.AboutForm.resources
