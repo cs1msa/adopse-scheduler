@@ -20,54 +20,54 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3})
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode6, TreeNode7})
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11})
-        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode14, TreeNode15})
-        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode19 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode20 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode17, TreeNode18, TreeNode19})
-        Dim TreeNode21 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode8, TreeNode12, TreeNode16, TreeNode20})
-        Dim TreeNode22 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode23 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode24 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode25 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode22, TreeNode23, TreeNode24})
-        Dim TreeNode26 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode27 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode28 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode29 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode26, TreeNode27, TreeNode28})
-        Dim TreeNode30 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode31 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode32 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode33 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode30, TreeNode31, TreeNode32})
-        Dim TreeNode34 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode35 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode36 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode37 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode34, TreeNode35, TreeNode36})
-        Dim TreeNode38 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
-        Dim TreeNode39 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
-        Dim TreeNode40 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
-        Dim TreeNode41 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode38, TreeNode39, TreeNode40})
-        Dim TreeNode42 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode25, TreeNode29, TreeNode33, TreeNode37, TreeNode41})
-        Dim TreeNode43 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode21, TreeNode42})
-        Dim TreeNode44 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
-        Dim TreeNode45 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
-        Dim TreeNode46 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
-        Dim TreeNode47 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
-        Dim TreeNode48 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Log", New System.Windows.Forms.TreeNode() {TreeNode44, TreeNode45, TreeNode46, TreeNode47})
+        Dim TreeNode145 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode146 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode147 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode148 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode145, TreeNode146, TreeNode147})
+        Dim TreeNode149 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode150 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode151 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode152 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode149, TreeNode150, TreeNode151})
+        Dim TreeNode153 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode154 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode155 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode156 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode153, TreeNode154, TreeNode155})
+        Dim TreeNode157 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode158 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode159 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode160 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode157, TreeNode158, TreeNode159})
+        Dim TreeNode161 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode162 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode163 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode164 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode161, TreeNode162, TreeNode163})
+        Dim TreeNode165 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Active", New System.Windows.Forms.TreeNode() {TreeNode148, TreeNode152, TreeNode156, TreeNode160, TreeNode164})
+        Dim TreeNode166 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode167 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode168 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode169 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Once", New System.Windows.Forms.TreeNode() {TreeNode166, TreeNode167, TreeNode168})
+        Dim TreeNode170 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode171 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode172 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode173 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Daily", New System.Windows.Forms.TreeNode() {TreeNode170, TreeNode171, TreeNode172})
+        Dim TreeNode174 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode175 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode176 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode177 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Weekly", New System.Windows.Forms.TreeNode() {TreeNode174, TreeNode175, TreeNode176})
+        Dim TreeNode178 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode179 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode180 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode181 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Monthly", New System.Windows.Forms.TreeNode() {TreeNode178, TreeNode179, TreeNode180})
+        Dim TreeNode182 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Executable")
+        Dim TreeNode183 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("File")
+        Dim TreeNode184 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Service")
+        Dim TreeNode185 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Yearly", New System.Windows.Forms.TreeNode() {TreeNode182, TreeNode183, TreeNode184})
+        Dim TreeNode186 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inactive", New System.Windows.Forms.TreeNode() {TreeNode169, TreeNode173, TreeNode177, TreeNode181, TreeNode185})
+        Dim TreeNode187 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tasks", New System.Windows.Forms.TreeNode() {TreeNode165, TreeNode186})
+        Dim TreeNode188 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Added")
+        Dim TreeNode189 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Removed")
+        Dim TreeNode190 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Successful")
+        Dim TreeNode191 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unsuccessful")
+        Dim TreeNode192 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Log", New System.Windows.Forms.TreeNode() {TreeNode188, TreeNode189, TreeNode190, TreeNode191})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LowerPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.KryptonSplitContainer1 = New ComponentFactory.Krypton.Toolkit.KryptonSplitContainer()
@@ -78,6 +78,8 @@ Partial Class MainForm
         Me.ScheduledTasksHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
         Me.ScheduledTasksDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.LogHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
+        Me.ButtonSpecHeaderGroup3 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
+        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ButtonSpecHeaderGroup2 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.LogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
@@ -94,7 +96,12 @@ Partial Class MainForm
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RunOnStartupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TaskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RunNowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.office2010BlackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.office2010BlueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -107,36 +114,30 @@ Partial Class MainForm
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.languageOnStartTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ScheduledTasksContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RunNowContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ViewHistoryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RemoveEntryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExportToPDFContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearLogContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.flagCheckSet = New ComponentFactory.Krypton.Toolkit.KryptonCheckSet(Me.components)
         Me.langBackgroundWorker = New System.ComponentModel.BackgroundWorker()
         Me.MissedTasksTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.saveToXML_FileDialog = New System.Windows.Forms.SaveFileDialog()
-        Me.ExitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RunNowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ButtonSpecHeaderGroup3 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
-        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
-        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RunNowContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewHistoryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RemoveEntryContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportToPDFContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearLogContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NoScheduledTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.DeleteTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.ExportToXMLContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.LowerPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LowerPanel.SuspendLayout()
         CType(Me.KryptonSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -237,151 +238,151 @@ Partial Class MainForm
         Me.NavigationTreeView.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.InputControl
         Me.NavigationTreeView.Location = New System.Drawing.Point(0, 0)
         Me.NavigationTreeView.Name = "NavigationTreeView"
-        TreeNode1.Name = "A_O_ExecutableNode"
-        TreeNode1.Tag = "Tasks Active Once Executable"
-        TreeNode1.Text = "Executable"
-        TreeNode2.Name = "A_O_FileNode"
-        TreeNode2.Tag = "Tasks Active Once File"
-        TreeNode2.Text = "File"
-        TreeNode3.Name = "A_O_ServiceNode"
-        TreeNode3.Tag = "Tasks Active Once Service"
-        TreeNode3.Text = "Service"
-        TreeNode4.Name = "A_OnceNode"
-        TreeNode4.Tag = "Tasks Active Once"
-        TreeNode4.Text = "Once"
-        TreeNode5.Name = "A_D_ExecutableNode"
-        TreeNode5.Tag = "Tasks Active Daily Executable"
-        TreeNode5.Text = "Executable"
-        TreeNode6.Name = "A_D_FileNode"
-        TreeNode6.Tag = "Tasks Active Daily File"
-        TreeNode6.Text = "File"
-        TreeNode7.Name = "A_D_ServiceNode"
-        TreeNode7.Tag = "Tasks Active Daily Service"
-        TreeNode7.Text = "Service"
-        TreeNode8.Name = "A_DailyNode"
-        TreeNode8.Tag = "Tasks Active Daily"
-        TreeNode8.Text = "Daily"
-        TreeNode9.Name = "A_W_ExecutableNode"
-        TreeNode9.Tag = "Tasks Active Weekly Executable"
-        TreeNode9.Text = "Executable"
-        TreeNode10.Name = "A_W_FileNode"
-        TreeNode10.Tag = "Tasks Active Weekly File"
-        TreeNode10.Text = "File"
-        TreeNode11.Name = "A_W_ServiceNode"
-        TreeNode11.Tag = "Tasks Active Weekly Service"
-        TreeNode11.Text = "Service"
-        TreeNode12.Name = "A_WeeklyNode"
-        TreeNode12.Tag = "Tasks Active Weekly"
-        TreeNode12.Text = "Weekly"
-        TreeNode13.Name = "A_M_ExecutableNode"
-        TreeNode13.Tag = "Tasks Active Monthly Executable"
-        TreeNode13.Text = "Executable"
-        TreeNode14.Name = "A_M_FileNode"
-        TreeNode14.Tag = "Tasks Active Monthly File"
-        TreeNode14.Text = "File"
-        TreeNode15.Name = "A_M_ServiceNode"
-        TreeNode15.Tag = "Tasks Active Monthly Service"
-        TreeNode15.Text = "Service"
-        TreeNode16.Name = "A_MonthlyNode"
-        TreeNode16.Tag = "Tasks Active Monthly "
-        TreeNode16.Text = "Monthly"
-        TreeNode17.Name = "A_Y_ExecutableNode"
-        TreeNode17.Tag = "Tasks Active Yearly Executable"
-        TreeNode17.Text = "Executable"
-        TreeNode18.Name = "A_Y_FileNode"
-        TreeNode18.Tag = "Tasks Active Yearly File"
-        TreeNode18.Text = "File"
-        TreeNode19.Name = "A_Y_ServiceNode"
-        TreeNode19.Tag = "Tasks Active Yearly Service"
-        TreeNode19.Text = "Service"
-        TreeNode20.Name = "A_YearlyNode"
-        TreeNode20.Tag = "Tasks Active Yearly "
-        TreeNode20.Text = "Yearly"
-        TreeNode21.Name = "ActiveNode"
-        TreeNode21.Tag = "Tasks Active"
-        TreeNode21.Text = "Active"
-        TreeNode22.Name = "I_O_ExecutableNode"
-        TreeNode22.Tag = "Tasks Inactive Once Executable"
-        TreeNode22.Text = "Executable"
-        TreeNode23.Name = "I_O_FileNode"
-        TreeNode23.Tag = "Tasks Inactive Once File"
-        TreeNode23.Text = "File"
-        TreeNode24.Name = "I_O_ServiceNode"
-        TreeNode24.Tag = "Tasks Inactive Once Service"
-        TreeNode24.Text = "Service"
-        TreeNode25.Name = "I_OnceNode"
-        TreeNode25.Tag = "Tasks Inactive Once "
-        TreeNode25.Text = "Once"
-        TreeNode26.Name = "I_D_ExecutableNode"
-        TreeNode26.Tag = "Tasks Inactive Daily Executable"
-        TreeNode26.Text = "Executable"
-        TreeNode27.Name = "I_D_FileNode"
-        TreeNode27.Tag = "Tasks Inactive Daily File"
-        TreeNode27.Text = "File"
-        TreeNode28.Name = "I_D_ServiceNode"
-        TreeNode28.Tag = "Tasks Inactive Daily Service"
-        TreeNode28.Text = "Service"
-        TreeNode29.Name = "I_DailyNode"
-        TreeNode29.Tag = "Tasks Inactive Daily "
-        TreeNode29.Text = "Daily"
-        TreeNode30.Name = "I_W_ExecutableNode"
-        TreeNode30.Tag = "Tasks Inactive Weekly Executable"
-        TreeNode30.Text = "Executable"
-        TreeNode31.Name = "I_W_FileNode"
-        TreeNode31.Tag = "Tasks Inactive Weekly File"
-        TreeNode31.Text = "File"
-        TreeNode32.Name = "I_W_ServiceNode"
-        TreeNode32.Tag = "Tasks Inactive Weekly Service"
-        TreeNode32.Text = "Service"
-        TreeNode33.Name = "I_WeeklyNode"
-        TreeNode33.Tag = "Tasks Inactive Weekly "
-        TreeNode33.Text = "Weekly"
-        TreeNode34.Name = "I_M_ExecutableNode"
-        TreeNode34.Tag = "Tasks Inactive Monthly Executable"
-        TreeNode34.Text = "Executable"
-        TreeNode35.Name = "I_M_FileNode"
-        TreeNode35.Tag = "Tasks Inactive Monthly File"
-        TreeNode35.Text = "File"
-        TreeNode36.Name = "I_M_ServiceNode"
-        TreeNode36.Tag = "Tasks Inactive Monthly Service"
-        TreeNode36.Text = "Service"
-        TreeNode37.Name = "I_MonthlyNode"
-        TreeNode37.Tag = "Tasks Inactive Monthly "
-        TreeNode37.Text = "Monthly"
-        TreeNode38.Name = "I_Y_ExecutableNode"
-        TreeNode38.Tag = "Tasks Inactive Yearly Executable"
-        TreeNode38.Text = "Executable"
-        TreeNode39.Name = "I_Y_FileNode"
-        TreeNode39.Tag = "Tasks Inactive Yearly File"
-        TreeNode39.Text = "File"
-        TreeNode40.Name = "I_Y_ServiceNode"
-        TreeNode40.Tag = "Tasks Inactive Yearly Service"
-        TreeNode40.Text = "Service"
-        TreeNode41.Name = "I_YearlyNode"
-        TreeNode41.Tag = "Tasks Inactive Yearly "
-        TreeNode41.Text = "Yearly"
-        TreeNode42.Name = "InactiveNode"
-        TreeNode42.Tag = "Tasks Inactive"
-        TreeNode42.Text = "Inactive"
-        TreeNode43.Name = "TasksNode"
-        TreeNode43.Tag = "Tasks"
-        TreeNode43.Text = "Tasks"
-        TreeNode44.Name = "AddedNode"
-        TreeNode44.Tag = "History Added"
-        TreeNode44.Text = "Added"
-        TreeNode45.Name = "RemovedNode"
-        TreeNode45.Tag = "History Removed"
-        TreeNode45.Text = "Removed"
-        TreeNode46.Name = "SuccessfulNode"
-        TreeNode46.Tag = "History Successful"
-        TreeNode46.Text = "Successful"
-        TreeNode47.Name = "UnsuccessfulNode"
-        TreeNode47.Tag = "History Unsuccessful"
-        TreeNode47.Text = "Unsuccessful"
-        TreeNode48.Name = "HistoryNode"
-        TreeNode48.Tag = "History"
-        TreeNode48.Text = "Log"
-        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode43, TreeNode48})
+        TreeNode145.Name = "A_O_ExecutableNode"
+        TreeNode145.Tag = "Tasks Active Once Executable"
+        TreeNode145.Text = "Executable"
+        TreeNode146.Name = "A_O_FileNode"
+        TreeNode146.Tag = "Tasks Active Once File"
+        TreeNode146.Text = "File"
+        TreeNode147.Name = "A_O_ServiceNode"
+        TreeNode147.Tag = "Tasks Active Once Service"
+        TreeNode147.Text = "Service"
+        TreeNode148.Name = "A_OnceNode"
+        TreeNode148.Tag = "Tasks Active Once"
+        TreeNode148.Text = "Once"
+        TreeNode149.Name = "A_D_ExecutableNode"
+        TreeNode149.Tag = "Tasks Active Daily Executable"
+        TreeNode149.Text = "Executable"
+        TreeNode150.Name = "A_D_FileNode"
+        TreeNode150.Tag = "Tasks Active Daily File"
+        TreeNode150.Text = "File"
+        TreeNode151.Name = "A_D_ServiceNode"
+        TreeNode151.Tag = "Tasks Active Daily Service"
+        TreeNode151.Text = "Service"
+        TreeNode152.Name = "A_DailyNode"
+        TreeNode152.Tag = "Tasks Active Daily"
+        TreeNode152.Text = "Daily"
+        TreeNode153.Name = "A_W_ExecutableNode"
+        TreeNode153.Tag = "Tasks Active Weekly Executable"
+        TreeNode153.Text = "Executable"
+        TreeNode154.Name = "A_W_FileNode"
+        TreeNode154.Tag = "Tasks Active Weekly File"
+        TreeNode154.Text = "File"
+        TreeNode155.Name = "A_W_ServiceNode"
+        TreeNode155.Tag = "Tasks Active Weekly Service"
+        TreeNode155.Text = "Service"
+        TreeNode156.Name = "A_WeeklyNode"
+        TreeNode156.Tag = "Tasks Active Weekly"
+        TreeNode156.Text = "Weekly"
+        TreeNode157.Name = "A_M_ExecutableNode"
+        TreeNode157.Tag = "Tasks Active Monthly Executable"
+        TreeNode157.Text = "Executable"
+        TreeNode158.Name = "A_M_FileNode"
+        TreeNode158.Tag = "Tasks Active Monthly File"
+        TreeNode158.Text = "File"
+        TreeNode159.Name = "A_M_ServiceNode"
+        TreeNode159.Tag = "Tasks Active Monthly Service"
+        TreeNode159.Text = "Service"
+        TreeNode160.Name = "A_MonthlyNode"
+        TreeNode160.Tag = "Tasks Active Monthly "
+        TreeNode160.Text = "Monthly"
+        TreeNode161.Name = "A_Y_ExecutableNode"
+        TreeNode161.Tag = "Tasks Active Yearly Executable"
+        TreeNode161.Text = "Executable"
+        TreeNode162.Name = "A_Y_FileNode"
+        TreeNode162.Tag = "Tasks Active Yearly File"
+        TreeNode162.Text = "File"
+        TreeNode163.Name = "A_Y_ServiceNode"
+        TreeNode163.Tag = "Tasks Active Yearly Service"
+        TreeNode163.Text = "Service"
+        TreeNode164.Name = "A_YearlyNode"
+        TreeNode164.Tag = "Tasks Active Yearly "
+        TreeNode164.Text = "Yearly"
+        TreeNode165.Name = "ActiveNode"
+        TreeNode165.Tag = "Tasks Active"
+        TreeNode165.Text = "Active"
+        TreeNode166.Name = "I_O_ExecutableNode"
+        TreeNode166.Tag = "Tasks Inactive Once Executable"
+        TreeNode166.Text = "Executable"
+        TreeNode167.Name = "I_O_FileNode"
+        TreeNode167.Tag = "Tasks Inactive Once File"
+        TreeNode167.Text = "File"
+        TreeNode168.Name = "I_O_ServiceNode"
+        TreeNode168.Tag = "Tasks Inactive Once Service"
+        TreeNode168.Text = "Service"
+        TreeNode169.Name = "I_OnceNode"
+        TreeNode169.Tag = "Tasks Inactive Once "
+        TreeNode169.Text = "Once"
+        TreeNode170.Name = "I_D_ExecutableNode"
+        TreeNode170.Tag = "Tasks Inactive Daily Executable"
+        TreeNode170.Text = "Executable"
+        TreeNode171.Name = "I_D_FileNode"
+        TreeNode171.Tag = "Tasks Inactive Daily File"
+        TreeNode171.Text = "File"
+        TreeNode172.Name = "I_D_ServiceNode"
+        TreeNode172.Tag = "Tasks Inactive Daily Service"
+        TreeNode172.Text = "Service"
+        TreeNode173.Name = "I_DailyNode"
+        TreeNode173.Tag = "Tasks Inactive Daily "
+        TreeNode173.Text = "Daily"
+        TreeNode174.Name = "I_W_ExecutableNode"
+        TreeNode174.Tag = "Tasks Inactive Weekly Executable"
+        TreeNode174.Text = "Executable"
+        TreeNode175.Name = "I_W_FileNode"
+        TreeNode175.Tag = "Tasks Inactive Weekly File"
+        TreeNode175.Text = "File"
+        TreeNode176.Name = "I_W_ServiceNode"
+        TreeNode176.Tag = "Tasks Inactive Weekly Service"
+        TreeNode176.Text = "Service"
+        TreeNode177.Name = "I_WeeklyNode"
+        TreeNode177.Tag = "Tasks Inactive Weekly "
+        TreeNode177.Text = "Weekly"
+        TreeNode178.Name = "I_M_ExecutableNode"
+        TreeNode178.Tag = "Tasks Inactive Monthly Executable"
+        TreeNode178.Text = "Executable"
+        TreeNode179.Name = "I_M_FileNode"
+        TreeNode179.Tag = "Tasks Inactive Monthly File"
+        TreeNode179.Text = "File"
+        TreeNode180.Name = "I_M_ServiceNode"
+        TreeNode180.Tag = "Tasks Inactive Monthly Service"
+        TreeNode180.Text = "Service"
+        TreeNode181.Name = "I_MonthlyNode"
+        TreeNode181.Tag = "Tasks Inactive Monthly "
+        TreeNode181.Text = "Monthly"
+        TreeNode182.Name = "I_Y_ExecutableNode"
+        TreeNode182.Tag = "Tasks Inactive Yearly Executable"
+        TreeNode182.Text = "Executable"
+        TreeNode183.Name = "I_Y_FileNode"
+        TreeNode183.Tag = "Tasks Inactive Yearly File"
+        TreeNode183.Text = "File"
+        TreeNode184.Name = "I_Y_ServiceNode"
+        TreeNode184.Tag = "Tasks Inactive Yearly Service"
+        TreeNode184.Text = "Service"
+        TreeNode185.Name = "I_YearlyNode"
+        TreeNode185.Tag = "Tasks Inactive Yearly "
+        TreeNode185.Text = "Yearly"
+        TreeNode186.Name = "InactiveNode"
+        TreeNode186.Tag = "Tasks Inactive"
+        TreeNode186.Text = "Inactive"
+        TreeNode187.Name = "TasksNode"
+        TreeNode187.Tag = "Tasks"
+        TreeNode187.Text = "Tasks"
+        TreeNode188.Name = "AddedNode"
+        TreeNode188.Tag = "History Added"
+        TreeNode188.Text = "Added"
+        TreeNode189.Name = "RemovedNode"
+        TreeNode189.Tag = "History Removed"
+        TreeNode189.Text = "Removed"
+        TreeNode190.Name = "SuccessfulNode"
+        TreeNode190.Tag = "History Successful"
+        TreeNode190.Text = "Successful"
+        TreeNode191.Name = "UnsuccessfulNode"
+        TreeNode191.Tag = "History Unsuccessful"
+        TreeNode191.Text = "Unsuccessful"
+        TreeNode192.Name = "HistoryNode"
+        TreeNode192.Tag = "History"
+        TreeNode192.Text = "Log"
+        Me.NavigationTreeView.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode187, TreeNode192})
         Me.NavigationTreeView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black
         Me.NavigationTreeView.Size = New System.Drawing.Size(186, 452)
         Me.NavigationTreeView.StateCheckedNormal.Node.Back.Color1 = System.Drawing.Color.LemonChiffon
@@ -458,6 +459,18 @@ Partial Class MainForm
         Me.LogHeaderGroup.TabIndex = 0
         Me.LogHeaderGroup.ValuesPrimary.Heading = "Log"
         Me.LogHeaderGroup.ValuesPrimary.Image = Global.AssUI.My.Resources.Resources.logIcon
+        '
+        'ButtonSpecHeaderGroup3
+        '
+        Me.ButtonSpecHeaderGroup3.Image = Global.AssUI.My.Resources.Resources.xmlIcon
+        Me.ButtonSpecHeaderGroup3.UniqueName = "AC4C168F1FDD499411ADDC675808EAF2"
+        '
+        'LogButtonSpecExportToPDF
+        '
+        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
+        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
         '
         'ButtonSpecHeaderGroup2
         '
@@ -623,12 +636,50 @@ Partial Class MainForm
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(152, 6)
         '
+        'ExitToolStripMenuItem1
+        '
+        Me.ExitToolStripMenuItem1.Image = Global.AssUI.My.Resources.Resources.quit
+        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
+        Me.ExitToolStripMenuItem1.Text = "Exit"
+        '
         'TaskToolStripMenuItem
         '
         Me.TaskToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.RunNowToolStripMenuItem})
         Me.TaskToolStripMenuItem.Name = "TaskToolStripMenuItem"
         Me.TaskToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
         Me.TaskToolStripMenuItem.Text = "Task"
+        '
+        'AddToolStripMenuItem
+        '
+        Me.AddToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.addTaskIcon
+        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.AddToolStripMenuItem.Text = "Add"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Enabled = False
+        Me.EditToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Enabled = False
+        Me.DeleteToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'RunNowToolStripMenuItem
+        '
+        Me.RunNowToolStripMenuItem.Enabled = False
+        Me.RunNowToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
+        Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
+        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.RunNowToolStripMenuItem.Text = "Run Now"
         '
         'ViewToolStripMenuItem
         '
@@ -700,10 +751,24 @@ Partial Class MainForm
         Me.TrayContextMenu.Name = "TrayContextMenu"
         Me.TrayContextMenu.Size = New System.Drawing.Size(104, 54)
         '
+        'ShowToolStripMenuItem
+        '
+        Me.ShowToolStripMenuItem.Image = CType(resources.GetObject("ShowToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
+        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ShowToolStripMenuItem.Text = "Show"
+        '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
+        '
+        'ExitContextMenuItem
+        '
+        Me.ExitContextMenuItem.Image = CType(resources.GetObject("ExitContextMenuItem.Image"), System.Drawing.Image)
+        Me.ExitContextMenuItem.Name = "ExitContextMenuItem"
+        Me.ExitContextMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitContextMenuItem.Text = "Exit"
         '
         'Timer
         '
@@ -720,27 +785,76 @@ Partial Class MainForm
         Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
         Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
         '
+        'EditContextMenuItem
+        '
+        Me.EditContextMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
+        Me.EditContextMenuItem.Name = "EditContextMenuItem"
+        Me.EditContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.EditContextMenuItem.Text = "Edit"
+        '
+        'DeleteContextMenuItem
+        '
+        Me.DeleteContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
+        Me.DeleteContextMenuItem.Name = "DeleteContextMenuItem"
+        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.DeleteContextMenuItem.Text = "Delete"
+        '
+        'RunNowContextMenuItem
+        '
+        Me.RunNowContextMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
+        Me.RunNowContextMenuItem.Name = "RunNowContextMenuItem"
+        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.RunNowContextMenuItem.Text = "Run Now"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(137, 6)
         '
+        'ViewHistoryContextMenuItem
+        '
+        Me.ViewHistoryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.logIcon
+        Me.ViewHistoryContextMenuItem.Name = "ViewHistoryContextMenuItem"
+        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ViewHistoryContextMenuItem.Text = "View History"
+        '
         'LogContextMenu
         '
         Me.LogContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.LogContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveEntryContextMenuItem, Me.ToolStripSeparator4, Me.ExportToPDFContextMenuItem, Me.ToolStripSeparator5, Me.ClearLogContextMenuItem})
+        Me.LogContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveEntryContextMenuItem, Me.ToolStripSeparator4, Me.ExportToPDFContextMenuItem, Me.ExportToXMLContextMenuItem, Me.ToolStripSeparator5, Me.ClearLogContextMenuItem})
         Me.LogContextMenu.Name = "LogContextMenu"
-        Me.LogContextMenu.Size = New System.Drawing.Size(148, 82)
+        Me.LogContextMenu.Size = New System.Drawing.Size(149, 104)
+        '
+        'RemoveEntryContextMenuItem
+        '
+        Me.RemoveEntryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
+        Me.RemoveEntryContextMenuItem.Name = "RemoveEntryContextMenuItem"
+        Me.RemoveEntryContextMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RemoveEntryContextMenuItem.Text = "Remove Entry"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(144, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(149, 6)
+        '
+        'ExportToPDFContextMenuItem
+        '
+        Me.ExportToPDFContextMenuItem.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
+        Me.ExportToPDFContextMenuItem.Name = "ExportToPDFContextMenuItem"
+        Me.ExportToPDFContextMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExportToPDFContextMenuItem.Text = "Export to PDF"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(144, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(149, 6)
+        '
+        'ClearLogContextMenuItem
+        '
+        Me.ClearLogContextMenuItem.Image = Global.AssUI.My.Resources.Resources.clearLogIcon
+        Me.ClearLogContextMenuItem.Name = "ClearLogContextMenuItem"
+        Me.ClearLogContextMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ClearLogContextMenuItem.Text = "Clear Log"
         '
         'flagCheckSet
         '
@@ -767,120 +881,7 @@ Partial Class MainForm
         'saveToXML_FileDialog
         '
         Me.saveToXML_FileDialog.Filter = "XML Files(*.xml)|*.xml"
-        Me.saveToXML_FileDialog.InitialDirectory = "System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop"
-        '
-        'ExitToolStripMenuItem1
-        '
-        Me.ExitToolStripMenuItem1.Image = Global.AssUI.My.Resources.Resources.quit
-        Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
-        Me.ExitToolStripMenuItem1.Text = "Exit"
-        '
-        'AddToolStripMenuItem
-        '
-        Me.AddToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.addTaskIcon
-        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.AddToolStripMenuItem.Text = "Add"
-        '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.Enabled = False
-        Me.EditToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Enabled = False
-        Me.DeleteToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        '
-        'RunNowToolStripMenuItem
-        '
-        Me.RunNowToolStripMenuItem.Enabled = False
-        Me.RunNowToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
-        Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
-        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.RunNowToolStripMenuItem.Text = "Run Now"
-        '
-        'ButtonSpecHeaderGroup3
-        '
-        Me.ButtonSpecHeaderGroup3.Image = Global.AssUI.My.Resources.Resources.xmlIcon
-        Me.ButtonSpecHeaderGroup3.UniqueName = "AC4C168F1FDD499411ADDC675808EAF2"
-        '
-        'LogButtonSpecExportToPDF
-        '
-        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
-        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
-        '
-        'ShowToolStripMenuItem
-        '
-        Me.ShowToolStripMenuItem.Image = CType(resources.GetObject("ShowToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ShowToolStripMenuItem.Text = "Show"
-        '
-        'ExitContextMenuItem
-        '
-        Me.ExitContextMenuItem.Image = CType(resources.GetObject("ExitContextMenuItem.Image"), System.Drawing.Image)
-        Me.ExitContextMenuItem.Name = "ExitContextMenuItem"
-        Me.ExitContextMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ExitContextMenuItem.Text = "Exit"
-        '
-        'EditContextMenuItem
-        '
-        Me.EditContextMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
-        Me.EditContextMenuItem.Name = "EditContextMenuItem"
-        Me.EditContextMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.EditContextMenuItem.Text = "Edit"
-        '
-        'DeleteContextMenuItem
-        '
-        Me.DeleteContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
-        Me.DeleteContextMenuItem.Name = "DeleteContextMenuItem"
-        Me.DeleteContextMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.DeleteContextMenuItem.Text = "Delete"
-        '
-        'RunNowContextMenuItem
-        '
-        Me.RunNowContextMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
-        Me.RunNowContextMenuItem.Name = "RunNowContextMenuItem"
-        Me.RunNowContextMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.RunNowContextMenuItem.Text = "Run Now"
-        '
-        'ViewHistoryContextMenuItem
-        '
-        Me.ViewHistoryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.logIcon
-        Me.ViewHistoryContextMenuItem.Name = "ViewHistoryContextMenuItem"
-        Me.ViewHistoryContextMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.ViewHistoryContextMenuItem.Text = "View History"
-        '
-        'RemoveEntryContextMenuItem
-        '
-        Me.RemoveEntryContextMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
-        Me.RemoveEntryContextMenuItem.Name = "RemoveEntryContextMenuItem"
-        Me.RemoveEntryContextMenuItem.Size = New System.Drawing.Size(147, 22)
-        Me.RemoveEntryContextMenuItem.Text = "Remove Entry"
-        '
-        'ExportToPDFContextMenuItem
-        '
-        Me.ExportToPDFContextMenuItem.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
-        Me.ExportToPDFContextMenuItem.Name = "ExportToPDFContextMenuItem"
-        Me.ExportToPDFContextMenuItem.Size = New System.Drawing.Size(147, 22)
-        Me.ExportToPDFContextMenuItem.Text = "Export to PDF"
-        '
-        'ClearLogContextMenuItem
-        '
-        Me.ClearLogContextMenuItem.Image = Global.AssUI.My.Resources.Resources.clearLogIcon
-        Me.ClearLogContextMenuItem.Name = "ClearLogContextMenuItem"
-        Me.ClearLogContextMenuItem.Size = New System.Drawing.Size(147, 22)
-        Me.ClearLogContextMenuItem.Text = "Clear Log"
+        Me.saveToXML_FileDialog.InitialDirectory = "System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)"
         '
         'NoScheduledTaskDialog
         '
@@ -909,6 +910,13 @@ Partial Class MainForm
         Me.DeleteTaskDialog.MainInstruction = "Delete Task"
         Me.DeleteTaskDialog.Tag = Nothing
         Me.DeleteTaskDialog.WindowTitle = "Delete"
+        '
+        'ExportToXMLContextMenuItem
+        '
+        Me.ExportToXMLContextMenuItem.Image = Global.AssUI.My.Resources.Resources.xmlIcon
+        Me.ExportToXMLContextMenuItem.Name = "ExportToXMLContextMenuItem"
+        Me.ExportToXMLContextMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExportToXMLContextMenuItem.Text = "Export to XML"
         '
         'MainForm
         '
@@ -1050,4 +1058,5 @@ Partial Class MainForm
     Friend WithEvents MissedTasksTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
     Friend WithEvents ButtonSpecHeaderGroup3 As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
     Friend WithEvents saveToXML_FileDialog As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents ExportToXMLContextMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

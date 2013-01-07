@@ -1216,9 +1216,11 @@ Public Class MainForm
             Case "Greek"
                 dictionary = getGreekDictionary()
                 USFlagCheckButton.Enabled = False    'so the user can't press it, because exceptions arise
+                greekFlagCheckButton.Enabled = False
             Case "English"
                 dictionary = getEnglishDictionary()
                 greekFlagCheckButton.Enabled = False 'so the user can't press it, because exceptions arise
+                USFlagCheckButton.Enabled = False
         End Select
 
         '========================= MAIN FORM ========================================
@@ -1432,17 +1434,24 @@ Public Class MainForm
     End Sub
 
     Private Sub ButtonSpecHeaderGroup3_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup3.Click
-
         saveToXML_FileDialog.ShowDialog()
 
-        Dim dt As New DataTable
-        dt = LogDataGridView.DataSource
-        dt.TableName = "LOG"
-        dt.WriteXml(saveToXML_FileDialog.FileName)
     End Sub
 
     Private Sub AdopseSuperSchedulerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AdopseSuperSchedulerToolStripMenuItem.Click
         AboutForm.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ExportToXMLContextMenuItem.Click
+        saveToXML_FileDialog.ShowDialog()
+    End Sub
+
+
+    Private Sub saveToXML_FileDialog_FileOk(sender As System.Object, e As System.ComponentModel.CancelEventArgs) Handles saveToXML_FileDialog.FileOk
+        Dim dt As New DataTable
+        dt = LogDataGridView.DataSource
+        dt.TableName = "LOG"
+        dt.WriteXml(saveToXML_FileDialog.FileName)
     End Sub
 End Class
 

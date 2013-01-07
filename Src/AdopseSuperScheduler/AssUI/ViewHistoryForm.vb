@@ -47,11 +47,15 @@ Public Class ViewHistoryForm
     End Sub
 
     Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
-        MainForm.saveToXML_FileDialog.ShowDialog()
 
+        saveToXML_SaveFileDialog.ShowDialog()
+
+    End Sub
+
+    Private Sub saveToXML_SaveFileDialog_FileOk(sender As System.Object, e As System.ComponentModel.CancelEventArgs) Handles saveToXML_SaveFileDialog.FileOk
         Dim dt As New DataTable
         dt = ViewHistoryLogDataGridView.DataSource
         dt.TableName = "LOG"
-        dt.WriteXml(MainForm.saveToXML_FileDialog.FileName)
+        dt.WriteXml(saveToXML_SaveFileDialog.FileName)
     End Sub
 End Class
