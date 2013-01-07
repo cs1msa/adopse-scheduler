@@ -301,10 +301,9 @@ Public Class NewTaskForm
         'checks if the task type is Once & time is before the current time
         'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
-        If Not saveTaskBackgroundWorker.IsBusy Then
+
             'does the actual Saving
             saveTaskBackgroundWorker.RunWorkerAsync()
-        End If
 
     End Sub
 
@@ -631,6 +630,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
+                checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -682,6 +682,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
+                checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -714,6 +715,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
+                checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -940,11 +942,14 @@ Public Class NewTaskForm
         Else
             Exit Sub
         End If
+
+        savingBackgroundWorker.CancelAsync()
+
     End Sub
 
     Private Sub saveTaskBackgroundWorker_RunWorkerCompleted(sender As System.Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles saveTaskBackgroundWorker.RunWorkerCompleted
 
-        savingBackgroundWorker.CancelAsync()
+        'savingBackgroundWorker.CancelAsync()
         SavingPleaseWaitTaskDialog.Dispose()
 
         If taskExists Then
@@ -955,6 +960,7 @@ Public Class NewTaskForm
         SuccessTaskDialog.ShowDialog()
         ' dispose the Form object, so when we open the form again all fields will be cleared
         MoreOptionsForm.Dispose()
+        SavingPleaseWaitTaskDialog.Dispose()
 
         Me.Dispose()
 
@@ -967,4 +973,20 @@ Public Class NewTaskForm
         SavingPleaseWaitTaskDialog.ShowDialog()
     End Sub
 
+    Private Sub savingBackgroundWorker_RunWorkerCompleted(sender As System.Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles savingBackgroundWorker.RunWorkerCompleted
+        SavingPleaseWaitTaskDialog.Dispose()
+        savingBackgroundWorker.CancelAsync()
+    End Sub
+
+    Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
+        AutoCheckMonth()
+    End Sub
+
+    Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
+        AutoCheckDayOfMonth()
+    End Sub
+
+    Private Sub WeekdaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles WeekdaysDropDownButton.MouseEnter
+        AutoCheckDayOfWeek()
+    End Sub
 End Class

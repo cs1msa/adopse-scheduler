@@ -1105,6 +1105,7 @@ Partial Class NewTaskForm
         '
         'saveTaskBackgroundWorker
         '
+        Me.saveTaskBackgroundWorker.WorkerSupportsCancellation = True
         '
         'savingBackgroundWorker
         '
