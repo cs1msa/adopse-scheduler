@@ -1440,6 +1440,10 @@ Public Class MainForm
         dt.TableName = "LOG"
         dt.WriteXml(saveToXML_FileDialog.FileName)
     End Sub
+
+    Private Sub AdopseSuperSchedulerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AdopseSuperSchedulerToolStripMenuItem.Click
+        AboutForm.ShowDialog()
+    End Sub
 End Class
 
 
