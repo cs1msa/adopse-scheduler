@@ -630,7 +630,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -682,7 +682,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
@@ -715,7 +715,7 @@ Public Class NewTaskForm
                 checkBoxes(i).Checked = True
                 checkBoxes(i).AutoCheck = False
             Else
-                checkBoxes(i).Checked = False
+                'checkBoxes(i).Checked = False
                 checkBoxes(i).AutoCheck = True
             End If
         Next
