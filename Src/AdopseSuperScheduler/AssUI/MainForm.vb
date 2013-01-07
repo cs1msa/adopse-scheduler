@@ -901,7 +901,7 @@ Public Class MainForm
 
         SetMoreOptionsForEdit(list_of_tasks(0))
 
-        'make the form visible
+        'set the languahe and make the form visible
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.m_can_overwrite_task = True
         NewTaskForm.changeLanguageNewTaskForm(My.Settings.LanguageFlag)

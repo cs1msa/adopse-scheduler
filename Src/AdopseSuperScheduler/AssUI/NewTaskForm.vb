@@ -352,10 +352,14 @@ Public Class NewTaskForm
 
             'checks if there is this task with the same program path and...
             '...saves the task to the database and the task manager
-            Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(chooseFileTextBox.Text).Count <> 0)
+            Dim program_name As String = chooseFileTextBox.Text
+            If program_name = vbNullString Then
+                program_name = ServicesDataGridView.SelectedRows(0).Cells(0).Value
+            End If
+            Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(program_name).Count <> 0)
             If task_exists Then
                 If m_can_overwrite_task Then
-                    m_master_control.DeleteTask(chooseFileTextBox.Text)
+                    m_master_control.DeleteTask(program_name)
                 Else
                     TaskExistsTaskDialog.ShowDialog()
                     Exit Sub

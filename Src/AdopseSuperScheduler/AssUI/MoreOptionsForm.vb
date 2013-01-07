@@ -13,7 +13,7 @@ Public Class MoreOptionsForm
 
         'changes the language according to the user's choice
         changeLanguageMoreOptionsForm(My.Settings.LanguageFlag)
-
+        EndAtDateTimePicker.MinDate = Today
     End Sub
 
     'changes the language according to the user's choice
