@@ -104,7 +104,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("""English""")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("English")>  _
         Public Property LanguageFlag() As String
             Get
                 Return CType(Me("LanguageFlag"),String)

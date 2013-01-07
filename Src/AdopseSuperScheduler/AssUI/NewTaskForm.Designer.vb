@@ -143,10 +143,13 @@ Partial Class NewTaskForm
         Me.KryptonContextMenuItem3 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem()
         Me.KryptonContextMenuCheckBox8 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
         Me.KryptonContextMenuCheckBox56 = New ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox()
+        Me.TaskExistsTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.TimeChangedTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SaveButtonTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
         Me.SuccessTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
-        Me.TaskExistsTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.SavingPleaseWaitTaskDialog = New ComponentFactory.Krypton.Toolkit.KryptonTaskDialog()
+        Me.saveTaskBackgroundWorker = New System.ComponentModel.BackgroundWorker()
+        Me.savingBackgroundWorker = New System.ComponentModel.BackgroundWorker()
         CType(Me.addNewTaskMainPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.addNewTaskMainPanel.SuspendLayout()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1029,6 +1032,20 @@ Partial Class NewTaskForm
         '
         Me.KryptonContextMenuCheckBox56.ExtraText = ""
         '
+        'TaskExistsTaskDialog
+        '
+        Me.TaskExistsTaskDialog.AllowDialogClose = True
+        Me.TaskExistsTaskDialog.CheckboxText = Nothing
+        Me.TaskExistsTaskDialog.CommonButtons = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Close
+        Me.TaskExistsTaskDialog.Content = "Choose a different task or edit the existing one."
+        Me.TaskExistsTaskDialog.DefaultRadioButton = Nothing
+        Me.TaskExistsTaskDialog.FooterHyperlink = Nothing
+        Me.TaskExistsTaskDialog.FooterText = Nothing
+        Me.TaskExistsTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Warning
+        Me.TaskExistsTaskDialog.MainInstruction = "Task Already Exists!"
+        Me.TaskExistsTaskDialog.Tag = Nothing
+        Me.TaskExistsTaskDialog.WindowTitle = "Warning!"
+        '
         'TimeChangedTaskDialog
         '
         Me.TimeChangedTaskDialog.CheckboxText = Nothing
@@ -1073,19 +1090,25 @@ Partial Class NewTaskForm
         Me.SuccessTaskDialog.Tag = Nothing
         Me.SuccessTaskDialog.WindowTitle = "Success!!!"
         '
-        'TaskExistsTaskDialog
+        'SavingPleaseWaitTaskDialog
         '
-        Me.TaskExistsTaskDialog.AllowDialogClose = True
-        Me.TaskExistsTaskDialog.CheckboxText = Nothing
-        Me.TaskExistsTaskDialog.CommonButtons = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.Close
-        Me.TaskExistsTaskDialog.Content = "Choose a different task or edit the existing one."
-        Me.TaskExistsTaskDialog.DefaultRadioButton = Nothing
-        Me.TaskExistsTaskDialog.FooterHyperlink = Nothing
-        Me.TaskExistsTaskDialog.FooterText = Nothing
-        Me.TaskExistsTaskDialog.Icon = System.Windows.Forms.MessageBoxIcon.Warning
-        Me.TaskExistsTaskDialog.MainInstruction = "Task Already Exists!"
-        Me.TaskExistsTaskDialog.Tag = Nothing
-        Me.TaskExistsTaskDialog.WindowTitle = "Warning!"
+        Me.SavingPleaseWaitTaskDialog.CheckboxText = Nothing
+        Me.SavingPleaseWaitTaskDialog.CommonButtons = ComponentFactory.Krypton.Toolkit.TaskDialogButtons.None
+        Me.SavingPleaseWaitTaskDialog.Content = "(It might take a while if the task is Yearly)"
+        Me.SavingPleaseWaitTaskDialog.CustomIcon = Global.AssUI.My.Resources.Resources.saving
+        Me.SavingPleaseWaitTaskDialog.DefaultRadioButton = Nothing
+        Me.SavingPleaseWaitTaskDialog.FooterHyperlink = Nothing
+        Me.SavingPleaseWaitTaskDialog.FooterText = Nothing
+        Me.SavingPleaseWaitTaskDialog.MainInstruction = "Saving... please wait."
+        Me.SavingPleaseWaitTaskDialog.Tag = Nothing
+        Me.SavingPleaseWaitTaskDialog.WindowTitle = "Saving"
+        '
+        'saveTaskBackgroundWorker
+        '
+        '
+        'savingBackgroundWorker
+        '
+        Me.savingBackgroundWorker.WorkerSupportsCancellation = True
         '
         'NewTaskForm
         '
@@ -1262,4 +1285,7 @@ Partial Class NewTaskForm
     Friend WithEvents chooseFileBrowseButton As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents MonthsContextMenu As ComponentFactory.Krypton.Toolkit.KryptonContextMenu
     Friend WithEvents TaskExistsTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents saveTaskBackgroundWorker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents SavingPleaseWaitTaskDialog As ComponentFactory.Krypton.Toolkit.KryptonTaskDialog
+    Friend WithEvents savingBackgroundWorker As System.ComponentModel.BackgroundWorker
 End Class

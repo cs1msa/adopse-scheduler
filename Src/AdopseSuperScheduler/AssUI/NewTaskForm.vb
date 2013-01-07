@@ -14,6 +14,7 @@ Public Class NewTaskForm
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
         MainForm.changeLabelColors(My.Settings.LabelColorsFlag)
+        Control.CheckForIllegalCrossThreadCalls = False
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
         HandleArrowLabelAndRectangles(1)
@@ -287,8 +288,8 @@ Public Class NewTaskForm
         'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
 
-        saveTask()
-        
+        'does the actual Saving
+        saveTaskBackgroundWorker.RunWorkerAsync()
 
     End Sub
 
@@ -342,187 +343,6 @@ Public Class NewTaskForm
             KryptonNumericUpDown1.Maximum = 9999
         End If
 
-    End Sub
-
-    'saves the task to the database
-    Private Sub saveTask(Optional ByVal a_replace_bool As Boolean = False)
-
-        If (SaveButtonTaskDialog.ShowDialog() = DialogResult.Yes) Then
-
-
-            'checks if there is this task with the same program path and...
-            '...saves the task to the database and the task manager
-            Dim program_name As String = chooseFileTextBox.Text
-            If program_name = vbNullString Then
-                program_name = ServicesDataGridView.SelectedRows(0).Cells(0).Value
-            End If
-            Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(program_name).Count <> 0)
-            If task_exists Then
-                If m_can_overwrite_task Then
-                    m_master_control.DeleteTask(program_name)
-                Else
-                    TaskExistsTaskDialog.ShowDialog()
-                    Exit Sub
-
-                End If
-            End If
-
-
-
-
-
-            Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
-                                  TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
-
-
-            Dim end_date As Date
-            If MoreOptionsForm.EndAtRadioButton.Checked() Then
-                end_date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
-                              TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
-            Else
-                end_date = New Date(2099, 12, 31) 'default never ending date
-            End If
-
-
-            Dim m_not_run As String
-
-            If MoreOptionsForm.RunWhenPcOpensRadioButton.Checked Then
-                m_not_run = "RUN"
-            ElseIf MoreOptionsForm.DisplayDialogAskingRadioButton.Checked Then
-                m_not_run = "DIALOG"
-            Else
-                m_not_run = "NOTHING"
-            End If
-
-
-            Dim program_path As String
-            Dim m_type As String
-
-            If ExecutableCheckButton.Checked Then
-                m_type = "EXE"
-                program_path = chooseFileTextBox.Text
-            ElseIf ServiceCheckButton.Checked Then
-                m_type = "SERVICE"
-                program_path = ServicesDataGridView.CurrentRow.Cells("Name_Column").Value
-            Else
-                m_type = "FILE"
-                program_path = chooseFileTextBox.Text
-            End If
-
-
-            Dim write_to_log As Boolean = True
-            If OnceCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run, write_to_log)
-
-            ElseIf DailyCheckButton.Checked Then
-                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run, write_to_log)
-
-            ElseIf WeeklyCheckButton.Checked Then
-
-                For Each weekday As KryptonContextMenuCheckBox In WeekdaysContextMenu.Items
-                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
-
-                    If weekday.Checked Then
-
-                        While Not final_date.DayOfWeek.ToString.Contains(weekday.Text)
-                            final_date = final_date.AddDays(1)
-                        End While
-                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value * 7, 0, 0, m_not_run, write_to_log)
-                        write_to_log = False
-                    End If
-                Next
-
-
-
-
-            ElseIf MonthlyCheckButton.Checked Then
-
-                For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
-                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
-                    If monthday.Checked Then
-
-
-                        While Not final_date.Day.ToString.Equals(monthday.Text)
-                            final_date = final_date.AddDays(1)
-                        End While
-                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, KryptonNumericUpDown1.Value, 0, m_not_run, write_to_log)
-                        write_to_log = False
-                    End If
-                Next
-
-            Else    'yearly task
-
-                'check the month
-
-                For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
-                    Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
-
-                    If month.Checked Then
-                        While Not semi_final_date.Month.ToString.Equals(month.ExtraText)
-                            semi_final_date = semi_final_date.AddMonths(1)
-                            If Not semi_final_date.Year.Equals(m_date.Year) Then
-                                semi_final_date = New Date(m_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
-                            End If
-                        End While
-
-
-
-                        'for this month check the monthdays
-                        For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
-                            Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
-
-                            If monthday.Checked Then
-
-                                While Not final_date.Day.ToString.Equals(monthday.Text)
-                                    final_date = final_date.AddDays(1)
-                                    If Not final_date.Month.Equals(semi_final_date.Month) Then  'if it went to the next month
-                                        final_date = New Date(final_date.Year, semi_final_date.Month, final_date.Day, final_date.Hour, final_date.Minute, 0)
-                                    End If
-                                End While
-
-                                'if the final date is before today
-                                'add the period
-                                While final_date.CompareTo(Date.Now) <= 0
-                                    final_date = final_date.AddYears(Integer.Parse(KryptonNumericUpDown1.Value))
-                                End While
-
-
-                                m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
-                                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
-                                write_to_log = False
-
-                            End If
-                        Next
-
-                    End If 'end month check
-
-                Next
-
-            End If
-
-
-            'changes the MoreOptionsForm's pallette to match the user-chosen
-            MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
-
-            'Opens up a dialog show that the task was Successfully added
-            SuccessTaskDialog.ShowDialog()
-
-            ' dispose the Form object, so when we open the form again all fields will be cleared
-            MoreOptionsForm.Dispose()
-
-            Me.Dispose()
-
-            'closes the current form
-            Me.Close()
-            Me.SetMasterControl(m_master_control)
-
-        Else
-            Exit Sub
-        End If
     End Sub
 
     'checks if the task type is Once
@@ -625,6 +445,13 @@ Public Class NewTaskForm
                 .Content = dictionary(77)
             End With
             'End Savebutton task dialog---------
+
+            With .TaskExistsTaskDialog
+                .WindowTitle = dictionary(95)
+                .MainInstruction = dictionary(96)
+                .Content = dictionary(97)
+            End With
+
 
             'timechanged task dialog
             .TimeChangedTaskDialog.WindowTitle = dictionary(78)
@@ -942,5 +769,200 @@ Public Class NewTaskForm
 #End Region
 
 
+    Private Sub showSavingPleaseWaitTaskDialog()
+        SavingPleaseWaitTaskDialog.ShowDialog()
+    End Sub
+
+    'does the actual Saving
+    Private Sub saveTaskBackgroundWorker_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles saveTaskBackgroundWorker.DoWork
+
+
+        If (SaveButtonTaskDialog.ShowDialog() = DialogResult.Yes) Then
+
+
+            'checks if there is this task with the same program path and...
+            '...saves the task to the database and the task manager
+            Dim program_name As String = chooseFileTextBox.Text
+            If program_name = vbNullString Then
+                program_name = ServicesDataGridView.SelectedRows(0).Cells(0).Value
+            End If
+            Dim task_exists As Boolean = (m_master_control.GetTasksWithFullPath(program_name).Count <> 0)
+            If task_exists Then
+                If m_can_overwrite_task Then
+                    m_master_control.DeleteTask(program_name)
+                Else
+                    TaskExistsTaskDialog.ShowDialog()
+                    Exit Sub
+
+                End If
+            End If
+
+            savingBackgroundWorker.RunWorkerAsync()
+
+            Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
+                                  TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
+
+
+            Dim end_date As Date
+            If MoreOptionsForm.EndAtRadioButton.Checked() Then
+                end_date = New Date(MoreOptionsForm.EndAtDateTimePicker.Value.Year, MoreOptionsForm.EndAtDateTimePicker.Value.Month, MoreOptionsForm.EndAtDateTimePicker.Value.Day, _
+                              TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
+            Else
+                end_date = New Date(2099, 12, 31) 'default never ending date
+            End If
+
+
+            Dim m_not_run As String
+
+            If MoreOptionsForm.RunWhenPcOpensRadioButton.Checked Then
+                m_not_run = "RUN"
+            ElseIf MoreOptionsForm.DisplayDialogAskingRadioButton.Checked Then
+                m_not_run = "DIALOG"
+            Else
+                m_not_run = "NOTHING"
+            End If
+
+
+            Dim program_path As String
+            Dim m_type As String
+
+            If ExecutableCheckButton.Checked Then
+                m_type = "EXE"
+                program_path = chooseFileTextBox.Text
+            ElseIf ServiceCheckButton.Checked Then
+                m_type = "SERVICE"
+                program_path = ServicesDataGridView.CurrentRow.Cells("Name_Column").Value
+            Else
+                m_type = "FILE"
+                program_path = chooseFileTextBox.Text
+            End If
+
+
+            Dim write_to_log As Boolean = True
+            If OnceCheckButton.Checked Then
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, 0, m_not_run, write_to_log)
+
+            ElseIf DailyCheckButton.Checked Then
+                m_master_control.AddTask(program_path, m_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value, 0, 0, m_not_run, write_to_log)
+
+            ElseIf WeeklyCheckButton.Checked Then
+
+                For Each weekday As KryptonContextMenuCheckBox In WeekdaysContextMenu.Items
+                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+
+                    If weekday.Checked Then
+
+                        While Not final_date.DayOfWeek.ToString.Contains(weekday.Text)
+                            final_date = final_date.AddDays(1)
+                        End While
+                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), KryptonNumericUpDown1.Value * 7, 0, 0, m_not_run, write_to_log)
+                        write_to_log = False
+                    End If
+                Next
+
+
+
+
+            ElseIf MonthlyCheckButton.Checked Then
+
+                For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
+                    Dim final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+                    If monthday.Checked Then
+
+
+                        While Not final_date.Day.ToString.Equals(monthday.Text)
+                            final_date = final_date.AddDays(1)
+                        End While
+                        m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                            MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, KryptonNumericUpDown1.Value, 0, m_not_run, write_to_log)
+                        write_to_log = False
+                    End If
+                Next
+
+            Else    'yearly task
+
+                'check the month
+
+                For Each month As KryptonContextMenuCheckBox In MonthsContextMenu.Items
+                    Dim semi_final_date As New Date(m_date.Year, m_date.Month, m_date.Day, m_date.Hour, m_date.Minute, 0)
+
+                    If month.Checked Then
+                        While Not semi_final_date.Month.ToString.Equals(month.ExtraText)
+                            semi_final_date = semi_final_date.AddMonths(1)
+                            If Not semi_final_date.Year.Equals(m_date.Year) Then
+                                semi_final_date = New Date(m_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+                            End If
+                        End While
+
+
+
+                        'for this month check the monthdays
+                        For Each monthday As KryptonContextMenuCheckBox In MonthDaysContextMenu.Items
+                            Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
+
+                            If monthday.Checked Then
+
+                                While Not final_date.Day.ToString.Equals(monthday.Text)
+                                    final_date = final_date.AddDays(1)
+                                    If Not final_date.Month.Equals(semi_final_date.Month) Then  'if it went to the next month
+                                        final_date = New Date(final_date.Year, semi_final_date.Month, final_date.Day, final_date.Hour, final_date.Minute, 0)
+                                    End If
+                                End While
+
+                                'if the final date is before today
+                                'add the period
+                                While final_date.CompareTo(Date.Now) <= 0
+                                    final_date = final_date.AddYears(Integer.Parse(KryptonNumericUpDown1.Value))
+                                End While
+
+
+                                m_master_control.AddTask(program_path, final_date, end_date, MoreOptionsForm.ActiveRadioButton.Checked, m_type, _
+                                MoreOptionsForm.DescriptionTextBox.Text, Integer.Parse(MoreOptionsForm.MinutesUpDown.Value), 0, 0, KryptonNumericUpDown1.Value, m_not_run, write_to_log)
+                                write_to_log = False
+
+                            End If
+                        Next
+
+                    End If 'end month check
+
+                Next
+
+            End If
+
+
+            'changes the MoreOptionsForm's pallette to match the user-chosen
+            MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
+
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub saveTaskBackgroundWorker_RunWorkerCompleted(sender As System.Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles saveTaskBackgroundWorker.RunWorkerCompleted
+
+        savingBackgroundWorker.CancelAsync()
+        SavingPleaseWaitTaskDialog.Dispose()
+
+
+        'Opens up a dialog show that the task was Successfully added
+        SuccessTaskDialog.ShowDialog()
+
+        ' dispose the Form object, so when we open the form again all fields will be cleared
+        MoreOptionsForm.Dispose()
+
+        Me.Dispose()
+
+        'closes the current form
+        Me.Close()
+        Me.SetMasterControl(m_master_control)
+    End Sub
+
+    Private Sub savingBackgroundWorker_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles savingBackgroundWorker.DoWork
+        SavingPleaseWaitTaskDialog.ShowDialog()
+    End Sub
 
 End Class

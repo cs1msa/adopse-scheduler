@@ -1073,6 +1073,9 @@ Public Class MainForm
             .Add("Να μην εμφανιστεί ξανά αυτό το παράθυρο")
             .Add("Πρόσθεσε εργασία")
             .Add("Καλως ήλθες")
+            .Add("Προσοχή!")
+            .Add("Η εργασία υπάρχει ήδη!")
+            .Add("Επίλεξε μια άλλη ή επεξεργάσου την υπάρχουσα")
         End With
     End Sub
 
@@ -1179,6 +1182,9 @@ Public Class MainForm
             .Add("Do not show this window again")
             .Add("Add Task")
             .Add("Welcome")
+            .Add("Warning!")
+            .Add("Task Already Exists!")
+            .Add("Choose a different task or edit the existing one.")
         End With
 
     End Sub
@@ -1420,7 +1426,6 @@ Public Class MainForm
         Next
 
     End Sub
-
 End Class
 
 
