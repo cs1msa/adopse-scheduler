@@ -476,12 +476,14 @@ Public Class NewTaskForm
                             Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
 
                             If monthday.Checked Then
-
-                                While Not final_date.Day.ToString.Equals(monthday.Text)
+                                Dim counter As Integer = 0
+                                While Not final_date.Day.ToString.Equals(monthday.Text) And counter < 32
                                     final_date = final_date.AddDays(1)
                                     If Not final_date.Month.Equals(semi_final_date.Month) Then  'if it went to the next month
                                         final_date = New Date(final_date.Year, semi_final_date.Month, final_date.Day, final_date.Hour, final_date.Minute, 0)
                                     End If
+                                    counter += 1
+
                                 End While
 
                                 'if the final date is before today
