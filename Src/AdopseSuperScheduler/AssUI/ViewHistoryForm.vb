@@ -45,4 +45,13 @@ Public Class ViewHistoryForm
     Private Sub LogButtonSpecExportToPDF_Click(sender As System.Object, e As System.EventArgs) Handles LogButtonSpecExportToPDF.Click
         MainForm.exportToPDF(ViewHistoryLogDataGridView)
     End Sub
+
+    Private Sub ButtonSpecHeaderGroup1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup1.Click
+        MainForm.saveToXML_FileDialog.ShowDialog()
+
+        Dim dt As New DataTable
+        dt = ViewHistoryLogDataGridView.DataSource
+        dt.TableName = "LOG"
+        dt.WriteXml(MainForm.saveToXML_FileDialog.FileName)
+    End Sub
 End Class

@@ -23,9 +23,10 @@ Partial Class ViewHistoryForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewHistoryForm))
         Me.KryptonPanel = New ComponentFactory.Krypton.Toolkit.KryptonPanel()
         Me.ViewHistoryHeaderGroup = New ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup()
-        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         Me.ViewHistoryLogDataGridView = New ComponentFactory.Krypton.Toolkit.KryptonDataGridView()
         Me.KryptonManager = New ComponentFactory.Krypton.Toolkit.KryptonManager(Me.components)
+        Me.ButtonSpecHeaderGroup1 = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
+        Me.LogButtonSpecExportToPDF = New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup()
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KryptonPanel.SuspendLayout()
         CType(Me.ViewHistoryHeaderGroup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,7 +47,7 @@ Partial Class ViewHistoryForm
         '
         'ViewHistoryHeaderGroup
         '
-        Me.ViewHistoryHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.LogButtonSpecExportToPDF})
+        Me.ViewHistoryHeaderGroup.ButtonSpecs.AddRange(New ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup() {Me.ButtonSpecHeaderGroup1, Me.LogButtonSpecExportToPDF})
         Me.ViewHistoryHeaderGroup.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewHistoryHeaderGroup.HeaderVisibleSecondary = False
         Me.ViewHistoryHeaderGroup.Location = New System.Drawing.Point(0, 0)
@@ -59,13 +60,6 @@ Partial Class ViewHistoryForm
         Me.ViewHistoryHeaderGroup.TabIndex = 1
         Me.ViewHistoryHeaderGroup.ValuesPrimary.Heading = "Log"
         Me.ViewHistoryHeaderGroup.ValuesPrimary.Image = Global.AssUI.My.Resources.Resources.logIcon
-        '
-        'LogButtonSpecExportToPDF
-        '
-        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
-        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
-        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
         '
         'ViewHistoryLogDataGridView
         '
@@ -91,6 +85,18 @@ Partial Class ViewHistoryForm
         'KryptonManager
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        '
+        'ButtonSpecHeaderGroup1
+        '
+        Me.ButtonSpecHeaderGroup1.Image = Global.AssUI.My.Resources.Resources.xmlIcon
+        Me.ButtonSpecHeaderGroup1.UniqueName = "144D4EFCF7E64DA699A47189EC649DFE"
+        '
+        'LogButtonSpecExportToPDF
+        '
+        Me.LogButtonSpecExportToPDF.Image = Global.AssUI.My.Resources.Resources.exportToPDFicon
+        Me.LogButtonSpecExportToPDF.ToolTipBody = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.ToolTipTitle = "Export to PDF"
+        Me.LogButtonSpecExportToPDF.UniqueName = "A9F07FE678CB4C4657B37E40141FE193"
         '
         'ViewHistoryForm
         '
@@ -130,4 +136,5 @@ Partial Class ViewHistoryForm
     Friend WithEvents ViewHistoryHeaderGroup As ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup
     Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
     Friend WithEvents ViewHistoryLogDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
+    Friend WithEvents ButtonSpecHeaderGroup1 As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
 End Class

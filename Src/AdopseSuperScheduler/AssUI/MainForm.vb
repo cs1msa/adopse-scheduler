@@ -3,6 +3,7 @@ Imports AssLogic
 Imports CompletIT.Windows.Forms.Export.Pdf
 Imports CompletIT.Windows.Forms.Export
 Imports System.ServiceProcess
+Imports System.Data
 Imports Microsoft.Win32
 
 
@@ -322,12 +323,15 @@ Public Class MainForm
         AddHandler pdfExporter.ExportFailed, AddressOf exporter_ExportFailed
         pdfExporter.Export(datagridview, dialog.Settings)
 
+
+
     End Sub
 
     Private Sub exporter_ExportFailed(ByVal sender As Object, ByVal e As CompletIT.Windows.Forms.Export.ExportFailedEventArgs)
         'Show message box with the occured exception 
         MessageBox.Show(e.Exception.Message)
     End Sub
+
 
 #Region "View ToolStrip MenuItems click-events"
     Private Sub office2010BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles office2010BlackToolStripMenuItem.Click
@@ -1425,6 +1429,16 @@ Public Class MainForm
 
         Next
 
+    End Sub
+
+    Private Sub ButtonSpecHeaderGroup3_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup3.Click
+
+        saveToXML_FileDialog.ShowDialog()
+
+        Dim dt As New DataTable
+        dt = LogDataGridView.DataSource
+        dt.TableName = "LOG"
+        dt.WriteXml(saveToXML_FileDialog.FileName)
     End Sub
 End Class
 
