@@ -3,7 +3,6 @@ Imports AssLogic
 Imports CompletIT.Windows.Forms.Export.Pdf
 Imports CompletIT.Windows.Forms.Export
 Imports System.ServiceProcess
-Imports System.Data
 Imports Microsoft.Win32
 
 

@@ -23,6 +23,19 @@ Public Class NewTaskForm
         'sets the minimum day the user can choose as the current day
         DatePicker.MinDate = Today
 
+        'Automatically checks the month the user have chosen
+        'and ticks the checkbox at AllMonths dropdown button
+        AutoCheckMonth()
+
+        'Automatically checks the day of the month the user have chosen
+        'and ticks the checkbox at AllMonthDays dropdown button
+        AutoCheckDayOfMonth()
+
+        'Automatically checks the day of the week the user have chosen
+        'and ticks the checkbox at AllWeekDays dropdown button
+        AutoCheckDayOfWeek()
+
+
         'changes the language according to the user's choice
         If Not m_can_overwrite_task Then
             changeLanguageNewTaskForm(My.Settings.LanguageFlag)
@@ -288,30 +301,12 @@ Public Class NewTaskForm
         'checks if the task type is Once & time is before the current time
         'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
-
-        'does the actual Saving
-        saveTaskBackgroundWorker.RunWorkerAsync()
+        If Not saveTaskBackgroundWorker.IsBusy Then
+            'does the actual Saving
+            saveTaskBackgroundWorker.RunWorkerAsync()
+        End If
 
     End Sub
-
-    Private Sub MonthsDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthsDropDownButton.MouseEnter
-        'Automatically checks the month the user have chosen
-        'and ticks the checkbox at AllMonths dropdown button
-        AutoCheckMonth()
-    End Sub
-
-    Private Sub WeekdaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles WeekdaysDropDownButton.MouseEnter
-        'Automatically checks the day of the week the user have chosen
-        'and ticks the checkbox at AllWeekDays dropdown button
-        AutoCheckDayOfWeek()
-    End Sub
-
-    Private Sub MonthDaysDropDownButton_MouseEnter(sender As System.Object, e As System.EventArgs) Handles MonthDaysDropDownButton.MouseEnter
-        'Automatically checks the day of the month the user have chosen
-        'and ticks the checkbox at AllMonthDays dropdown button
-        AutoCheckDayOfMonth()
-    End Sub
-
 
     Private Sub ServicesDataGridView_VisibleChanged(sender As System.Object, e As System.EventArgs) Handles ServicesDataGridView.VisibleChanged
         If ServicesDataGridView.Visible = True Then
