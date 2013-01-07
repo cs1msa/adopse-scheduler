@@ -8,6 +8,7 @@ Imports ComponentFactory.Krypton.Toolkit
 Public Class NewTaskForm
 
     Dim m_master_control As ALMasterControl
+    Dim taskExists As Boolean = False
     Public m_can_overwrite_task As Boolean = False
 
 
@@ -792,11 +793,13 @@ Public Class NewTaskForm
                     m_master_control.DeleteTask(program_name)
                 Else
                     TaskExistsTaskDialog.ShowDialog()
+                    taskExists = True
                     Exit Sub
 
                 End If
             End If
 
+            taskExists = False
             savingBackgroundWorker.RunWorkerAsync()
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
@@ -949,10 +952,12 @@ Public Class NewTaskForm
         savingBackgroundWorker.CancelAsync()
         SavingPleaseWaitTaskDialog.Dispose()
 
+        If taskExists Then
+            Exit Sub
+        End If
 
         'Opens up a dialog show that the task was Successfully added
         SuccessTaskDialog.ShowDialog()
-
         ' dispose the Form object, so when we open the form again all fields will be cleared
         MoreOptionsForm.Dispose()
 
