@@ -58,4 +58,5 @@ Public Class ViewHistoryForm
         dt.TableName = "LOG"
         dt.WriteXml(saveToXML_SaveFileDialog.FileName)
     End Sub
+
 End Class

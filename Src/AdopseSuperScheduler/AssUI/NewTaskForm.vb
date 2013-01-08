@@ -14,9 +14,12 @@ Public Class NewTaskForm
 
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
         MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
         MainForm.changeLabelColors(My.Settings.LabelColorsFlag)
+
         Control.CheckForIllegalCrossThreadCalls = False
 
         'handles all Rectangle Shapes' and ArrowLabels' visibility
@@ -128,8 +131,6 @@ Public Class NewTaskForm
 
     'checks for the validity of the TextBox every time it's content changes
     Private Sub chooseFileTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileTextBox.TextChanged
-
-
 
         If (ExecutableCheckButton.Checked = True) Then
             checkIfFileExists(".exe")

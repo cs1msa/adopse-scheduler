@@ -143,9 +143,6 @@ Public Class ALMasterControl
 
         RunTasks(tasks_to_run)
 
-
-
-
     End Sub
 
     Public Sub StartProgramLoop()   'which runs once a minute

@@ -278,12 +278,14 @@ Public Class MainForm
         End If
     End Sub
 
-    Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click
+    'right click in tray icon -> Show option
+    Private Sub ShowContextMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowContextMenuItem.Click
         Me.ShowInTaskbar = True
         Me.WindowState = FormWindowState.Normal
         Me.Show()
     End Sub
 
+    'right click in tray icon -> Exit option
     Private Sub ExitContextMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitContextMenuItem.Click
 
         TrayIcon.Dispose()
@@ -294,6 +296,7 @@ Public Class MainForm
 
     End Sub
 
+    'double click at tray icon
     Private Sub TrayIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TrayIcon.MouseDoubleClick
         Me.ShowInTaskbar = True
         Me.WindowState = FormWindowState.Normal
@@ -326,8 +329,6 @@ Public Class MainForm
 
         AddHandler pdfExporter.ExportFailed, AddressOf exporter_ExportFailed
         pdfExporter.Export(datagridview, dialog.Settings)
-
-
 
     End Sub
 
@@ -518,16 +519,11 @@ Public Class MainForm
 
             Next
 
-            Dim test_table As DataTable = ScheduledTasksDataGridView.DataSource
-
             'create the sceduler tasks data grid view
 
             ScheduledTasksDataGridView.DataSource = scheduler_table_to_show.Copy()
             ScheduledTasksDataGridView.AutoResizeColumns()
             m_master_control.m_scheduler_tasks_has_changed = False
-
-            'makes sure no row is selected
-            'ScheduledTasksDataGridView.ClearSelection()
 
         End If
 
@@ -535,7 +531,6 @@ Public Class MainForm
         If m_need_to_update_datagrids Or m_master_control.m_log_has_changed Then
             'create the log grid view
             Dim log_table As DataTable = m_master_control.GetFromATableAsDataTable("Log", {"Action_ID as [Event ID]", "Action_Date as [Date & Time]", "Program_Name as Task", "Details"}, m_log_datagrid_restrictions.ToArray())
-            Dim test_table As DataTable = LogDataGridView.DataSource
 
             LogDataGridView.DataSource = log_table.Copy()
             LogDataGridView.AutoResizeColumns()
@@ -713,6 +708,10 @@ Public Class MainForm
     End Sub
 
     Private Sub RunNowToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RunNowContextMenuItem.Click
+        RunNowTask()
+    End Sub
+
+    Private Sub RunNowToolStripMenuItem_Click_1(sender As System.Object, e As System.EventArgs) Handles RunNowToolStripMenuItem.Click
         RunNowTask()
     End Sub
 
@@ -1208,11 +1207,13 @@ Public Class MainForm
 
     Private Sub greekFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles greekFlagCheckButton.Click
         My.Settings.LanguageFlag = "Greek"
+        My.Settings.Save()
         langBackgroundWorker.RunWorkerAsync()
     End Sub
 
     Private Sub USFlagCheckButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles USFlagCheckButton.Click
         My.Settings.LanguageFlag = "English"
+        My.Settings.Save()
         langBackgroundWorker.RunWorkerAsync()
     End Sub
 
@@ -1437,15 +1438,14 @@ Public Class MainForm
 
             End If
 
-            m_master_control.UpdateNextRuns()
-
         Next
+
+        m_master_control.UpdateNextRuns()
 
     End Sub
 
     Private Sub ButtonSpecHeaderGroup3_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSpecHeaderGroup3.Click
         saveToXML_FileDialog.ShowDialog()
-
     End Sub
 
     Private Sub AdopseSuperSchedulerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AdopseSuperSchedulerToolStripMenuItem.Click
@@ -1463,6 +1463,8 @@ Public Class MainForm
         dt.TableName = "LOG"
         dt.WriteXml(saveToXML_FileDialog.FileName)
     End Sub
+
+
 End Class
 
 

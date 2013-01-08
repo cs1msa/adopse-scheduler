@@ -114,7 +114,7 @@ Partial Class MainForm
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
@@ -654,7 +654,7 @@ Partial Class MainForm
         '
         Me.AddToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.addTaskIcon
         Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddToolStripMenuItem.Text = "Add"
         '
         'EditToolStripMenuItem
@@ -662,7 +662,7 @@ Partial Class MainForm
         Me.EditToolStripMenuItem.Enabled = False
         Me.EditToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.editTaskIcon
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'DeleteToolStripMenuItem
@@ -670,7 +670,7 @@ Partial Class MainForm
         Me.DeleteToolStripMenuItem.Enabled = False
         Me.DeleteToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.deleteTaskIcon
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'RunNowToolStripMenuItem
@@ -678,7 +678,7 @@ Partial Class MainForm
         Me.RunNowToolStripMenuItem.Enabled = False
         Me.RunNowToolStripMenuItem.Image = Global.AssUI.My.Resources.Resources.runTaskIcon
         Me.RunNowToolStripMenuItem.Name = "RunNowToolStripMenuItem"
-        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.RunNowToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RunNowToolStripMenuItem.Text = "Run Now"
         '
         'ViewToolStripMenuItem
@@ -747,16 +747,16 @@ Partial Class MainForm
         'TrayContextMenu
         '
         Me.TrayContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowToolStripMenuItem, Me.ToolStripSeparator2, Me.ExitContextMenuItem})
+        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowContextMenuItem, Me.ToolStripSeparator2, Me.ExitContextMenuItem})
         Me.TrayContextMenu.Name = "TrayContextMenu"
         Me.TrayContextMenu.Size = New System.Drawing.Size(104, 54)
         '
-        'ShowToolStripMenuItem
+        'ShowContextMenuItem
         '
-        Me.ShowToolStripMenuItem.Image = CType(resources.GetObject("ShowToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
-        Me.ShowToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.ShowToolStripMenuItem.Text = "Show"
+        Me.ShowContextMenuItem.Image = CType(resources.GetObject("ShowContextMenuItem.Image"), System.Drawing.Image)
+        Me.ShowContextMenuItem.Name = "ShowContextMenuItem"
+        Me.ShowContextMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ShowContextMenuItem.Text = "Show"
         '
         'ToolStripSeparator2
         '
@@ -780,7 +780,7 @@ Partial Class MainForm
         '
         'ScheduledTasksContextMenu
         '
-        Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ScheduledTasksContextMenu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.ScheduledTasksContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditContextMenuItem, Me.DeleteContextMenuItem, Me.RunNowContextMenuItem, Me.ToolStripSeparator3, Me.ViewHistoryContextMenuItem})
         Me.ScheduledTasksContextMenu.Name = "ScheduledTasksContestMenu"
         Me.ScheduledTasksContextMenu.Size = New System.Drawing.Size(141, 98)
@@ -820,7 +820,7 @@ Partial Class MainForm
         '
         'LogContextMenu
         '
-        Me.LogContextMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.LogContextMenu.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.LogContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveEntryContextMenuItem, Me.ToolStripSeparator4, Me.ExportToPDFContextMenuItem, Me.ExportToXMLContextMenuItem, Me.ToolStripSeparator5, Me.ClearLogContextMenuItem})
         Me.LogContextMenu.Name = "LogContextMenu"
         Me.LogContextMenu.Size = New System.Drawing.Size(149, 104)
@@ -1014,7 +1014,7 @@ Partial Class MainForm
     Friend WithEvents LogDataGridView As ComponentFactory.Krypton.Toolkit.KryptonDataGridView
     Friend WithEvents TrayIcon As System.Windows.Forms.NotifyIcon
     Friend WithEvents TrayContextMenu As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ShowContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitContextMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogButtonSpecExportToPDF As ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup
