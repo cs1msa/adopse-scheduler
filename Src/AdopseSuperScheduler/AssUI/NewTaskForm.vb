@@ -9,11 +9,13 @@ Public Class NewTaskForm
 
     Dim m_master_control As ALMasterControl
     Dim taskExists As Boolean = False
+    Dim wantToSave As Boolean = True
     Public m_can_overwrite_task As Boolean = False
 
 
     Private Sub NewTaskForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
         MainForm.changeLabelColors(My.Settings.LabelColorsFlag)
         Control.CheckForIllegalCrossThreadCalls = False
 
@@ -119,22 +121,22 @@ Public Class NewTaskForm
         Dim svcs As ServiceController() = ServiceController.GetServices()
 
         For Each svc As ServiceController In svcs
-
             ServicesDataGridView.Rows.Add(svc.DisplayName, svc.Status, svc.ServiceType.ToString())
-
         Next (svc)
 
     End Sub
 
+    'checks for the validity of the TextBox every time it's content changes
     Private Sub chooseFileTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chooseFileTextBox.TextChanged
 
-        'checks for the validity of the TextBox every time it's content changes
+
 
         If (ExecutableCheckButton.Checked = True) Then
             checkIfFileExists(".exe")
         ElseIf (FileCheckButton.Checked = True) Then
             checkIfFileExists("")
         End If
+
     End Sub
 
     'checks if the file (the path) the user has chosen exists or not
@@ -297,13 +299,20 @@ Public Class NewTaskForm
 
 
         Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+
 
         'checks if the task type is Once & time is before the current time
         'if so, it changes it to the current time + 3min and opens a dialog prompting the user
         checkOnceTime()
+        Application.DoEvents()
 
+        Try
             'does the actual Saving
             saveTaskBackgroundWorker.RunWorkerAsync()
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 
@@ -774,9 +783,9 @@ Public Class NewTaskForm
     'does the actual Saving
     Private Sub saveTaskBackgroundWorker_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles saveTaskBackgroundWorker.DoWork
 
-
         If (SaveButtonTaskDialog.ShowDialog() = DialogResult.Yes) Then
 
+            wantToSave = True
 
             'checks if there is this task with the same program path and...
             '...saves the task to the database and the task manager
@@ -797,7 +806,9 @@ Public Class NewTaskForm
             End If
 
             taskExists = False
+
             savingBackgroundWorker.RunWorkerAsync()
+
 
             Dim m_date As Date = New Date(DatePicker.Value.Year, DatePicker.Value.Month, DatePicker.Value.Day, _
                                   TimePicker.Value.Hour, TimePicker.Value.Minute, TimePicker.Value.Second)
@@ -904,14 +915,14 @@ Public Class NewTaskForm
                             Dim final_date As New Date(semi_final_date.Year, semi_final_date.Month, semi_final_date.Day, semi_final_date.Hour, semi_final_date.Minute, 0)
 
                             If monthday.Checked Then
-				 Dim counter As Integer = 0
-                                 While Not final_date.Day.ToString.Equals(monthday.Text) And counter < 32
+                                Dim counter As Integer = 0
+                                While Not final_date.Day.ToString.Equals(monthday.Text) And counter < 32
                                     final_date = final_date.AddDays(1)
                                     If Not final_date.Month.Equals(semi_final_date.Month) Then  'if it went to the next month
                                         final_date = New Date(final_date.Year, semi_final_date.Month, final_date.Day, final_date.Hour, final_date.Minute, 0)
                                     End If
-                                     counter += 1
-                                     
+                                    counter += 1
+
                                 End While
 
                                 'if the final date is before today
@@ -937,39 +948,52 @@ Public Class NewTaskForm
 
             'changes the MoreOptionsForm's pallette to match the user-chosen
             MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+            Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
             SavingPleaseWaitTaskDialog.Dispose()
 
-        Else
+            savingBackgroundWorker.CancelAsync()
 
+        Else
+            wantToSave = False
             Exit Sub
         End If
 
-        savingBackgroundWorker.CancelAsync()
+
 
     End Sub
 
     Private Sub saveTaskBackgroundWorker_RunWorkerCompleted(sender As System.Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles saveTaskBackgroundWorker.RunWorkerCompleted
 
-        'savingBackgroundWorker.CancelAsync()
-        SavingPleaseWaitTaskDialog.Dispose()
-
-        If taskExists Then
-
+        'if the user has pressed No when asked if he really wants to save this task
+        If Not wantToSave Then
+            saveTaskBackgroundWorker.CancelAsync()
+            SavingPleaseWaitTaskDialog.Dispose()
             Exit Sub
         End If
 
+        'if the task already exists
+        If taskExists Then
+            saveTaskBackgroundWorker.CancelAsync()
+            SavingPleaseWaitTaskDialog.Dispose()
+            Exit Sub
+        End If
 
-        
-
-
-        'Opens up a dialog show that the task was Successfully added
-        SuccessTaskDialog.ShowDialog()
-        ' dispose the Form object, so when we open the form again all fields will be cleared
-        MoreOptionsForm.Dispose()
-
+        savingBackgroundWorker.CancelAsync()
         SavingPleaseWaitTaskDialog.Dispose()
 
 
+        Application.DoEvents()
+        SavingPleaseWaitTaskDialog.Dispose()
+
+        'Opens up a dialog show that the task was Successfully added
+        SuccessTaskDialog.ShowDialog()
+
+        saveTaskBackgroundWorker.CancelAsync()
+
+        Application.DoEvents()
+
+        ' dispose the Form object, so when we open the form again all fields will be cleared
+        MoreOptionsForm.Dispose()
         Me.Dispose()
 
 
@@ -979,10 +1003,20 @@ Public Class NewTaskForm
     End Sub
 
     Private Sub savingBackgroundWorker_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles savingBackgroundWorker.DoWork
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        Try
+            MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        Catch ex As Exception
+
+        End Try
+
         SavingPleaseWaitTaskDialog.ShowDialog()
     End Sub
 
     Private Sub savingBackgroundWorker_RunWorkerCompleted(sender As System.Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles savingBackgroundWorker.RunWorkerCompleted
+        Application.DoEvents()
+        Me.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        MoreOptionsForm.KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
         SavingPleaseWaitTaskDialog.Dispose()
         savingBackgroundWorker.CancelAsync()
     End Sub

@@ -110,14 +110,19 @@ Public Class MainForm
     End Sub
 
     Private Sub AddTaskButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddTaskButton.Click
+        Application.DoEvents()
         NewTaskForm.SetMasterControl(m_master_control)
         NewTaskForm.m_can_overwrite_task = False
         NewTaskForm.ShowDialog()
+        Application.DoEvents()
     End Sub
 
     Private Sub AddToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToolStripMenuItem.Click
+        Application.DoEvents()
         NewTaskForm.SetMasterControl(m_master_control)
+        NewTaskForm.m_can_overwrite_task = False
         NewTaskForm.ShowDialog()
+        Application.DoEvents()
     End Sub
 
     Private Sub checkRunOnStartup()
@@ -378,7 +383,7 @@ Public Class MainForm
 
     'changes the pallette mode to the one that the user chose
     Private Sub changePalletteMode(ByVal i As Integer)
-
+        Application.DoEvents()
         Select Case i
             Case 1
                 My.Settings.PalletteSetting = PaletteModeManager.Office2010Black
@@ -403,13 +408,15 @@ Public Class MainForm
 
         'saves the changes to My.Settings
         'so that they remain after the program starts again
-        My.Settings.Save()
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        My.Settings.Save()
+
 
     End Sub
 
     'changes the labels' and rectangleShapes' color
     Protected Friend Sub changeLabelColors(ByVal i As Integer)
+        Application.DoEvents()
         Select Case i
             Case 1, 4
                 NewTaskForm.KindOfTaskLabel.StateNormal.ShortText.Color1 = Color.Yellow
@@ -482,13 +489,15 @@ Public Class MainForm
                 My.Settings.LabelColorsFlag = Convert.ToInt16(3)
         End Select
 
-        My.Settings.Save()
         KryptonManager.GlobalPaletteMode = My.Settings.PalletteSetting
+        My.Settings.Save()
+
 
     End Sub
 
 
     Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
+        Application.DoEvents()
 
         'in case we need_to_update_datagrids(because we pressed something in the tree navigator) or because the database is changed
         If m_need_to_update_datagrids Or m_master_control.m_scheduler_tasks_has_changed Then
@@ -1286,6 +1295,8 @@ Public Class MainForm
         RunNowContextMenuItem.Text = dictionary(6)
         ClearLogContextMenuItem.Text = dictionary(25)
         'End LogDataGridView DataGridView------------------------------------
+
+
 
         'TreeView-----------------------------------------------------------
         NavigateHeaderGroup.ValuesPrimary.Heading = dictionary(91)

@@ -201,6 +201,7 @@ Partial Class NewTaskForm
         Me.ServicesDataGridView.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet
         Me.ServicesDataGridView.HideOuterBorders = True
         Me.ServicesDataGridView.Location = New System.Drawing.Point(76, 132)
+        Me.ServicesDataGridView.MultiSelect = False
         Me.ServicesDataGridView.Name = "ServicesDataGridView"
         Me.ServicesDataGridView.ReadOnly = True
         Me.ServicesDataGridView.RowHeadersVisible = False
